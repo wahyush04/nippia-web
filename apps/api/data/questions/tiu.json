@@ -1,0 +1,1800 @@
+[
+  {
+    "id": "TIU-001",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Modus Ponens & Implikasi Ganda",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Semua peserta yang lulus seleksi administrasi berhak mengikuti ujian CAT. Sebagian pelamar formasi analis adalah peserta yang lulus seleksi administrasi. Kesimpulan yang paling tepat adalah...",
+    "options": [
+      { "key": "A", "text": "Semua pelamar formasi analis berhak mengikuti ujian CAT", "score": 0, "isCorrect": false, "rationale": "Hanya sebagian pelamar formasi analis yang lulus administrasi, tidak bisa digeneralisasi ke semua." },
+      { "key": "B", "text": "Sebagian pelamar formasi analis berhak mengikuti ujian CAT", "score": 5, "isCorrect": true, "rationale": "Dari 'Sebagian A adalah B' dan 'Semua B adalah C', kesimpulan sah adalah 'Sebagian A adalah C'." },
+      { "key": "C", "text": "Semua peserta ujian CAT adalah pelamar formasi analis", "score": 0, "isCorrect": false, "rationale": "Konversi universal tidak sah." },
+      { "key": "D", "text": "Tidak ada pelamar formasi analis yang berhak mengikuti ujian CAT", "score": 0, "isCorrect": false, "rationale": "Bertentangan langsung dengan premis kedua." },
+      { "key": "E", "text": "Semua yang tidak mengikuti ujian CAT adalah pelamar formasi analis", "score": 0, "isCorrect": false, "rationale": "Tidak dapat disimpulkan dari premis." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Silogisme kategoris dengan kombinasi kuantor universal ('Semua') dan partikular ('Sebagian'). Jika satu premis partikular, kesimpulan sah harus bersifat partikular.",
+      "stepByStep": [
+        "Misalkan A = pelamar formasi analis, B = lulus seleksi administrasi, C = berhak ikut CAT.",
+        "Premis 1: Semua B -> C.",
+        "Premis 2: Sebagian A adalah B.",
+        "Gabungkan: Bagian A yang merupakan B otomatis masuk ke C -> Sebagian A berhak ikut ujian CAT."
+      ],
+      "correctReason": "Aturan silogisme: jika terdapat premis 'sebagian', maka simpulan wajib menggunakan 'sebagian'.",
+      "distractorAnalysis": {
+        "A": "Melanggar aturan kuantor karena menarik simpulan 'semua' dari premis 'sebagian'.",
+        "C": "Salah membalik himpunan C -> A.",
+        "D": "Kontradiksi dengan premis.",
+        "E": "Tidak memiliki dasar logika dalam premis."
+      },
+      "quickTrick": "Rumus cepat: Semua + Sebagian = Sebagian. Coret term tengah ('lulus seleksi administrasi').",
+      "commonMistakes": "Menjawab 'Semua' atau menambahkan informasi bahwa yang lain tidak lulus padahal tidak selalu demikian dalam logika formal.",
+      "studyMaterialTip": "Latih hukum dasar silogisme kategoris (AAA, AII, EAE)."
+    },
+    "references": [
+      { "title": "Logika Deduktif & Penalaran Analitis", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-002",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Modus Tollens & Kontraposisi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Jika arsip digital terenkripsi dengan standar terbaru, maka data kepegawaian aman dari kebocoran eksternal. Jika data kepegawaian aman dari kebocoran eksternal, maka tingkat kepercayaan publik meningkat. Ternyata, tingkat kepercayaan publik tidak meningkat. Simpulan yang sah adalah...",
+    "options": [
+      { "key": "A", "text": "Arsip digital terenkripsi dengan standar terbaru", "score": 0, "isCorrect": false, "rationale": "Justru dinegasikan melalui modus tollens." },
+      { "key": "B", "text": "Data kepegawaian tetap aman dari kebocoran eksternal", "score": 0, "isCorrect": false, "rationale": "Karena ~R, maka ~Q." },
+      { "key": "C", "text": "Arsip digital tidak terenkripsi dengan standar terbaru", "score": 5, "isCorrect": true, "rationale": "Melalui silogisme hipotetik P->Q dan Q->R diperoleh P->R. Dengan fakta ~R (modus tollens), maka disimpulkan ~P." },
+      { "key": "D", "text": "Tingkat kepercayaan publik menurun karena kesalahan operator", "score": 0, "isCorrect": false, "rationale": "Menambahkan sebab baru ('kesalahan operator') yang tidak ada dalam premis." },
+      { "key": "E", "text": "Tidak ada kesimpulan yang dapat ditarik", "score": 0, "isCorrect": false, "rationale": "Kesimpulan sah tersedia melalui modus tollens." }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Gabungan Silogisme Hipotetik (P -> Q, Q -> R => P -> R) dan Modus Tollens (P -> R, ~R => ~P).",
+      "stepByStep": [
+        "P = Arsip terenkripsi standar terbaru; Q = Data aman; R = Kepercayaan publik meningkat.",
+        "Premis 1: P -> Q. Premis 2: Q -> R. Didapat rantai: P -> R.",
+        "Premis 3: ~R (kepercayaan publik tidak meningkat).",
+        "Berdasarkan Modus Tollens, ~R menghasilkan ~P: Arsip digital tidak terenkripsi dengan standar terbaru."
+      ],
+      "correctReason": "Kontraposisi dari P -> R adalah ~R -> ~P, sehingga ~P pasti benar.",
+      "distractorAnalysis": {
+        "A": "Kebalikan dari kesimpulan yang sah.",
+        "B": "Melanggar modus tollens pada premis kedua.",
+        "D": "Mengasumsikan fakta luar yang tidak disebutkan.",
+        "E": "Simpulan valid ada pada opsi C."
+      },
+      "quickTrick": "Rantai P -> Q -> R dan diketahui ujungnya TIDAK terjadi (~R), maka pangkalnya juga TIDAK terjadi (~P).",
+      "commonMistakes": "Memilih opsi dengan tambahan alasan yang terdengar masuk akal namun tidak ada di premis.",
+      "studyMaterialTip": "Pahami ekuivalensi P -> Q ≡ ~Q -> ~P ≡ ~P ∨ Q."
+    },
+    "references": [
+      { "title": "Hukum Penarikan Kesimpulan Logika Proposisi", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-003",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Negasi Konjungsi & Disjungsi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Setiap pegawai unit layanan wajib mengenakan kartu identitas atau memakai seragam dinas resmi. Hari ini Dika tidak memakai seragam dinas resmi, tetapi ia mengenakan kartu identitas. Kesimpulan yang paling tepat mengenai Dika adalah...",
+    "options": [
+      { "key": "A", "text": "Dika melanggar aturan unit layanan karena tidak memakai seragam dinas", "score": 0, "isCorrect": false, "rationale": "Syarat menggunakan kata hubung 'atau' (disjungsi inklusif), cukup satu syarat terpenuhi." },
+      { "key": "B", "text": "Dika tetap memenuhi kewajiban aturan unit layanan", "score": 5, "isCorrect": true, "rationale": "Pernyataan disjungsi (P ∨ Q) bernilai benar selama minimal salah satu komponennya benar. Dika memenuhi syarat mengenakan kartu identitas." },
+      { "key": "C", "text": "Dika bukan pegawai unit layanan", "score": 0, "isCorrect": false, "rationale": "Premis tidak menyatakan demikian." },
+      { "key": "D", "text": "Dika wajib mengenakan keduanya secara bersamaan", "score": 0, "isCorrect": false, "rationale": "Kata hubung adalah 'atau', bukan 'dan'." },
+      { "key": "E", "text": "Dika harus dipulangkan karena atribut tidak lengkap", "score": 0, "isCorrect": false, "rationale": "Tidak berdasar pada premis." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Disjungsi (P atau Q) bernilai benar jika P benar, Q benar, atau keduanya benar. Hanya salah jika kedua-duanya tidak dipenuhi (~P dan ~Q).",
+      "stepByStep": [
+        "Syarat: Kartu identitas (P) ATAU Seragam dinas (Q).",
+        "Fakta Dika: ~Q (tidak berseragam) dan P (pakai kartu identitas).",
+        "Karena P benar, maka P ∨ Q bernilai benar -> Dika memenuhi kewajiban aturan."
+      ],
+      "correctReason": "Dalam logika matematika, kata 'atau' terpenuhi jika minimal satu syarat benar.",
+      "distractorAnalysis": {
+        "A": "Salah menafsirkan 'atau' sebagai 'dan'.",
+        "C": "Menyalahi penalaran.",
+        "D": "Mengubah operator logika.",
+        "E": "Asumsi di luar teks."
+      },
+      "quickTrick": "Cek kata hubung: 'DAN' = wajib dua-duanya; 'ATAU' = cukup salah satu.",
+      "commonMistakes": "Menganggap pelanggaran terjadi karena hanya satu syarat terpenuhi.",
+      "studyMaterialTip": "Pelajari tabel kebenaran DAN (∧) vs ATAU (∨) beserta negasinya (Hukum De Morgan)."
+    },
+    "references": [
+      { "title": "Logika Matematika: Disjungsi dan Konjungsi", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-004",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Ekuivalensi & Negasi Kuantor",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Pernyataan 'Jika semua dokumen terverifikasi dan jadwal ruang tersedia, maka layanan tatap muka dibuka' memiliki pernyataan yang bernilai sama (ekuivalen) dengan...",
+    "options": [
+      { "key": "A", "text": "Jika layanan tatap muka tidak dibuka, maka ada dokumen belum terverifikasi atau jadwal ruang tidak tersedia", "score": 5, "isCorrect": true, "rationale": "Kontraposisi dari (A ∧ B) -> C adalah ~C -> ~(A ∧ B), dan menurut Hukum De Morgan ~(A ∧ B) ≡ ~A ∨ ~B. Negasi 'semua terverifikasi' adalah 'ada yang belum terverifikasi'." },
+      { "key": "B", "text": "Jika layanan tatap muka tidak dibuka, maka tidak ada dokumen terverifikasi dan jadwal ruang tidak tersedia", "score": 0, "isCorrect": false, "rationale": "Negasi 'semua' bukan 'tidak ada', dan negasi 'dan' seharusnya menjadi 'atau'." },
+      { "key": "C", "text": "Jika layanan tatap muka dibuka, maka semua dokumen terverifikasi dan jadwal ruang tersedia", "score": 0, "isCorrect": false, "rationale": "Ini adalah konvers (C -> A∧B), tidak ekuivalen dengan implikasi asal." },
+      { "key": "D", "text": "Jika ada dokumen belum terverifikasi atau jadwal ruang tidak tersedia, maka layanan tatap muka tidak dibuka", "score": 0, "isCorrect": false, "rationale": "Ini adalah invers (~P -> ~Q), tidak ekuivalen dengan implikasi asal." },
+      { "key": "E", "text": "Layanan tatap muka dibuka hanya jika semua dokumen tidak terverifikasi", "score": 0, "isCorrect": false, "rationale": "Keliru secara logika." }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Implikasi (A ∧ B) -> C ekuivalen dengan kontraposisinya: ~C -> ~(A ∧ B). Menggunakan Hukum De Morgan: ~(A ∧ B) ≡ ~A ∨ ~B. Negasi kuantor universal 'Semua X bersifat Y' adalah 'Ada/Beberapa X tidak bersifat Y'.",
+      "stepByStep": [
+        "Misalkan A = semua dokumen terverifikasi, B = jadwal ruang tersedia, C = layanan dibuka.",
+        "Bentuk asal: (A ∧ B) -> C.",
+        "Kontraposisi: ~C -> ~(A ∧ B).",
+        "Urai ~(A ∧ B) = ~A ∨ ~B.",
+        "~A = ada dokumen belum terverifikasi; ~B = jadwal ruang tidak tersedia; hubungkan dengan 'atau'."
+      ],
+      "correctReason": "Opsi A menerapkan kontraposisi, Hukum De Morgan, dan negasi kuantor universal dengan tepat.",
+      "distractorAnalysis": {
+        "B": "Salah menegasi 'semua' dan lupa mengubah 'dan' menjadi 'atau'.",
+        "C": "Konvers tidak ekuivalen.",
+        "D": "Invers tidak ekuivalen.",
+        "E": "Kontradiktif."
+      },
+      "quickTrick": "Ekuivalensi P -> Q selalu = Kontraposisi (~Q -> ~P). Jangan lupa: negasi DAN = ATAU, negasi SEMUA = ADA YANG TIDAK.",
+      "commonMistakes": "Memilih konvers atau invers, atau lupa mengubah 'dan' menjadi 'atau' saat menegasi.",
+      "studyMaterialTip": "Hafalkan Hukum De Morgan dan negasi kuantor."
+    },
+    "references": [
+      { "title": "Hukum De Morgan dan Kontraposisi", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-005",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Generalisasi Pola Informasi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Selama enam bulan terakhir, setiap kali kantor pelayanan daerah membuka loket akhir pekan, jumlah antrean hari Senin turun rata-rata 35% dan waktu tunggu warga berkurang dari 40 menit menjadi 18 menit. Generalisasi yang paling didukung oleh data tersebut adalah...",
+    "options": [
+      { "key": "A", "text": "Loket akhir pekan menghapus seluruh antrean pada hari Senin", "score": 0, "isCorrect": false, "rationale": "Penurunan 35% bukan berarti nol antrean." },
+      { "key": "B", "text": "Pembukaan loket akhir pekan berkorelasi dengan penurunan beban antrean dan waktu tunggu layanan pada hari Senin", "score": 5, "isCorrect": true, "rationale": "Merangkum tren data secara akurat tanpa melebih-lebihkan angka." },
+      { "key": "C", "text": "Seluruh instansi pemerintah wajib tutup pada hari Senin dan buka pada hari Sabtu", "score": 0, "isCorrect": false, "rationale": "Kesimpulan ekstrem yang tidak didukung data." },
+      { "key": "D", "text": "Pegawai pelayanan tidak perlu istirahat pada akhir pekan", "score": 0, "isCorrect": false, "rationale": "Tidak dibahas dalam data." },
+      { "key": "E", "text": "Waktu tunggu warga di seluruh Indonesia selalu 18 menit", "score": 0, "isCorrect": false, "rationale": "Overgeneralisasi ke seluruh Indonesia." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Penalaran induktif yang baik merumuskan kecenderungan atau korelasi umum berdasarkan pola data berulang tanpa melakukan overgeneralisasi.",
+      "stepByStep": [
+        "Amati konsistensi pola selama 6 bulan: loket akhir pekan -> antrean Senin turun 35%, waktu tunggu turun 40 -> 18 menit.",
+        "Pilih simpulan yang proporsional dan sesuai cakupan data."
+      ],
+      "correctReason": "Opsi B menyatakan hubungan kecenderungan berdasarkan fakta 6 bulan secara objektif.",
+      "distractorAnalysis": {
+        "A": "Berlebihan ('seluruh antrean').",
+        "C": "Ekstrapolasi tidak berdasar.",
+        "D": "Asumsi manajemen SDM di luar teks.",
+        "E": "Generalisasi terlalu luas."
+      },
+      "quickTrick": "Penalaran induktif yang tepat biasanya memakai kata moderat ('berkorelasi', 'cenderung', 'berpotensi'), hindari kata mutlak ('selalu', 'semua', 'menghapus seluruh').",
+      "commonMistakes": "Memilih klaim mutlak padahal data induktif bersifat probabilistik.",
+      "studyMaterialTip": "Pelajari cara membedakan generalisasi valid dan fallacy of hasty generalization."
+    },
+    "references": [
+      { "title": "Penalaran Induktif Berbasis Bukti", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-006",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Hubungan Kausalitas & Tren Data",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Di empat kabupaten, penerapan aplikasi antrean daring menurunkan penumpukan warga di ruang tunggu. Namun, di Kabupaten X yang menerapkan aplikasi serupa tetapi memiliki cakupan sinyal seluler di bawah 45%, banyak warga lansia tetap datang pagi hari tanpa mendaftar daring. Prinsip umum yang paling tepat dirumuskan dari kasus tersebut adalah...",
+    "options": [
+      { "key": "A", "text": "Aplikasi antrean daring gagal total di semua daerah pedesaan", "score": 0, "isCorrect": false, "rationale": "Terlalu ekstrem; kasus terjadi spesifik saat infrastruktur sinyal rendah dan ada kendala akses lansia." },
+      { "key": "B", "text": "Efektivitas digitalisasi layanan publik bergantung pada kesiapan infrastruktur jaringan dan inklusivitas akses pengguna", "score": 5, "isCorrect": true, "rationale": "Menggabungkan keberhasilan di empat kabupaten dengan faktor penghambat di Kabupaten X (sinyal <45% dan lansia)." },
+      { "key": "C", "text": "Warga lansia tidak diperbolehkan menggunakan layanan publik berbasis aplikasi", "score": 0, "isCorrect": false, "rationale": "Bertentangan dengan asas pelayanan inklusif." },
+      { "key": "D", "text": "Penumpukan ruang tunggu hanya terjadi jika aplikasi dibuka pada siang hari", "score": 0, "isCorrect": false, "rationale": "Tidak ada informasi waktu pembukaan aplikasi." },
+      { "key": "E", "text": "Kabupaten X harus menghapus seluruh layanan tatap muka", "score": 0, "isCorrect": false, "rationale": "Justru layanan tatap muka/pendampingan dibutuhkan di kondisi sinyal lemah." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Penalaran induktif komparatif mencari faktor pembeda antara kasus berhasil (empat kabupaten) dan kasus kurang berhasil (Kabupaten X).",
+      "stepByStep": [
+        "Bandingkan kelompok berhasil vs Kabupaten X.",
+        "Faktor pembeda di Kabupaten X: sinyal <45% (infrastruktur) dan warga lansia (inklusi digital).",
+        "Rumuskan prinsip umum yang mencakup kedua temuan."
+      ],
+      "correctReason": "Opsi B menjelaskan kondisi syarat agar digitalisasi berjalan efektif berdasarkan perbandingan lima wilayah.",
+      "distractorAnalysis": {
+        "A": "Mengabaikan keberhasilan di empat kabupaten lainnya.",
+        "C": "Diskriminatif dan tidak logis.",
+        "D": "Faktor waktu tidak ada dalam premis.",
+        "E": "Solusi yang memperburuk akses di Kabupaten X."
+      },
+      "quickTrick": "Jika soal menampilkan 'berhasil di A, B, C, tetapi terkendala di X karena faktor Y', simpulan terbaik pasti menghubungkan keberhasilan dengan syarat faktor Y.",
+      "commonMistakes": "Hanya fokus pada kegagalan di Kabupaten X dan melupakan keberhasilan di empat kabupaten lain.",
+      "studyMaterialTip": "Latih metode persesuaian dan perbedaan (Mill's Methods) dalam penalaran induktif."
+    },
+    "references": [
+      { "title": "Metode Penalaran Induktif Mill", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-007",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Evaluasi Hipotesis & Prediksi Tren",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Hasil evaluasi lima angkatan pelatihan ASN menunjukkan: Angkatan 1 (modul teks, tanpa simulasi) nilai praktik rata-rata 64; Angkatan 2 (modul video, tanpa simulasi) nilai 68; Angkatan 3 (modul teks + simulasi kasus) nilai 81; Angkatan 4 (modul video + simulasi kasus) nilai 84; Angkatan 5 (tanpa modul, hanya simulasi kasus) nilai 73. Prediksi paling kuat untuk merancang Angkatan 6 agar nilai praktik maksimal adalah...",
+    "options": [
+      { "key": "A", "text": "Mengganti seluruh sesi dengan modul video tanpa simulasi karena video lebih tinggi dari teks", "score": 0, "isCorrect": false, "rationale": "Video tanpa simulasi hanya menghasilkan nilai 68, jauh di bawah kombinasi dengan simulasi (84)." },
+      { "key": "B", "text": "Mengombinasikan modul pembelajaran terstruktur (terutama video) dengan simulasi kasus karena kedua komponen saling memperkuat capaian praktik", "score": 5, "isCorrect": true, "rationale": "Data menunjukkan simulasi kasus memberi lonjakan terbesar (+16 sampai +17 poin), dan dikombinasikan modul video mencapai puncak 84." },
+      { "key": "C", "text": "Menghilangkan semua modul teori karena Angkatan 5 tetap memperoleh nilai lebih tinggi daripada Angkatan 1 dan 2", "score": 0, "isCorrect": false, "rationale": "Tanpa modul, nilainya (73) masih jauh di bawah kombinasi modul + simulasi (81 dan 84)." },
+      { "key": "D", "text": "Menambah durasi modul teks menjadi dua kali lipat tanpa simulasi", "score": 0, "isCorrect": false, "rationale": "Tidak ada bukti penambahan durasi teks mengalahkan efek simulasi." },
+      { "key": "E", "text": "Menyelenggarakan evaluasi tanpa pelatihan sama sekali", "score": 0, "isCorrect": false, "rationale": "Tidak berdasar data." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Dalam penalaran induktif eksperimental, kita membandingkan kontribusi tiap variabel bebas (jenis modul dan keberadaan simulasi) terhadap variabel terikat (nilai praktik).",
+      "stepByStep": [
+        "Tanpa simulasi: teks = 64, video = 68.",
+        "Hanya simulasi tanpa modul = 73.",
+        "Modul + simulasi: teks+simulasi = 81, video+simulasi = 84.",
+        "Puncak capaian terjadi saat modul video dipadukan dengan simulasi kasus."
+      ],
+      "correctReason": "Data empiris lima angkatan menunjukkan sinergi modul video + simulasi kasus menghasilkan skor tertinggi (84).",
+      "distractorAnalysis": {
+        "A": "Mengabaikan dampak besar simulasi kasus.",
+        "C": "Mengabaikan selisih +11 poin saat modul ditambahkan ke simulasi.",
+        "D": "Ekstrapolasi tanpa bukti.",
+        "E": "Tidak logis."
+      },
+      "quickTrick": "Cari kombinasi variabel dengan hasil paling tinggi pada data, lalu uji apakah masing-masing variabel berkontribusi positif.",
+      "commonMistakes": "Terpaku pada membandingkan 1 variabel saja dan mengabaikan efek interaksi.",
+      "studyMaterialTip": "Biasakan membuat tabel kecil 2x2 saat membaca data soal induktif."
+    },
+    "references": [
+      { "title": "Analisis Data Induktif", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-008",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Pengurutan Posisi (Linear Ordering)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Lima peserta ujian—Andi, Budi, Citra, Dina, dan Eka—duduk berderet di kursi nomor 1 sampai 5 dari kiri ke kanan. Diketahui: (1) Budi duduk di kursi nomor 3; (2) Dina duduk tepat di sebelah kiri Budi; (3) Eka duduk di kursi paling kanan; (4) Andi tidak duduk di sebelah Dina. Siapakah yang duduk di kursi nomor 1?",
+    "options": [
+      { "key": "A", "text": "Andi", "score": 0, "isCorrect": false, "rationale": "Jika Andi di kursi 1, ia duduk tepat di sebelah kiri Dina (kursi 2), melanggar syarat (4)." },
+      { "key": "B", "text": "Budi", "score": 0, "isCorrect": false, "rationale": "Budi sudah pasti di kursi 3." },
+      { "key": "C", "text": "Citra", "score": 5, "isCorrect": true, "rationale": "Kursi 3 = Budi, kursi 2 = Dina (tepat kiri Budi), kursi 5 = Eka. Andi tidak boleh di sebelah Dina (kursi 1), sehingga Andi di kursi 4 dan Citra menempati kursi 1." },
+      { "key": "D", "text": "Dina", "score": 0, "isCorrect": false, "rationale": "Dina di kursi 2." },
+      { "key": "E", "text": "Eka", "score": 0, "isCorrect": false, "rationale": "Eka di kursi 5." }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Dalam soal pengurutan posisi linear, buatlah slot posisi terlebih dahulu, isi posisi pasti, lalu terapkan syarat negatif secara teliti untuk setiap kursi yang bertetangga.",
+      "stepByStep": [
+        "Siapkan 5 slot kursi: [1] [2] [3] [4] [5].",
+        "Syarat (1): Budi = 3 -> [_] [_] [Budi] [_] [_].",
+        "Syarat (2): Dina tepat di kiri Budi -> Dina = 2 -> [_] [Dina] [Budi] [_] [_].",
+        "Syarat (3): Eka paling kanan -> Eka = 5 -> [_] [Dina] [Budi] [_] [Eka].",
+        "Tersisa kursi 1 dan 4 untuk Andi dan Citra.",
+        "Syarat (4): Andi tidak di sebelah Dina (kursi 2). Kursi di sebelah kursi 2 adalah kursi 1 dan 3. Maka Andi tidak boleh di kursi 1 -> Andi di kursi 4, sehingga Citra di kursi 1."
+      ],
+      "correctReason": "Satu-satunya susunan valid adalah Citra (1), Dina (2), Budi (3), Andi (4), Eka (5). Jadi kursi nomor 1 ditempati Citra.",
+      "distractorAnalysis": {
+        "A": "Jika Andi di kursi 1, ia duduk tepat di sebelah kiri Dina (kursi 2), melanggar syarat (4).",
+        "B": "Budi sudah pasti di kursi 3.",
+        "D": "Dina di kursi 2.",
+        "E": "Eka di kursi 5."
+      },
+      "quickTrick": "Gambar 5 kotak bernomor 1–5 dan langsung isi posisi pasti terlebih dahulu sebelum menguji syarat negatif.",
+      "commonMistakes": "Lupa mengecek sisi kiri kursi 2 (yaitu kursi 1) sebagai posisi 'sebelah Dina'.",
+      "studyMaterialTip": "Selalu tulis diagram slot untuk soal pengurutan."
+    },
+    "references": [
+      { "title": "Penalaran Analitis Pengurutan", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-009",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Penjadwalan dengan Syarat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Empat mata uji pelatihan—Etika (E), Hukum (H), Teknologi (T), dan Manajemen (M)—dijadwalkan masing-masing satu kali pada hari Senin, Selasa, Rabu, dan Kamis. Aturannya: (1) H dilaksanakan sebelum T; (2) M tidak boleh pada hari Senin; (3) E dilaksanakan tepat sehari setelah H. Jika T dilaksanakan pada hari Rabu, urutan jadwal dari Senin hingga Kamis adalah...",
+    "options": [
+      { "key": "A", "text": "H - E - T - M", "score": 5, "isCorrect": true, "rationale": "T = Rabu. H sebelum T (Senin/Selasa) dan E tepat setelah H. Jika H=Senin maka E=Selasa, T=Rabu, dan M=Kamis (bukan Senin). Semua syarat terpenuhi!" },
+      { "key": "B", "text": "M - H - T - E", "score": 0, "isCorrect": false, "rationale": "Melanggar syarat (2) karena M di Senin, serta T=Rabu namun E di Kamis bukan tepat setelah H." },
+      { "key": "C", "text": "H - T - E - M", "score": 0, "isCorrect": false, "rationale": "E tidak tepat sehari setelah H (terhalang T) dan T menjadi Selasa." },
+      { "key": "D", "text": "E - H - T - M", "score": 0, "isCorrect": false, "rationale": "E sebelum H, melanggar syarat (3)." },
+      { "key": "E", "text": "M - E - T - H", "score": 0, "isCorrect": false, "rationale": "Melanggar syarat (1), (2), dan (3)." }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Soal penjadwalan analitis menggabungkan posisi tetap (T = Rabu) dengan blok berurutan (H diikuti langsung oleh E).",
+      "stepByStep": [
+        "Buat slot: Senin, Selasa, Rabu (T), Kamis.",
+        "Syarat (3) membentuk blok berurutan [H, E].",
+        "Syarat (1): H sebelum T (Rabu), maka blok [H, E] hanya bisa di Senin–Selasa.",
+        "Otomatis tersisa Kamis untuk M, yang memenuhi syarat (2) M tidak di Senin.",
+        "Urutan lengkap: Senin=H, Selasa=E, Rabu=T, Kamis=M."
+      ],
+      "correctReason": "H-E-T-M memenuhi keempat syarat tanpa kontradiksi.",
+      "distractorAnalysis": {
+        "B": "M di Senin dan E tidak tepat setelah H.",
+        "C": "T bukan di Rabu dan blok H-E terpisah.",
+        "D": "Urutan H-E terbalik.",
+        "E": "H di akhir setelah T."
+      },
+      "quickTrick": "Cari 'blok menempel' (tepat setelah = [H,E]) lalu masukkan ke sisa slot kosong.",
+      "commonMistakes": "Tertukar antara 'sebelum' (boleh berjarak) dan 'tepat setelah' (harus bersebelahan).",
+      "studyMaterialTip": "Bedakan frasa 'sebelum/sesudah' dengan 'tepat sebelum/tepat sesudah'."
+    },
+    "references": [
+      { "title": "Penalaran Analitis Penjadwalan", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-010",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Kombinasi & Pemilihan Tim",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Sebuah tim audit beranggotakan 3 orang akan dipilih dari 5 kandidat: P, Q, R, S, dan T. Syarat pemilihan: (1) Jika P terpilih, Q tidak boleh terpilih; (2) R dan S harus selalu bersama (keduanya terpilih atau keduanya tidak); (3) T harus terpilih jika Q tidak terpilih. Jika R TIDAK terpilih dalam tim, siapa sajakah anggota tim yang pasti terbentuk?",
+    "options": [
+      { "key": "A", "text": "P, Q, dan T", "score": 0, "isCorrect": false, "rationale": "P dan Q tidak boleh bersama (syarat 1)." },
+      { "key": "B", "text": "Q, S, dan T", "score": 0, "isCorrect": false, "rationale": "Karena R tidak terpilih, S juga tidak boleh terpilih (syarat 2)." },
+      { "key": "C", "text": "P, S, dan T", "score": 0, "isCorrect": false, "rationale": "S tidak boleh terpilih tanpa R." },
+      { "key": "D", "text": "Tidak mungkin membentuk tim beranggotakan 3 orang", "score": 5, "isCorrect": true, "rationale": "Jika R tidak terpilih, S juga tidak terpilih (sisa kandidat: P, Q, T). Karena butuh 3 orang, ketiganya (P, Q, T) harus masuk semua. Padahal syarat (1) melarang P dan Q bersama! Jadi tim 3 orang mustahil terbentuk jika R tidak terpilih." },
+      { "key": "E", "text": "P, R, dan T", "score": 0, "isCorrect": false, "rationale": "R dinyatakan tidak terpilih." }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Penalaran analitis kombinasi memerlukan pemeriksaan konsistensi seluruh batasan saat suatu kondisi dikunci.",
+      "stepByStep": [
+        "Kandidat awal: {P, Q, R, S, T} -> butuh 3 orang.",
+        "Diketahui R tidak terpilih. Dari syarat (2), S juga tidak terpilih.",
+        "Kandidat tersisa tinggal 3 orang: {P, Q, T}.",
+        "Untuk membentuk tim 3 orang, P dan Q harus sama-sama terpilih, tetapi syarat (1) melarang P dan Q berada dalam tim yang sama.",
+        "Oleh karena itu, tidak ada kombinasi tim 3 orang yang valid jika R tidak terpilih."
+      ],
+      "correctReason": "Kontradiksi antara sisa kandidat {P, Q, T} dan syarat eksklusif P-Q membuat tim 3 orang mustahil terbentuk.",
+      "distractorAnalysis": {
+        "A": "Melanggar syarat (1).",
+        "B": "Melanggar syarat (2).",
+        "C": "Melanggar syarat (2).",
+        "E": "Melanggar syarat soal bahwa R tidak terpilih."
+      },
+      "quickTrick": "Hitung sisa kandidat setelah eliminasi! Jika sisa = 3 padahal dua di antaranya musuhan (tidak bisa bersama), berarti mustahil.",
+      "commonMistakes": "Memilih P, Q, T tanpa mengecek ulang syarat pertama.",
+      "studyMaterialTip": "Selalu validasi opsi jawaban terhadap SEMUA syarat sebelum memilih."
+    },
+    "references": [
+      { "title": "Penalaran Analitis Seleksi Tim", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-011",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Posisi Melingkar (Circular Arrangement)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Enam kepala bidang—A, B, C, D, E, dan F—duduk mengelilingi meja bundar menghadap ke dalam. Ketentuannya: (1) A duduk berhadapan langsung dengan D; (2) B duduk tepat di sebelah kanan A; (3) C duduk tepat di sebelah kiri D; (4) E tidak duduk bersebelahan dengan B. Siapakah yang duduk tepat di sebelah kiri A?",
+    "options": [
+      { "key": "A", "text": "B", "score": 0, "isCorrect": false, "rationale": "B duduk tepat di sebelah kanan A." },
+      { "key": "B", "text": "C", "score": 0, "isCorrect": false, "rationale": "C duduk tepat di sebelah kiri D (antara D dan B)." },
+      { "key": "C", "text": "E", "score": 0, "isCorrect": false, "rationale": "E bisa berada di sebelah kiri A maupun di sebelah kanan D karena keduanya tidak bersebelahan dengan B." },
+      { "key": "D", "text": "F", "score": 0, "isCorrect": false, "rationale": "F juga dapat menempati posisi di sebelah kiri A atau di sebelah kanan D." },
+      { "key": "E", "text": "Tidak dapat ditentukan secara unik", "score": 5, "isCorrect": true, "rationale": "Kedua posisi tersisa (sebelah kiri A dan sebelah kanan D) sama-sama tidak bersebelahan dengan B, sehingga E dan F dapat bertukar posisi tanpa melanggar syarat mana pun." }
+    ],
+    "correctOption": "E",
+    "explanation": {
+      "concept": "Dalam posisi melingkar 6 kursi (menghadap ke pusat meja): searah jarum jam = kiri, berlawanan arah jarum jam = kanan. Mari verifikasi posisi unik atau tidak unik!",
+      "stepByStep": [
+        "Tetapkan 6 kursi searah jarum jam: K1 (jam 12), K2 (jam 2), K3 (jam 4), K4 (jam 6), K5 (jam 8), K6 (jam 10). Semua menghadap pusat.",
+        "Taruh A di K4 (jam 6). Berhadapan langsung -> D di K1 (jam 12).",
+        "Di K4 menghadap pusat (ke atas): kanan A adalah K3 (jam 4) -> B = K3.",
+        "Di K1 menghadap pusat (ke bawah): kiri D adalah K2 (jam 2) -> C = K2.",
+        "Kursi terisi: K1=D, K2=C, K3=B, K4=A. Tersisa K5 (sebelah kiri A) dan K6 (sebelah kanan D) untuk E dan F.",
+        "Syarat (4): E tidak bersebelahan dengan B (K3). Tetangga K3 adalah K2(C) dan K4(A), sehingga baik K5 maupun K6 TIDAK bersebelahan dengan B!",
+        "Akibatnya, E bisa duduk di K5 (kiri A) dengan F di K6, ATAU F di K5 (kiri A) dengan E di K6. Jadi orang di kiri A tidak dapat ditentukan secara unik."
+      ],
+      "correctReason": "Kedua posisi tersisa (K5 dan K6) sama-sama tidak bersebelahan dengan B, sehingga E dan F dapat bertukar tempat tanpa melanggar syarat mana pun.",
+      "distractorAnalysis": {
+        "A": "B pasti di kanan A.",
+        "B": "C di K2 (antara D dan B).",
+        "C": "E bisa di K5 atau K6.",
+        "D": "F juga bisa di K5 atau K6."
+      },
+      "quickTrick": "Pada soal meja bundar, jangan asal menebak jika ada 2 kursi tersisa—cek apakah syarat pembatas benar-benar memaksa salah satunya!",
+      "commonMistakes": "Mengira satu dari E atau F pasti terkunci tanpa mengecek simetri kursi tersisa.",
+      "studyMaterialTip": "Gunakan model jarum jam (12, 2, 4, 6, 8, 10) untuk meja bundar 6 orang."
+    },
+    "references": [
+      { "title": "Penalaran Analitis Meja Bundar", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-012",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Operasi Pecahan & Persentase",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Hasil dari 37,5% dari 240 ditambah 3/4 dari 64 adalah...",
+    "options": [
+      { "key": "A", "text": "126", "score": 0, "isCorrect": false, "rationale": "Periksa kembali konversi 37,5% = 3/8." },
+      { "key": "B", "text": "132", "score": 0, "isCorrect": false, "rationale": "90 + 48 bukan 132." },
+      { "key": "C", "text": "138", "score": 5, "isCorrect": true, "rationale": "37,5% = 3/8. (3/8 × 240) + (3/4 × 64) = 90 + 48 = 138." },
+      { "key": "D", "text": "144", "score": 0, "isCorrect": false, "rationale": "Terlalu besar." },
+      { "key": "E", "text": "148", "score": 0, "isCorrect": false, "rationale": "Salah perkalian." }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Mengubah persen istimewa ke bentuk pecahan sederhana mempercepat perhitungan secara signifikan tanpa kalkulator.",
+      "stepByStep": [
+        "Ubah 37,5% menjadi pecahan: 37,5% = 3 × 12,5% = 3/8.",
+        "Hitung bagian pertama: (3/8) × 240 = 3 × 30 = 90.",
+        "Hitung bagian kedua: (3/4) × 64 = 3 × 16 = 48.",
+        "Jumlahkan: 90 + 48 = 138."
+      ],
+      "correctReason": "90 + 48 = 138.",
+      "distractorAnalysis": {
+        "A": "Kesalahan hitung 48 menjadi 36.",
+        "B": "Kesalahan penjumlahan.",
+        "D": "Salah mengira 37,5% = 2/5.",
+        "E": "Salah penjumlahan."
+      },
+      "quickTrick": "Hafalkan pecahan perdelapan: 12,5% = 1/8, 37,5% = 3/8, 62,5% = 5/8, 87,5% = 7/8.",
+      "commonMistakes": "Mengalikan desimal 0,375 × 240 secara manual yang memakan waktu dan rawan salah koma.",
+      "studyMaterialTip": "Hafalkan tabel konversi persen-pecahan istimewa (per-3, per-6, per-8, per-9)."
+    },
+    "references": [
+      { "title": "Aritmetika Cepat SKD", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-013",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Aljabar Selisih Kuadrat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Nilai dari (104² - 96²) / 16 adalah...",
+    "options": [
+      { "key": "A", "text": "80", "score": 0, "isCorrect": false, "rationale": "1600 / 16 = 100, bukan 80." },
+      { "key": "B", "text": "96", "score": 0, "isCorrect": false, "rationale": "Salah memfaktorkan." },
+      { "key": "C", "text": "100", "score": 5, "isCorrect": true, "rationale": "Gunakan identitas a² - b² = (a + b)(a - b). (104 + 96)(104 - 96) / 16 = (200 × 8) / 16 = 1600 / 16 = 100." },
+      { "key": "D", "text": "104", "score": 0, "isCorrect": false, "rationale": "Salah membagi." },
+      { "key": "E", "text": "200", "score": 0, "isCorrect": false, "rationale": "Lupa membagi dengan 2 dari 8/16." }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Identitas aljabar selisih dua kuadrat: a² - b² = (a + b)(a - b).",
+      "stepByStep": [
+        "Identifikasi a = 104 dan b = 96.",
+        "104² - 96² = (104 + 96)(104 - 96) = 200 × 8 = 1.600.",
+        "Bagi dengan 16: 1.600 / 16 = 100."
+      ],
+      "correctReason": "(200 × 8) / 16 = 200 / 2 = 100.",
+      "distractorAnalysis": {
+        "A": "Salah bagi.",
+        "B": "Mengambil nilai b.",
+        "D": "Mengambil nilai a.",
+        "E": "Lupa faktor 8/16 = 1/2."
+      },
+      "quickTrick": "Jangan pernah menguadratkan angka besar satu per satu! Selalu pakai a² - b² = (a+b)(a-b).",
+      "commonMistakes": "Menghitung 104×104 dan 96×96 secara manual.",
+      "studyMaterialTip": "Kuasai 3 identitas aljabar dasar: (a±b)² dan a² - b²."
+    },
+    "references": [
+      { "title": "Aljabar Dasar SKD", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-014",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Pecahan Campuran & Desimal",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Jika x = (2/3 + 1/4) ÷ (5/6 - 1/2), maka nilai dari 3x - 2 adalah...",
+    "options": [
+      { "key": "A", "text": "4,50", "score": 0, "isCorrect": false, "rationale": "Cek kembali nilai x = 11/4 = 2,75." },
+      { "key": "B", "text": "5,25", "score": 0, "isCorrect": false, "rationale": "Salah pengurangan 2." },
+      { "key": "C", "text": "6,25", "score": 5, "isCorrect": true, "rationale": "Pembilang: 2/3 + 1/4 = 8/12 + 3/12 = 11/12. Penyebut: 5/6 - 1/2 = 5/6 - 3/6 = 2/6 = 1/3 = 4/12. Maka x = (11/12) ÷ (4/12) = 11/4 = 2,75. Jadi 3x - 2 = 3(2,75) - 2 = 8,25 - 2 = 6,25." },
+      { "key": "D", "text": "7,25", "score": 0, "isCorrect": false, "rationale": "Salah kurang 1 bukan 2." },
+      { "key": "E", "text": "8,25", "score": 0, "isCorrect": false, "rationale": "Ini baru nilai 3x, belum dikurangi 2." }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Operasi pecahan bertingkat paling mudah diselesaikan dengan menyamakan penyebut ke KPK dari semua penyebut (3, 4, 6, 2 -> KPK = 12) atau langsung dikalikan 12/12.",
+      "stepByStep": [
+        "Kalikan pembilang dan penyebut dengan 12:",
+        "Pembilang: 12 × (2/3 + 1/4) = 8 + 3 = 11.",
+        "Penyebut: 12 × (5/6 - 1/2) = 10 - 6 = 4.",
+        "Maka x = 11/4 = 2,75.",
+        "Hitung 3x - 2 = 3 × (11/4) - 2 = 33/4 - 8/4 = 25/4 = 6,25."
+      ],
+      "correctReason": "x = 11/4, sehingga 3x - 2 = 33/4 - 2 = 25/4 = 6,25.",
+      "distractorAnalysis": {
+        "A": "Salah penjumlahan pembilang.",
+        "B": "Salah menghitung 3 × 2,75.",
+        "D": "Dikurangi 1 bukan 2.",
+        "E": "Lupa mengurangi 2."
+      },
+      "quickTrick": "Kalikan pembilang dan penyebut pecahan bertingkat dengan KPK penyebut kecilnya (×12) agar langsung menjadi bilangan bulat!",
+      "commonMistakes": "Berhenti di nilai 3x = 8,25 dan lupa mengerjakan '- 2'.",
+      "studyMaterialTip": "Selalu baca ulang apa yang ditanyakan di akhir kalimat ('nilai dari 3x - 2')."
+    },
+    "references": [
+      { "title": "Operasi Pecahan Bertingkat", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-015",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Eksponen & Akar Kuadrat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Nilai dari √(2,25) + 0,5³ ÷ 0,25 - (1/2)⁻² adalah...",
+    "options": [
+      { "key": "A", "text": "-2,0", "score": 5, "isCorrect": true, "rationale": "√(2,25) = 1,5. 0,5³ / 0,25 = 0,125 / 0,25 = 0,5. (1/2)⁻² = 2² = 4. Jadi 1,5 + 0,5 - 4 = 2 - 4 = -2,0." },
+      { "key": "B", "text": "-1,5", "score": 0, "isCorrect": false, "rationale": "Salah hitung 0,5³ / 0,25." },
+      { "key": "C", "text": "1,75", "score": 0, "isCorrect": false, "rationale": "Salah menghitung pangkat negatif menjadi 1/4 bukan 4." },
+      { "key": "D", "text": "2,0", "score": 0, "isCorrect": false, "rationale": "Salah tanda pada -4." },
+      { "key": "E", "text": "6,0", "score": 0, "isCorrect": false, "rationale": "Menjumlahkan 4 alih-alih mengurangkan." }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Aturan pangkat negatif: (a/b)⁻ⁿ = (b/a)ⁿ. Aturan prioritas operasi: akar/pangkat -> bagi/kali -> tambah/kurang.",
+      "stepByStep": [
+        "√(2,25) = √(225/100) = 15/10 = 1,5.",
+        "0,5³ ÷ 0,25 = (1/2)³ ÷ (1/4) = (1/8) × 4 = 1/2 = 0,5.",
+        "(1/2)⁻² = 2² = 4.",
+        "Gabungkan: 1,5 + 0,5 - 4 = 2 - 4 = -2,0."
+      ],
+      "correctReason": "1,5 + 0,5 - 4 = -2,0.",
+      "distractorAnalysis": {
+        "B": "Kesalahan hitung pembagian desimal.",
+        "C": "Mengira (1/2)⁻² = 1/4.",
+        "D": "Salah tanda.",
+        "E": "Menambahkan +4 bukan -4."
+      },
+      "quickTrick": "Ubah semua desimal ke pecahan sederhana: 0,5 = 1/2; 0,25 = 1/4; (1/2)⁻² = 2² = 4.",
+      "commonMistakes": "Keliru menghitung pangkat negatif pecahan.",
+      "studyMaterialTip": "Ulangi sifat-sifat eksponen dan akar."
+    },
+    "references": [
+      { "title": "Sifat Eksponen dan Bentuk Akar", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-016",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Bertingkat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Tentukan angka berikutnya pada deret berikut: 4, 7, 12, 19, 28, ...",
+    "options": [
+      { "key": "A", "text": "37", "score": 0, "isCorrect": false, "rationale": "Selisihnya bilangan ganjil berurutan (+3, +5, +7, +9, +11)." },
+      { "key": "B", "text": "38", "score": 0, "isCorrect": false, "rationale": "28 + 10 tidak mengikuti pola ganjil." },
+      { "key": "C", "text": "39", "score": 5, "isCorrect": true, "rationale": "Selisih antarsuku adalah +3, +5, +7, +9. Maka selisih berikutnya +11 -> 28 + 11 = 39." },
+      { "key": "D", "text": "41", "score": 0, "isCorrect": false, "rationale": "28 + 13 terlalu besar." },
+      { "key": "E", "text": "43", "score": 0, "isCorrect": false, "rationale": "Tidak sesuai pola." }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Deret aritmetika tingkat dua dengan beda yang bertambah konstan (+2 setiap langkah).",
+      "stepByStep": [
+        "Hitung selisih antarsuku: 7-4 = 3; 12-7 = 5; 19-12 = 7; 28-19 = 9.",
+        "Pola selisih: 3, 5, 7, 9 (bertambah +2).",
+        "Selisih selanjutnya = 9 + 2 = 11.",
+        "Suku berikutnya = 28 + 11 = 39."
+      ],
+      "correctReason": "28 + 11 = 39.",
+      "distractorAnalysis": {
+        "A": "Mengira selisih tetap +9.",
+        "B": "Menambah +10.",
+        "D": "Menambah +13.",
+        "E": "Menambah +15."
+      },
+      "quickTrick": "Selalu tulis selisih antarangka di bawah deret terlebih dahulu!",
+      "commonMistakes": "Salah menghitung beda atau melompati satu bilangan ganjil.",
+      "studyMaterialTip": "Kenali pola deret kuadrat n² + 3: 1+3=4, 4+3=7, 9+3=12, 16+3=19, 25+3=28, 36+3=39."
+    },
+    "references": [
+      { "title": "Pola Bilangan dan Deret", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-017",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Larik Ganda (Alternating)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Tentukan dua angka berikutnya pada deret berikut: 3, 24, 7, 20, 11, 16, ..., ...",
+    "options": [
+      { "key": "A", "text": "15, 12", "score": 5, "isCorrect": true, "rationale": "Larik ganjil (posisi 1,3,5,7): 3, 7, 11 -> +4 -> 15. Larik genap (posisi 2,4,6,8): 24, 20, 16 -> -4 -> 12." },
+      { "key": "B", "text": "14, 12", "score": 0, "isCorrect": false, "rationale": "11 + 4 = 15, bukan 14." },
+      { "key": "C", "text": "15, 14", "score": 0, "isCorrect": false, "rationale": "16 - 4 = 12, bukan 14." },
+      { "key": "D", "text": "17, 12", "score": 0, "isCorrect": false, "rationale": "Salah penambahan pada larik ganjil." },
+      { "key": "E", "text": "12, 15", "score": 0, "isCorrect": false, "rationale": "Urutan terbalik." }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Deret dua larik (berselang-seling) memisahkan pola pada suku bernomor ganjil dan suku bernomor genap.",
+      "stepByStep": [
+        "Tandai angka naik-turun: 3 (naik), 24 (turun), 7 (naik), 20 (turun)... -> ciri deret larik ganda.",
+        "Larik 1 (suku ke-1, 3, 5, 7): 3 -> 7 -> 11 -> (+4) -> 15.",
+        "Larik 2 (suku ke-2, 4, 6, 8): 24 -> 20 -> 16 -> (-4) -> 12."
+      ],
+      "correctReason": "Dua suku berikutnya berurutan adalah 15 dan 12.",
+      "distractorAnalysis": {
+        "B": "Kesalahan penjumlahan +3 bukan +4.",
+        "C": "Kesalahan pengurangan -2 bukan -4.",
+        "D": "Salah hitung 11+4.",
+        "E": "Terbalik posisi larik."
+      },
+      "quickTrick": "Jika angka deret naik lalu turun berulang-ulang, langsung uji lompat 1 angka (larik ganjil vs larik genap).",
+      "commonMistakes": "Mencari selisih antarsuku berdekatan (+21, -17, +13...) padahal cukup pisah dua larik.",
+      "studyMaterialTip": "Latih identifikasi deret 1 larik, 2 larik, dan 3 larik."
+    },
+    "references": [
+      { "title": "Pola Deret Berselang-Seling", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-018",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Pola Perkalian & Penjumlahan Bergantian",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Lanjutkan deret berikut: 2, 6, 8, 24, 26, 78, ...",
+    "options": [
+      { "key": "A", "text": "80", "score": 5, "isCorrect": true, "rationale": "Polanya bergantian ×3, +2: 2×3=6, 6+2=8, 8×3=24, 24+2=26, 26×3=78, berikutnya 78+2 = 80." },
+      { "key": "B", "text": "82", "score": 0, "isCorrect": false, "rationale": "78 + 2 = 80, bukan 82." },
+      { "key": "C", "text": "156", "score": 0, "isCorrect": false, "rationale": "Operasi berikutnya adalah +2, bukan ×2." },
+      { "key": "D", "text": "234", "score": 0, "isCorrect": false, "rationale": "Ini 78 × 3, bukan +2." },
+      { "key": "E", "text": "96", "score": 0, "isCorrect": false, "rationale": "Tidak sesuai pola." }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Deret operasi campuran bergantian menggabungkan perkalian dan penjumlahan secara berurutan.",
+      "stepByStep": [
+        "2 ke 6 = ×3",
+        "6 ke 8 = +2",
+        "8 ke 24 = ×3",
+        "24 ke 26 = +2",
+        "26 ke 78 = ×3",
+        "Maka langkah berikutnya = +2 -> 78 + 2 = 80."
+      ],
+      "correctReason": "78 + 2 = 80.",
+      "distractorAnalysis": {
+        "B": "Salah tambah.",
+        "C": "Mengalikan 2.",
+        "D": "Mengalikan 3 dua kali berturut-turut.",
+        "E": "Tidak ada dasar pola."
+      },
+      "quickTrick": "Jika ada lonjakan besar lalu lompatan kecil berulang (2->6->8->24->26->78), cek pola kali-tambah!",
+      "commonMistakes": "Melanjutkan dengan ×3 lagi padahal gilirannya +2.",
+      "studyMaterialTip": "Perhatikan rasio antarangka saat lonjakan terjadi mendadak."
+    },
+    "references": [
+      { "title": "Deret Operasi Campuran", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-019",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Pola Fibonacci Modifikasi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Tentukan angka yang tepat untuk melengkapi deret berikut: 1, 3, 5, 9, 15, 25, ...",
+    "options": [
+      { "key": "A", "text": "38", "score": 0, "isCorrect": false, "rationale": "Cek aturan: 1+3+1=5, 3+5+1=9, 5+9+1=15, 9+15+1=25." },
+      { "key": "B", "text": "40", "score": 0, "isCorrect": false, "rationale": "15 + 25 = 40, lupa menambahkan +1." },
+      { "key": "C", "text": "41", "score": 5, "isCorrect": true, "rationale": "Setiap suku merupakan jumlah dua suku sebelumnya ditambah 1: 1+3+1=5, 3+5+1=9, 5+9+1=15, 9+15+1=25, maka 15+25+1 = 41." },
+      { "key": "D", "text": "42", "score": 0, "isCorrect": false, "rationale": "Kelebihan 1." },
+      { "key": "E", "text": "45", "score": 0, "isCorrect": false, "rationale": "Tidak sesuai pola." }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Deret Fibonacci termodifikasi: U(n) = U(n-1) + U(n-2) + k. Bisa juga dilihat dari selisih antarsuku: +2, +2, +4, +6, +10 -> selisihnya membentuk deret Fibonacci (2, 2, 4, 6, 10, 16), sehingga 25 + 16 = 41!",
+      "stepByStep": [
+        "Metode 1 (Fibonacci + 1): 1+3+1=5; 3+5+1=9; 5+9+1=15; 9+15+1=25; 15+25+1=41.",
+        "Metode 2 (Selisih): 2, 2, 4, 6, 10 -> suku selisih berikutnya 6+10 = 16 -> 25+16 = 41."
+      ],
+      "correctReason": "Kedua metode menghasilkan angka yang sama persis: 41.",
+      "distractorAnalysis": {
+        "A": "Kurang teliti dalam penjumlahan.",
+        "B": "Lupa konstanta +1.",
+        "D": "Salah tambah.",
+        "E": "Pola tidak konsisten."
+      },
+      "quickTrick": "Jika selisih deret membentuk 2, 2, 4, 6, 10... itu adalah selisih Fibonacci!",
+      "commonMistakes": "Hanya menjumlahkan dua suku sebelumnya tanpa konstanta +1.",
+      "studyMaterialTip": "Uji pola penjumlahan dua suku sebelumnya bila deret tumbuh sedang."
+    },
+    "references": [
+      { "title": "Deret Fibonacci dan Variasinya", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-020",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Hubungan P dan Q (Kecepatan & Jarak)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Seorang kurir menempuh jarak 120 km dengan kecepatan rata-rata 60 km/jam. Jika P adalah waktu tempuh kurir tersebut (dalam menit) dan Q = 150, maka hubungan antara P dan Q adalah...",
+    "options": [
+      { "key": "A", "text": "P > Q", "score": 0, "isCorrect": false, "rationale": "P = 120 menit < 150." },
+      { "key": "B", "text": "P < Q", "score": 5, "isCorrect": true, "rationale": "Waktu tempuh = 120 km / 60 km/jam = 2 jam = 120 menit. Karena 120 < 150, maka P < Q." },
+      { "key": "C", "text": "P = Q", "score": 0, "isCorrect": false, "rationale": "120 tidak sama dengan 150." },
+      { "key": "D", "text": "P = 2Q", "score": 0, "isCorrect": false, "rationale": "Salah perbandingan." },
+      { "key": "E", "text": "Hubungan P dan Q tidak dapat ditentukan", "score": 0, "isCorrect": false, "rationale": "Nilai P dan Q dapat dihitung pasti." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Perbandingan kuantitatif membandingkan nilai dua besaran dengan satuan yang disamakan terlebih dahulu.",
+      "stepByStep": [
+        "Hitung waktu tempuh: t = s / v = 120 / 60 = 2 jam.",
+        "Konversi ke menit sesuai definisi P: 2 × 60 = 120 menit.",
+        "Bandingkan P = 120 dan Q = 150 -> P < Q."
+      ],
+      "correctReason": "P = 120 dan Q = 150, sehingga P < Q.",
+      "distractorAnalysis": {
+        "A": "Salah arah ketidaksamaan.",
+        "C": "Keliru mengonversi jam ke menit.",
+        "D": "Tidak sesuai.",
+        "E": "Data cukup untuk menentukan nilai pasti."
+      },
+      "quickTrick": "Selalu cek satuan yang diminta pada P dan Q (jam vs menit).",
+      "commonMistakes": "Lupa mengubah 2 jam menjadi 120 menit.",
+      "studyMaterialTip": "Ulangi rumus dasar Jarak = Kecepatan × Waktu."
+    },
+    "references": [
+      { "title": "Perbandingan Kuantitatif Dasar", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-021",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Variabel dengan Batasan Ketidaksamaan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Diketahui -4 < x < 2 dan 1 < y < 5. Jika P = x² dan Q = y², manakah pernyataan berikut yang paling tepat?",
+    "options": [
+      { "key": "A", "text": "P > Q", "score": 0, "isCorrect": false, "rationale": "Jika x = 0 dan y = 4, P = 0 < Q = 16." },
+      { "key": "B", "text": "P < Q", "score": 0, "isCorrect": false, "rationale": "Jika x = -3 dan y = 2, P = 9 > Q = 4." },
+      { "key": "C", "text": "P = Q", "score": 0, "isCorrect": false, "rationale": "Tidak selalu sama." },
+      { "key": "D", "text": "P + Q > 30", "score": 0, "isCorrect": false, "rationale": "Jika x = 0 dan y = 2, P + Q = 4." },
+      { "key": "E", "text": "Informasi yang diberikan tidak cukup untuk menentukan hubungan pasti antara P dan Q", "score": 5, "isCorrect": true, "rationale": "Ambil contoh 1: x = -3, y = 2 -> P = 9 > Q = 4. Contoh 2: x = 0, y = 4 -> P = 0 < Q = 16. Karena bisa lebih besar maupun lebih kecil, hubungan tidak dapat ditentukan." }
+    ],
+    "correctOption": "E",
+    "explanation": {
+      "concept": "Dalam perbandingan kuantitatif, hubungan P > Q, P < Q, atau P = Q hanya benar jika berlaku untuk SEMUA nilai yang memenuhi syarat interval.",
+      "stepByStep": [
+        "Tentukan rentang P = x² untuk -4 < x < 2: karena 0 ada di dalam interval dan (-4)² = 16, maka 0 ≤ P < 16.",
+        "Tentukan rentang Q = y² untuk 1 < y < 5: maka 1 < Q < 25.",
+        "Rentang P [0, 16) dan Q (1, 25) saling tumpang tindih.",
+        "Uji dua titik: (x=-3, y=2) => P=9 > Q=4; (x=0, y=4) => P=0 < Q=16."
+      ],
+      "correctReason": "Karena terdapat pasangan nilai yang membuat P > Q sekaligus pasangan lain yang membuat P < Q, hubungannya tidak dapat ditentukan.",
+      "distractorAnalysis": {
+        "A": "Hanya menguji ujung negatif x.",
+        "B": "Lupa menguji x negatif (-3² = 9).",
+        "C": "Hanya berlaku kebetulan (misal x=2 tidak termasuk, atau x=-2, y=2).",
+        "D": "Salah untuk nilai tengah kecil."
+      },
+      "quickTrick": "Jika interval memuat bilangan negatif dan positif lalu dikuadratkan, selalu cek x = 0 (minimum) dan nilai negatif terbesar!",
+      "commonMistakes": "Mengira -4 < x < 2 menghasilkan 4 < x² < 16 (lupa bahwa 0² = 0).",
+      "studyMaterialTip": "Pelajari sifat pengkuadratan interval yang melintasi angka 0."
+    },
+    "references": [
+      { "title": "Pertidaksamaan dan Interval Kuadrat", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-022",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Perbandingan Persentase Diskon Bertingkat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Harga awal sebuah printer kantor adalah Rp2.000.000. Toko A memberikan diskon tunggal sebesar 35%. Toko B memberikan diskon bertingkat 20% lalu tambahan diskon 15% dari harga setelah diskon pertama. Jika P adalah harga akhir di Toko A dan Q adalah harga akhir di Toko B, maka...",
+    "options": [
+      { "key": "A", "text": "P > Q", "score": 0, "isCorrect": false, "rationale": "Diskon bertingkat 20% + 15% setara 32%, lebih kecil dari diskon tunggal 35%, sehingga harga Toko B lebih mahal." },
+      { "key": "B", "text": "P < Q", "score": 5, "isCorrect": true, "rationale": "P = 65% × 2.000.000 = 1.300.000. Q = 80% × 85% × 2.000.000 = 68% × 2.000.000 = 1.360.000. Jadi P < Q." },
+      { "key": "C", "text": "P = Q", "score": 0, "isCorrect": false, "rationale": "Diskon bertingkat 20%+15% tidak sama dengan 35%." },
+      { "key": "D", "text": "Q - P = Rp100.000", "score": 0, "isCorrect": false, "rationale": "Selisihnya Rp60.000 (3% × 2.000.000)." },
+      { "key": "E", "text": "Tidak dapat ditentukan", "score": 0, "isCorrect": false, "rationale": "Dapat dihitung tepat." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Rumus diskon bertingkat d₁% + d₂% setara dengan diskon tunggal: d₁ + d₂ - (d₁×d₂)/100.",
+      "stepByStep": [
+        "Toko A: Diskon 35% -> Bayar 65% = Rp1.300.000.",
+        "Toko B: Diskon total = 20 + 15 - (20×15)/100 = 35 - 3 = 32% -> Bayar 68% = Rp1.360.000.",
+        "Karena P = 1.300.000 dan Q = 1.360.000, maka P < Q."
+      ],
+      "correctReason": "Harga akhir di Toko A (Rp1.300.000) lebih murah dibandingkan di Toko B (Rp1.360.000).",
+      "distractorAnalysis": {
+        "A": "Tertukar antara besar diskon dan harga bayar.",
+        "C": "Jebakan klasik menjumlahkan 20% + 15% = 35%.",
+        "D": "Selisih sebenarnya Rp60.000.",
+        "E": "Data lengkap."
+      },
+      "quickTrick": "Diskon bertingkat SELALU lebih kecil daripada jumlah langsungnya (selisihnya sebesar d₁×d₂/100). Diskon lebih kecil -> Harga bayar lebih mahal!",
+      "commonMistakes": "Mengira 20% + 15% sama dengan 35%, atau terbalik antara harga murah (P < Q) dan diskon besar.",
+      "studyMaterialTip": "Pahami cara menghitung persentase beruntun dengan faktor pengali (0,8 × 0,85 = 0,68)."
+    },
+    "references": [
+      { "title": "Aritmetika Sosial & Diskon Bertingkat", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-023",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Analisis Data Kuantitatif Tiga Variabel",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Diketahui bilangan positif a, b, dan c memenuhi a/b = 3/4 dan b/c = 2/5. Jika P = (a + c) / b dan Q = 3,5, maka hubungan P dan Q adalah...",
+    "options": [
+      { "key": "A", "text": "P > Q", "score": 0, "isCorrect": false, "rationale": "Hitung rasio gabungan: a:b:c = 3:4:10. Maka (3+10)/4 = 13/4 = 3,25 < 3,5." },
+      { "key": "B", "text": "P < Q", "score": 5, "isCorrect": true, "rationale": "Samakan b: a/b = 3/4, b/c = 2/5 = 4/10. Sehingga a : b : c = 3 : 4 : 10. Maka P = (3k + 10k) / 4k = 13/4 = 3,25. Karena 3,25 < 3,5, maka P < Q." },
+      { "key": "C", "text": "P = Q", "score": 0, "isCorrect": false, "rationale": "3,25 tidak sama dengan 3,5." },
+      { "key": "D", "text": "2P = Q", "score": 0, "isCorrect": false, "rationale": "6,5 tidak sama dengan 3,5." },
+      { "key": "E", "text": "Hubungan P dan Q tidak dapat ditentukan", "score": 0, "isCorrect": false, "rationale": "Faktor skala k saling meniadakan dalam pembagian." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Perbandingan tiga besaran dapat disatukan dengan menyamakan nilai variabel penghubung (b), lalu mensubstitusi ke bentuk pecahan homogen.",
+      "stepByStep": [
+        "a : b = 3 : 4 dan b : c = 2 : 5.",
+        "Kalikan rasio kedua dengan 2 agar b sama-sama bernilai 4 -> b : c = 4 : 10.",
+        "Didapat a : b : c = 3 : 4 : 10.",
+        "Substitusi ke P = (a + c) / b = (3 + 10) / 4 = 13 / 4 = 3,25.",
+        "Bandingkan dengan Q = 3,5 -> P < Q."
+      ],
+      "correctReason": "P = 3,25 dan Q = 3,5, maka P < Q.",
+      "distractorAnalysis": {
+        "A": "Salah saat menyamakan rasio b.",
+        "C": "Keliru membagi 13/4.",
+        "D": "Tidak sesuai.",
+        "E": "Meskipun nilai asli a, b, c tak diketahui, rasionya tetap."
+      },
+      "quickTrick": "Pada pecahan homogen seperti (a+c)/b, langsung pakai angka perbandingan terkecil (a=3, b=4, c=10)!",
+      "commonMistakes": "Menganggap nilai tidak bisa ditentukan karena hanya ada dua persamaan untuk tiga variabel.",
+      "studyMaterialTip": "Latih menyatukan dua perbandingan berantai (a:b dan b:c)."
+    },
+    "references": [
+      { "title": "Rasio dan Proporsi Lanjutan", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-024",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Perbandingan Berbalik Nilai (Waktu & Pekerja)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Suatu pekerjaan pengarsipan dokumen dapat diselesaikan oleh 12 petugas dalam waktu 15 hari. Jika pimpinan ingin pekerjaan tersebut selesai dalam 10 hari, berapa banyak tambahan petugas yang diperlukan (dengan asumsi kecepatan kerja semua petugas sama)?",
+    "options": [
+      { "key": "A", "text": "4 orang", "score": 0, "isCorrect": false, "rationale": "12 + 4 = 16 orang tidak cukup." },
+      { "key": "B", "text": "6 orang", "score": 5, "isCorrect": true, "rationale": "Total beban kerja = 12 × 15 = 180 orang-hari. Untuk 10 hari butuh 180 / 10 = 18 orang. Tambahan petugas = 18 - 12 = 6 orang." },
+      { "key": "C", "text": "8 orang", "score": 0, "isCorrect": false, "rationale": "Terlalu banyak." },
+      { "key": "D", "text": "18 orang", "score": 0, "isCorrect": false, "rationale": "18 adalah jumlah TOTAL petugas, bukan TAMBAHAN petugas!" },
+      { "key": "E", "text": "20 orang", "score": 0, "isCorrect": false, "rationale": "Salah perhitungan." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Jumlah pekerja dan waktu penyelesaian berbanding terbalik: Pekerja₁ × Waktu₁ = Pekerja₂ × Waktu₂.",
+      "stepByStep": [
+        "12 × 15 = P₂ × 10.",
+        "180 = 10 × P₂ -> P₂ = 18 orang.",
+        "Perhatikan pertanyaan: 'berapa banyak TAMBAHAN petugas'.",
+        "Tambahan = 18 - 12 = 6 orang."
+      ],
+      "correctReason": "Total petugas menjadi 18 orang, sehingga tambahannya adalah 6 orang.",
+      "distractorAnalysis": {
+        "A": "Salah perkalian.",
+        "C": "Salah hitung.",
+        "D": "Jebakan klasik: menjawab total pekerja (18), bukan tambahan (6).",
+        "E": "Salah rumus."
+      },
+      "quickTrick": "Garis bawahi kata 'tambahan' pada soal pekerja-waktu! Hitung total lalu kurangi pekerja awal.",
+      "commonMistakes": "Langsung memilih 18 karena lupa mengurangi dengan 12 pekerja awal.",
+      "studyMaterialTip": "Latih perbandingan senilai dan berbalik nilai serta soal modifikasi libur kerja."
+    },
+    "references": [
+      { "title": "Perbandingan Berbalik Nilai", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-025",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Kerja Bersama (Laju Gabungan)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Mesin cetak A dapat mencetak satu paket soal lengkap dalam 6 jam, sedangkan mesin cetak B dapat menyelesaikannya dalam 4 jam. Jika kedua mesin dijalankan bersamaan mulai pukul 08.00, pada pukul berapakah pencetakan paket soal tersebut selesai?",
+    "options": [
+      { "key": "A", "text": "10.00", "score": 0, "isCorrect": false, "rationale": "2 jam hanya menyelesaikan (2/6 + 2/4) = 5/6 bagian." },
+      { "key": "B", "text": "10.24", "score": 5, "isCorrect": true, "rationale": "Laju gabungan = 1/6 + 1/4 = 5/12 paket/jam. Waktu selesai = 12/5 jam = 2,4 jam = 2 jam 24 menit. Mulai 08.00 + 2 jam 24 menit = 10.24." },
+      { "key": "C", "text": "10.40", "score": 0, "isCorrect": false, "rationale": "0,4 jam = 24 menit, bukan 40 menit!" },
+      { "key": "D", "text": "11.00", "score": 0, "isCorrect": false, "rationale": "Terlalu lama." },
+      { "key": "E", "text": "13.00", "score": 0, "isCorrect": false, "rationale": "Salah menggunakan rata-rata (6+4)/2 = 5 jam." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Untuk pekerjaan bersama, laju kerja dijumlahkan: 1/T = 1/T_A + 1/T_B, atau rumus cepat (T_A × T_B) / (T_A + T_B).",
+      "stepByStep": [
+        "Gunakan rumus cepat: T = (6 × 4) / (6 + 4) = 24 / 10 = 2,4 jam.",
+        "Ubah 0,4 jam ke menit: 0,4 × 60 menit = 24 menit.",
+        "Total durasi = 2 jam 24 menit.",
+        "Waktu selesai = 08.00 + 2 jam 24 menit = 10.24."
+      ],
+      "correctReason": "Pencetakan selesai dalam 2 jam 24 menit, yaitu pukul 10.24.",
+      "distractorAnalysis": {
+        "A": "Membulatkan ke bawah.",
+        "C": "Jebakan klasik mengira 2,4 jam = 2 jam 40 menit.",
+        "D": "Salah penjumlahan.",
+        "E": "Mengambil rata-rata waktu yang mustahil (lebih lambat dari mesin B sendiri)."
+      },
+      "quickTrick": "Waktu bersama 2 objek = (A×B)/(A+B). Ingat: 0,1 jam = 6 menit, jadi 0,4 jam = 24 menit!",
+      "commonMistakes": "Mengubah 2,4 jam menjadi 2 jam 40 menit.",
+      "studyMaterialTip": "Hafalkan konversi desimal jam: 0,2=12m, 0,25=15m, 0,4=24m, 0,5=30m, 0,75=45m."
+    },
+    "references": [
+      { "title": "Laju Kerja Gabungan", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-026",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Rata-Rata Gabungan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Rata-rata nilai tryout 18 peserta kelompok pagi adalah 340, sedangkan rata-rata nilai 12 peserta kelompok siang adalah 365. Berapakah rata-rata nilai gabungan seluruh peserta?",
+    "options": [
+      { "key": "A", "text": "348", "score": 0, "isCorrect": false, "rationale": "Terlalu rendah." },
+      { "key": "B", "text": "350", "score": 5, "isCorrect": true, "rationale": "Rasio jumlah peserta = 18 : 12 = 3 : 2. Rata-rata = (3×340 + 2×365) / (3+2) = (1020 + 730) / 5 = 1750 / 5 = 350." },
+      { "key": "C", "text": "352,5", "score": 0, "isCorrect": false, "rationale": "Ini rata-rata langsung (340+365)/2 tanpa pembobotan jumlah peserta." },
+      { "key": "D", "text": "355", "score": 0, "isCorrect": false, "rationale": "Keliru menghitung bobot (tertukar 3 dan 2)." },
+      { "key": "E", "text": "360", "score": 0, "isCorrect": false, "rationale": "Terlalu tinggi." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Rata-rata gabungan adalah rata-rata berbobot: X_gab = (n₁·X₁ + n₂·X₂) / (n₁ + n₂). Rasio n₁ : n₂ dapat disederhanakan terlebih dahulu.",
+      "stepByStep": [
+        "Sederhanakan n₁=18 dan n₂=12 dibagi 6 -> 3 dan 2.",
+        "Hitung selisih dari 340: kelompok siang lebih tinggi +25 poin.",
+        "Bagikan kelebihan: (2 × 25) / (3 + 2) = 50 / 5 = +10.",
+        "Rata-rata gabungan = 340 + 10 = 350."
+      ],
+      "correctReason": "Dengan metode pembobotan maupun metode selisih, rata-rata gabungan tepat 350.",
+      "distractorAnalysis": {
+        "A": "Salah pembagian.",
+        "C": "Mengabaikan perbedaan jumlah peserta.",
+        "D": "Tertukar bobot kelompok pagi dan siang.",
+        "E": "Salah hitung."
+      },
+      "quickTrick": "Sederhanakan jumlah peserta (18:12 -> 3:2) sebelum mengalikan! Angka menjadi jauh lebih kecil.",
+      "commonMistakes": "Langsung menjumlahkan dua rata-rata lalu dibagi 2.",
+      "studyMaterialTip": "Kuasai metode rata-rata sementara untuk menghitung rata-rata gabungan dalam hitungan detik."
+    },
+    "references": [
+      { "title": "Statistika Dasar & Rata-Rata Gabungan", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-027",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Kecepatan Susul-Menyusul & Berpapasan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Mobil dinas A berangkat dari Kota P menuju Kota Q pukul 07.00 dengan kecepatan tetap 50 km/jam. Pada pukul 07.30, mobil dinas B berangkat dari Kota P melalui rute yang sama dengan kecepatan tetap 70 km/jam. Pada pukul berapakah mobil B menyusul mobil A?",
+    "options": [
+      { "key": "A", "text": "08.30", "score": 0, "isCorrect": false, "rationale": "Dalam 1 jam setelah 07.30 selisih baru 20 km, padahal A sudah unggul 25 km." },
+      { "key": "B", "text": "08.45", "score": 5, "isCorrect": true, "rationale": "Selisih jarak saat B berangkat (07.30) = 50 × 0,5 jam = 25 km. Selisih kecepatan = 70 - 50 = 20 km/jam. Waktu menyusul = 25 / 20 = 1,25 jam = 1 jam 15 menit. Pukul 07.30 + 1 jam 15 menit = 08.45." },
+      { "key": "C", "text": "09.00", "score": 0, "isCorrect": false, "rationale": "Pada 09.00, B sudah menyalip sejauh 5 km." },
+      { "key": "D", "text": "09.15", "score": 0, "isCorrect": false, "rationale": "Menambahkan durasi ke jam berangkat A (07.00) atau salah selisih jarak." },
+      { "key": "E", "text": "09.30", "score": 0, "isCorrect": false, "rationale": "Terlalu lama." }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pada kasus susul-menyusul, waktu menyusul dihitung sejak kendaraan kedua berangkat: t = (Jarak duluan) / (v_pengejar - v_terkejar).",
+      "stepByStep": [
+        "Selisih waktu berangkat = 07.30 - 07.00 = 0,5 jam.",
+        "Jarak yang sudah ditempuh A saat B mulai jalan = 50 × 0,5 = 25 km.",
+        "Kecepatan relatif B mengejar A = 70 - 50 = 20 km/jam.",
+        "Waktu menyusul t = 25 / 20 = 1,25 jam = 1 jam 15 menit.",
+        "Pukul menyusul = 07.30 + 01.15 = 08.45."
+      ],
+      "correctReason": "Di pukul 08.45, A sudah berjalan 1,75 jam (87,5 km) dan B sudah berjalan 1,25 jam (87,5 km). Jarak sama persis!",
+      "distractorAnalysis": {
+        "A": "Salah membagi 25/20.",
+        "C": "Salah hitung 1,5 jam.",
+        "D": "Salah konversi atau penjumlahan jam.",
+        "E": "Terlalu jauh."
+      },
+      "quickTrick": "Rumus susul: t = (selisih jarak) / (v₂ - v₁). Waktu ditambah ke jam berangkat kendaraan KEDUA!",
+      "commonMistakes": "Menambahkan waktu menyusul ke jam berangkat kendaraan pertama (07.00) alih-alih 07.30.",
+      "studyMaterialTip": "Bedakan soal berpapasan (kecepatan DIJUMLAH) dengan soal menyusul (kecepatan DIKURANG)."
+    },
+    "references": [
+      { "title": "Gerak Lurus: Berpapasan dan Menyusul", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-028",
+    "subject": "TIU",
+    "topic": "Serial",
+    "topicSlug": "figural-serial",
+    "subtopic": "Rotasi & Pergerakan Elemen",
+    "questionType": "FIGURAL_SERIAL",
+    "difficulty": "EASY",
+    "stem": "Perhatikan rangkaian empat gambar berikut secara berurutan dari kiri ke kanan. Gambar manakah yang tepat melanjutkan pola pada kotak kelima?",
+    "visualSpec": {
+      "kind": "serial",
+      "frames": [
+        { "shapes": [{ "type": "arrow", "angle": 0, "fill": "#1e3a8a" }, { "type": "dot", "corner": "TL", "fill": "#4f46e5" }] },
+        { "shapes": [{ "type": "arrow", "angle": 90, "fill": "#1e3a8a" }, { "type": "dot", "corner": "TR", "fill": "#4f46e5" }] },
+        { "shapes": [{ "type": "arrow", "angle": 180, "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#4f46e5" }] },
+        { "shapes": [{ "type": "arrow", "angle": 270, "fill": "#1e3a8a" }, { "type": "dot", "corner": "BL", "fill": "#4f46e5" }] }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Panah menghadap atas (0°) dan titik di sudut kiri atas",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Panah berputar 90° searah jarum jam tiap langkah (0° -> 90° -> 180° -> 270° -> 0°), dan titik bergerak searah jarum jam sudut ke sudut (TL -> TR -> BR -> BL -> TL).",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 0, "fill": "#1e3a8a" }, { "type": "dot", "corner": "TL", "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "B",
+        "text": "Panah menghadap kanan (90°) dan titik di sudut kiri atas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Arah panah salah, seharusnya kembali ke 0°.",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 90, "fill": "#1e3a8a" }, { "type": "dot", "corner": "TL", "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "C",
+        "text": "Panah menghadap atas (0°) dan titik di sudut kanan atas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Posisi titik seharusnya di kiri atas.",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 0, "fill": "#1e3a8a" }, { "type": "dot", "corner": "TR", "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "D",
+        "text": "Panah menghadap bawah (180°) dan titik di sudut kanan bawah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengulang frame ke-3.",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 180, "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "E",
+        "text": "Panah menghadap kiri (270°) dan titik di sudut kiri bawah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengulang frame ke-4.",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 270, "fill": "#1e3a8a" }, { "type": "dot", "corner": "BL", "fill": "#4f46e5" }] }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Pada figural serial, lacak setiap elemen secara terpisah: orientasi (rotasi), posisi sudut, jumlah sisi, dan warna/arsiran.",
+      "stepByStep": [
+        "Elemen 1 (Panah): Atas (0°) -> Kanan (90°) -> Bawah (180°) -> Kiri (270°). Langkah ke-5 kembali ke Atas (0°).",
+        "Elemen 2 (Titik): Kiri Atas -> Kanan Atas -> Kanan Bawah -> Kiri Bawah. Langkah ke-5 kembali ke Kiri Atas."
+      ],
+      "correctReason": "Siklus rotasi 90° sebanyak 4 kali mengembalikan konfigurasi ke posisi awal (frame 1 = frame 5).",
+      "distractorAnalysis": {
+        "B": "Panah gagal berotasi.",
+        "C": "Titik melompat satu sudut.",
+        "D": "Salah langkah.",
+        "E": "Tidak bergerak dari frame ke-4."
+      },
+      "quickTrick": "Putaran 90° berulang 4 kali selalu kembali ke bentuk Frame 1 di Frame 5!",
+      "commonMistakes": "Melacak semua objek sekaligus sehingga bingung; pisahkan satu per satu.",
+      "studyMaterialTip": "Latih pemisahan pola rotasi (searah/berlawanan jarum jam) dan translasi (pergeseran posisi)."
+    },
+    "references": [
+      { "title": "Penalaran Figural Serial", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-029",
+    "subject": "TIU",
+    "topic": "Serial",
+    "topicSlug": "figural-serial",
+    "subtopic": "Penambahan Sisi & Pergantian Arsiran",
+    "questionType": "FIGURAL_SERIAL",
+    "difficulty": "MEDIUM",
+    "stem": "Amati perubahan jumlah sisi poligon dan warna isian pada empat gambar berurutan berikut. Gambar kelima yang paling tepat adalah...",
+    "visualSpec": {
+      "kind": "serial",
+      "frames": [
+        { "shapes": [{ "type": "polygon", "sides": 3, "fill": "#1e3a8a" }] },
+        { "shapes": [{ "type": "polygon", "sides": 4, "fill": "none", "stroke": "#1e3a8a" }] },
+        { "shapes": [{ "type": "polygon", "sides": 5, "fill": "#1e3a8a" }] },
+        { "shapes": [{ "type": "polygon", "sides": 6, "fill": "none", "stroke": "#1e3a8a" }] }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Segi tujuh (heptagon) berwarna kosong/putih",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pola warna bergantian penuh-kosong-penuh-kosong, sehingga ke-5 harus penuh.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 7, "fill": "none", "stroke": "#1e3a8a" }] }
+      },
+      {
+        "key": "B",
+        "text": "Segi enam (heksagon) berwarna penuh",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jumlah sisi harus bertambah menjadi 7.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 6, "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "C",
+        "text": "Segi tujuh (heptagon) berwarna penuh",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Jumlah sisi bertambah +1 setiap langkah (3 -> 4 -> 5 -> 6 -> 7) dan warna bergantian (penuh -> kosong -> penuh -> kosong -> penuh).",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 7, "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "D",
+        "text": "Segi delapan (oktagon) berwarna penuh",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Melompati segi tujuh.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 8, "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "E",
+        "text": "Segi lima (pentagon) berwarna penuh",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jumlah sisi berkurang.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 5, "fill": "#1e3a8a" }] }
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Pola perubahan kuantitatif (jumlah sisi poligon) yang dipadukan dengan pola biner (penuh vs garis luar saja).",
+      "stepByStep": [
+        "Hitung sisi: 3 (segitiga) -> 4 (persegi) -> 5 (segilima) -> 6 (segienam) -> 7 (segitujuh).",
+        "Cek isian: penuh -> kosong -> penuh -> kosong -> penuh."
+      ],
+      "correctReason": "Gambar ke-5 harus berbentuk poligon bersisi 7 dengan isian penuh.",
+      "distractorAnalysis": {
+        "A": "Warna terbalik.",
+        "B": "Jumlah sisi tetap 6.",
+        "D": "Jumlah sisi 8.",
+        "E": "Jumlah sisi 5."
+      },
+      "quickTrick": "Hitung jumlah sisi/garis/titik dan tulis sebagai deret angka (3, 4, 5, 6, ...).",
+      "commonMistakes": "Keliru menghitung sisi antara segi enam, segi tujuh, dan segi delapan.",
+      "studyMaterialTip": "Ubah pola figural jumlah elemen menjadi angka agar lebih cepat dianalisis."
+    },
+    "references": [
+      { "title": "Pola Geometri & Jumlah Sisi", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-030",
+    "subject": "TIU",
+    "topic": "Serial",
+    "topicSlug": "figural-serial",
+    "subtopic": "Pola Gerak Ganda Berlawanan Arah",
+    "questionType": "FIGURAL_SERIAL",
+    "difficulty": "HARD",
+    "stem": "Dalam rangkaian empat gambar berikut, terdapat dua elemen: persegi kecil (bergerak di sudut) dan panah tengah (berotasi). Manakah gambar kelima yang melanjutkan kedua pola secara tepat?",
+    "visualSpec": {
+      "kind": "serial",
+      "frames": [
+        { "shapes": [{ "type": "arrow", "angle": 0, "fill": "#1e3a8a" }, { "type": "square", "corner": "TL", "fill": "#0f766e" }] },
+        { "shapes": [{ "type": "arrow", "angle": 315, "fill": "#1e3a8a" }, { "type": "square", "corner": "TR", "fill": "#0f766e" }] },
+        { "shapes": [{ "type": "arrow", "angle": 270, "fill": "#1e3a8a" }, { "type": "square", "corner": "BR", "fill": "#0f766e" }] },
+        { "shapes": [{ "type": "arrow", "angle": 225, "fill": "#1e3a8a" }, { "type": "square", "corner": "BL", "fill": "#0f766e" }] }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Panah menghadap bawah (180°) dan persegi kecil di sudut kiri atas",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Panah berotasi 45° berlawanan jarum jam (0° -> 315° -> 270° -> 225° -> 180°). Persegi kecil bergerak searah jarum jam sudut ke sudut (TL -> TR -> BR -> BL -> TL).",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 180, "fill": "#1e3a8a" }, { "type": "square", "corner": "TL", "fill": "#0f766e" }] }
+      },
+      {
+        "key": "B",
+        "text": "Panah menghadap bawah (180°) dan persegi kecil di sudut kanan atas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Posisi persegi salah.",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 180, "fill": "#1e3a8a" }, { "type": "square", "corner": "TR", "fill": "#0f766e" }] }
+      },
+      {
+        "key": "C",
+        "text": "Panah menghadap atas (0°) dan persegi kecil di sudut kiri atas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Panah seharusnya di 180°.",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 0, "fill": "#1e3a8a" }, { "type": "square", "corner": "TL", "fill": "#0f766e" }] }
+      },
+      {
+        "key": "D",
+        "text": "Panah menghadap kanan-bawah (135°) dan persegi kecil di sudut kiri atas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Berputar terlalu jauh (90°).",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 135, "fill": "#1e3a8a" }, { "type": "square", "corner": "TL", "fill": "#0f766e" }] }
+      },
+      {
+        "key": "E",
+        "text": "Panah menghadap kiri (270°) dan persegi kecil di sudut kanan bawah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah keduanya.",
+        "visualSpec": { "shapes": [{ "type": "arrow", "angle": 270, "fill": "#1e3a8a" }, { "type": "square", "corner": "BR", "fill": "#0f766e" }] }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Figural serial tingkat lanjut sering menggerakkan dua objek dalam arah rotasi yang berlawanan atau dengan besar sudut berbeda (45° vs 90°).",
+      "stepByStep": [
+        "Panah: 0° -> -45° (315°/kiri atas) -> -45° (270°/kiri) -> -45° (225°/kiri bawah) -> -45° (180°/bawah).",
+        "Persegi kecil: TL -> TR -> BR -> BL -> kembali ke TL."
+      ],
+      "correctReason": "Opsi A menggabungkan panah 180° (bawah) dan persegi di TL.",
+      "distractorAnalysis": {
+        "B": "Persegi salah sudut.",
+        "C": "Panah kembali ke 0° terlalu cepat.",
+        "D": "Sudut rotasi panah keliru.",
+        "E": "Mengulang frame 3."
+      },
+      "quickTrick": "Beri label sudut (0, 45, 90, 135, 180, 225, 270, 315) agar rotasi 45° terlihat seperti deret angka biasa.",
+      "commonMistakes": "Tertukar arah jarum jam dengan berlawanan arah jarum jam.",
+      "studyMaterialTip": "Uji tiap elemen secara independen terlebih dahulu."
+    },
+    "references": [
+      { "title": "Figural Serial Rotasi 45 Derajat", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-031",
+    "subject": "TIU",
+    "topic": "Analogi",
+    "topicSlug": "figural-analogi",
+    "subtopic": "Inversi Warna & Penambahan Elemen Dalam",
+    "questionType": "FIGURAL_ANALOGY",
+    "difficulty": "EASY",
+    "stem": "Perhatikan hubungan gambar pertama ke gambar kedua pada pasangan pertama. Terapkan aturan yang sama pada gambar ketiga untuk menemukan gambar keempat.",
+    "visualSpec": {
+      "kind": "analogy",
+      "pairA": [
+        { "shapes": [{ "type": "circle", "fill": "#1e3a8a" }] },
+        { "shapes": [{ "type": "circle", "fill": "none", "stroke": "#1e3a8a" }, { "type": "dot", "corner": "CENTER", "fill": "#1e3a8a" }] }
+      ],
+      "pairBStart": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "#1e3a8a" }] }
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Persegi garis luar (kosong) dengan titik penuh di tengah",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Transformasi: bentuk utama berubah dari terisi penuh menjadi garis luar (kosong), dan muncul titik penuh di pusatnya.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "none", "stroke": "#1e3a8a" }, { "type": "dot", "corner": "CENTER", "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "B",
+        "text": "Persegi penuh tanpa titik di tengah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak mengalami transformasi.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "C",
+        "text": "Persegi kosong tanpa titik di tengah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kurang titik di tengah.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "none", "stroke": "#1e3a8a" }] }
+      },
+      {
+        "key": "D",
+        "text": "Lingkaran kosong dengan titik di tengah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bentuk dasar harus tetap persegi.",
+        "visualSpec": { "shapes": [{ "type": "circle", "fill": "none", "stroke": "#1e3a8a" }, { "type": "dot", "corner": "CENTER", "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "E",
+        "text": "Segitiga kosong dengan titik di tengah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah bentuk dasar.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 3, "fill": "none", "stroke": "#1e3a8a" }, { "type": "dot", "corner": "CENTER", "fill": "#1e3a8a" }] }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Analogi figural memindahkan aturan transformasi A -> B ke C -> D secara konsisten.",
+      "stepByStep": [
+        "Amati pasangan 1: Lingkaran penuh -> Lingkaran kosong + titik tengah.",
+        "Aturan: bentuk tetap, isian dikosongkan, tambah titik tengah.",
+        "Terapkan ke Persegi penuh -> Persegi kosong + titik tengah."
+      ],
+      "correctReason": "Opsi A mempertahankan bentuk persegi dengan perubahan isian dan penambahan titik pusat yang identik dengan pasangan pertama.",
+      "distractorAnalysis": {
+        "B": "Tidak berubah.",
+        "C": "Lupa menambahkan titik pusat.",
+        "D": "Bentuk dasar berubah jadi lingkaran.",
+        "E": "Bentuk dasar berubah jadi segitiga."
+      },
+      "quickTrick": "Rumuskan aturan pasangan kiri dalam satu kalimat singkat lalu terapkan ke pasangan kanan.",
+      "commonMistakes": "Mengubah bentuk dasar objek padahal pasangannya mempertahankan bentuk dasar.",
+      "studyMaterialTip": "Pelajari jenis transformasi analogi: rotasi, pencerminan, inversi warna, perubahan ukuran/jumlah."
+    },
+    "references": [
+      { "title": "Penalaran Figural Analogi", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-032",
+    "subject": "TIU",
+    "topic": "Analogi",
+    "topicSlug": "figural-analogi",
+    "subtopic": "Rotasi 90° & Perubahan Jumlah Sisi",
+    "questionType": "FIGURAL_ANALOGY",
+    "difficulty": "MEDIUM",
+    "stem": "Identifikasi pola perubahan dari gambar ke-1 ke gambar ke-2, lalu pilih gambar ke-4 yang paling tepat untuk pasangan ke-2.",
+    "visualSpec": {
+      "kind": "analogy",
+      "pairA": [
+        { "shapes": [{ "type": "polygon", "sides": 3, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 0, "fill": "#4f46e5" }] },
+        { "shapes": [{ "type": "polygon", "sides": 4, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 90, "fill": "#4f46e5" }] }
+      ],
+      "pairBStart": { "shapes": [{ "type": "polygon", "sides": 5, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 180, "fill": "#4f46e5" }] }
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Segi enam dengan panah menghadap kiri (270°)",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Aturan: jumlah sisi poligon +1 (3->4, maka 5->6) dan panah berotasi +90° searah jarum jam (0°->90°, maka 180°->270°).",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 6, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 270, "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "B",
+        "text": "Segi enam dengan panah menghadap kanan (90°)",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "180° + 90° = 270° (kiri), bukan 90°.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 6, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 90, "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "C",
+        "text": "Segi empat dengan panah menghadap kiri (270°)",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Sisi seharusnya bertambah (+1 -> 6), bukan berkurang.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 270, "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "D",
+        "text": "Segi enam dengan panah menghadap bawah (180°)",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Panah tidak berotasi.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 6, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 180, "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "E",
+        "text": "Segi tujuh dengan panah menghadap kiri (270°)",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Sisi bertambah 2 bukan 1.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 7, "fill": "none", "stroke": "#1e3a8a" }, { "type": "arrow", "angle": 270, "fill": "#4f46e5" }] }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Analogi majemuk menggabungkan transformasi poligon (penambahan sisi) dan rotasi objek internal.",
+      "stepByStep": [
+        "Pasangan 1: Segitiga (3) -> Segiempat (4) [+1 sisi]; Panah atas (0°) -> kanan (90°) [+90° searah jarum jam].",
+        "Terapkan ke gambar ke-3: Segilima (5) + 1 = Segienam (6); Panah bawah (180°) + 90° = kiri (270°)."
+      ],
+      "correctReason": "Segi enam dengan panah menghadap kiri (270°).",
+      "distractorAnalysis": {
+        "B": "Arah rotasi panah berlawanan.",
+        "C": "Jumlah sisi keliru.",
+        "D": "Panah diam.",
+        "E": "Sisi bertambah dua."
+      },
+      "quickTrick": "Cek dua hal terpisah: (1) Sisi 3->4 berarti 5->6; (2) Panah putar 90° searah jarum jam.",
+      "commonMistakes": "Salah arah putaran 90° saat panah bermula dari bawah (180°).",
+      "studyMaterialTip": "Bayangkan jarum jam: pukul 6 (180°) diputar searah jarum jam 90° menuju pukul 9 (270°/kiri)."
+    },
+    "references": [
+      { "title": "Analogi Figural Dua Transformasi", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-033",
+    "subject": "TIU",
+    "topic": "Analogi",
+    "topicSlug": "figural-analogi",
+    "subtopic": "Pencerminan & Pertukaran Posisi",
+    "questionType": "FIGURAL_ANALOGY",
+    "difficulty": "HARD",
+    "stem": "Berdasarkan hubungan transformasi pada pasangan pertama, gambar keempat yang paling tepat melengkapi pasangan kedua adalah...",
+    "visualSpec": {
+      "kind": "analogy",
+      "pairA": [
+        { "shapes": [{ "type": "triangle", "fill": "#1e3a8a", "corner": "TL" }, { "type": "circle", "fill": "none", "stroke": "#4f46e5", "corner": "BR" }] },
+        { "shapes": [{ "type": "triangle", "fill": "none", "stroke": "#1e3a8a", "corner": "BR" }, { "type": "circle", "fill": "#4f46e5", "corner": "TL" }] }
+      ],
+      "pairBStart": { "shapes": [{ "type": "square", "fill": "#1e3a8a", "corner": "TR" }, { "type": "polygon", "sides": 5, "fill": "none", "stroke": "#4f46e5", "corner": "BL" }] }
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Persegi kosong di kiri bawah dan segilima penuh di kanan atas",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Dua objek bertukar sudut secara diagonal (TL<->BR, sehingga TR<->BL) DAN bertukar status isian (penuh menjadi kosong, kosong menjadi penuh).",
+        "visualSpec": { "shapes": [{ "type": "square", "fill": "none", "stroke": "#1e3a8a", "corner": "BL" }, { "type": "polygon", "sides": 5, "fill": "#4f46e5", "corner": "TR" }] }
+      },
+      {
+        "key": "B",
+        "text": "Persegi penuh di kiri bawah dan segilima kosong di kanan atas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertukar posisi tetapi lupa menukar status isian penuh/kosong.",
+        "visualSpec": { "shapes": [{ "type": "square", "fill": "#1e3a8a", "corner": "BL" }, { "type": "polygon", "sides": 5, "fill": "none", "stroke": "#4f46e5", "corner": "TR" }] }
+      },
+      {
+        "key": "C",
+        "text": "Persegi kosong di kanan atas dan segilima penuh di kiri bawah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Isian bertukar tetapi posisi tidak bertukar diagonal.",
+        "visualSpec": { "shapes": [{ "type": "square", "fill": "none", "stroke": "#1e3a8a", "corner": "TR" }, { "type": "polygon", "sides": 5, "fill": "#4f46e5", "corner": "BL" }] }
+      },
+      {
+        "key": "D",
+        "text": "Persegi kosong di kiri atas dan segilima penuh di kanan bawah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Diagonal yang digunakan keliru.",
+        "visualSpec": { "shapes": [{ "type": "square", "fill": "none", "stroke": "#1e3a8a", "corner": "TL" }, { "type": "polygon", "sides": 5, "fill": "#4f46e5", "corner": "BR" }] }
+      },
+      {
+        "key": "E",
+        "text": "Persegi penuh di kanan atas dan segilima penuh di kiri bawah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak sesuai pola.",
+        "visualSpec": { "shapes": [{ "type": "square", "fill": "#1e3a8a", "corner": "TR" }, { "type": "polygon", "sides": 5, "fill": "#4f46e5", "corner": "BL" }] }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Transformasi pertukaran ganda (swap): pertukaran posisi diagonal dan inversi atribut isian.",
+      "stepByStep": [
+        "Pasangan 1: Segitiga (penuh, TL) <-> Lingkaran (kosong, BR) menjadi Segitiga (kosong, BR) dan Lingkaran (penuh, TL).",
+        "Terapkan pada pasangan 2: Persegi (penuh, TR) dan Segilima (kosong, BL).",
+        "Hasil: Persegi menjadi kosong di BL, Segilima menjadi penuh di TR."
+      ],
+      "correctReason": "Opsi A memenuhi pertukaran posisi diagonal (TR <-> BL) sekaligus inversi isian.",
+      "distractorAnalysis": {
+        "B": "Lupa inversi isian.",
+        "C": "Lupa tukar posisi.",
+        "D": "Salah diagonal sudut.",
+        "E": "Tidak menerapkan aturan."
+      },
+      "quickTrick": "Cek dua sifat: Posisi (bertukar sudut?) + Warna (bertukar penuh/kosong?).",
+      "commonMistakes": "Hanya mengecek pertukaran posisi tanpa mengecek inversi isian.",
+      "studyMaterialTip": "Uji seluruh atribut: posisi, bentuk, ukuran, orientasi, dan isian."
+    },
+    "references": [
+      { "title": "Analogi Figural Pertukaran Ganda", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-034",
+    "subject": "TIU",
+    "topic": "Penalaran Matriks",
+    "topicSlug": "penalaran-matriks",
+    "subtopic": "Matriks 3x3 Distribusi Bentuk & Isian",
+    "questionType": "FIGURAL_MATRIX",
+    "difficulty": "MEDIUM",
+    "stem": "Perhatikan matriks gambar 3×3 berikut. Setiap baris memiliki aturan distribusi bentuk dan pola isian yang konsisten. Gambar manakah yang tepat mengisi kotak tanda tanya (?) di kanan bawah?",
+    "visualSpec": {
+      "kind": "matrix",
+      "grid": [
+        [
+          { "shapes": [{ "type": "circle", "fill": "#1e3a8a" }] },
+          { "shapes": [{ "type": "polygon", "sides": 4, "fill": "none", "stroke": "#1e3a8a" }] },
+          { "shapes": [{ "type": "polygon", "sides": 3, "fill": "#4f46e5" }] }
+        ],
+        [
+          { "shapes": [{ "type": "polygon", "sides": 4, "fill": "#4f46e5" }] },
+          { "shapes": [{ "type": "polygon", "sides": 3, "fill": "#1e3a8a" }] },
+          { "shapes": [{ "type": "circle", "fill": "none", "stroke": "#1e3a8a" }] }
+        ],
+        [
+          { "shapes": [{ "type": "polygon", "sides": 3, "fill": "none", "stroke": "#1e3a8a" }] },
+          { "shapes": [{ "type": "circle", "fill": "#4f46e5" }] },
+          null
+        ]
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Persegi penuh berwarna biru tua",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Setiap baris dan kolom memuat tepat satu Lingkaran, satu Persegi, dan satu Segitiga. Selain itu tiap baris memuat tepat satu biru tua penuh, satu kosong garis biru tua, dan satu ungu/indigo penuh. Baris ke-3 sudah punya Segitiga kosong dan Lingkaran indigo penuh -> tersisa Persegi biru tua penuh!",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "B",
+        "text": "Persegi kosong garis biru tua",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Isian kosong sudah dipakai oleh segitiga di baris ke-3.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "none", "stroke": "#1e3a8a" }] }
+      },
+      {
+        "key": "C",
+        "text": "Persegi penuh berwarna indigo",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Warna indigo sudah dipakai oleh lingkaran di baris ke-3.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 4, "fill": "#4f46e5" }] }
+      },
+      {
+        "key": "D",
+        "text": "Lingkaran penuh berwarna biru tua",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Lingkaran sudah ada di baris ke-3.",
+        "visualSpec": { "shapes": [{ "type": "circle", "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "E",
+        "text": "Segitiga penuh berwarna biru tua",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Segitiga sudah ada di baris ke-3.",
+        "visualSpec": { "shapes": [{ "type": "polygon", "sides": 3, "fill": "#1e3a8a" }] }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Matriks Latin Square 3×3 menuntut setiap baris (dan kolom) mengandung himpunan atribut yang lengkap tanpa pengulangan.",
+      "stepByStep": [
+        "Cek bentuk pada baris 3: sudah ada Segitiga dan Lingkaran -> kurang Persegi.",
+        "Cek isian/warna pada baris 3: sudah ada Kosong dan Indigo penuh -> kurang Biru Tua penuh.",
+        "Gabungkan: Persegi biru tua penuh (juga terkonfirmasi secara vertikal di kolom 3: ada Indigo penuh dan Kosong -> butuh Biru Tua penuh)."
+      ],
+      "correctReason": "Opsi A melengkapi baik aturan bentuk maupun aturan isian pada baris 3 dan kolom 3 sekaligus.",
+      "distractorAnalysis": {
+        "B": "Duplikat status kosong di baris 3.",
+        "C": "Duplikat warna indigo di baris 3.",
+        "D": "Duplikat bentuk lingkaran di baris 3.",
+        "E": "Duplikat bentuk segitiga di baris 3."
+      },
+      "quickTrick": "Pada matriks 3×3, cek secara horizontal (baris) DAN vertikal (kolom) untuk menyaring bentuk lalu warna.",
+      "commonMistakes": "Hanya mengecek bentuk tanpa memeriksa konsistensi warna/isian.",
+      "studyMaterialTip": "Kenali pola Latin Square pada matriks figural."
+    },
+    "references": [
+      { "title": "Penalaran Matriks Figural 3x3", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-035",
+    "subject": "TIU",
+    "topic": "Penalaran Matriks",
+    "topicSlug": "penalaran-matriks",
+    "subtopic": "Matriks Superposisi / XOR Garis",
+    "questionType": "FIGURAL_MATRIX",
+    "difficulty": "HARD",
+    "stem": "Dalam matriks 3×3 berikut, kolom ke-3 pada setiap baris dibentuk dengan menggabungkan (penjumlahan elemen) kolom ke-1 dan kolom ke-2, lalu menghilangkan elemen yang muncul sama di keduanya (aturan XOR). Manakah gambar yang tepat mengisi kotak tanda tanya (?)?",
+    "visualSpec": {
+      "kind": "matrix",
+      "grid": [
+        [
+          { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "TR", "fill": "#1e3a8a" }] },
+          { "shapes": [{ "type": "dot", "corner": "TR", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#1e3a8a" }] },
+          { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#1e3a8a" }] }
+        ],
+        [
+          { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BL", "fill": "#1e3a8a" }] },
+          { "shapes": [{ "type": "dot", "corner": "BL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "TR", "fill": "#1e3a8a" }] },
+          { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "TR", "fill": "#1e3a8a" }] }
+        ],
+        [
+          { "shapes": [{ "type": "dot", "corner": "TR", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#1e3a8a" }] },
+          { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#1e3a8a" }] },
+          null
+        ]
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "Titik di TL, TR, dan BL (tanpa BR)",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Baris 3 Kolom 1: {TR, BL, BR}. Baris 3 Kolom 2: {TL, BR}. Elemen yang sama (BR) saling meniadakan. Yang tersisa: {TL, TR, BL}.",
+        "visualSpec": { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "TR", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BL", "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "B",
+        "text": "Titik di semua 4 sudut (TL, TR, BL, BR)",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ini gabungan biasa (OR), lupa menghilangkan BR yang muncul ganda.",
+        "visualSpec": { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "TR", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "C",
+        "text": "Titik hanya di BR",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ini irisan (AND), kebalikan dari XOR.",
+        "visualSpec": { "shapes": [{ "type": "dot", "corner": "BR", "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "D",
+        "text": "Titik di TL dan BL",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "TR dari kolom 1 tertinggal.",
+        "visualSpec": { "shapes": [{ "type": "dot", "corner": "TL", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BL", "fill": "#1e3a8a" }] }
+      },
+      {
+        "key": "E",
+        "text": "Titik di TR dan BR",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak sesuai aturan superposisi.",
+        "visualSpec": { "shapes": [{ "type": "dot", "corner": "TR", "fill": "#1e3a8a" }, { "type": "dot", "corner": "BR", "fill": "#1e3a8a" }] }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Aturan superposisi XOR pada matriks figural: jika suatu posisi muncul di kolom 1 dan kolom 2 sekaligus, posisi tersebut hilang di kolom 3; jika hanya muncul di salah satu, ia tampil di kolom 3.",
+      "stepByStep": [
+        "Verifikasi Baris 1: {TL, TR} XOR {TR, BR} = {TL, BR} (TR hilang).",
+        "Verifikasi Baris 2: {TL, BL} XOR {BL, TR} = {TL, TR} (BL hilang).",
+        "Hitung Baris 3: {TR, BL, BR} XOR {TL, BR}.",
+        "BR muncul di keduanya -> hilang. TL, TR, BL masing-masing muncul sekali -> tetap tampil."
+      ],
+      "correctReason": "Hasil XOR menyisakan titik pada sudut TL, TR, dan BL.",
+      "distractorAnalysis": {
+        "B": "Menggunakan operasi gabungan penuh (OR) bukan XOR.",
+        "C": "Menggunakan operasi irisan (AND).",
+        "D": "Menghilangkan TR tanpa alasan.",
+        "E": "Salah membandingkan."
+      },
+      "quickTrick": "Aturan XOR figural: 'Sama = Hilang, Beda = Tampil'. Cek satu sudut per satu sudut!",
+      "commonMistakes": "Terkecoh antara operasi OR (gabung semua), AND (ambil yang sama), dan XOR (hapus yang sama).",
+      "studyMaterialTip": "Pelajari tiga operasi matriks superposisi: Gabungan (OR), Irisan (AND), dan Saling Hapus (XOR)."
+    },
+    "references": [
+      { "title": "Matriks Figural Operasi Logika", "source": "Modul SKD Nippia" }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  }
+]

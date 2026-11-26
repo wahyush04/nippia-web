@@ -1,0 +1,25 @@
+{
+  "name": "nippia-skd-master",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev --workspace=@nippia/api\" \"npm run dev --workspace=@nippia/web\"",
+    "build": "npm run build --workspace=@nippia/shared && npm run build --workspace=@nippia/api && npm run build --workspace=@nippia/web",
+    "test": "npm run test --workspace=@nippia/api",
+    "db:generate": "npm run db:generate --workspace=@nippia/api",
+    "db:migrate": "npm run db:migrate --workspace=@nippia/api",
+    "db:push": "npm run db:push --workspace=@nippia/api",
+    "db:seed": "npm run db:seed --workspace=@nippia/api",
+    "lint": "npm run lint --workspace=@nippia/api && npm run lint --workspace=@nippia/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

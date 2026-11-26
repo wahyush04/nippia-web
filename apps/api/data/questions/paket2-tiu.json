@@ -1,0 +1,5382 @@
+[
+  {
+    "id": "TIU-P2-001",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Silogisme Kategorik Universal-Partikular",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Semua peserta pelatihan keamanan siber wajib membawa laptop kerja.\nSebagian pegawai bagian keuangan adalah peserta pelatihan keamanan siber.\nSimpulan yang paling tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Semua pegawai bagian keuangan wajib membawa laptop kerja.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Melampaui premis partikular (\"sebagian pegawai\")."
+      },
+      {
+        "key": "B",
+        "text": "Sebagian pegawai bagian keuangan wajib membawa laptop kerja.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pegawai keuangan yang ikut pelatihan termasuk himpunan peserta pelatihan yang wajib membawa laptop."
+      },
+      {
+        "key": "C",
+        "text": "Semua peserta pelatihan berasal dari bagian keuangan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pembalikan himpunan yang tidak valid."
+      },
+      {
+        "key": "D",
+        "text": "Pegawai bagian keuangan tidak pernah mengikuti pelatihan keamanan siber.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan premis kedua."
+      },
+      {
+        "key": "E",
+        "text": "Sebagian peserta pelatihan tidak wajib membawa laptop kerja.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan premis pertama (\"Semua peserta ... wajib\")."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Aturan silogisme: \"Semua P -> Q\" dan \"Sebagian R adalah P\" menghasilkan simpulan pasti \"Sebagian R -> Q\".",
+      "stepByStep": [
+        "Misalkan P = peserta pelatihan, Q = bawa laptop, R = pegawai keuangan.",
+        "Semua P adalah Q; sebagian R adalah P.",
+        "Maka sebagian R adalah Q (Sebagian pegawai keuangan wajib membawa laptop kerja)."
+      ],
+      "correctReason": "Kombinasi premis universal dan partikular menghasilkan simpulan partikular yang sah.",
+      "distractorAnalysis": {
+        "A": "Melampaui premis partikular (\"sebagian pegawai\").",
+        "C": "Pembalikan himpunan yang tidak valid.",
+        "D": "Bertentangan dengan premis kedua.",
+        "E": "Bertentangan dengan premis pertama (\"Semua peserta ... wajib\")."
+      },
+      "quickTrick": "Semua + Sebagian = Sebagian! Langsung coret opsi yang memakai \"Semua\" secara tidak sah.",
+      "commonMistakes": "Menggeneralisasi sebagian menjadi semua.",
+      "studyMaterialTip": "Gunakan diagram Venn cepat: lingkaran R memotong lingkaran P yang berada di dalam lingkaran Q."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-002",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Ekuivalensi Implikasi & Kontraposisi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Jika indeks kualitas udara di atas 150, maka kegiatan olahraga luar ruang ditunda.\nHari ini kegiatan olahraga luar ruang tidak ditunda.\nSimpulan yang sah adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Indeks kualitas udara hari ini di atas 150.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan Modus Tollens."
+      },
+      {
+        "key": "B",
+        "text": "Indeks kualitas udara hari ini tidak di atas 150.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: dengan Modus Tollens (P -> Q, ~Q => ~P), diperoleh bahwa indeks kualitas udara tidak di atas 150 (<= 150)."
+      },
+      {
+        "key": "C",
+        "text": "Hari ini turun hujan lebat sepanjang pagi.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Informasi di luar premis."
+      },
+      {
+        "key": "D",
+        "text": "Besok kegiatan olahraga pasti dilaksanakan di dalam gedung.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Premis hanya berbicara kondisi hari ini."
+      },
+      {
+        "key": "E",
+        "text": "Jika indeks kualitas udara di bawah 150, olahraga pasti dibatalkan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak didukung oleh implikasi premis."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Modus Tollens: Dari P -> Q dan fakta ~Q (negasi konsekuen), wajib disimpulkan ~P (negasi anteseden).",
+      "stepByStep": [
+        "P = IKU > 150; Q = olahraga ditunda.",
+        "Fakta: ~Q (tidak ditunda).",
+        "Simpulan Modus Tollens: ~P (IKU tidak di atas 150)."
+      ],
+      "correctReason": "Penerapan langsung kaidah Modus Tollens.",
+      "distractorAnalysis": {
+        "A": "Bertentangan dengan Modus Tollens.",
+        "C": "Informasi di luar premis.",
+        "D": "Premis hanya berbicara kondisi hari ini.",
+        "E": "Tidak didukung oleh implikasi premis."
+      },
+      "quickTrick": "A -> B, tidak B => tidak A.",
+      "commonMistakes": "Mengira negasi dari \"di atas 150\" hanya \"di bawah 150\", padahal tepat 150 juga termasuk \"tidak di atas 150\".",
+      "studyMaterialTip": "Hati-hati pada negasi pertidaksamaan: negasi dari > 150 adalah <= 150 (\"tidak di atas 150\")."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-003",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Silogisme Hipotetik & Disjungsi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Jika anggaran disahkan tepat waktu, maka proyek jembatan dimulai bulan April.\nJika proyek jembatan dimulai bulan April, maka arus logistik antardesa lancar pada bulan Agustus.\nFaktanya, arus logistik antardesa belum lancar pada bulan Agustus.\nSimpulan yang paling tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Proyek jembatan dimulai tepat bulan April namun tertunda di tengah jalan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jika proyek dimulai bulan April, premis ke-2 menjamin arus logistik lancar pada Agustus."
+      },
+      {
+        "key": "B",
+        "text": "Anggaran tidak disahkan tepat waktu.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: silogisme hipotetik menghasilkan P -> R (\"Jika anggaran tepat waktu -> logistik lancar Agustus\"). Karena ~R terjadi, dengan Modus Tollens disimpulkan ~P."
+      },
+      {
+        "key": "C",
+        "text": "Anggaran disahkan tepat waktu tetapi kontraktor mengundurkan diri.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menyalahi implikasi mutlak premis."
+      },
+      {
+        "key": "D",
+        "text": "Arus logistik akan lancar pada bulan September.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Di luar cakupan premis."
+      },
+      {
+        "key": "E",
+        "text": "Proyek jembatan sudah selesai dibangun sebelum April.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak memiliki dasar premis."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Silogisme hipotetik (P -> Q dan Q -> R memberi P -> R) digabung Modus Tollens (~R => ~P).",
+      "stepByStep": [
+        "P = anggaran tepat waktu; Q = proyek mulai April; R = logistik lancar Agustus.",
+        "Rantai: P -> Q -> R, sehingga P -> R.",
+        "Karena ~R, maka ~P: anggaran tidak disahkan tepat waktu."
+      ],
+      "correctReason": "Penerapan rantai implikasi dilanjutkan Modus Tollens.",
+      "distractorAnalysis": {
+        "A": "Jika proyek dimulai bulan April, premis ke-2 menjamin arus logistik lancar pada Agustus.",
+        "C": "Menyalahi implikasi mutlak premis.",
+        "D": "Di luar cakupan premis.",
+        "E": "Tidak memiliki dasar premis."
+      },
+      "quickTrick": "Rantai implikasi mundur: ~R => ~Q => ~P.",
+      "commonMistakes": "Mencari alasan tambahan di luar premis seperti hujan atau kontraktor.",
+      "studyMaterialTip": "Dalam logika formal SKD, anggap semua premis \"Jika P maka Q\" berlaku mutlak tanpa pengecualian tersembunyi."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-004",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Negasi Kuantor & Implikasi Majemuk",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Diketahui pernyataan: \"Semua arsip rahasia di ruang server telah dienkripsi atau disimpan di brankas fisik.\"\nIngkaran (negasi) yang ekuivalen secara logika dari pernyataan tersebut adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Semua arsip rahasia tidak dienkripsi dan tidak disimpan di brankas fisik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ingkaran kuantor universal \"Semua\" bukanlah \"Semua tidak\", melainkan \"Ada/Beberapa tidak\"."
+      },
+      {
+        "key": "B",
+        "text": "Ada arsip rahasia di ruang server yang belum dienkripsi dan tidak disimpan di brankas fisik.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: ~(Semua x: A v B) ≡ Ada x: (~A ^ ~B) berdasarkan negasi kuantor dan Hukum De Morgan."
+      },
+      {
+        "key": "C",
+        "text": "Ada arsip rahasia yang belum dienkripsi atau tidak disimpan di brankas fisik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kata hubung \"atau\" harus berubah menjadi \"dan\" pada Hukum De Morgan."
+      },
+      {
+        "key": "D",
+        "text": "Tidak ada arsip rahasia di ruang server yang disimpan di brankas fisik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bukan negasi logis yang tepat."
+      },
+      {
+        "key": "E",
+        "text": "Sebagian arsip nonrahasia telah dienkripsi dan disimpan di brankas fisik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengubah subjek pernyataan menjadi arsip nonrahasia."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Negasi \"Semua x bersifat (A atau B)\" adalah \"Ada/Beberapa x yang bersifat (tidak A DAN tidak B)\".",
+      "stepByStep": [
+        "Negasi kuantor \"Semua\" -> \"Ada/Beberapa\".",
+        "Negasi disjungsi (A v B) menurut De Morgan -> (~A ^ ~B).",
+        "Gabungkan: Ada arsip rahasia yang belum dienkripsi DAN tidak disimpan di brankas fisik."
+      ],
+      "correctReason": "Kombinasi negasi kuantor universal dan Hukum De Morgan.",
+      "distractorAnalysis": {
+        "A": "Ingkaran kuantor universal \"Semua\" bukanlah \"Semua tidak\", melainkan \"Ada/Beberapa tidak\".",
+        "C": "Kata hubung \"atau\" harus berubah menjadi \"dan\" pada Hukum De Morgan.",
+        "D": "Bukan negasi logis yang tepat.",
+        "E": "Mengubah subjek pernyataan menjadi arsip nonrahasia."
+      },
+      "quickTrick": "Ingkaran \"Semua ... (A atau B)\" = \"Ada ... (tidak A DAN tidak B)\".",
+      "commonMistakes": "Lupa mengubah \"atau\" menjadi \"dan\" atau lupa mengubah \"semua\" menjadi \"ada\".",
+      "studyMaterialTip": "Ingat dua aturan kunci: ~(Semua) = Ada; ~(A v B) = ~A ^ ~B."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-005",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Generalisasi Data Kebijakan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Selama tiga triwulan berturut-turut, 90% kelurahan yang menerapkan loket antrean daring mencatat waktu tunggu di bawah 15 menit, sedangkan 80% kelurahan yang masih memakai antrean manual memiliki waktu tunggu di atas 45 menit. Kesimpulan induktif yang paling didukung data tersebut adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Penerapan sistem antrean daring berasosiasi kuat dengan waktu tunggu pelayanan yang lebih singkat.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: membandingkan tren kedua kelompok data secara proporsional tanpa klaim ekstrem 100%."
+      },
+      {
+        "key": "B",
+        "text": "Seluruh kelurahan dengan antrean manual pasti tidak memiliki petugas loket yang ramah.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Keramahan petugas tidak diukur oleh data."
+      },
+      {
+        "key": "C",
+        "text": "Antrean daring menghapus sepenuhnya kemungkinan adanya keluhan masyarakat.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Klaim absolut tanpa dukungan data."
+      },
+      {
+        "key": "D",
+        "text": "Kelurahan dengan antrean manual memiliki jumlah penduduk lima kali lebih banyak.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Faktor jumlah penduduk tidak disebutkan pada informasi."
+      },
+      {
+        "key": "E",
+        "text": "Semua kelurahan di seluruh provinsi telah beralih ke sistem daring.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru masih ada kelompok kelurahan yang memakai antrean manual."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Penalaran induktif menarik generalisasi atau kecenderungan yang proporsional sesuai pola data empiris.",
+      "stepByStep": [
+        "Bandingkan kelompok daring (<15 menit) vs manual (>45 menit).",
+        "Pilih kesimpulan yang akurat namun tetap menjaga kehati-hatian statistik.",
+        "Opsi A tepat."
+      ],
+      "correctReason": "Data menunjukkan perbedaan tajam waktu tunggu antara sistem daring dan manual.",
+      "distractorAnalysis": {
+        "B": "Keramahan petugas tidak diukur oleh data.",
+        "C": "Klaim absolut tanpa dukungan data.",
+        "D": "Faktor jumlah penduduk tidak disebutkan pada informasi.",
+        "E": "Justru masih ada kelompok kelurahan yang memakai antrean manual."
+      },
+      "quickTrick": "Pada penalaran induktif data, pilih simpulan korelatif/kecenderungan dan hindari kata ekstrem seperti \"pasti selalu/menghapus sepenuhnya\".",
+      "commonMistakes": "Menyimpulkan sebab-akibat berlebihan di luar variabel yang diamati.",
+      "studyMaterialTip": "Selalu cek apakah kata benda pada opsi benar-benar muncul dalam teks soal."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-006",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Analogi Kausal dalam Fenomena",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Data Dinas Perhubungan menunjukkan setiap kali tarif parkir tepi jalan di pusat kota dinaikkan dan jadwal bus pengumpan ditambah frekuensinya menjadi setiap 10 menit, tingkat keterisian bus naik 38% dan kepadatan kendaraan pribadi turun 22%. Simpulan yang paling sesuai adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Kenaikan tarif parkir saja tanpa perbaikan angkutan umum pasti menurunkan kemacetan hingga nol.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menghilangkan faktor frekuensi bus dan membuat klaim mutlak (\"hingga nol\")."
+      },
+      {
+        "key": "B",
+        "text": "Kombinasi disinsentif parkir kendaraan pribadi dan peningkatan frekuensi bus mendorong peralihan pengguna ke angkutan umum.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: menangkap kedua variabel penyebab dan arah perubahan yang teramati."
+      },
+      {
+        "key": "C",
+        "text": "Penumpang bus meningkat karena harga bahan bakar kendaraan bermotor turun drastis.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Faktor harga BBM tidak ada di bacaan."
+      },
+      {
+        "key": "D",
+        "text": "Seluruh pemilik mobil pribadi langsung menjual kendaraannya begitu tarif parkir naik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesimpulan hiperbolis tidak berdasar."
+      },
+      {
+        "key": "E",
+        "text": "Bus pengumpan tidak layak beroperasi apabila jarak antar-bus kurang dari 30 menit.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru frekuensi tiap 10 menit meningkatkan keterisian bus."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Simpulan induktif harus merangkum faktor pemicu gabungan secara objektif sesuai hasil pengamatan.",
+      "stepByStep": [
+        "Identifikasi pemicu: tarif parkir naik + frekuensi bus bertambah.",
+        "Identifikasi hasil: keterisian bus naik 38% + mobil pribadi turun 22%.",
+        "Opsi B paling komprehensif."
+      ],
+      "correctReason": "Opsi B merefleksikan mekanisme tarik-dorong (push-pull) persis seperti fakta pada teks.",
+      "distractorAnalysis": {
+        "A": "Menghilangkan faktor frekuensi bus dan membuat klaim mutlak (\"hingga nol\").",
+        "C": "Faktor harga BBM tidak ada di bacaan.",
+        "D": "Kesimpulan hiperbolis tidak berdasar.",
+        "E": "Justru frekuensi tiap 10 menit meningkatkan keterisian bus."
+      },
+      "quickTrick": "Pastikan seluruh variabel penting dalam premis ikut tercermin secara wajar pada simpulan.",
+      "commonMistakes": "Hanya mengambil satu penyebab dan mengabaikan variabel pendamping.",
+      "studyMaterialTip": "Cermati kata \"setiap kali A dan B, terjadi C dan D\" sebagai pola korelasi berulang."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-007",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Penguatan & Pelemahan Argumen",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Sebuah kajian menyimpulkan: \"Program sarapan bergizi gratis di SD X meningkatkan fokus belajar siswa karena nilai rata-rata kuis pagi naik 14 poin setelah 2 bulan berjalan.\"\nManakah pernyataan berikut yang paling MEMPERLEMAH kesimpulan bahwa kenaikan nilai tersebut semata-mata disebabkan program sarapan bergizi?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Siswa di SD X menyukai menu sarapan yang disediakan setiap pagi.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru mendukung penerimaan program."
+      },
+      {
+        "key": "B",
+        "text": "Pada periode 2 bulan yang sama, sekolah mengubah soal kuis pagi menjadi jauh lebih mudah dan menambahkan jam bimbingan intensif sebelum kuis.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: menghadirkan variabel perancu (confounding variable) yang menjelaskan kenaikan nilai di luar program sarapan."
+      },
+      {
+        "key": "C",
+        "text": "Orang tua siswa mendukung keberlanjutan program sarapan di sekolah.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak melemahkan klaim kausalitas nilai kuis."
+      },
+      {
+        "key": "D",
+        "text": "Menu sarapan disusun bersama ahli gizi dari puskesmas kecamatan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menunjang kualitas program, bukan melemahkan kesimpulan."
+      },
+      {
+        "key": "E",
+        "text": "Jumlah peserta didik kelas IV di SD X berjumlah 32 anak.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Fakta netral yang tidak melemahkan hubungan sebab-akibat."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Untuk melemahkan kesimpulan kausalitas (\"A menyebabkan B\"), temukan penyebab alternatif (faktor perancu) yang terjadi bersamaan dengan B atau bukti bahwa B tetap terjadi tanpa A.",
+      "stepByStep": [
+        "Identifikasi klaim: sarapan bergizi -> nilai kuis pagi naik 14 poin.",
+        "Cari faktor luar yang muncul bersamaan dan dapat menaikkan skor kuis tanpa efek gizi.",
+        "Opsi B (soal dipermudah + bimbingan intensif) secara langsung melemahkan kausalitas tunggal."
+      ],
+      "correctReason": "Perubahan tingkat kesulitan soal dan tambahan bimbingan menjadi penjelasan tandingan yang kuat.",
+      "distractorAnalysis": {
+        "A": "Justru mendukung penerimaan program.",
+        "C": "Tidak melemahkan klaim kausalitas nilai kuis.",
+        "D": "Menunjang kualitas program, bukan melemahkan kesimpulan.",
+        "E": "Fakta netral yang tidak melemahkan hubungan sebab-akibat."
+      },
+      "quickTrick": "Melemahkan sebab-akibat = cari penyebab alternatif pada waktu yang sama!",
+      "commonMistakes": "Memilih pernyataan tentang opini/dukungan terhadap program alih-alih penjelasan kausal alternatif.",
+      "studyMaterialTip": "Kenali pola soal \"paling memperlemah/memperkuat argumen\" yang rutin muncul di SKD terbaru."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-008",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Urutan Jadwal Presentasi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Lima peserta seleksi (P, Q, R, S, dan T) melakukan wawancara berurutan nomor 1 sampai 5:\n(1) Q diwawancarai tepat sebelum S.\n(2) R mendapat giliran sesudah T, namun sebelum P.\n(3) P bukan peserta terakhir.\n\nSiapakah yang pasti mendapat giliran wawancara PERTAMA?",
+    "options": [
+      {
+        "key": "A",
+        "text": "P",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "R dan T berada sebelum P sehingga P tidak mungkin pertama."
+      },
+      {
+        "key": "B",
+        "text": "Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jika Q-S di posisi awal (1-2, 2-3, atau 3-4), maka T < R < P memaksa P menempati posisi ke-5 yang dilarang syarat (3)."
+      },
+      {
+        "key": "C",
+        "text": "R",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "R berada sesudah T sehingga R tidak mungkin pertama."
+      },
+      {
+        "key": "D",
+        "text": "S",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "S berada tepat sesudah Q sehingga S tidak mungkin pertama."
+      },
+      {
+        "key": "E",
+        "text": "T",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: karena P bukan peserta ke-5 dan T < R < P, maka blok [Q, S] harus menempati posisi 4 dan 5, sehingga urutan tunggal yang valid adalah T(1), R(2), P(3), Q(4), S(5)."
+      }
+    ],
+    "correctOption": "E",
+    "explanation": {
+      "concept": "Kendala P bukan posisi ke-5 memaksa pasangan Q-S harus menduduki posisi ke-4 dan ke-5 agar P bisa berada di posisi <= 4.",
+      "stepByStep": [
+        "Syarat: Q tepat sebelum S (blok [Q,S]), dan T < R < P, dengan P != 5.",
+        "Karena P bukan ke-5 dan R, T sebelum P, harus ada unsur lain di posisi 5. Yang tersisa di luar {T,R,P} hanyalah blok [Q,S].",
+        "Jika [Q,S] menempati posisi 4 dan 5, maka posisi 1, 2, 3 diisi T, R, P.",
+        "Susunan tunggal yang memenuhi semua syarat: 1:T, 2:R, 3:P, 4:Q, 5:S."
+      ],
+      "correctReason": "Satu-satunya konfigurasi yang memenuhi P ≠ 5 dan Q-S berurutan adalah T - R - P - Q - S.",
+      "distractorAnalysis": {
+        "A": "R dan T berada sebelum P sehingga P tidak mungkin pertama.",
+        "B": "Jika Q-S di posisi awal (1-2, 2-3, atau 3-4), maka T < R < P memaksa P menempati posisi ke-5 yang dilarang syarat (3).",
+        "C": "R berada sesudah T sehingga R tidak mungkin pertama.",
+        "D": "S berada tepat sesudah Q sehingga S tidak mungkin pertama."
+      },
+      "quickTrick": "Tulis slot [1][2][3][4][5]. Karena P != 5 dan T < R < P, maka slot 5 harus diisi S (ujung blok Q-S)!",
+      "commonMistakes": "Lupa menguji syarat \"P bukan peserta terakhir\", sehingga mengira Q bisa di posisi 1.",
+      "studyMaterialTip": "Selalu kunci elemen paling ketat (P != 5) terlebih dahulu."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-009",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Penugasan Tim & Syarat Kombinasi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Sebuah tim audit berisi 4 orang dipilih dari 6 auditor: A, B, C, D, E, dan F dengan ketentuan:\n(1) Jika A dipilih, maka C juga harus dipilih.\n(2) B dan D tidak dapat bekerja dalam satu tim yang sama.\n(3) E hanya mau bergabung jika F juga terpilih.\n\nJika A dan E terpilih masuk dalam tim audit tersebut, dua anggota lain yang WAJIB terpilih adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "B dan C",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jika E bergabung, syarat (3) mewajibkan F ikut terpilih sehingga B tidak dibutuhkan untuk mengisi kuota 4 orang."
+      },
+      {
+        "key": "B",
+        "text": "C dan D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jika D ikut tanpa F, syarat (3) untuk E dilanggar."
+      },
+      {
+        "key": "C",
+        "text": "C dan F",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: A -> C dan E -> F, sehingga anggota lengkap berjumlah 4 orang yaitu {A, C, E, F} dan syarat (2) terpenuhi karena B maupun D tidak ikut."
+      },
+      {
+        "key": "D",
+        "text": "D dan F",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Syarat (1) mewajibkan C ikut bila A terpilih."
+      },
+      {
+        "key": "E",
+        "text": "B dan F",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Syarat (1) mewajibkan C ikut bila A terpilih."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Gunakan penelusuran syarat implikasi berantai (forward chaining) dari anggota yang sudah dipastikan masuk.",
+      "stepByStep": [
+        "Anggota awal pasti masuk: A dan E (2 orang, perlu 2 orang lagi).",
+        "Dari syarat (1): A dipilih => C wajib dipilih.",
+        "Dari syarat (3): E dipilih => F wajib dipilih.",
+        "Diperoleh {A, E, C, F} = 4 orang. Cek syarat (2): B dan D tidak bersama (terpenuhi)."
+      ],
+      "correctReason": "A memaksa C hadir dan E memaksa F hadir, pas mengisi 4 kursi.",
+      "distractorAnalysis": {
+        "A": "Jika E bergabung, syarat (3) mewajibkan F ikut terpilih sehingga B tidak dibutuhkan untuk mengisi kuota 4 orang.",
+        "B": "Jika D ikut tanpa F, syarat (3) untuk E dilanggar.",
+        "D": "Syarat (1) mewajibkan C ikut bila A terpilih.",
+        "E": "Syarat (1) mewajibkan C ikut bila A terpilih."
+      },
+      "quickTrick": "Mulai dari syarat implikasi langsung terhadap anggota yang diketahui hadir (A dan E).",
+      "commonMistakes": "Mengira syarat \"E hanya jika F\" berarti F hanya jika E; arahnya E -> F.",
+      "studyMaterialTip": "Terjemahkan \"X hanya jika Y\" menjadi \"Jika X maka Y\" (X -> Y)."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-010",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Formasi Duduk Meja Bundar",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Enam kepala seksi (Dika, Eko, Farah, Gita, Hadi, dan Intan) duduk melingkar mengelilingi meja rapat bundar berjarak sama:\n(1) Dika duduk berhadapan langsung dengan Farah.\n(2) Eko duduk tepat di sebelah kiri Dika.\n(3) Gita tidak duduk bersebelahan dengan Farah.\n(4) Hadi duduk di sebelah kanan Farah.\n\nJika dilihat searah jarum jam dimulai dari Dika, posisi duduk Intan berada tepat di antara...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Dika dan Eko",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Eko berada tepat di sebelah kiri Dika (posisi jam 2)."
+      },
+      {
+        "key": "B",
+        "text": "Eko dan Farah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Di antara Eko (jam 2) dan Farah (jam 6) terdapat Hadi (jam 4)."
+      },
+      {
+        "key": "C",
+        "text": "Farah dan Gita",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: searah jarum jam (jam 12, 2, 4, 6, 8, 10 menghadap pusat), Dika=12, Eko=2 (kiri Dika), Farah=6 (seberang Dika), Hadi=4 (kanan Farah). Karena Gita tidak boleh bersebelahan dengan Farah (jam 6), Gita wajib di jam 10 dan Intan di jam 8 — tepat di antara Farah dan Gita!"
+      },
+      {
+        "key": "D",
+        "text": "Gita dan Dika",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Gita (jam 10) duduk tepat bersebelahan dengan Dika (jam 12)."
+      },
+      {
+        "key": "E",
+        "text": "Hadi dan Dika",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Di antara Hadi (jam 4) dan Dika (jam 12) terdapat Eko (jam 2)."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Pada meja bundar (seluruh orang menghadap ke pusat meja), searah jarum jam dari arah jam 12 ke jam 2 adalah bergerak ke arah kiri orang di jam 12, sedangkan orang di seberangnya (jam 6, menghadap ke atas) memiliki tangan kanan di sisi timur (jam 4).",
+      "stepByStep": [
+        "Gambarkan 6 kursi pada jam: 12(Dika), 2, 4, 6(Farah), 8, 10.",
+        "Dika di jam 12 menghadap pusat: tangan kirinya di jam 2 -> Eko di jam 2.",
+        "Farah di jam 6 menghadap pusat: tangan kanannya di jam 4 -> Hadi di jam 4.",
+        "Tersisa jam 8 dan jam 10 untuk Gita dan Intan.",
+        "Syarat (3): Gita tidak sebelah Farah (jam 6), sehingga Gita tidak boleh di jam 8 -> Gita wajib di jam 10, dan Intan wajib di jam 8.",
+        "Jam 8 (Intan) berada tepat di antara Farah (jam 6) dan Gita (jam 10)."
+      ],
+      "correctReason": "Dengan orientasi menghadap pusat meja, kursi jam 8 ditempati Intan yang diapit Farah (jam 6) dan Gita (jam 10).",
+      "distractorAnalysis": {
+        "A": "Eko berada tepat di sebelah kiri Dika (posisi jam 2).",
+        "B": "Di antara Eko (jam 2) dan Farah (jam 6) terdapat Hadi (jam 4).",
+        "D": "Gita (jam 10) duduk tepat bersebelahan dengan Dika (jam 12).",
+        "E": "Di antara Hadi (jam 4) dan Dika (jam 12) terdapat Eko (jam 2)."
+      },
+      "quickTrick": "Gambar wajah jam (12, 2, 4, 6, 8, 10) menghadap titik tengah! Dari titik tengah ke jam 12 -> kiri ada di jam 2; ke jam 6 -> kanan ada di jam 4.",
+      "commonMistakes": "Menganggap kiri-kanan orang di seberang meja sama arahnya dengan orang di sisi atas meja (lupa memutar orientasi menghadap pusat).",
+      "studyMaterialTip": "Selalu tandai panah pandangan setiap orang menuju titik tengah meja bundar sebelum menentukan kiri dan kanan."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-011",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Perbandingan Bertingkat Skor Kinerja",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Dalam evaluasi kinerja lima unit layanan:\n- Skor Unit K lebih tinggi daripada Unit M, tetapi masih di bawah Unit L.\n- Skor Unit N lebih rendah daripada Unit M, namun tidak lebih rendah daripada Unit O.\n- Tidak ada dua unit yang memperoleh skor sama.\n\nUnit dengan skor TERTINGGI kedua adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Unit K",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: urutan menurunnya adalah L > K > M > N > O, sehingga tertinggi kedua adalah Unit K."
+      },
+      {
+        "key": "B",
+        "text": "Unit L",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Unit L menempati peringkat tertinggi pertama."
+      },
+      {
+        "key": "C",
+        "text": "Unit M",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Unit M berada pada peringkat ketiga."
+      },
+      {
+        "key": "D",
+        "text": "Unit N",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Unit N berada pada peringkat keempat."
+      },
+      {
+        "key": "E",
+        "text": "Unit O",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Unit O berada pada peringkat terendah."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Susun rantai pertidaksamaan dari dua kelompok informasi menggunakan elemen penghubung yang sama (Unit M).",
+      "stepByStep": [
+        "Pernyataan 1: L > K > M.",
+        "Pernyataan 2: M > N >= O; karena tidak ada skor sama, M > N > O.",
+        "Gabungkan: L > K > M > N > O.",
+        "Tertinggi ke-2 = Unit K."
+      ],
+      "correctReason": "Rantai peringkat tunggal L > K > M > N > O menempatkan K di urutan kedua.",
+      "distractorAnalysis": {
+        "B": "Unit L menempati peringkat tertinggi pertama.",
+        "C": "Unit M berada pada peringkat ketiga.",
+        "D": "Unit N berada pada peringkat keempat.",
+        "E": "Unit O berada pada peringkat terendah."
+      },
+      "quickTrick": "Gabungkan dua pertidaksamaan lewat variabel jembatan (M).",
+      "commonMistakes": "Tertukar membaca arah \"lebih tinggi\" dengan \"lebih rendah\".",
+      "studyMaterialTip": "Selalu ubah semua kalimat ke tanda searah (misalnya semua memakai tanda \">\")."
+    },
+    "references": [
+      {
+        "title": "Logika Deduktif, Induktif & Penalaran Analitis CPNS",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-012",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Operasi Pecahan & Persentase Cepat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Nilai dari (37,5% × 48) + (2/5 × 35) − 12 adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "16",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hasil hitung yang tepat adalah 18 + 14 − 12 = 20, bukan 16."
+      },
+      {
+        "key": "B",
+        "text": "18",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Lupa menghitung bagian akhir dengan tepat."
+      },
+      {
+        "key": "C",
+        "text": "20",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: 37,5% = 3/8, maka 3/8 × 48 = 18; 2/5 × 35 = 14; 18 + 14 − 12 = 20."
+      },
+      {
+        "key": "D",
+        "text": "22",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kelebihan 2 dari hasil operasi."
+      },
+      {
+        "key": "E",
+        "text": "24",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan penjumlahan atau perkalian pecahan."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Ubah persentase istimewa ke pecahan sederhana: 37,5% = 3/8 agar perhitungan langsung dapat disederhanakan tanpa koma.",
+      "stepByStep": [
+        "37,5% = 3/8 -> (3/8) × 48 = 3 × 6 = 18.",
+        "(2/5) × 35 = 2 × 7 = 14.",
+        "18 + 14 − 12 = 20."
+      ],
+      "correctReason": "3/8 × 48 + 2/5 × 35 − 12 = 18 + 14 − 12 = 20.",
+      "distractorAnalysis": {
+        "A": "Hasil hitung yang tepat adalah 18 + 14 − 12 = 20, bukan 16.",
+        "B": "Lupa menghitung bagian akhir dengan tepat.",
+        "D": "Kelebihan 2 dari hasil operasi.",
+        "E": "Kesalahan penjumlahan atau perkalian pecahan."
+      },
+      "quickTrick": "Hafalkan pecahan istimewa: 12,5%=1/8, 25%=1/4, 37,5%=3/8, 62,5%=5/8, 87,5%=7/8.",
+      "commonMistakes": "Mengalikan 0,375 × 48 secara bersusun sehingga memakan waktu lama.",
+      "studyMaterialTip": "Setiap melihat desimal kelipatan 12,5%, segera konversi ke perdelapan."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-013",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Identitas Aljabar Selisih Kuadrat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Nilai dari (245² − 155²) / (245 − 155) adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "90",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "90 adalah selisih (245 − 155), bukan hasil pembagiannya."
+      },
+      {
+        "key": "B",
+        "text": "310",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan penjumlahan 245 + 155."
+      },
+      {
+        "key": "C",
+        "text": "390",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kekurangan 10 saat menjumlahkan."
+      },
+      {
+        "key": "D",
+        "text": "400",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: (a² − b²) / (a − b) = a + b = 245 + 155 = 400."
+      },
+      {
+        "key": "E",
+        "text": "490",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan hitung."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Gunakan pemfaktoran selisih dua kuadrat: a² − b² = (a + b)(a − b), sehingga (a² − b²)/(a − b) = a + b.",
+      "stepByStep": [
+        "Faktorkan pembilang: (245 + 155)(245 − 155).",
+        "Coret faktor (245 − 155) dengan penyebut.",
+        "Sisa = 245 + 155 = 400."
+      ],
+      "correctReason": "Identitas selisih dua kuadrat langsung menyederhanakan operasi menjadi penjumlahan.",
+      "distractorAnalysis": {
+        "A": "90 adalah selisih (245 − 155), bukan hasil pembagiannya.",
+        "B": "Kesalahan penjumlahan 245 + 155.",
+        "C": "Kekurangan 10 saat menjumlahkan.",
+        "E": "Kesalahan hitung."
+      },
+      "quickTrick": "(a² − b²) / (a − b) = a + b.",
+      "commonMistakes": "Menghitung kuadrat 245² dan 155² secara manual.",
+      "studyMaterialTip": "Kenali bentuk pemfaktoran aljabar standar: a²−b² dan a²±2ab+b²."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-014",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Sifat Eksponen & Akar",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Jika 3^(2x − 1) = 243, maka nilai dari 4x + 5 adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "13",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai x yang benar adalah 3 -> 4(3) + 5 = 17, bukan 13."
+      },
+      {
+        "key": "B",
+        "text": "15",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jika x=2,5 -> 4(2,5)+5=15, keliru menyamakan 243 dengan 3^4."
+      },
+      {
+        "key": "C",
+        "text": "17",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: 243 = 3^5, sehingga 2x − 1 = 5 -> 2x = 6 -> x = 3. Jadi 4(3) + 5 = 17."
+      },
+      {
+        "key": "D",
+        "text": "19",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kekeliruan aljabar saat memindah −1."
+      },
+      {
+        "key": "E",
+        "text": "21",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan pangkat basis 3."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Samakan basis bilangan berpangkat di kedua ruas: jika a^m = a^n (a > 0, a ≠ 1), maka m = n.",
+      "stepByStep": [
+        "Ubah 243 menjadi perpangkatan basis 3: 3^5 = 243.",
+        "2x − 1 = 5 -> 2x = 6 -> x = 3.",
+        "Substitusi ke 4x + 5 = 4(3) + 5 = 17."
+      ],
+      "correctReason": "3^(2·3 − 1) = 3^5 = 243 dan 4(3) + 5 = 17.",
+      "distractorAnalysis": {
+        "A": "Nilai x yang benar adalah 3 -> 4(3) + 5 = 17, bukan 13.",
+        "B": "Jika x=2,5 -> 4(2,5)+5=15, keliru menyamakan 243 dengan 3^4.",
+        "D": "Kekeliruan aljabar saat memindah −1.",
+        "E": "Kesalahan pangkat basis 3."
+      },
+      "quickTrick": "Hafal pangkat kecil: 3^4=81, 3^5=243, 2^8=256, 5^4=625.",
+      "commonMistakes": "Menjawab nilai x = 3 alih-alih 4x + 5 (pada soal lain), atau salah mengira 3^4 = 243.",
+      "studyMaterialTip": "Baca pertanyaan terakhir dengan teliti sebelum memilih angka."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-015",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Operasi Campuran Bilangan Desimal & Pecahan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Hasil dari (7/8 − 0,25) ÷ (5/12 + 5/24) adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "0,8",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hasil sebenarnya adalah 5/8 ÷ 15/24 = 5/8 ÷ 5/8 = 1."
+      },
+      {
+        "key": "B",
+        "text": "1",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: (7/8 − 2/8) ÷ (10/24 + 5/24) = (5/8) ÷ (15/24) = (5/8) ÷ (5/8) = 1."
+      },
+      {
+        "key": "C",
+        "text": "1,25",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan penjumlahan penyebut."
+      },
+      {
+        "key": "D",
+        "text": "1,5",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan penyederhanaan 15/24."
+      },
+      {
+        "key": "E",
+        "text": "2",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah membalik operasi pembagian."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Samakan penyebut masing-masing kurung dalam pecahan biasa sebelum melakukan pembagian.",
+      "stepByStep": [
+        "Kurung kiri: 7/8 − 0,25 = 7/8 − 2/8 = 5/8.",
+        "Kurung kanan: 5/12 + 5/24 = 10/24 + 5/24 = 15/24 = 5/8.",
+        "Pembagian: (5/8) ÷ (5/8) = 1."
+      ],
+      "correctReason": "Pembilang dan penyebut bernilai sama persis yaitu 5/8 sehingga hasil baginya 1.",
+      "distractorAnalysis": {
+        "A": "Hasil sebenarnya adalah 5/8 ÷ 15/24 = 5/8 ÷ 5/8 = 1.",
+        "C": "Kesalahan penjumlahan penyebut.",
+        "D": "Kesalahan penyederhanaan 15/24.",
+        "E": "Salah membalik operasi pembagian."
+      },
+      "quickTrick": "Ubah desimal sederhana (0,25 = 1/4 = 2/8) ke pecahan berpenyebut sama.",
+      "commonMistakes": "Membagi sebelum menyelesaikan penjumlahan di dalam kurung.",
+      "studyMaterialTip": "Sederhanakan pecahan 15/24 menjadi 5/8 sebelum membagi agar terlihat langsung identik."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-016",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Selisih Bertingkat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Tentukan dua angka berikutnya pada deret berikut:\n4, 7, 13, 22, 34, 49, ..., ...",
+    "options": [
+      {
+        "key": "A",
+        "text": "65 dan 84",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Selisih tidak konsisten kelipatan 3."
+      },
+      {
+        "key": "B",
+        "text": "67 dan 88",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: selisih antarsuku adalah +3, +6, +9, +12, +15; maka berikutnya +18 (49 + 18 = 67) dan +21 (67 + 21 = 88)."
+      },
+      {
+        "key": "C",
+        "text": "66 dan 85",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Selisih kedua kurang tepat."
+      },
+      {
+        "key": "D",
+        "text": "68 dan 90",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Penambahan tidak sesuai pola +3 tiap langkah."
+      },
+      {
+        "key": "E",
+        "text": "64 dan 82",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Selisih tetap +15 dan +18 tidak mengikuti pola."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Deret bertingkat dengan beda tingkat pertama membentuk barisan aritmetika (+3, +6, +9, +12, +15, +18, +21).",
+      "stepByStep": [
+        "Hitung selisih: 7−4=3, 13−7=6, 22−13=9, 34−22=12, 49−34=15.",
+        "Beda naik +3 setiap langkah.",
+        "Berikutnya: 49 + 18 = 67, lalu 67 + 21 = 88."
+      ],
+      "correctReason": "Pola beda bertambah +3 pada setiap suku berturutan.",
+      "distractorAnalysis": {
+        "A": "Selisih tidak konsisten kelipatan 3.",
+        "C": "Selisih kedua kurang tepat.",
+        "D": "Penambahan tidak sesuai pola +3 tiap langkah.",
+        "E": "Selisih tetap +15 dan +18 tidak mengikuti pola."
+      },
+      "quickTrick": "Tulis selisih tepat di antara dua angka berdekatan untuk melihat pola tingkat kedua.",
+      "commonMistakes": "Mengira beda berikutnya +16 atau +17.",
+      "studyMaterialTip": "Jika angka naik stabil tetapi tidak konstan, langsung cek tingkat kedua."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-017",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Larik Ganda (Berselang)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Tentukan angka yang tepat untuk melengkapi deret berikut:\n3, 25, 6, 22, 12, 19, 24, 16, ..., ...",
+    "options": [
+      {
+        "key": "A",
+        "text": "36 dan 13",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pola suku ganjil adalah ×2, bukan +12."
+      },
+      {
+        "key": "B",
+        "text": "48 dan 13",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pola ganjil (3, 6, 12, 24 -> ×2) menghasilkan 48; pola genap (25, 22, 19, 16 -> −3) menghasilkan 13."
+      },
+      {
+        "key": "C",
+        "text": "48 dan 14",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Suku genap seharusnya berkurang 3 menjadi 13."
+      },
+      {
+        "key": "D",
+        "text": "30 dan 13",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengidentifikasi suku ganjil."
+      },
+      {
+        "key": "E",
+        "text": "46 dan 12",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak mengikuti ×2 dan −3."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Deret berselang (dua larik) memisahkan suku posisi ganjil dan posisi genap dengan aturan masing-masing.",
+      "stepByStep": [
+        "Larik ganjil: 3, 6, 12, 24 -> dikali 2 -> berikutnya 48.",
+        "Larik genap: 25, 22, 19, 16 -> dikurangi 3 -> berikutnya 13.",
+        "Pasangan jawaban: 48 dan 13."
+      ],
+      "correctReason": "Dua sub-deret independen: ×2 (posisi ganjil) dan −3 (posisi genap).",
+      "distractorAnalysis": {
+        "A": "Pola suku ganjil adalah ×2, bukan +12.",
+        "C": "Suku genap seharusnya berkurang 3 menjadi 13.",
+        "D": "Salah mengidentifikasi suku ganjil.",
+        "E": "Tidak mengikuti ×2 dan −3."
+      },
+      "quickTrick": "Saat angka naik-turun bergantian atau ada deret cukup panjang (8–10 suku), segera uji lompat 1 suku!",
+      "commonMistakes": "Mencari selisih suku bersebelahan (+22, −19, +16...) yang jauh lebih membingungkan.",
+      "studyMaterialTip": "Gunakan warna atau garis lengkung atas-bawah pada kertas buram untuk memisahkan larik ganjil-genap."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-018",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Operasi Campuran Berpola",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Angka yang tepat menggantikan tanda tanya pada deret berikut adalah...\n2, 5, 11, 23, 47, ?, 191",
+    "options": [
+      {
+        "key": "A",
+        "text": "89",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "2×47+1 = 95, bukan 89."
+      },
+      {
+        "key": "B",
+        "text": "93",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "47+47−1 = 93 kurang 2 dari pola ×2 + 1."
+      },
+      {
+        "key": "C",
+        "text": "95",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: setiap suku diperoleh dari (suku sebelumnya × 2) + 1 -> 2×2+1=5, 5×2+1=11, 11×2+1=23, 23×2+1=47, 47×2+1=95, dan cek: 95×2+1=191!"
+      },
+      {
+        "key": "D",
+        "text": "96",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "96×2+1 = 193, tidak cocok dengan suku terakhir 191."
+      },
+      {
+        "key": "E",
+        "text": "99",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak cocok untuk menghasilkan 191."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Pola rekursif linier U_(n+1) = 2·U_n + 1, atau setara dengan beda +3, +6, +12, +24, +48, +96.",
+      "stepByStep": [
+        "Cek selisih: 3, 6, 12, 24 (dikali 2 tiap langkah).",
+        "Selisih selanjutnya = 24 × 2 = 48 -> 47 + 48 = 95.",
+        "Verifikasi ke suku terakhir: 95 + 96 = 191 (benar)."
+      ],
+      "correctReason": "Baik dengan rumus ×2+1 maupun selisih kelipatan 2, hasilnya tepat 95 dan konsisten menuju 191.",
+      "distractorAnalysis": {
+        "A": "2×47+1 = 95, bukan 89.",
+        "B": "47+47−1 = 93 kurang 2 dari pola ×2 + 1.",
+        "D": "96×2+1 = 193, tidak cocok dengan suku terakhir 191.",
+        "E": "Tidak cocok untuk menghasilkan 191."
+      },
+      "quickTrick": "Selalu uji angka temuan dengan suku di kanannya (95×2+1=191)!",
+      "commonMistakes": "Lupa menguji kecocokan terhadap suku penutup (191).",
+      "studyMaterialTip": "Jika angka bertambah mendekati dua kali lipat, cek pola ×2 ± k."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-019",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Variasi Fibonacci",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Tentukan bilangan selanjutnya pada deret berikut:\n1, 3, 5, 9, 17, 31, 57, ...",
+    "options": [
+      {
+        "key": "A",
+        "text": "98",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kurang 7 dari jumlah tiga suku terakhir."
+      },
+      {
+        "key": "B",
+        "text": "101",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak cocok dengan pola Tribonacci."
+      },
+      {
+        "key": "C",
+        "text": "105",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pola Tribonacci (jumlah 3 suku sebelumnya): 1+3+5=9; 3+5+9=17; 5+9+17=31; 9+17+31=57; maka berikutnya 17+31+57 = 105."
+      },
+      {
+        "key": "D",
+        "text": "109",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kelebihan 4."
+      },
+      {
+        "key": "E",
+        "text": "114",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "57 × 2 = 114 bukan pola deret ini."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Deret Tribonacci menjumlahkan tiga suku tepat sebelumnya untuk membentuk suku berikutnya.",
+      "stepByStep": [
+        "Uji 2 suku: 1+3 != 5; 3+5 != 9; gagal Fibonacci standar.",
+        "Uji 3 suku: 1+3+5 = 9; 3+5+9 = 17; 5+9+17 = 31; 9+17+31 = 57.",
+        "Berikutnya: 17 + 31 + 57 = 105."
+      ],
+      "correctReason": "Setiap suku mulai suku ke-4 merupakan jumlah 3 suku sebelumnya.",
+      "distractorAnalysis": {
+        "A": "Kurang 7 dari jumlah tiga suku terakhir.",
+        "B": "Tidak cocok dengan pola Tribonacci.",
+        "D": "Kelebihan 4.",
+        "E": "57 × 2 = 114 bukan pola deret ini."
+      },
+      "quickTrick": "Jika pertumbuhan cepat tapi bukan ×2 dan selisihnya aneh, uji jumlah 2 suku (Fibonacci) atau jumlah 3 suku (Tribonacci)!",
+      "commonMistakes": "Berhenti mencari pola setelah penjumlahan 2 suku gagal.",
+      "studyMaterialTip": "Cek jumlah 3 suku berurutan setiap kali menemukan pertumbuhan sekitar 1,8× lipat."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-020",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Perbandingan Nilai Aljabar & Persentase",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Diketahui x adalah 25% dari 64, sedangkan y = (3/5) dari 30.\nManakah pernyataan yang benar mengenai hubungan P = x dan Q = y?",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "P = 16 dan Q = 18, sehingga P < Q."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: P = 25% × 64 = 1/4 × 64 = 16; Q = 3/5 × 30 = 18. Jelas 16 < 18."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "16 tidak sama dengan 18."
+      },
+      {
+        "key": "D",
+        "text": "P = 2Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak sesuai perhitungan."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai numerik P dan Q sudah pasti."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Hitung nilai pasti kedua besaran lalu bandingkan secara langsung.",
+      "stepByStep": [
+        "P = (1/4) × 64 = 16.",
+        "Q = (3/5) × 30 = 18.",
+        "16 < 18 => P < Q."
+      ],
+      "correctReason": "Nilai P = 16 lebih kecil daripada Q = 18.",
+      "distractorAnalysis": {
+        "A": "P = 16 dan Q = 18, sehingga P < Q.",
+        "C": "16 tidak sama dengan 18.",
+        "D": "Tidak sesuai perhitungan.",
+        "E": "Nilai numerik P dan Q sudah pasti."
+      },
+      "quickTrick": "Ubah 25% menjadi 1/4 agar langsung membagi 64.",
+      "commonMistakes": "Salah menghitung 3/5 × 30 menjadi 15.",
+      "studyMaterialTip": "Sederhanakan sebelum mengalikan."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-021",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Perbandingan Variabel dengan Syarat Pertidaksamaan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Diketahui −3 < x < 2 dan x bilangan bulat bukan nol.\nManakah hubungan yang benar antara kuantitas P = x² dan Q = 10?",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Untuk setiap x ∈ {−2, −1, 1}, nilai x² paling besar hanya (−2)² = 4 < 10."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: kandidat x bulat pada (−3, 2) \\ {0} hanyalah −2, −1, 1. Nilai x² berturut-turut adalah 4, 1, 1 — semuanya lebih kecil daripada 10."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak ada bilangan dalam himpunan tersebut yang kuadratnya 10."
+      },
+      {
+        "key": "D",
+        "text": "P >= Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Selalu lebih kecil daripada 10."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Meski x memiliki 3 kemungkinan nilai, semuanya menghasilkan P < 10."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Uji batas minimum dan maksimum dari nilai x yang memenuhi syarat untuk menentukan rentang P = x².",
+      "stepByStep": [
+        "Himpunan nilai x: {−2, −1, 1}.",
+        "Kuadratnya P = x² ∈ {1, 4}.",
+        "Karena nilai maksimum P adalah 4 < 10 = Q, maka pasti P < Q."
+      ],
+      "correctReason": "Seluruh nilai P yang mungkin (1 dan 4) berada di bawah Q (10).",
+      "distractorAnalysis": {
+        "A": "Untuk setiap x ∈ {−2, −1, 1}, nilai x² paling besar hanya (−2)² = 4 < 10.",
+        "C": "Tidak ada bilangan dalam himpunan tersebut yang kuadratnya 10.",
+        "D": "Selalu lebih kecil daripada 10.",
+        "E": "Meski x memiliki 3 kemungkinan nilai, semuanya menghasilkan P < 10."
+      },
+      "quickTrick": "Meskipun x belum tunggal, kalau SELURUH kemungkinan P tetap konsisten < Q, hubungannya DAPAT ditentukan!",
+      "commonMistakes": "Langsung memilih \"tidak dapat ditentukan\" hanya karena x lebih dari satu nilai.",
+      "studyMaterialTip": "Selalu cek rentang min-maks kuadrat apabila selang mencakup bilangan negatif dan positif."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-022",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Kecepatan & Jarak pada Besaran P vs Q",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Seorang kurir menempuh jarak 120 km dalam waktu 2 jam 30 menit dengan sepeda motor.\nJika P adalah kecepatan rata-rata kurir (dalam km/jam) dan Q = 45 km/jam, manakah hubungan yang benar?",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: waktu t = 2,5 jam = 5/2 jam. Kecepatan P = 120 / 2,5 = 48 km/jam. Karena 48 > 45, maka P > Q."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengonversi 2 jam 30 menit menjadi 2,3 jam atau keliru membagi."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "48 tidak sama dengan 45."
+      },
+      {
+        "key": "D",
+        "text": "P + Q = 90",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "48 + 45 = 93, bukan 90."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Semua besaran diketahui pasti."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kecepatan rata-rata = Jarak / Waktu. Konversi 30 menit = 0,5 jam sehingga waktu total = 2,5 jam.",
+      "stepByStep": [
+        "t = 2 jam 30 menit = 2,5 jam = 5/2 jam.",
+        "P = 120 ÷ (5/2) = 120 × 2 / 5 = 48 km/jam.",
+        "Bandingkan: P (48) > Q (45)."
+      ],
+      "correctReason": "Kecepatan rata-rata kurir adalah 48 km/jam > 45 km/jam.",
+      "distractorAnalysis": {
+        "B": "Salah mengonversi 2 jam 30 menit menjadi 2,3 jam atau keliru membagi.",
+        "C": "48 tidak sama dengan 45.",
+        "D": "48 + 45 = 93, bukan 90.",
+        "E": "Semua besaran diketahui pasti."
+      },
+      "quickTrick": "Jangan pernah menulis 2 jam 30 menit sebagai 2,3 jam! 30/60 = 0,5 jam.",
+      "commonMistakes": "Menulis 2 jam 30 menit = 2,3 jam.",
+      "studyMaterialTip": "Selalu bagi menit dengan 60 saat mengubah ke satuan jam."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-023",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Ketaktentuan Tanda pada Perkalian Variabel",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Diketahui m + n = 8 dengan m dan n adalah bilangan real.\nManakah hubungan yang benar antara P = m × n dan Q = 15?",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Benar jika m=4, n=4 (P=16 > 15), tetapi gagal jika m=1, n=7 (P=7 < 15)."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Benar jika m=1, n=7 (P=7), tetapi gagal jika m=4, n=4 (P=16)."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hanya terjadi bila (m,n) = (3,5) atau (5,3)."
+      },
+      {
+        "key": "D",
+        "text": "P + Q = 31",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai P tidak tunggal."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: jika m=4, n=4 maka P=16 > 15; jika m=1, n=7 maka P=7 < 15; jika m=3, n=5 maka P=15 = Q. Karena bisa >, <, atau =, hubungan tidak dapat ditentukan."
+      }
+    ],
+    "correctOption": "E",
+    "explanation": {
+      "concept": "Apabila dua contoh pasangan bilangan yang memenuhi syarat memberikan tanda perbandingan berlawanan (P > Q pada kasus 1 dan P < Q pada kasus 2), maka hubungannya tidak dapat ditentukan.",
+      "stepByStep": [
+        "Kasus 1: m=4, n=4 (m+n=8) -> P = 16 > Q(15).",
+        "Kasus 2: m=2, n=6 (m+n=8) -> P = 12 < Q(15).",
+        "Karena ada hasil > dan <, jawabannya E (tidak dapat ditentukan)."
+      ],
+      "correctReason": "Nilai P = mn maksimum 16 dan tidak terbatas ke bawah (bisa negatif jika salah satu > 8).",
+      "distractorAnalysis": {
+        "A": "Benar jika m=4, n=4 (P=16 > 15), tetapi gagal jika m=1, n=7 (P=7 < 15).",
+        "B": "Benar jika m=1, n=7 (P=7), tetapi gagal jika m=4, n=4 (P=16).",
+        "C": "Hanya terjadi bila (m,n) = (3,5) atau (5,3).",
+        "D": "Nilai P tidak tunggal."
+      },
+      "quickTrick": "Uji nilai ekstrem sekaligus nilai tengah: m=n=4 vs m=0,n=8.",
+      "commonMistakes": "Menguji hanya satu pasangan (misalnya m=3, n=5 -> P=15) lalu terburu-buru menjawab P = Q.",
+      "studyMaterialTip": "Minimal uji dua kasus berbeda arah pada soal variabel tanpa batas interval!"
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-024",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Laju Kerja Bersama",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Mesin cetak A mampu mencetak 1 bundel laporan dalam waktu 6 jam, sedangkan Mesin B mampu mencetak bundel yang sama dalam waktu 3 jam. Jika kedua mesin dijalankan bersama-sama sejak awal, waktu yang diperlukan untuk menyelesaikan 1 bundel laporan adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "1,5 jam",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Terlalu cepat; laju gabungannya 1/6 + 1/3 = 1/2 per jam."
+      },
+      {
+        "key": "B",
+        "text": "2 jam",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: 1/t = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2 -> t = 2 jam."
+      },
+      {
+        "key": "C",
+        "text": "2,5 jam",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan penjumlahan pecahan."
+      },
+      {
+        "key": "D",
+        "text": "4,5 jam",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan merata-ratakan (6+3)/2 = 4,5 jam!"
+      },
+      {
+        "key": "E",
+        "text": "9 jam",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan menjumlahkan waktu langsung."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Laju kerja bergabung dijumlahkan: 1/t_gab = 1/t_A + 1/t_B = (A×B)/(A+B).",
+      "stepByStep": [
+        "Rumus cepat 2 pekerja: t = (A × B) / (A + B).",
+        "t = (6 × 3) / (6 + 3) = 18 / 9 = 2 jam."
+      ],
+      "correctReason": "(6 × 3) / (6 + 3) = 2 jam.",
+      "distractorAnalysis": {
+        "A": "Terlalu cepat; laju gabungannya 1/6 + 1/3 = 1/2 per jam.",
+        "C": "Kesalahan penjumlahan pecahan.",
+        "D": "Kesalahan merata-ratakan (6+3)/2 = 4,5 jam!",
+        "E": "Kesalahan menjumlahkan waktu langsung."
+      },
+      "quickTrick": "Dua pekerja selesai dalam (t1 × t2) / (t1 + t2).",
+      "commonMistakes": "Mengambil rata-rata (6+3)/2 = 4,5 jam; bekerja bersama pasti LEBIH CEPAT dari pekerja tercepat (< 3 jam)!",
+      "studyMaterialTip": "Eliminasi cepat semua opsi yang lebih besar daripada waktu pekerja tercepat."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-025",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Persentase Untung-Rugi & Diskon Bertingkat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Sebuah toko perlengkapan kantor memberikan diskon awal 20% untuk sebuah printer seharga Rp2.500.000, lalu memberikan tambahan potongan 10% dari harga setelah diskon pertama khusus pembayaran nontunai. Harga akhir yang harus dibayar pembeli dengan pembayaran nontunai adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rp1.750.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan diskon menjadi 30% langsung."
+      },
+      {
+        "key": "B",
+        "text": "Rp1.800.000",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: setelah diskon 20% = 0,8 × Rp2.500.000 = Rp2.000.000. Diskon tambahan 10% = 0,9 × Rp2.000.000 = Rp1.800.000."
+      },
+      {
+        "key": "C",
+        "text": "Rp1.850.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan menghitung potongan kedua."
+      },
+      {
+        "key": "D",
+        "text": "Rp1.900.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah pengurangan."
+      },
+      {
+        "key": "E",
+        "text": "Rp2.000.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Baru menghitung diskon pertama saja."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Diskon bertingkat d1 dan d2 TIDAK dijumlahkan langsung, melainkan dikalikan pada faktor bayar: (1 − d1)(1 − d2) × Harga Awal.",
+      "stepByStep": [
+        "Harga setelah diskon 20%: 80% × Rp2.500.000 = Rp2.000.000.",
+        "Harga setelah tambahan diskon 10%: 90% × Rp2.000.000 = Rp1.800.000."
+      ],
+      "correctReason": "0,8 × 0,9 × Rp2.500.000 = 0,72 × Rp2.500.000 = Rp1.800.000.",
+      "distractorAnalysis": {
+        "A": "Salah menjumlahkan diskon menjadi 30% langsung.",
+        "C": "Kesalahan menghitung potongan kedua.",
+        "D": "Salah pengurangan.",
+        "E": "Baru menghitung diskon pertama saja."
+      },
+      "quickTrick": "Diskon 20% + 10% bukan 30%, melainkan diskon total = 20 + 10 − (20×10)/100 = 28%, jadi bayar 72%!",
+      "commonMistakes": "Mengalikan langsung 70% × 2.500.000 = 1.750.000.",
+      "studyMaterialTip": "Rumus diskon tunggal ekuivalen: d_total = d1 + d2 − (d1·d2)/100."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-026",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Rata-rata Gabungan Kelompok",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Nilai rata-rata ujian 24 peserta kelas A adalah 75. Setelah 6 peserta susulan digabungkan, nilai rata-rata seluruhnya menjadi 77. Nilai rata-rata 6 peserta susulan tersebut adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "82",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Terlalu rendah untuk menaikkan rata-rata 24 orang sebesar 2 poin."
+      },
+      {
+        "key": "B",
+        "text": "83",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kurang 2 poin."
+      },
+      {
+        "key": "C",
+        "text": "85",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: total awal = 24 × 75 = 1800. Total 30 orang = 30 × 77 = 2310. Selisih nilai 6 orang = 2310 − 1800 = 510 -> rata-rata = 510 / 6 = 85."
+      },
+      {
+        "key": "D",
+        "text": "87",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kelebihan 2 poin."
+      },
+      {
+        "key": "E",
+        "text": "89",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan hitung pembagian."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Rata-rata baru = Rata-rata lama + (jumlah tambahan / total orang) × selisih rata-rata, atau hitung selisih jumlah nilai total.",
+      "stepByStep": [
+        "Jumlah nilai 24 peserta = 24 × 75 = 1800.",
+        "Jumlah nilai 30 peserta = 30 × 77 = 2310.",
+        "Jumlah nilai 6 peserta susulan = 2310 − 1800 = 510.",
+        "Rata-rata 6 peserta = 510 ÷ 6 = 85."
+      ],
+      "correctReason": "Kenaikan 2 poin untuk 24 orang (48 poin) ditanggung 6 orang (+8 masing-masing di atas 77 -> 77 + 8 = 85).",
+      "distractorAnalysis": {
+        "A": "Terlalu rendah untuk menaikkan rata-rata 24 orang sebesar 2 poin.",
+        "B": "Kurang 2 poin.",
+        "D": "Kelebihan 2 poin.",
+        "E": "Kesalahan hitung pembagian."
+      },
+      "quickTrick": "Trik jungkat-jungkit: 24 orang naik +2 (butuh +48). Dibagi 6 orang -> masing-masing menyumbang +8 di atas rata-rata baru 77 = 85!",
+      "commonMistakes": "Mengira rata-rata kelompok baru cukup 75 + 2 + 6.",
+      "studyMaterialTip": "Metode \"total baru − total lama\" sangat aman jika angka bersih, sedangkan metode selisih cepat saat angka besar."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-027",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Susul-Menyusul & Waktu Bertemu",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Jarak Kota P dan Kota Q adalah 180 km. Mobil A berangkat dari P menuju Q pukul 07.00 WIB dengan kecepatan 60 km/jam. Pukul 07.30 WIB, Mobil B berangkat dari Q menuju P dengan kecepatan 90 km/jam melalui jalur yang sama. Pada pukul berapakah Mobil A dan Mobil B berpapasan?",
+    "options": [
+      {
+        "key": "A",
+        "text": "08.15 WIB",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mobil A sudah berjalan 30 km sebelum 07.30; sisa jarak 150 km dibagi kecepatan gabung 150 km/jam = 1 jam setelah 07.30."
+      },
+      {
+        "key": "B",
+        "text": "08.30 WIB",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pada 07.00–07.30, A menempuh 0,5 × 60 = 30 km. Sisa jarak pada pukul 07.30 = 180 − 30 = 150 km. Waktu papasan dari 07.30 = 150 / (60 + 90) = 1 jam -> pukul 08.30 WIB."
+      },
+      {
+        "key": "C",
+        "text": "08.45 WIB",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menghitung jarak tempuh awal A."
+      },
+      {
+        "key": "D",
+        "text": "09.00 WIB",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengabaikan kontribusi jarak Mobil B."
+      },
+      {
+        "key": "E",
+        "text": "09.15 WIB",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan penjumlahan kecepatan."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Untuk dua kendaraan bergerak saling mendekat dengan waktu berangkat berbeda: kurangi dulu jarak total dengan jarak tempuh kendaraan pertama selama selisih waktu awal, lalu bagi sisa jarak dengan (v1 + v2).",
+      "stepByStep": [
+        "Selisih berangkat: 07.30 − 07.00 = 0,5 jam.",
+        "Jarak awal A = 60 × 0,5 = 30 km.",
+        "Sisa jarak pukul 07.30 = 180 − 30 = 150 km.",
+        "Waktu papasan = 150 / (60 + 90) = 1 jam -> 07.30 + 1 jam = 08.30 WIB."
+      ],
+      "correctReason": "Pukul 08.30 WIB: A menempuh 1,5 × 60 = 90 km, dan B menempuh 1 × 90 = 90 km (total 180 km).",
+      "distractorAnalysis": {
+        "A": "Mobil A sudah berjalan 30 km sebelum 07.30; sisa jarak 150 km dibagi kecepatan gabung 150 km/jam = 1 jam setelah 07.30.",
+        "C": "Salah menghitung jarak tempuh awal A.",
+        "D": "Mengabaikan kontribusi jarak Mobil B.",
+        "E": "Kesalahan penjumlahan kecepatan."
+      },
+      "quickTrick": "Samakan jam star terlebih dahulu ke pukul 07.30, baru bagi sisa jarak dengan (vA + vB)!",
+      "commonMistakes": "Lupa menghitung 30 km yang sudah ditempuh Mobil A sebelum Mobil B berangkat.",
+      "studyMaterialTip": "Selalu cek jawaban akhir dengan menjumlahkan jarak kedua mobil pada jam yang ditemukan (90 + 90 = 180)."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Terapan, Aljabar, & Deret Numerik",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-028",
+    "subject": "TIU",
+    "topic": "Serial",
+    "topicSlug": "figural-serial",
+    "subtopic": "Rotasi Jarum Jam & Penambahan Segmen",
+    "questionType": "FIGURAL",
+    "difficulty": "EASY",
+    "stem": "Perhatikan urutan empat gambar berikut secara bertahap. Tentukan gambar kelima yang tepat untuk melanjutkan pola!",
+    "visualSpec": {
+      "kind": "serial",
+      "frames": [
+        {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 50,
+                "y2": 22,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 22,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 78,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 78,
+                "cy": 50,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 50,
+                "y2": 78,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 78,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 22,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 22,
+                "cy": 50,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Jarum benar menunjuk ke atas (0°), dan titik pojok terisi lengkap di keempat sudut (kiri-atas, kanan-atas, kanan-bawah, kiri-bawah).",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 50,
+                "y2": 22,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 22,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jarum salah menunjuk ke bawah padahal rotasi +90° searah jarum jam dari kiri harus menunjuk ke atas.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 50,
+                "y2": 78,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 78,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jumlah titik pojok masih 3, seharusnya bertambah menjadi 4 titik.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 50,
+                "y2": 22,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 22,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jarum tetap di kiri dan titik pojok kosong di kanan atas.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 22,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 22,
+                "cy": 50,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 70,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Titik pojok menjadi putih, padahal aturannya menambah titik hitam satu per satu.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 50,
+                "x2": 50,
+                "y2": 22,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 22,
+                "r": 4,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 30,
+                "r": 4,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 30,
+                "r": 4,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 70,
+                "cy": 70,
+                "r": 4,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 30,
+                "cy": 70,
+                "r": 4,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Lacak dua elemen terpisah: arah jarum dalam lingkaran berputar +90° searah jarum jam (Atas -> Kanan -> Bawah -> Kiri -> Atas), sementara titik sudut luar bertambah +1 tiap langkah (0, 1, 2, 3 -> 4 titik).",
+      "stepByStep": [
+        "Jarum: Atas -> Kanan -> Bawah -> Kiri -> kembali ke Atas.",
+        "Titik sudut luar: 0 -> 1 -> 2 -> 3 -> 4 titik hitam di keempat sudut.",
+        "Opsi A tepat."
+      ],
+      "correctReason": "Arah jarum kembali ke atas (0°) dengan 4 titik sudut hitam lengkap.",
+      "distractorAnalysis": {
+        "B": "Jarum salah menunjuk ke bawah padahal rotasi +90° searah jarum jam dari kiri harus menunjuk ke atas.",
+        "C": "Jumlah titik pojok masih 3, seharusnya bertambah menjadi 4 titik.",
+        "D": "Jarum tetap di kiri dan titik pojok kosong di kanan atas.",
+        "E": "Titik pojok menjadi putih, padahal aturannya menambah titik hitam satu per satu."
+      },
+      "quickTrick": "Pisahkan pelacakan objek dalam (jarum) dan objek sudut (jumlah titik) secara bergantian.",
+      "commonMistakes": "Lupa menghitung penambahan titik pojok sehingga memilih opsi dengan 3 titik.",
+      "studyMaterialTip": "Jika ada 2 jenis objek di kanvas, selalu cek perubahannya satu per satu."
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-029",
+    "subject": "TIU",
+    "topic": "Serial",
+    "topicSlug": "figural-serial",
+    "subtopic": "Pertambahan Sisi Poligon & Perubahan Arsiran",
+    "questionType": "FIGURAL",
+    "difficulty": "MEDIUM",
+    "stem": "Amati perubahan bentuk poligon dan pola isiannya dari kiri ke kanan, lalu pilih gambar ke-5 yang tepat!",
+    "visualSpec": {
+      "kind": "serial",
+      "frames": [
+        {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 76.0,65.0 24.0,65.0",
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 80.0,50.0 50.0,80.0 20.0,50.0",
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 78.5,40.7 67.6,74.3 32.4,74.3 21.5,40.7",
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 76.0,35.0 76.0,65.0 50.0,80.0 24.0,65.0 24.0,35.0",
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Poligon bersisi 7 benar, tetapi arsirannya putih padahal siklus warna Putih -> Hitam -> Arsir.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 73.5,31.3 79.2,56.7 63.0,77.0 37.0,77.0 20.8,56.7 26.5,31.3",
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Segi 8 melompati segi 7.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 71.2,28.8 80.0,50.0 71.2,71.2 50.0,80.0 28.8,71.2 20.0,50.0 28.8,28.8",
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: jumlah sisi bertambah 1 (3, 4, 5, 6 -> 7 sisi/heptagon) dan isian berulang Putih -> Hitam -> Arsir -> Putih -> Hitam.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 73.5,31.3 79.2,56.7 63.0,77.0 37.0,77.0 20.8,56.7 26.5,31.3",
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Segi 5 mengulang bentuk ketiga.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 78.5,40.7 67.6,74.3 32.4,74.3 21.5,40.7",
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Segi 7 dengan arsiran garis miring, padahal urutan ke-5 adalah Hitam solid.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,20.0 73.5,31.3 79.2,56.7 63.0,77.0 37.0,77.0 20.8,56.7 26.5,31.3",
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Dua pola paralel: jumlah sisi poligon beraturan naik +1 (3, 4, 5, 6, 7), dan isian mengikuti siklus periodik periode 3 (Putih, Hitam, Arsir, Putih, Hitam).",
+      "stepByStep": [
+        "Sisi: 3 (segitiga), 4 (belah ketupat), 5 (segilima), 6 (segienam) -> berikutnya 7 sisi.",
+        "Isian: Putih (1), Hitam (2), Arsir (3), Putih (4) -> ke-5 = Hitam solid.",
+        "Hanya Opsi C yang bersisi 7 dan berwarna Hitam solid."
+      ],
+      "correctReason": "Heptagon (7 sisi) berwarna hitam solid melanjutkan kedua pola sekaligus.",
+      "distractorAnalysis": {
+        "A": "Poligon bersisi 7 benar, tetapi arsirannya putih padahal siklus warna Putih -> Hitam -> Arsir.",
+        "B": "Segi 8 melompati segi 7.",
+        "D": "Segi 5 mengulang bentuk ketiga.",
+        "E": "Segi 7 dengan arsiran garis miring, padahal urutan ke-5 adalah Hitam solid."
+      },
+      "quickTrick": "Hitung jumlah sisi poligon dan cek siklus isian modulo 3.",
+      "commonMistakes": "Salah menghitung sisi segienam dengan segitujuh sekilas.",
+      "studyMaterialTip": "Hitung langsung sudut-sudut lancip poligon jika terlihat hampir bulat."
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-030",
+    "subject": "TIU",
+    "topic": "Serial",
+    "topicSlug": "figural-serial",
+    "subtopic": "Pergerakan Elemen pada Matriks 2x2 Kecil",
+    "questionType": "FIGURAL",
+    "difficulty": "HARD",
+    "stem": "Tentukan gambar selanjutnya dari deret pergerakan tanda panah dan silang berikut!",
+    "visualSpec": {
+      "kind": "serial",
+      "frames": [
+        {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 34,
+                "cy": 34,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "64,57 68,57 68,64 75,64 75,68 68,68 68,75 64,75 64,68 57,68 57,64 64,64",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 66,
+                "cy": 34,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "32,57 36,57 36,64 43,64 43,68 36,68 36,75 32,75 32,68 25,68 25,64 32,64",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 66,
+                "cy": 66,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "32,25 36,25 36,32 43,32 43,36 36,36 36,43 32,43 32,36 25,36 25,32 32,32",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 34,
+                "cy": 66,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "64,25 68,25 68,32 75,32 75,36 68,36 68,43 64,43 64,36 57,36 57,32 64,32",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Lingkaran hitam berada di kiri-atas dan tanda silang di kanan-bawah — tepat setelah siklus penuh 4 kuadran.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 34,
+                "cy": 34,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "64,57 68,57 68,64 75,64 75,68 68,68 68,75 64,75 64,68 57,68 57,64 64,64",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Posisi lingkaran dan silang tertukar kuadrannya.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 66,
+                "cy": 66,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "32,25 36,25 36,32 43,32 43,36 36,36 36,43 32,43 32,36 25,36 25,32 32,32",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kedua elemen bertumbukan di kuadran kanan-atas.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 66,
+                "cy": 34,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "64,25 68,25 68,32 75,32 75,36 68,36 68,43 64,43 64,36 57,36 57,32 64,32",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Lingkaran salah bergerak berlawanan arah jarum jam ke kanan-bawah.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 66,
+                "cy": 66,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "64,25 68,25 68,32 75,32 75,36 68,36 68,43 64,43 64,36 57,36 57,32 64,32",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tanda silang berhenti di kiri-atas.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 18,
+                "y": 18,
+                "width": 64,
+                "height": 64,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 18,
+                "x2": 50,
+                "y2": 82,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 18,
+                "y1": 50,
+                "x2": 82,
+                "y2": 50,
+                "stroke": "#0f172a",
+                "stroke-width": 2,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 34,
+                "cy": 34,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "32,25 36,25 36,32 43,32 43,36 36,36 36,43 32,43 32,36 25,36 25,32 32,32",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.2,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kedua simbol sama-sama berjalan searah jarum jam 1 kuadran tiap langkah: lingkaran mulai dari kiri-atas (1->2->3->4->kembali ke 1), sedangkan silang mulai dari kanan-bawah (3->4->1->2->kembali ke 3).",
+      "stepByStep": [
+        "Lingkaran hitam: Kiri-Atas -> Kanan-Atas -> Kanan-Bawah -> Kiri-Bawah -> Kiri-Atas.",
+        "Tanda plus: Kanan-Bawah -> Kiri-Bawah -> Kiri-Atas -> Kanan-Atas -> Kanan-Bawah.",
+        "Gambar ke-5 identik dengan gambar ke-1 (Opsi A)."
+      ],
+      "correctReason": "Siklus 4 kuadran mengembalikan kedua simbol tepat ke posisi semula di langkah ke-5.",
+      "distractorAnalysis": {
+        "B": "Posisi lingkaran dan silang tertukar kuadrannya.",
+        "C": "Kedua elemen bertumbukan di kuadran kanan-atas.",
+        "D": "Lingkaran salah bergerak berlawanan arah jarum jam ke kanan-bawah.",
+        "E": "Tanda silang berhenti di kiri-atas."
+      },
+      "quickTrick": "Jika terdapat 4 posisi simetris dan pergeseran konstan 1 langkah per frame, frame ke-5 selalu sama dengan frame ke-1!",
+      "commonMistakes": "Mengira salah satu objek berlawanan arah jarum jam.",
+      "studyMaterialTip": "Cek arah gerak masing-masing simbol secara terpisah."
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-031",
+    "subject": "TIU",
+    "topic": "Analogi",
+    "topicSlug": "figural-analogi",
+    "subtopic": "Analogi Pembalikan Warna Luar-Dalam",
+    "questionType": "FIGURAL",
+    "difficulty": "EASY",
+    "stem": "Tentukan pasangan gambar yang memiliki hubungan transformasi yang sama dengan pasangan di sebelah kiri!",
+    "visualSpec": {
+      "kind": "analogy",
+      "pairA": [
+        {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 20,
+                "y": 20,
+                "width": 60,
+                "height": 60,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 16,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 30,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 35,
+                "y": 35,
+                "width": 30,
+                "height": 30,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      ],
+      "pairB": [
+        {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,16.0 79.4,67.0 20.6,67.0",
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 40,
+                "y": 44,
+                "width": 20,
+                "height": 20,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": []
+        }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: bentuk dalam (persegi) menjadi bentuk luar berwarna putih, dan bentuk luar (segitiga) masuk ke dalam dengan warna hitam!",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 20,
+                "y": 20,
+                "width": 60,
+                "height": 60,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,34.0 63.9,58.0 36.1,58.0",
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Warna tidak bertukar (luar tetap hitam, dalam putih).",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 20,
+                "y": 20,
+                "width": 60,
+                "height": 60,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,34.0 63.9,58.0 36.1,58.0",
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Posisi bentuk luar-dalam tidak ditukar.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,16.0 79.4,67.0 20.6,67.0",
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 40,
+                "y": 44,
+                "width": 20,
+                "height": 20,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Segitiga bagian dalam ikut terbalik 180°, padahal pada pasangan kiri tidak ada rotasi 180°.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 20,
+                "y": 20,
+                "width": 60,
+                "height": 60,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,66.0 36.1,42.0 63.9,42.0",
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Keduanya berwarna hitam sehingga bentuk dalam hilang.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 20,
+                "y": 20,
+                "width": 60,
+                "height": 60,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 16,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Transformasi analogi: bentuk dalam keluar menjadi bentuk luar berwarna putih, sedangkan bentuk luar mengecil masuk ke dalam menjadi berwarna hitam.",
+      "stepByStep": [
+        "Pair 1: Persegi hitam (luar) + Lingkaran putih (dalam) -> Lingkaran putih (luar) + Persegi hitam (dalam).",
+        "Terapkan pada Pair 2: Segitiga hitam (luar) + Persegi putih (dalam) -> Persegi putih (luar) + Segitiga hitam (dalam).",
+        "Cocok dengan Opsi A."
+      ],
+      "correctReason": "Tukar posisi luar-dalam sekaligus tukar warna putih-hitam.",
+      "distractorAnalysis": {
+        "B": "Warna tidak bertukar (luar tetap hitam, dalam putih).",
+        "C": "Posisi bentuk luar-dalam tidak ditukar.",
+        "D": "Segitiga bagian dalam ikut terbalik 180°, padahal pada pasangan kiri tidak ada rotasi 180°.",
+        "E": "Keduanya berwarna hitam sehingga bentuk dalam hilang."
+      },
+      "quickTrick": "Catat aturan pair 1 dalam 2 kata: \"Tukar posisi, balik warna\".",
+      "commonMistakes": "Menukar posisi tanpa menukar warna (atau memutar segitiga).",
+      "studyMaterialTip": "Pastikan orientasi bentuk (segitiga menghadap ke atas) tetap dipertahankan."
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-032",
+    "subject": "TIU",
+    "topic": "Analogi",
+    "topicSlug": "figural-analogi",
+    "subtopic": "Analogi Pencerminan & Pemisahan",
+    "questionType": "FIGURAL",
+    "difficulty": "MEDIUM",
+    "stem": "Carilah gambar pengganti tanda tanya yang mengikuti aturan perubahan pasangan gambar pertama!",
+    "visualSpec": {
+      "kind": "analogy",
+      "pairA": [
+        {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 24,
+                    "y1": 50,
+                    "x2": 76,
+                    "y2": 50,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "76.0,50.0 68.2,54.5 68.2,45.5",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 24,
+                "cy": 30,
+                "r": 7,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 76,
+                    "y1": 50,
+                    "x2": 24,
+                    "y2": 50,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "24.0,50.0 31.8,45.5 31.8,54.5",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 76,
+                "cy": 70,
+                "r": 7,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      ],
+      "pairB": [
+        {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 50,
+                    "y1": 24,
+                    "x2": 50,
+                    "y2": 76,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "50.0,76.0 45.5,68.2 54.5,68.2",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 64,
+                "y": 24,
+                "width": 14,
+                "height": 14,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": []
+        }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Panah berbalik 180° (ke atas), tetapi persegi kecil tidak ikut berpindah posisi 180°.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 50,
+                    "y1": 76,
+                    "x2": 50,
+                    "y2": 24,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "50.0,24.0 54.5,31.8 45.5,31.8",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 64,
+                "y": 24,
+                "width": 14,
+                "height": 14,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: seluruh gambar diputar 180° (panah mengarah ke atas, persegi pindah diagonal ke kiri bawah) dan warna bangun kecil berubah Hitam -> Putih.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 50,
+                    "y1": 76,
+                    "x2": 50,
+                    "y2": 24,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "50.0,24.0 54.5,31.8 45.5,31.8",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 22,
+                "y": 62,
+                "width": 14,
+                "height": 14,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Persegi kecil tetap berwarna hitam.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 50,
+                    "y1": 76,
+                    "x2": 50,
+                    "y2": 24,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "50.0,24.0 54.5,31.8 45.5,31.8",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 22,
+                "y": 62,
+                "width": 14,
+                "height": 14,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Panah tidak berbalik arah.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 50,
+                    "y1": 24,
+                    "x2": 50,
+                    "y2": 76,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "50.0,76.0 45.5,68.2 54.5,68.2",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 22,
+                "y": 62,
+                "width": 14,
+                "height": 14,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Persegi berubah menjadi lingkaran.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "g",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "line",
+                  "attrs": {
+                    "x1": 50,
+                    "y1": 76,
+                    "x2": 50,
+                    "y2": 24,
+                    "stroke": "#0f172a",
+                    "stroke-width": 3,
+                    "stroke-linecap": "round"
+                  }
+                },
+                {
+                  "tag": "polygon",
+                  "attrs": {
+                    "points": "50.0,24.0 54.5,31.8 45.5,31.8",
+                    "fill": "#0f172a",
+                    "stroke": "#0f172a",
+                    "stroke-width": 1.8,
+                    "stroke-linejoin": "round"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 29,
+                "cy": 69,
+                "r": 7,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Rotasi keseluruhan 180° mengarahkan panah berlawanan arah dan memindahkan objek sudut secara diagonal ke kuadran seberang, disertai inversi warna objek kecil (hitam -> putih).",
+      "stepByStep": [
+        "Pair 1: Panah kanan + titik hitam kiri-atas -> diputar 180° menjadi panah kiri + titik putih kanan-bawah.",
+        "Pair 2: Panah bawah + persegi hitam kanan-atas -> diputar 180° menjadi panah atas + persegi putih kiri-bawah.",
+        "Pilih B."
+      ],
+      "correctReason": "Rotasi 180° + perubahan warna hitam menjadi putih pada bangun kecil.",
+      "distractorAnalysis": {
+        "A": "Panah berbalik 180° (ke atas), tetapi persegi kecil tidak ikut berpindah posisi 180°.",
+        "C": "Persegi kecil tetap berwarna hitam.",
+        "D": "Panah tidak berbalik arah.",
+        "E": "Persegi berubah menjadi lingkaran."
+      },
+      "quickTrick": "Pencerminan ganda / rotasi 180° membalik arah panah sekaligus posisi diagonal kanan-atas menjadi kiri-bawah.",
+      "commonMistakes": "Hanya mencerminkan vertikal (kanan-atas ke kanan-bawah) alih-alih rotasi 180°.",
+      "studyMaterialTip": "Verifikasi kuadran awal dan akhir objek kecil terhadap titik pusat (50,50)."
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-033",
+    "subject": "TIU",
+    "topic": "Analogi",
+    "topicSlug": "figural-analogi",
+    "subtopic": "Analogi Pembelahan & Rotasi 90 Derajat",
+    "questionType": "FIGURAL",
+    "difficulty": "HARD",
+    "stem": "Perhatikan hubungan perubahan jumlah elemen dan arsiran pada pasangan kiri, lalu tentukan pasangan kanan yang tepat!",
+    "visualSpec": {
+      "kind": "analogy",
+      "pairA": [
+        {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 36,
+                "y": 22,
+                "width": 28,
+                "height": 56,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 22,
+                "y": 26,
+                "width": 24,
+                "height": 48,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 54,
+                "y": 26,
+                "width": 24,
+                "height": 48,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      ],
+      "pairB": [
+        {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 26,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        },
+        {
+          "nodes": []
+        }
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hanya 1 lingkaran diarsir, tidak mengganda menjadi 2 bangun.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 26,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Dua lingkaran tetap putih, tidak diberi arsiran diagonal.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 32,
+                "cy": 50,
+                "r": 16,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 68,
+                "cy": 50,
+                "r": 16,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: 1 bangun putih berubah menjadi 2 bangun identik berukuran lebih kecil berdampingan horizontal dan keduanya diarsir diagonal.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 32,
+                "cy": 50,
+                "r": 16,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 68,
+                "cy": 50,
+                "r": 16,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tiga lingkaran bersusun tidak sesuai aturan penggandaan 1 -> 2.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 24,
+                "cy": 50,
+                "r": 12,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 12,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 76,
+                "cy": 50,
+                "r": 12,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Satu diarsir dan satu hitam, padahal pasangan kiri keduanya diarsir seragam.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 32,
+                "cy": 50,
+                "r": 16,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 68,
+                "cy": 50,
+                "r": 16,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Satu objek putih digandakan menjadi dua objek sebangun berdampingan horizontal dengan pola arsiran diagonal.",
+      "stepByStep": [
+        "Pair 1: 1 persegi panjang putih -> 2 persegi panjang berarsir diagonal berdampingan.",
+        "Pair 2: 1 lingkaran putih -> 2 lingkaran berarsir diagonal berdampingan.",
+        "Pilih C."
+      ],
+      "correctReason": "Penggandaan 1->2 disertai perubahan warna Putih -> Arsiran Diagonal.",
+      "distractorAnalysis": {
+        "A": "Hanya 1 lingkaran diarsir, tidak mengganda menjadi 2 bangun.",
+        "B": "Dua lingkaran tetap putih, tidak diberi arsiran diagonal.",
+        "D": "Tiga lingkaran bersusun tidak sesuai aturan penggandaan 1 -> 2.",
+        "E": "Satu diarsir dan satu hitam, padahal pasangan kiri keduanya diarsir seragam."
+      },
+      "quickTrick": "Cek tiga hal sekaligus: Bentuk tetap, Jumlah 1->2, dan Isian Putih->Arsir.",
+      "commonMistakes": "Lupa mengubah warna putih menjadi arsiran diagonal.",
+      "studyMaterialTip": "Checklist cepat analogi figural: (1) Bentuk, (2) Jumlah, (3) Warna/Arsiran, (4) Arah/Rotasi."
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-034",
+    "subject": "TIU",
+    "topic": "Penalaran Matriks",
+    "topicSlug": "penalaran-matriks",
+    "subtopic": "Matriks Superposisi XOR (Eliminasi Segmen)",
+    "questionType": "FIGURAL",
+    "difficulty": "MEDIUM",
+    "stem": "Perhatikan pola operasi antar-kolom pada matriks 3×3 berikut (kolom 1 dan kolom 2 membentuk kolom 3). Gambar yang tepat mengisi sel kosong adalah...",
+    "visualSpec": {
+      "kind": "matrix",
+      "rows": [
+        [
+          {
+            "nodes": [
+              {
+                "tag": "rect",
+                "attrs": {
+                  "x": 22,
+                  "y": 22,
+                  "width": 56,
+                  "height": 56,
+                  "fill": "transparent",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 22,
+                  "y1": 22,
+                  "x2": 78,
+                  "y2": 78,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 22,
+                  "y1": 22,
+                  "x2": 78,
+                  "y2": 78,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 78,
+                  "y1": 22,
+                  "x2": 22,
+                  "y2": 78,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "rect",
+                "attrs": {
+                  "x": 22,
+                  "y": 22,
+                  "width": 56,
+                  "height": 56,
+                  "fill": "transparent",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 78,
+                  "y1": 22,
+                  "x2": 22,
+                  "y2": 78,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "nodes": [
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 50,
+                  "cy": 50,
+                  "r": 26,
+                  "fill": "transparent",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 50,
+                  "y1": 24,
+                  "x2": 50,
+                  "y2": 76,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 50,
+                  "y1": 24,
+                  "x2": 50,
+                  "y2": 76,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 24,
+                  "y1": 50,
+                  "x2": 76,
+                  "y2": 50,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 50,
+                  "cy": 50,
+                  "r": 26,
+                  "fill": "transparent",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 24,
+                  "y1": 50,
+                  "x2": 76,
+                  "y2": 50,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "nodes": [
+              {
+                "tag": "polygon",
+                "attrs": {
+                  "points": "50.0,22.0 74.2,36.0 74.2,64.0 50.0,78.0 25.8,64.0 25.8,36.0",
+                  "fill": "transparent",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5,
+                  "stroke-linejoin": "round"
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 50,
+                  "y1": 22,
+                  "x2": 50,
+                  "y2": 78,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 25,
+                  "y1": 36,
+                  "x2": 75,
+                  "y2": 64,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              },
+              {
+                "tag": "line",
+                "attrs": {
+                  "x1": 50,
+                  "y1": 22,
+                  "x2": 50,
+                  "y2": 78,
+                  "stroke": "#0f172a",
+                  "stroke-width": 3,
+                  "stroke-linecap": "round"
+                }
+              }
+            ]
+          },
+          null
+        ]
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: aturan XOR menyisakan rangka segienam (tidak ada di kolom 2) dan garis miring kolom 2, sementara garis vertikal yang muncul di K1 & K2 saling meniadakan.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,22.0 74.2,36.0 74.2,64.0 50.0,78.0 25.8,64.0 25.8,36.0",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 25,
+                "y1": 36,
+                "x2": 75,
+                "y2": 64,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Masih menyertakan garis vertikal yang seharusnya hilang karena hadir di K1 dan K2.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,22.0 74.2,36.0 74.2,64.0 50.0,78.0 25.8,64.0 25.8,36.0",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 25,
+                "y1": 36,
+                "x2": 75,
+                "y2": 64,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 22,
+                "x2": 50,
+                "y2": 78,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menghilangkan rangka segienam padahal segienam hanya muncul di K1.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 25,
+                "y1": 36,
+                "x2": 75,
+                "y2": 64,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Garis miring justru menghilang.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,22.0 74.2,36.0 74.2,64.0 50.0,78.0 25.8,64.0 25.8,36.0",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hanya menyisakan garis vertikal yang seharusnya hilang (irisan K1 dan K2).",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "polygon",
+              "attrs": {
+                "points": "50.0,22.0 74.2,36.0 74.2,64.0 50.0,78.0 25.8,64.0 25.8,36.0",
+                "fill": "transparent",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5,
+                "stroke-linejoin": "round"
+              }
+            },
+            {
+              "tag": "line",
+              "attrs": {
+                "x1": 50,
+                "y1": 22,
+                "x2": 50,
+                "y2": 78,
+                "stroke": "#0f172a",
+                "stroke-width": 3,
+                "stroke-linecap": "round"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Operasi XOR (Exclusive OR) pada matriks 3×3: segmen/garis yang sama-sama muncul di Kolom 1 dan Kolom 2 akan hilang di Kolom 3, sedangkan unsur yang hanya ada di salah satu kolom akan tetap bertahan.",
+      "stepByStep": [
+        "Baris 1: Kotak+Diag1 XOR (Diag1+Diag2) = Kotak+Diag2 (Diag1 hilang).",
+        "Baris 2: Lingkaran+Vert XOR (Vert+Horiz) = Lingkaran+Horiz (Vert hilang).",
+        "Baris 3: Segienam+Vert XOR (Miring+Vert) = Segienam+Miring (Vert hilang)."
+      ],
+      "correctReason": "Garis vertikal ada di K1 dan K2 sehingga terhapus; segienam (hanya K1) dan garis miring (hanya K2) tampil di K3.",
+      "distractorAnalysis": {
+        "B": "Masih menyertakan garis vertikal yang seharusnya hilang karena hadir di K1 dan K2.",
+        "C": "Menghilangkan rangka segienam padahal segienam hanya muncul di K1.",
+        "D": "Garis miring justru menghilang.",
+        "E": "Hanya menyisakan garis vertikal yang seharusnya hilang (irisan K1 dan K2)."
+      },
+      "quickTrick": "Sama = Hilang, Beda = Tetap Tampil (XOR).",
+      "commonMistakes": "Menganggap aturannya penggabungan penuh (OR) seperti Opsi B.",
+      "studyMaterialTip": "Saat Kolom 3 terlihat punya komponen lebih sedikit dari gabungan K1+K2, curigai aturan XOR!"
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P2-035",
+    "subject": "TIU",
+    "topic": "Penalaran Matriks",
+    "topicSlug": "penalaran-matriks",
+    "subtopic": "Matriks Distribusi Bentuk, Isian, dan Jumlah",
+    "questionType": "FIGURAL",
+    "difficulty": "HARD",
+    "stem": "Setiap baris dan kolom matriks 3×3 berikut memuat distribusi teratur jumlah bangun, jenis bangun, dan pola isian. Pilih gambar yang tepat untuk melengkapi sel pojok kanan bawah!",
+    "visualSpec": {
+      "kind": "matrix",
+      "rows": [
+        [
+          {
+            "nodes": [
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 50,
+                  "cy": 50,
+                  "r": 12,
+                  "fill": "#ffffff",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "rect",
+                "attrs": {
+                  "x": 22,
+                  "y": 40,
+                  "width": 20,
+                  "height": 20,
+                  "fill": "#0f172a",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "rect",
+                "attrs": {
+                  "x": 58,
+                  "y": 40,
+                  "width": 20,
+                  "height": 20,
+                  "fill": "#0f172a",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "polygon",
+                "attrs": {
+                  "points": "24.0,42.0 34.4,60.0 13.6,60.0",
+                  "fill": "pat:hatch-diag",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5,
+                  "stroke-linejoin": "round"
+                }
+              },
+              {
+                "tag": "polygon",
+                "attrs": {
+                  "points": "50.0,42.0 60.4,60.0 39.6,60.0",
+                  "fill": "pat:hatch-diag",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5,
+                  "stroke-linejoin": "round"
+                }
+              },
+              {
+                "tag": "polygon",
+                "attrs": {
+                  "points": "76.0,42.0 86.4,60.0 65.6,60.0",
+                  "fill": "pat:hatch-diag",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5,
+                  "stroke-linejoin": "round"
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "nodes": [
+              {
+                "tag": "rect",
+                "attrs": {
+                  "x": 38,
+                  "y": 38,
+                  "width": 24,
+                  "height": 24,
+                  "fill": "pat:hatch-diag",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "polygon",
+                "attrs": {
+                  "points": "34.0,39.0 45.3,58.5 22.7,58.5",
+                  "fill": "#ffffff",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5,
+                  "stroke-linejoin": "round"
+                }
+              },
+              {
+                "tag": "polygon",
+                "attrs": {
+                  "points": "66.0,39.0 77.3,58.5 54.7,58.5",
+                  "fill": "#ffffff",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5,
+                  "stroke-linejoin": "round"
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 24,
+                  "cy": 50,
+                  "r": 10,
+                  "fill": "#0f172a",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 50,
+                  "cy": 50,
+                  "r": 10,
+                  "fill": "#0f172a",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 76,
+                  "cy": 50,
+                  "r": 10,
+                  "fill": "#0f172a",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "nodes": [
+              {
+                "tag": "polygon",
+                "attrs": {
+                  "points": "50.0,38.0 62.1,59.0 37.9,59.0",
+                  "fill": "#0f172a",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5,
+                  "stroke-linejoin": "round"
+                }
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 34,
+                  "cy": 50,
+                  "r": 11,
+                  "fill": "pat:hatch-diag",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              },
+              {
+                "tag": "circle",
+                "attrs": {
+                  "cx": 66,
+                  "cy": 50,
+                  "r": 11,
+                  "fill": "pat:hatch-diag",
+                  "stroke": "#0f172a",
+                  "stroke-width": 2.5
+                }
+              }
+            ]
+          },
+          null
+        ]
+      ]
+    },
+    "options": [
+      {
+        "key": "A",
+        "text": "A",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jumlahnya 3 benar, bentuknya persegi benar, tetapi warnanya hitam padahal Putih belum muncul pada baris 3 maupun kolom 3.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 16,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 41,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 66,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "#0f172a",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "B",
+        "text": "B",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: Kolom 3 harus berjumlah 3 bangun; Baris 3 sudah memiliki Segitiga (K1) dan Lingkaran (K2) -> wajib Persegi; Baris 3 sudah memakai Hitam (K1) dan Arsir (K2) -> wajib Putih!",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 16,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 41,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 66,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "C",
+        "text": "C",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jumlah bangun hanya 2, padahal kolom 3 selalu berisi 3 bangun.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 24,
+                "y": 39,
+                "width": 20,
+                "height": 20,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 56,
+                "y": 39,
+                "width": 20,
+                "height": 20,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "D",
+        "text": "D",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bentuk lingkaran mengulang kolom 2.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 24,
+                "cy": 50,
+                "r": 10,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 50,
+                "cy": 50,
+                "r": 10,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "circle",
+              "attrs": {
+                "cx": 76,
+                "cy": 50,
+                "r": 10,
+                "fill": "#ffffff",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "E",
+        "text": "E",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Arsiran diagonal sudah dipakai di kolom 2 baris 3.",
+        "visualSpec": {
+          "nodes": [
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 16,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 41,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            },
+            {
+              "tag": "rect",
+              "attrs": {
+                "x": 66,
+                "y": 41,
+                "width": 18,
+                "height": 18,
+                "fill": "pat:hatch-diag",
+                "stroke": "#0f172a",
+                "stroke-width": 2.5
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Matriks Latin Square 3 atribut sekaligus: setiap baris memuat 3 jumlah berbeda (1, 2, 3), 3 bentuk berbeda (Lingkaran, Persegi, Segitiga), dan 3 isian berbeda (Putih, Hitam, Arsir Diagonal).",
+      "stepByStep": [
+        "Jumlah di K1=1, K2=2 -> K3 harus 3 buah.",
+        "Bentuk baris 3: Segitiga, Lingkaran -> tersisa Persegi.",
+        "Isian baris 3: Hitam, Arsir Diagonal -> tersisa Putih.",
+        "Hasil: 3 Persegi Putih (Opsi B)."
+      ],
+      "correctReason": "Kombinasi 3 atribut yang hilang pada Baris 3 & Kolom 3 adalah: 3 buah + Persegi + Putih.",
+      "distractorAnalysis": {
+        "A": "Jumlahnya 3 benar, bentuknya persegi benar, tetapi warnanya hitam padahal Putih belum muncul pada baris 3 maupun kolom 3.",
+        "C": "Jumlah bangun hanya 2, padahal kolom 3 selalu berisi 3 bangun.",
+        "D": "Bentuk lingkaran mengulang kolom 2.",
+        "E": "Arsiran diagonal sudah dipakai di kolom 2 baris 3."
+      },
+      "quickTrick": "Tulis checklist 3 baris atribut: Jumlah {1,2,3}, Bentuk {O, □, Δ}, Warna {Putih, Hitam, Arsir}. Coret yang sudah ada!",
+      "commonMistakes": "Benar di bentuk dan jumlah tetapi keliru memilih arsiran atau warna hitam.",
+      "studyMaterialTip": "Matriks 3 atribut adalah tipe soal matriks paling populer; gunakan teknik eliminasi tiap atribut satu per satu."
+    },
+    "references": [
+      {
+        "title": "Penalaran Figural & Transformasi Spasial",
+        "source": "Materi SKD TIU"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  }
+]

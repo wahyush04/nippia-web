@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-navy: #0f172a;
+    --brand-blue: #1e3a8a;
+    --brand-indigo: #4f46e5;
+    --surface-bg: #f8fafc;
+    --surface-card: #ffffff;
+    --border-subtle: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--surface-bg);
+    color: #0f172a;
+  }
+}
+
+/* Custom clean scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Realistic 3D Flashcard Physics */
+.flashcard-scene {
+  perspective: 1500px;
+}
+
+.flashcard-body {
+  transform-style: preserve-3d;
+  transition: transform 0.72s cubic-bezier(0.22, 1.12, 0.36, 1);
+  will-change: transform;
+}
+
+.flashcard-body.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flashcard-face-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes flashcardShadowPulse {
+  0% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scaleX(0.68) scaleY(1.25);
+    opacity: 0.12;
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.22;
+  }
+}
+
+.flashcard-floor-shadow {
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.22) 0%, rgba(15, 23, 42, 0) 72%);
+  transition: transform 0.72s cubic-bezier(0.22, 1.12, 0.36, 1), opacity 0.72s ease;
+}
+
+.flashcard-floor-shadow.is-flipping {
+  animation: flashcardShadowPulse 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Send current front card in a 3D arc to the very back of the deck */
+@keyframes cardSendToBack {
+  0% {
+    transform: translate3d(0, 0, 12px) scale(1) rotateZ(0deg);
+    z-index: 40;
+    opacity: 1;
+  }
+  42% {
+    transform: translate3d(56%, -18px, 48px) scale(0.95) rotateZ(7deg);
+    z-index: 40;
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(52%, -6px, -40px) scale(0.93) rotateZ(5deg);
+    z-index: 5;
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(0, 30px, -70px) scale(0.88) rotateZ(0deg);
+    z-index: 5;
+    opacity: 0;
+  }
+}
+
+/* Bring card from the very back of the deck around the side to the front */
+@keyframes cardBringFromBack {
+  0% {
+    transform: translate3d(0, 30px, -70px) scale(0.88) rotateZ(0deg);
+    z-index: 5;
+    opacity: 0.6;
+  }
+  45% {
+    transform: translate3d(-54%, -14px, 40px) scale(0.95) rotateZ(-7deg);
+    z-index: 5;
+    opacity: 1;
+  }
+  52% {
+    transform: translate3d(-50%, -14px, 48px) scale(0.96) rotateZ(-6deg);
+    z-index: 40;
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotateZ(0deg);
+    z-index: 30;
+    opacity: 1;
+  }
+}
+
+.flashcard-send-back {
+  animation: cardSendToBack 0.64s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  pointer-events: none;
+}
+
+.flashcard-bring-front {
+  animation: cardBringFromBack 0.64s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

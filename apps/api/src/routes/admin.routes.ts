@@ -1,0 +1,665 @@
+import { Router } from 'express';
+import { z } from 'zod';
+import { questionCreateSchema } from '@nippia/shared';
+import { logAudit, requireAdmin, requireAuth } from '../middleware/auth.js';
+import { asyncHandler, AppError } from '../middleware/errorHandler.js';
+import { prisma } from '../lib/prisma.js';
+import { generateDraftQuestionsForAdmin } from '../services/ai.service.js';
+
+export const adminRouter = Router();
+
+adminRouter.use(requireAuth, requireAdmin);
+
+adminRouter.get(
+  '/overview',
+  asyncHandler(async (_req, res) => {
+    const [
+      totalUsers,
+      activeUsersLast7d,
+      totalQuestions,
+      draftQuestions,
+      totalSimulations,
+      openReports,
+      hardestTopics,
+      recentUsers,
+    ] = await Promise.all([
+      prisma.user.count(),
+      prisma.dailyActivity.groupBy({
+        by: ['userId'],
+        where: {
+          date: {
+            gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
+          },
+        },
+      }),
+      prisma.question.count({ where: { status: 'PUBLISHED' } }),
+      prisma.question.count({ where: { status: 'DRAFT' } }),
+      prisma.examinationSession.count({ where: { status: 'SUBMITTED' } }),
+      prisma.contentReport.count({ where: { status: 'OPEN' } }),
+      prisma.topicMastery.groupBy({
+        by: ['topicId'],
+        _avg: { accuracyPct: true },
+        _sum: { attemptsCount: true },
+        orderBy: { _avg: { accuracyPct: 'asc' } },
+        take: 6,
+      }),
+      prisma.user.findMany({
+        orderBy: { createdAt: 'desc' },
+        take: 5,
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          role: true,
+          createdAt: true,
+          profile: { select: { totalXp: true, levelName: true } },
+        },
+      }),
+    ]);
+
+    const topicIds = hardestTopics.map((h) => h.topicId);
+    const topics = await prisma.topic.findMany({
+      where: { id: { in: topicIds } },
+      include: { subject: true },
+    });
+    const tMap = new Map(topics.map((t) => [t.id, t]));
+
+    res.json({
+      success: true,
+      data: {
+        totalUsers,
+        activeUsers7d: activeUsersLast7d.length,
+        totalPublishedQuestions: totalQuestions,
+        draftQuestions,
+        totalSimulations,
+        openReports,
+        hardestTopics: hardestTopics.map((h) => {
+          const t = tMap.get(h.topicId);
+          return {
+            topicId: h.topicId,
+            topicName: t?.name ?? 'Topik',
+            subjectCode: t?.subject.code ?? 'TWK',
+            avgAccuracy: Number((h._avg.accuracyPct ?? 0).toFixed(1)),
+            totalAttempts: h._sum.attemptsCount ?? 0,
+          };
+        }),
+        recentUsers,
+      },
+    });
+  }),
+);
+
+adminRouter.get(
+  '/questions',
+  asyncHandler(async (req, res) => {
+    const page = Math.max(1, Number(req.query.page ?? 1));
+    const pageSize = Math.min(100, Math.max(1, Number(req.query.pageSize ?? 20)));
+    const subject = typeof req.query.subject === 'string' ? req.query.subject : '';
+    const status = typeof req.query.status === 'string' ? req.query.status : '';
+    const difficulty = typeof req.query.difficulty === 'string' ? req.query.difficulty : '';
+    const q = typeof req.query.q === 'string' ? req.query.q.trim() : '';
+
+    const where = {
+      ...(subject ? { subject: { code: subject as 'TWK' | 'TIU' | 'TKP' } } : {}),
+      ...(status ? { status: status as 'DRAFT' | 'PUBLISHED' | 'ARCHIVED' } : {}),
+      ...(difficulty ? { difficulty: difficulty as 'EASY' | 'MEDIUM' | 'HARD' } : {}),
+      ...(q
+        ? {
+            OR: [
+              { code: { contains: q, mode: 'insensitive' as const } },
+              { stem: { contains: q, mode: 'insensitive' as const } },
+            ],
+          }
+        : {}),
+    };
+
+    const [total, items] = await Promise.all([
+      prisma.question.count({ where }),
+      prisma.question.findMany({
+        where,
+        include: {
+          subject: true,
+          topic: true,
+          subtopic: true,
+          options: { orderBy: { optionKey: 'asc' } },
+          references: true,
+        },
+        orderBy: [{ updatedAt: 'desc' }],
+        skip: (page - 1) * pageSize,
+        take: pageSize,
+      }),
+    ]);
+
+    res.json({
+      success: true,
+      data: {
+        items,
+        pagination: { page, pageSize, total, totalPages: Math.ceil(total / pageSize) },
+      },
+    });
+  }),
+);
+
+adminRouter.post(
+  '/questions',
+  asyncHandler(async (req, res) => {
+    const data = questionCreateSchema.parse(req.body);
+    const subject = await prisma.subject.findUnique({ where: { code: data.subjectCode } });
+    const topic = await prisma.topic.findUnique({ where: { slug: data.topicSlug } });
+    if (!subject || !topic) {
+      throw new AppError(400, 'Subtes atau topik tidak valid.');
+    }
+
+    let subtopicId: string | undefined;
+    if (data.subtopicName) {
+      const sub = await prisma.subtopic.upsert({
+        where: { topicId_name: { topicId: topic.id, name: data.subtopicName } },
+        update: {},
+        create: { topicId: topic.id, name: data.subtopicName },
+      });
+      subtopicId = sub.id;
+    }
+
+    const code = data.code || `${data.subjectCode}-${Date.now().toString().slice(-6)}`;
+
+    const created = await prisma.question.create({
+      data: {
+        code,
+        subjectId: subject.id,
+        topicId: topic.id,
+        subtopicId,
+        questionType: data.questionType,
+        difficulty: data.difficulty,
+        stem: data.stem,
+        visualSpec: data.visualSpec ?? undefined,
+        explanation: data.explanation,
+        conceptSummary: data.conceptSummary,
+        stepByStep: data.stepByStep ?? undefined,
+        whyOthersWrong: data.whyOthersWrong ?? undefined,
+        quickTrick: data.quickTrick,
+        commonMistakes: data.commonMistakes,
+        status: data.status,
+        isAiGenerated: data.isAiGenerated,
+        options: {
+          create: data.options.map((o) => ({
+            optionKey: o.optionKey,
+            text: o.text,
+            scoreValue: o.scoreValue,
+            isCorrect: o.isCorrect,
+            optionFeedback: o.optionFeedback,
+            visualSpec: o.visualSpec ?? undefined,
+          })),
+        },
+        references: data.references
+          ? { create: data.references.map((r) => ({ title: r.title, source: r.source, note: r.note })) }
+          : undefined,
+      },
+      include: { subject: true, topic: true, options: true, references: true },
+    });
+
+    await logAudit(req.user!.userId, 'CREATE_QUESTION', 'Question', created.id, { code: created.code });
+    res.status(201).json({ success: true, data: created });
+  }),
+);
+
+adminRouter.put(
+  '/questions/:id',
+  asyncHandler(async (req, res) => {
+    const data = questionCreateSchema.parse(req.body);
+    const existing = await prisma.question.findUnique({
+      where: { id: String(req.params.id) },
+      include: { options: true },
+    });
+    if (!existing) throw new AppError(404, 'Soal tidak ditemukan.');
+
+    const subject = await prisma.subject.findUnique({ where: { code: data.subjectCode } });
+    const topic = await prisma.topic.findUnique({ where: { slug: data.topicSlug } });
+    if (!subject || !topic) throw new AppError(400, 'Subtes atau topik tidak valid.');
+
+    // Save version history snapshot before overwriting
+    await prisma.questionVersion.create({
+      data: {
+        questionId: existing.id,
+        version: existing.version,
+        snapshot: existing as unknown as object,
+        changedBy: req.user!.userId,
+        changeNote: 'Pembaruan melalui Editor Admin',
+      },
+    });
+
+    const updated = await prisma.$transaction(async (tx) => {
+      await tx.questionOption.deleteMany({ where: { questionId: existing.id } });
+      await tx.questionReference.deleteMany({ where: { questionId: existing.id } });
+
+      return tx.question.update({
+        where: { id: existing.id },
+        data: {
+          subjectId: subject.id,
+          topicId: topic.id,
+          questionType: data.questionType,
+          difficulty: data.difficulty,
+          stem: data.stem,
+          visualSpec: data.visualSpec ?? undefined,
+          explanation: data.explanation,
+          conceptSummary: data.conceptSummary,
+          stepByStep: data.stepByStep ?? undefined,
+          whyOthersWrong: data.whyOthersWrong ?? undefined,
+          quickTrick: data.quickTrick,
+          commonMistakes: data.commonMistakes,
+          status: data.status,
+          version: { increment: 1 },
+          options: {
+            create: data.options.map((o) => ({
+              optionKey: o.optionKey,
+              text: o.text,
+              scoreValue: o.scoreValue,
+              isCorrect: o.isCorrect,
+              optionFeedback: o.optionFeedback,
+              visualSpec: o.visualSpec ?? undefined,
+            })),
+          },
+          references: data.references
+            ? { create: data.references.map((r) => ({ title: r.title, source: r.source, note: r.note })) }
+            : undefined,
+        },
+        include: { subject: true, topic: true, options: true, references: true },
+      });
+    });
+
+    await logAudit(req.user!.userId, 'UPDATE_QUESTION', 'Question', updated.id, { version: updated.version });
+    res.json({ success: true, data: updated });
+  }),
+);
+
+adminRouter.delete(
+  '/questions/:id',
+  asyncHandler(async (req, res) => {
+    const existing = await prisma.question.findUnique({ where: { id: String(req.params.id) } });
+    if (!existing) throw new AppError(404, 'Soal tidak ditemukan.');
+    await prisma.question.delete({ where: { id: existing.id } });
+    await logAudit(req.user!.userId, 'DELETE_QUESTION', 'Question', existing.id, { code: existing.code });
+    res.json({ success: true, data: { deleted: true } });
+  }),
+);
+
+adminRouter.post(
+  '/questions/bulk-update',
+  asyncHandler(async (req, res) => {
+    const { ids, difficulty, status, topicSlug } = z
+      .object({
+        ids: z.array(z.string()).min(1),
+        difficulty: z.enum(['EASY', 'MEDIUM', 'HARD']).optional(),
+        status: z.enum(['DRAFT', 'PUBLISHED', 'ARCHIVED']).optional(),
+        topicSlug: z.string().optional(),
+      })
+      .parse(req.body);
+
+    let topicId: string | undefined;
+    if (topicSlug) {
+      const t = await prisma.topic.findUnique({ where: { slug: topicSlug } });
+      if (!t) throw new AppError(400, 'Topik tidak ditemukan.');
+      topicId = t.id;
+    }
+
+    const result = await prisma.question.updateMany({
+      where: { id: { in: ids } },
+      data: {
+        ...(difficulty ? { difficulty } : {}),
+        ...(status ? { status } : {}),
+        ...(topicId ? { topicId } : {}),
+      },
+    });
+
+    await logAudit(req.user!.userId, 'BULK_UPDATE_QUESTIONS', 'Question', undefined, { count: result.count });
+    res.json({ success: true, data: { updatedCount: result.count } });
+  }),
+);
+
+adminRouter.get(
+  '/questions/export',
+  asyncHandler(async (_req, res) => {
+    const questions = await prisma.question.findMany({
+      include: { subject: true, topic: true, options: { orderBy: { optionKey: 'asc' } }, references: true },
+      orderBy: { code: 'asc' },
+    });
+    res.json({ success: true, data: questions });
+  }),
+);
+
+adminRouter.post(
+  '/questions/import',
+  asyncHandler(async (req, res) => {
+    const { items } = z.object({ items: z.array(questionCreateSchema).min(1).max(200) }).parse(req.body);
+    let imported = 0;
+
+    for (const item of items) {
+      const subject = await prisma.subject.findUnique({ where: { code: item.subjectCode } });
+      const topic = await prisma.topic.findUnique({ where: { slug: item.topicSlug } });
+      if (!subject || !topic) continue;
+      const code = item.code || `${item.subjectCode}-IMP-${Date.now()}-${imported}`;
+      await prisma.question.upsert({
+        where: { code },
+        update: { stem: item.stem, explanation: item.explanation, status: item.status },
+        create: {
+          code,
+          subjectId: subject.id,
+          topicId: topic.id,
+          questionType: item.questionType,
+          difficulty: item.difficulty,
+          stem: item.stem,
+          explanation: item.explanation,
+          conceptSummary: item.conceptSummary,
+          quickTrick: item.quickTrick,
+          commonMistakes: item.commonMistakes,
+          status: item.status,
+          options: {
+            create: item.options.map((o) => ({
+              optionKey: o.optionKey,
+              text: o.text,
+              scoreValue: o.scoreValue,
+              isCorrect: o.isCorrect,
+              optionFeedback: o.optionFeedback,
+            })),
+          },
+        },
+      });
+      imported++;
+    }
+
+    await logAudit(req.user!.userId, 'IMPORT_QUESTIONS', 'Question', undefined, { imported });
+    res.json({ success: true, data: { imported } });
+  }),
+);
+
+adminRouter.post(
+  '/ai-generate',
+  asyncHandler(async (req, res) => {
+    const body = z
+      .object({
+        subjectCode: z.enum(['TWK', 'TIU', 'TKP']),
+        topicSlug: z.string().min(1),
+        subtopicName: z.string().optional(),
+        difficulty: z.enum(['EASY', 'MEDIUM', 'HARD']).default('MEDIUM'),
+        count: z.number().int().min(1).max(5).default(2),
+      })
+      .parse(req.body);
+
+    const drafts = await generateDraftQuestionsForAdmin(body);
+    const subject = await prisma.subject.findUnique({ where: { code: body.subjectCode } });
+    const topic = await prisma.topic.findUnique({ where: { slug: body.topicSlug } });
+    if (!subject || !topic) throw new AppError(400, 'Subtes atau topik tidak valid.');
+
+    const savedDrafts: unknown[] = [];
+    for (const d of drafts) {
+      const created = await prisma.question.create({
+        data: {
+          code: d.code || `AI-${body.subjectCode}-${Date.now().toString().slice(-5)}-${savedDrafts.length + 1}`,
+          subjectId: subject.id,
+          topicId: topic.id,
+          difficulty: body.difficulty,
+          stem: d.stem,
+          explanation: d.explanation,
+          conceptSummary: d.conceptSummary,
+          quickTrick: d.quickTrick,
+          commonMistakes: d.commonMistakes,
+          status: 'DRAFT',
+          isAiGenerated: true,
+          options: {
+            create: (d.options || []).map((o: { optionKey: string; text: string; scoreValue: number; isCorrect: boolean; optionFeedback?: string }) => ({
+              optionKey: o.optionKey,
+              text: o.text,
+              scoreValue: o.scoreValue,
+              isCorrect: Boolean(o.isCorrect),
+              optionFeedback: o.optionFeedback,
+            })),
+          },
+        },
+        include: { subject: true, topic: true, options: true },
+      });
+      savedDrafts.push(created);
+    }
+
+    await logAudit(req.user!.userId, 'AI_GENERATE_DRAFTS', 'Question', undefined, { count: savedDrafts.length });
+    res.status(201).json({ success: true, data: savedDrafts });
+  }),
+);
+
+adminRouter.get(
+  '/quality-check',
+  asyncHandler(async (_req, res) => {
+    const [allQuestions, reports, aiDrafts] = await Promise.all([
+      prisma.question.findMany({
+        include: { subject: true, topic: true, options: true },
+      }),
+      prisma.contentReport.findMany({
+        where: { status: 'OPEN' },
+        include: {
+          user: { select: { name: true, email: true } },
+          question: { select: { id: true, code: true, stem: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+      }),
+      prisma.question.findMany({
+        where: { status: 'DRAFT', isAiGenerated: true },
+        include: { subject: true, topic: true, options: true },
+        orderBy: { createdAt: 'desc' },
+      }),
+    ]);
+
+    // Check duplicate stems
+    const stemSeen = new Map<string, string[]>();
+    const missingExplanations: Array<{ id: string; code: string }> = [];
+    const inconsistentKeys: Array<{ id: string; code: string; issue: string }> = [];
+
+    for (const q of allQuestions) {
+      const norm = q.stem.trim().toLowerCase().slice(0, 120);
+      stemSeen.set(norm, [...(stemSeen.get(norm) ?? []), q.code]);
+
+      if (!q.explanation || q.explanation.trim().length < 20) {
+        missingExplanations.push({ id: q.id, code: q.code });
+      }
+
+      if (q.options.length !== 5) {
+        inconsistentKeys.push({ id: q.id, code: q.code, issue: `Jumlah opsi ${q.options.length} (harus 5)` });
+      } else if (q.subject.code === 'TKP') {
+        const scores = new Set(q.options.map((o) => o.scoreValue));
+        if (scores.size < 3) {
+          inconsistentKeys.push({ id: q.id, code: q.code, issue: 'Bobot opsi TKP tidak bervariasi' });
+        }
+      } else {
+        const corrects = q.options.filter((o) => o.isCorrect);
+        if (corrects.length !== 1) {
+          inconsistentKeys.push({
+            id: q.id,
+            code: q.code,
+            issue: `Jumlah kunci benar ${corrects.length} (harus tepat 1)`,
+          });
+        }
+      }
+    }
+
+    const duplicates = [...stemSeen.entries()]
+      .filter(([, codes]) => codes.length > 1)
+      .map(([prefix, codes]) => ({ prefix, codes }));
+
+    res.json({
+      success: true,
+      data: {
+        duplicates,
+        missingExplanations,
+        inconsistentKeys,
+        aiDrafts,
+        openReports: reports,
+      },
+    });
+  }),
+);
+
+adminRouter.patch(
+  '/reports/:id',
+  asyncHandler(async (req, res) => {
+    const { status } = z.object({ status: z.enum(['OPEN', 'REVIEWED', 'RESOLVED', 'DISMISSED']) }).parse(req.body);
+    const updated = await prisma.contentReport.update({
+      where: { id: String(req.params.id) },
+      data: { status },
+    });
+    res.json({ success: true, data: updated });
+  }),
+);
+
+adminRouter.get(
+  '/topics',
+  asyncHandler(async (_req, res) => {
+    const topics = await prisma.topic.findMany({
+      include: {
+        subject: true,
+        _count: { select: { questions: true } },
+      },
+      orderBy: [{ subject: { orderIndex: 'asc' } }, { orderIndex: 'asc' }],
+    });
+    res.json({ success: true, data: topics });
+  }),
+);
+
+adminRouter.post(
+  '/topics',
+  asyncHandler(async (req, res) => {
+    const body = z
+      .object({
+        subjectCode: z.enum(['TWK', 'TIU', 'TKP']),
+        name: z.string().min(2),
+        slug: z.string().min(2),
+        category: z.string().optional(),
+        description: z.string().min(5),
+      })
+      .parse(req.body);
+
+    const subject = await prisma.subject.findUnique({ where: { code: body.subjectCode } });
+    if (!subject) throw new AppError(400, 'Subtes tidak ditemukan.');
+
+    const created = await prisma.topic.create({
+      data: {
+        subjectId: subject.id,
+        name: body.name,
+        slug: body.slug,
+        category: body.category,
+        description: body.description,
+      },
+    });
+    await logAudit(req.user!.userId, 'CREATE_TOPIC', 'Topic', created.id);
+    res.status(201).json({ success: true, data: created });
+  }),
+);
+
+adminRouter.get(
+  '/users',
+  asyncHandler(async (_req, res) => {
+    const users = await prisma.user.findMany({
+      orderBy: { createdAt: 'desc' },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        emailVerified: true,
+        createdAt: true,
+        profile: { select: { totalXp: true, levelName: true, targetScore: true } },
+        streak: { select: { currentStreak: true } },
+        _count: { select: { practiceSessions: true, examSessions: true } },
+      },
+    });
+    res.json({ success: true, data: users });
+  }),
+);
+
+adminRouter.patch(
+  '/users/:id/role',
+  asyncHandler(async (req, res) => {
+    const { role } = z.object({ role: z.enum(['USER', 'ADMIN']) }).parse(req.body);
+    const updated = await prisma.user.update({
+      where: { id: String(req.params.id) },
+      data: { role },
+      select: { id: true, name: true, email: true, role: true },
+    });
+    await logAudit(req.user!.userId, 'UPDATE_USER_ROLE', 'User', updated.id, { role });
+    res.json({ success: true, data: updated });
+  }),
+);
+
+adminRouter.get(
+  '/configs',
+  asyncHandler(async (_req, res) => {
+    const configs = await prisma.scoringConfiguration.findMany({
+      include: { passingGrades: true },
+      orderBy: [{ year: 'desc' }, { version: 'desc' }],
+    });
+    res.json({ success: true, data: configs });
+  }),
+);
+
+adminRouter.post(
+  '/configs',
+  asyncHandler(async (req, res) => {
+    const body = z
+      .object({
+        name: z.string().min(3),
+        year: z.number().int().min(2020).max(2035),
+        isOfficialStyle: z.boolean().default(true),
+        isActive: z.boolean().default(true),
+        sourceReference: z.string().min(3),
+        durationMinutes: z.number().int().min(10).max(300).default(100),
+        disabilityMins: z.number().int().min(10).max(300).default(130),
+        twkQuestionCount: z.number().int().min(1).max(100).default(30),
+        tiuQuestionCount: z.number().int().min(1).max(100).default(35),
+        tkpQuestionCount: z.number().int().min(1).max(100).default(45),
+        twkCorrectPoints: z.number().int().min(1).max(20).default(5),
+        tiuCorrectPoints: z.number().int().min(1).max(20).default(5),
+        tkpMaxPoints: z.number().int().min(1).max(20).default(5),
+        twkThreshold: z.number().int().min(0).max(500).default(65),
+        tiuThreshold: z.number().int().min(0).max(500).default(80),
+        tkpThreshold: z.number().int().min(0).max(500).default(166),
+        passingSourceDocument: z.string().min(3),
+      })
+      .parse(req.body);
+
+    const created = await prisma.$transaction(async (tx) => {
+      if (body.isActive) {
+        await tx.scoringConfiguration.updateMany({ data: { isActive: false } });
+      }
+      return tx.scoringConfiguration.create({
+        data: {
+          name: body.name,
+          year: body.year,
+          isOfficialStyle: body.isOfficialStyle,
+          isActive: body.isActive,
+          sourceReference: body.sourceReference,
+          durationMinutes: body.durationMinutes,
+          disabilityMins: body.disabilityMins,
+          twkQuestionCount: body.twkQuestionCount,
+          tiuQuestionCount: body.tiuQuestionCount,
+          tkpQuestionCount: body.tkpQuestionCount,
+          twkCorrectPoints: body.twkCorrectPoints,
+          tiuCorrectPoints: body.tiuCorrectPoints,
+          tkpMaxPoints: body.tkpMaxPoints,
+          passingGrades: {
+            create: {
+              formationType: 'UMUM',
+              year: body.year,
+              twkThreshold: body.twkThreshold,
+              tiuThreshold: body.tiuThreshold,
+              tkpThreshold: body.tkpThreshold,
+              sourceDocument: body.passingSourceDocument,
+              isActive: true,
+            },
+          },
+        },
+        include: { passingGrades: true },
+      });
+    });
+
+    await logAudit(req.user!.userId, 'CREATE_EXAM_CONFIG', 'ScoringConfiguration', created.id, {
+      year: created.year,
+    });
+    res.status(201).json({ success: true, data: created });
+  }),
+);

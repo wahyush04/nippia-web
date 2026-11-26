@@ -1,0 +1,790 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum SubjectCode {
+  TWK
+  TIU
+  TKP
+}
+
+enum DifficultyLevel {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum QuestionStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum PracticeMode {
+  PRACTICE
+  EXAM
+}
+
+enum SessionStatus {
+  IN_PROGRESS
+  SUBMITTED
+  ABANDONED
+}
+
+enum MasteryLevel {
+  MASTERED
+  GOOD
+  DEVELOPING
+  NEEDS_IMPROVEMENT
+  INSUFFICIENT_DATA
+}
+
+model User {
+  id              String    @id @default(cuid())
+  name            String
+  email           String    @unique
+  passwordHash    String
+  role            UserRole  @default(USER)
+  emailVerified   Boolean   @default(false)
+  emailVerifyCode String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  profile           UserProfile?
+  preferences       UserPreference?
+  refreshTokens     RefreshToken[]
+  passwordResets    PasswordResetToken[]
+  practiceSessions  PracticeSession[]
+  practiceAnswers   PracticeAnswer[]
+  examSessions      ExaminationSession[]
+  examAnswers       ExaminationAnswer[]
+  dailyGoals        DailyGoal[]
+  dailyActivities   DailyActivity[]
+  learningProgress  LearningProgress[]
+  topicMasteries    TopicMastery[]
+  errorNotebooks    ErrorNotebook[]
+  bookmarks         Bookmark[]
+  studyPlans        StudyPlan[]
+  flashcardProgress FlashcardProgress[]
+  achievements      UserAchievement[]
+  xpTransactions    UserXpTransaction[]
+  streak            UserStreak?
+  leaderboardSnaps  LeaderboardSnapshot[]
+  aiConversations   AiConversation[]
+  contentReports    ContentReport[]
+  auditLogs         AuditLog[]
+
+  @@index([email])
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("password_reset_tokens")
+}
+
+model UserProfile {
+  id                  String    @id @default(cuid())
+  userId              String    @unique
+  avatarUrl           String?
+  bio                 String?
+  targetAgency        String?
+  experienceLevel     String?   // FIRST_TIME, REPEAT_CANDIDATE, REFRESHING
+  targetExamDate      DateTime?
+  dailyStudyMinutes   Int       @default(45)
+  targetScore         Int       @default(380)
+  confidenceTwk       Int       @default(3)
+  confidenceTiu       Int       @default(3)
+  confidenceTkp       Int       @default(3)
+  onboardingCompleted Boolean   @default(false)
+  totalXp             Int       @default(0)
+  levelName           String    @default("Pemula")
+  updatedAt           DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_profiles")
+}
+
+model UserPreference {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  dailyTwkTarget      Int      @default(10)
+  dailyTiuTarget      Int      @default(10)
+  dailyTkpTarget      Int      @default(10)
+  preferredStudyDays  Int[]    @default([1, 2, 3, 4, 5])
+  isLeaderboardPublic Boolean  @default(true)
+  showQuickTricks     Boolean  @default(true)
+  disabilityExtraTime Boolean  @default(false)
+  emailReminders      Boolean  @default(true)
+  updatedAt           DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_preferences")
+}
+
+model Subject {
+  id          String      @id @default(cuid())
+  code        SubjectCode @unique
+  name        String
+  description String
+  orderIndex  Int         @default(0)
+
+  topics         Topic[]
+  questions      Question[]
+  studyMaterials StudyMaterial[]
+
+  @@map("subjects")
+}
+
+model Topic {
+  id          String   @id @default(cuid())
+  subjectId   String
+  slug        String   @unique
+  name        String
+  category    String?  // e.g. Verbal, Numerik, Figural for TIU; Empat Konsensus for TWK
+  description String
+  orderIndex  Int      @default(0)
+
+  subject        Subject         @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  subtopics      Subtopic[]
+  questions      Question[]
+  topicMasteries TopicMastery[]
+  flashcards     Flashcard[]
+  studyMaterials StudyMaterial[]
+
+  @@index([subjectId])
+  @@map("topics")
+}
+
+model Subtopic {
+  id      String @id @default(cuid())
+  topicId String
+  name    String
+
+  topic     Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  questions Question[]
+
+  @@unique([topicId, name])
+  @@map("subtopics")
+}
+
+model Question {
+  id             String          @id @default(cuid())
+  code           String          @unique
+  packageCode    String          @default("PAKET_1")
+  subjectId      String
+  topicId        String
+  subtopicId     String?
+  questionType   String          @default("MULTIPLE_CHOICE")
+  difficulty     DifficultyLevel @default(MEDIUM)
+  stem           String
+  visualSpec     Json?           // Structured diagram/figural JSON rendered to SVG
+  explanation    String
+  conceptSummary String?
+  stepByStep     Json?           // string[]
+  whyOthersWrong Json?           // Record<string, string>
+  quickTrick     String?
+  commonMistakes String?
+  studyTip       String?
+  status         QuestionStatus  @default(PUBLISHED)
+  isAiGenerated  Boolean         @default(false)
+  version        Int             @default(1)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  subject          Subject             @relation(fields: [subjectId], references: [id])
+  topic            Topic               @relation(fields: [topicId], references: [id])
+  subtopic         Subtopic?           @relation(fields: [subtopicId], references: [id])
+  options          QuestionOption[]
+  references       QuestionReference[]
+  versions         QuestionVersion[]
+  practiceAnswers  PracticeAnswer[]
+  examAnswers      ExaminationAnswer[]
+  errorNotebooks   ErrorNotebook[]
+  bookmarks        Bookmark[]
+  contentReports   ContentReport[]
+
+  @@index([subjectId, topicId, difficulty, status])
+  @@index([packageCode])
+  @@map("questions")
+}
+
+model QuestionOption {
+  id             String  @id @default(cuid())
+  questionId     String
+  optionKey      String  // A, B, C, D, E
+  text           String
+  scoreValue     Int     @default(0) // 5 or 0 for TWK/TIU; 1..5 for TKP
+  isCorrect      Boolean @default(false)
+  optionFeedback String?
+  visualSpec     Json?
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([questionId, optionKey])
+  @@index([questionId])
+  @@map("question_options")
+}
+
+model QuestionReference {
+  id         String  @id @default(cuid())
+  questionId String
+  title      String
+  source     String
+  note       String?
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId])
+  @@map("question_references")
+}
+
+model QuestionVersion {
+  id         String   @id @default(cuid())
+  questionId String
+  version    Int
+  snapshot   Json
+  changedBy  String?
+  changeNote String?
+  createdAt  DateTime @default(now())
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId])
+  @@map("question_versions")
+}
+
+model ScoringConfiguration {
+  id               String   @id @default(cuid())
+  name             String
+  year             Int
+  isOfficialStyle  Boolean  @default(true)
+  isActive         Boolean  @default(false)
+  sourceReference  String
+  durationMinutes  Int      @default(100)
+  disabilityMins   Int      @default(130)
+  twkQuestionCount Int      @default(30)
+  tiuQuestionCount Int      @default(35)
+  tkpQuestionCount Int      @default(45)
+  twkCorrectPoints Int      @default(5)
+  twkWrongPoints   Int      @default(0)
+  tiuCorrectPoints Int      @default(5)
+  tiuWrongPoints   Int      @default(0)
+  tkpMinPoints     Int      @default(1)
+  tkpMaxPoints     Int      @default(5)
+  unansweredPoints Int      @default(0)
+  version          Int      @default(1)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  passingGrades PassingGradeConfiguration[]
+  examSessions  ExaminationSession[]
+
+  @@index([isActive, year])
+  @@map("scoring_configurations")
+}
+
+model PassingGradeConfiguration {
+  id             String   @id @default(cuid())
+  scoringConfigId String
+  formationType  String   @default("UMUM") // UMUM, CUMLAUDE, DISABILITAS, PUTRA_PUTRI_PAPUA
+  year           Int
+  twkThreshold   Int      @default(65)
+  tiuThreshold   Int      @default(80)
+  tkpThreshold   Int      @default(166)
+  totalThreshold Int?
+  sourceDocument String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  scoringConfig ScoringConfiguration @relation(fields: [scoringConfigId], references: [id], onDelete: Cascade)
+
+  @@index([scoringConfigId, formationType])
+  @@map("passing_grade_configurations")
+}
+
+model PracticeSession {
+  id             String        @id @default(cuid())
+  userId         String
+  sessionType    String        // DAILY, TOPIC_DRILL, ERROR_REVIEW, ADAPTIVE
+  mode           PracticeMode  @default(PRACTICE)
+  status         SessionStatus @default(IN_PROGRESS)
+  title          String
+  topicId        String?
+  subjectCode    SubjectCode?
+  questionIds    String[]
+  totalQuestions Int
+  answeredCount  Int           @default(0)
+  correctCount   Int           @default(0)
+  earnedScore    Int           @default(0)
+  maxScore       Int           @default(0)
+  xpAwarded      Int           @default(0)
+  timeLimitSec   Int?
+  timeSpentSec   Int           @default(0)
+  startedAt      DateTime      @default(now())
+  completedAt    DateTime?
+
+  user    User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  answers PracticeAnswer[]
+
+  @@index([userId, status, startedAt])
+  @@map("practice_sessions")
+}
+
+model PracticeAnswer {
+  id            String   @id @default(cuid())
+  sessionId     String
+  userId        String
+  questionId    String
+  selectedKey   String?
+  isCorrect     Boolean  @default(false)
+  scoreEarned   Int      @default(0)
+  maxScore      Int      @default(5)
+  timeSpentSec  Int      @default(0)
+  isFlagged     Boolean  @default(false)
+  answeredAt    DateTime @default(now())
+
+  session  PracticeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question        @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, questionId])
+  @@index([userId, questionId])
+  @@index([userId, answeredAt])
+  @@map("practice_answers")
+}
+
+model ExaminationSession {
+  id               String        @id @default(cuid())
+  userId           String
+  scoringConfigId  String
+  title            String
+  isOfficialStyle  Boolean       @default(true)
+  formationType    String        @default("UMUM")
+  status           SessionStatus @default(IN_PROGRESS)
+  questionIds      String[]
+  durationSec      Int
+  startedAt        DateTime      @default(now())
+  expiresAt        DateTime
+  submittedAt      DateTime?
+  submissionToken  String?       @unique
+  twkScore         Int           @default(0)
+  tiuScore         Int           @default(0)
+  tkpScore         Int           @default(0)
+  totalScore       Int           @default(0)
+  twkPassed        Boolean?
+  tiuPassed        Boolean?
+  tkpPassed        Boolean?
+  overallPassed    Boolean?
+  twkMaxScore      Int           @default(150)
+  tiuMaxScore      Int           @default(175)
+  tkpMaxScore      Int           @default(225)
+  totalMaxScore    Int           @default(550)
+  xpAwarded        Int           @default(0)
+  scoringSnapshot  Json?
+
+  user          User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scoringConfig ScoringConfiguration @relation(fields: [scoringConfigId], references: [id])
+  answers       ExaminationAnswer[]
+
+  @@index([userId, status, startedAt])
+  @@map("examination_sessions")
+}
+
+model ExaminationAnswer {
+  id           String   @id @default(cuid())
+  sessionId    String
+  userId       String
+  questionId   String
+  orderIndex   Int
+  selectedKey  String?
+  isFlagged    Boolean  @default(false)
+  isCorrect    Boolean  @default(false)
+  scoreEarned  Int      @default(0)
+  maxScore     Int      @default(5)
+  timeSpentSec Int      @default(0)
+  updatedAt    DateTime @updatedAt
+
+  session  ExaminationSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user     User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question           @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, questionId])
+  @@index([sessionId, orderIndex])
+  @@index([userId, questionId])
+  @@map("examination_answers")
+}
+
+model DailyGoal {
+  id              String   @id @default(cuid())
+  userId          String
+  date            String   // YYYY-MM-DD in WIB/local user date
+  targetCount     Int
+  completedCount  Int      @default(0)
+  twkTarget       Int      @default(10)
+  tiuTarget       Int      @default(10)
+  tkpTarget       Int      @default(10)
+  isCompleted     Boolean  @default(false)
+  rewardClaimed   Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@map("daily_goals")
+}
+
+model DailyActivity {
+  id                 String   @id @default(cuid())
+  userId             String
+  date               String   // YYYY-MM-DD
+  questionsAnswered  Int      @default(0)
+  correctCount       Int      @default(0)
+  studyTimeSec       Int      @default(0)
+  xpEarned           Int      @default(0)
+  simulationsDone    Int      @default(0)
+  updatedAt          DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@index([userId, date])
+  @@map("daily_activities")
+}
+
+model LearningProgress {
+  id                String      @id @default(cuid())
+  userId            String
+  subjectCode       SubjectCode
+  totalAnswered     Int         @default(0)
+  correctCount      Int         @default(0)
+  totalScore        Int         @default(0)
+  maxPossibleScore  Int         @default(0)
+  totalTimeSec      Int         @default(0)
+  updatedAt         DateTime    @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, subjectCode])
+  @@map("learning_progress")
+}
+
+model TopicMastery {
+  id                String       @id @default(cuid())
+  userId            String
+  topicId           String
+  attemptsCount     Int          @default(0)
+  correctCount      Int          @default(0)
+  accuracyPct       Float        @default(0)
+  avgTimeSec        Float        @default(0)
+  masteryLevel      MasteryLevel @default(INSUFFICIENT_DATA)
+  lastPracticedAt   DateTime?
+  nextReviewDueAt   DateTime?
+  updatedAt         DateTime     @updatedAt
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicId])
+  @@index([userId, masteryLevel])
+  @@map("topic_mastery")
+}
+
+model ErrorNotebook {
+  id              String    @id @default(cuid())
+  userId          String
+  questionId      String
+  lastSelectedKey String?
+  wrongCount      Int       @default(1)
+  reviewStage     Int       @default(0) // 0=1d, 1=3d, 2=7d, 3=14d
+  isMastered      Boolean   @default(false)
+  personalNote    String?
+  lastAttemptAt   DateTime  @default(now())
+  nextReviewAt    DateTime
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
+  @@index([userId, isMastered, nextReviewAt])
+  @@map("error_notebooks")
+}
+
+model Bookmark {
+  id         String   @id @default(cuid())
+  userId     String
+  questionId String
+  note       String?
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
+  @@map("bookmarks")
+}
+
+model StudyPlan {
+  id              String    @id @default(cuid())
+  userId          String
+  title           String
+  targetExamDate  DateTime?
+  dailyMinutes    Int       @default(45)
+  targetScore     Int       @default(380)
+  preferredDays   Int[]     @default([1, 2, 3, 4, 5])
+  isActive        Boolean   @default(true)
+  generatedAt     DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  user  User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks StudyPlanTask[]
+
+  @@index([userId, isActive])
+  @@map("study_plans")
+}
+
+model StudyPlanTask {
+  id             String       @id @default(cuid())
+  studyPlanId    String
+  scheduledDate  String       // YYYY-MM-DD
+  dayLabel       String
+  taskType       String       // PRACTICE, REVIEW_ERRORS, SIMULATION, MATERIAL_STUDY
+  subjectCode    SubjectCode?
+  topicSlug      String?
+  title          String
+  description    String
+  questionCount  Int          @default(10)
+  isCompleted    Boolean      @default(false)
+  completedAt    DateTime?
+
+  studyPlan StudyPlan @relation(fields: [studyPlanId], references: [id], onDelete: Cascade)
+
+  @@index([studyPlanId, scheduledDate])
+  @@map("study_plan_tasks")
+}
+
+model StudyMaterial {
+  id          String      @id @default(cuid())
+  subjectId   String
+  topicId     String?
+  slug        String      @unique
+  title       String
+  summary     String
+  contentMd   String
+  keyPoints   Json?       // string[]
+  formulas    Json?       // string[]
+  readMinutes Int         @default(5)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  topic   Topic?  @relation(fields: [topicId], references: [id], onDelete: SetNull)
+
+  @@index([subjectId, topicId])
+  @@map("study_materials")
+}
+
+model Flashcard {
+  id          String   @id @default(cuid())
+  topicId     String
+  front       String
+  back        String
+  hint        String?
+  createdAt   DateTime @default(now())
+
+  topic    Topic               @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  progress FlashcardProgress[]
+
+  @@index([topicId])
+  @@map("flashcards")
+}
+
+model FlashcardProgress {
+  id           String   @id @default(cuid())
+  userId       String
+  flashcardId  String
+  isMastered   Boolean  @default(false)
+  reviewCount  Int      @default(0)
+  nextReviewAt DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  flashcard Flashcard @relation(fields: [flashcardId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, flashcardId])
+  @@map("flashcard_progress")
+}
+
+model Achievement {
+  id          String @id @default(cuid())
+  code        String @unique
+  title       String
+  description String
+  icon        String
+  xpReward    Int    @default(50)
+  category    String // STREAK, VOLUME, ACCURACY, SIMULATION, MASTERY
+  threshold   Int    @default(1)
+
+  userAchievements UserAchievement[]
+
+  @@map("achievements")
+}
+
+model UserAchievement {
+  id            String   @id @default(cuid())
+  userId        String
+  achievementId String
+  unlockedAt    DateTime @default(now())
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+  @@map("user_achievements")
+}
+
+model UserXpTransaction {
+  id        String   @id @default(cuid())
+  userId    String
+  amount    Int
+  source    String   // DAILY_PRACTICE, TOPIC_DRILL, SIMULATION, STREAK, ACHIEVEMENT
+  refId     String?  // prevents duplicate reward for same session/ref
+  note      String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, source, refId])
+  @@index([userId, createdAt])
+  @@map("user_xp_transactions")
+}
+
+model UserStreak {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  currentStreak  Int      @default(0)
+  longestStreak  Int      @default(0)
+  lastActiveDate String?  // YYYY-MM-DD
+  historyDates   String[] @default([])
+  updatedAt      DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_streaks")
+}
+
+model LeaderboardSnapshot {
+  id        String   @id @default(cuid())
+  userId    String
+  periodKey String   // e.g. WEEKLY_2026_W48, MONTHLY_2026_11, SIM_BEST
+  rank      Int
+  score     Int
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, periodKey])
+  @@index([periodKey, rank])
+  @@map("leaderboard_snapshots")
+}
+
+model AiConversation {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String   @default("Sesi Tutor AI SKD")
+  contextId String?  // optional questionId or topicSlug
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user     User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages AiMessage[]
+
+  @@index([userId, updatedAt])
+  @@map("ai_conversations")
+}
+
+model AiMessage {
+  id             String   @id @default(cuid())
+  conversationId String
+  role           String   // user, assistant
+  content        String
+  citations      Json?
+  createdAt      DateTime @default(now())
+
+  conversation AiConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId, createdAt])
+  @@map("ai_messages")
+}
+
+model ContentReport {
+  id         String   @id @default(cuid())
+  userId     String
+  questionId String
+  reason     String
+  details    String?
+  status     String   @default("OPEN") // OPEN, REVIEWED, RESOLVED, DISMISSED
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([status, createdAt])
+  @@map("content_reports")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String
+  action    String
+  entity    String
+  entityId  String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  actor User @relation(fields: [actorId], references: [id], onDelete: Cascade)
+
+  @@index([actorId, createdAt])
+  @@index([entity, createdAt])
+  @@map("audit_logs")
+}
