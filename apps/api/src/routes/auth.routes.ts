@@ -4,15 +4,27 @@ import { loginSchema, onboardingSchema, registerSchema, getLevelForXp } from '@n
 import { asyncHandler, AppError } from '../middleware/errorHandler.js';
 import { requireAuth } from '../middleware/auth.js';
 import { prisma } from '../lib/prisma.js';
+import { env } from '../config/env.js';
 import {
+  consumeGoogleExchangeTicket,
+  createGoogleExchangeTicket,
+  createGoogleOAuthState,
   createPasswordReset,
+  exchangeGoogleAuthCode,
+  linkGoogleAccountToUser,
+  loginOrRegisterWithGoogle,
   loginUser,
   registerUser,
   resetPassword,
   revokeRefreshToken,
   rotateRefreshToken,
+  setLocalPasswordForUser,
+  unlinkGoogleAccountFromUser,
+  verifyGoogleIdToken,
+  verifyGoogleOAuthState,
 } from '../services/auth.service.js';
 import { generateAdaptiveStudyPlan } from '../services/planner.service.js';
+import { getUserEntitlement } from '../services/subscription.service.js';
 
 export const authRouter = Router();
 
@@ -30,6 +42,122 @@ authRouter.post(
   asyncHandler(async (req, res) => {
     const parsed = loginSchema.parse(req.body);
     const result = await loginUser(parsed);
+    res.json({ success: true, data: result });
+  }),
+);
+
+authRouter.get(
+  '/google/config',
+  asyncHandler(async (_req, res) => {
+    res.json({
+      success: true,
+      data: {
+        enabled: Boolean(env.googleClientId),
+        clientId: env.googleClientId || null,
+      },
+    });
+  }),
+);
+
+authRouter.post(
+  '/google',
+  asyncHandler(async (req, res) => {
+    const { credential } = z.object({ credential: z.string().min(20) }).parse(req.body);
+    const profile = await verifyGoogleIdToken(credential);
+    const result = await loginOrRegisterWithGoogle(profile);
+    res.json({ success: true, data: result });
+  }),
+);
+
+authRouter.get(
+  '/google/redirect',
+  asyncHandler(async (_req, res) => {
+    if (!env.googleClientId || !env.googleClientSecret) {
+      throw new AppError(503, 'OAuth Google belum dikonfigurasi pada server.', 'GOOGLE_NOT_CONFIGURED');
+    }
+    const baseUrl = env.appUrl.replace(/\/$/, '');
+    const redirectUri = `${baseUrl}/api/v1/auth/google/callback`;
+    const state = createGoogleOAuthState();
+    const params = new URLSearchParams({
+      client_id: env.googleClientId,
+      redirect_uri: redirectUri,
+      response_type: 'code',
+      scope: 'openid email profile',
+      state,
+      prompt: 'select_account',
+    });
+    res.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`);
+  }),
+);
+
+authRouter.get(
+  '/google/callback',
+  asyncHandler(async (req, res) => {
+    const baseUrl = env.appUrl.replace(/\/$/, '');
+    const errParam = typeof req.query.error === 'string' ? req.query.error : '';
+    const code = typeof req.query.code === 'string' ? req.query.code : '';
+    const state = typeof req.query.state === 'string' ? req.query.state : '';
+
+    if (errParam) {
+      return res.redirect(`${baseUrl}/login?googleError=${encodeURIComponent('Otorisasi Google dibatalkan.')}`);
+    }
+    if (!code || !state || !verifyGoogleOAuthState(state)) {
+      return res.redirect(`${baseUrl}/login?googleError=${encodeURIComponent('State otorisasi Google tidak valid.')}`);
+    }
+
+    try {
+      const redirectUri = `${baseUrl}/api/v1/auth/google/callback`;
+      const profile = await exchangeGoogleAuthCode(code, redirectUri);
+      const result = await loginOrRegisterWithGoogle(profile);
+      const ticket = createGoogleExchangeTicket(result);
+      return res.redirect(`${baseUrl}/login?googleTicket=${encodeURIComponent(ticket)}`);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Gagal masuk dengan Google.';
+      return res.redirect(`${baseUrl}/login?googleError=${encodeURIComponent(msg)}`);
+    }
+  }),
+);
+
+authRouter.post(
+  '/google/exchange',
+  asyncHandler(async (req, res) => {
+    const { ticket } = z.object({ ticket: z.string().min(10) }).parse(req.body);
+    const result = consumeGoogleExchangeTicket(ticket);
+    res.json({ success: true, data: result });
+  }),
+);
+
+authRouter.post(
+  '/google/link',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const { credential } = z.object({ credential: z.string().min(20) }).parse(req.body);
+    const profile = await verifyGoogleIdToken(credential);
+    const linked = await linkGoogleAccountToUser(req.user!.userId, profile);
+    res.json({ success: true, data: linked });
+  }),
+);
+
+authRouter.delete(
+  '/google/link',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const result = await unlinkGoogleAccountFromUser(req.user!.userId);
+    res.json({ success: true, data: result });
+  }),
+);
+
+authRouter.post(
+  '/set-password',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const { password, currentPassword } = z
+      .object({
+        password: z.string().min(8, 'Kata sandi baru minimal 8 karakter'),
+        currentPassword: z.string().optional(),
+      })
+      .parse(req.body);
+    const result = await setLocalPasswordForUser(req.user!.userId, password, currentPassword);
     res.json({ success: true, data: result });
   }),
 );
@@ -100,7 +228,10 @@ authRouter.get(
     });
     if (!user) throw new AppError(404, 'Pengguna tidak ditemukan');
 
-    const levelInfo = getLevelForXp(user.profile?.totalXp ?? 0);
+    const [levelInfo, entitlement] = [
+      getLevelForXp(user.profile?.totalXp ?? 0),
+      await getUserEntitlement(user.id),
+    ];
     res.json({
       success: true,
       data: {
@@ -109,6 +240,15 @@ authRouter.get(
         email: user.email,
         role: user.role,
         emailVerified: user.emailVerified,
+        avatarUrl: user.avatarUrl,
+        authProvider: user.authProvider,
+        googleLinked: Boolean(user.googleId),
+        googleEmail: user.googleEmail,
+        hasPassword: Boolean(user.passwordHash),
+        isPro: entitlement.isPro,
+        tier: entitlement.tier,
+        subscription: entitlement.subscription,
+        entitlement,
         createdAt: user.createdAt,
         profile: user.profile,
         preferences: user.preferences,

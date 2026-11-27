@@ -4,9 +4,11 @@ import { env } from '../config/env.js';
 import { AppError } from './errorHandler.js';
 import { prisma } from '../lib/prisma.js';
 
+import type { UserRole } from '@nippia/shared';
+
 export interface AuthPayload {
   userId: string;
-  role: 'USER' | 'ADMIN';
+  role: UserRole;
   email: string;
 }
 
@@ -34,6 +36,18 @@ export function requireAuth(req: Request, _res: Response, next: NextFunction) {
   }
 }
 
+export function requireRoles(allowed: UserRole[]) {
+  return (req: Request, _res: Response, next: NextFunction) => {
+    if (!req.user) {
+      return next(new AppError(401, 'Autentikasi diperlukan.', 'UNAUTHORIZED'));
+    }
+    if (!allowed.includes(req.user.role)) {
+      return next(new AppError(403, 'Akses ditolak. Anda tidak memiliki kewenangan untuk aksi ini.', 'FORBIDDEN'));
+    }
+    return next();
+  };
+}
+
 export function requireAdmin(req: Request, _res: Response, next: NextFunction) {
   if (!req.user) {
     return next(new AppError(401, 'Autentikasi diperlukan.', 'UNAUTHORIZED'));
@@ -43,6 +57,9 @@ export function requireAdmin(req: Request, _res: Response, next: NextFunction) {
   }
   return next();
 }
+
+export const requireEventAdmin = requireRoles(['EVENT_ADMIN', 'ADMIN']);
+export const requireEventOperator = requireRoles(['HOST_OPERATOR', 'EVENT_ADMIN', 'ADMIN']);
 
 export async function logAudit(
   actorId: string,

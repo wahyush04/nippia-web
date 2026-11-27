@@ -7,6 +7,16 @@ import { prisma } from '../lib/prisma.js';
 import { evaluateSingleAnswer } from '../services/scoring.service.js';
 import { recomputeUserAnalytics } from '../services/analytics.service.js';
 import { awardXpIdempotent, evaluateAchievements, getTodayWibString, updateDailyStreak } from '../services/gamification.service.js';
+import {
+  buildSubjectCampaignUnits,
+  computeCampaignStars,
+  getUserCampaignOverview,
+} from '../services/campaign.service.js';
+import {
+  FREE_LIMITS,
+  getUserEntitlement,
+  requireProOrThrow,
+} from '../services/subscription.service.js';
 
 export const practiceRouter = Router();
 
@@ -126,10 +136,33 @@ practiceRouter.post(
       })
       .parse(req.body ?? {});
 
+    const entitlement = await getUserEntitlement(userId);
+    if (!entitlement.isPro) {
+      if (entitlement.usage.todayPracticeSessionsUsed >= FREE_LIMITS.DAILY_PRACTICE_SESSIONS_PER_DAY) {
+        throw new AppError(
+          403,
+          'Kuota Paket Free: maksimal 1 sesi latihan (Harian/Topik) per hari sudah digunakan. Upgrade ke Nippia Pro untuk latihan tanpa batas!',
+          'PRO_REQUIRED',
+          { feature: 'DAILY_PRACTICE_LIMIT', upgradeUrl: '/subscription', priceIdr: 29000 },
+        );
+      }
+      if (body.twkCount !== undefined || body.tiuCount !== undefined || body.tkpCount !== undefined) {
+        const reqTotal = (body.twkCount ?? 0) + (body.tiuCount ?? 0) + (body.tkpCount ?? 0);
+        if (reqTotal > FREE_LIMITS.MAX_QUESTIONS_PER_SESSION) {
+          throw new AppError(
+            403,
+            `Paket Free maksimal ${FREE_LIMITS.MAX_QUESTIONS_PER_SESSION} soal per sesi latihan. Upgrade ke Nippia Pro untuk target soal harian penuh!`,
+            'PRO_REQUIRED',
+            { feature: 'DAILY_QUESTION_CAP', upgradeUrl: '/subscription', priceIdr: 29000 },
+          );
+        }
+      }
+    }
+
     const prefs = await prisma.userPreference.findUnique({ where: { userId } });
-    const twkCount = body.twkCount ?? prefs?.dailyTwkTarget ?? 10;
-    const tiuCount = body.tiuCount ?? prefs?.dailyTiuTarget ?? 10;
-    const tkpCount = body.tkpCount ?? prefs?.dailyTkpTarget ?? 10;
+    const twkCount = entitlement.isPro ? (body.twkCount ?? prefs?.dailyTwkTarget ?? 10) : (body.twkCount ?? 3);
+    const tiuCount = entitlement.isPro ? (body.tiuCount ?? prefs?.dailyTiuTarget ?? 10) : (body.tiuCount ?? 3);
+    const tkpCount = entitlement.isPro ? (body.tkpCount ?? prefs?.dailyTkpTarget ?? 10) : (body.tkpCount ?? 4);
 
     const [masteries, dueErrors, allQuestions] = await Promise.all([
       prisma.topicMastery.findMany({ where: { userId } }),
@@ -189,6 +222,118 @@ practiceRouter.post(
 );
 
 /**
+ * Returns Daily Campaign learning tracks (TWK, TIU, TKP), 10 questions per unit,
+ * with sequential unlock status and per-unit mastery stars.
+ */
+practiceRouter.get(
+  '/campaign',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const overview = await getUserCampaignOverview(req.user!.userId);
+    res.json({ success: true, data: overview });
+  }),
+);
+
+/**
+ * Starts or resumes a Campaign unit session (10 questions).
+ * Enforces sequential unit lock: unit N requires unit N-1 to be completed.
+ */
+practiceRouter.post(
+  '/campaign/start',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const userId = req.user!.userId;
+    const { subjectCode, unitNumber } = z
+      .object({
+        subjectCode: z.enum(['TWK', 'TIU', 'TKP']),
+        unitNumber: z.number().int().min(1),
+      })
+      .parse(req.body);
+
+    if (unitNumber > FREE_LIMITS.CAMPAIGN_MAX_UNIT) {
+      await requireProOrThrow(
+        userId,
+        `Campaign ${subjectCode} Unit ${unitNumber} ke atas`,
+        'CAMPAIGN_PRO_UNIT',
+      );
+    }
+
+    const units = await buildSubjectCampaignUnits(subjectCode);
+    const targetUnit = units.find((u) => u.unitNumber === unitNumber);
+    if (!targetUnit) {
+      throw new AppError(404, `Unit ${unitNumber} pada jalur ${subjectCode} tidak ditemukan.`);
+    }
+
+    if (unitNumber > 1) {
+      const [prevProgress, currentProgress] = await Promise.all([
+        prisma.campaignUnitProgress.findUnique({
+          where: {
+            userId_subjectCode_unitNumber: {
+              userId,
+              subjectCode,
+              unitNumber: unitNumber - 1,
+            },
+          },
+        }),
+        prisma.campaignUnitProgress.findUnique({
+          where: {
+            userId_subjectCode_unitNumber: {
+              userId,
+              subjectCode,
+              unitNumber,
+            },
+          },
+        }),
+      ]);
+      if (!prevProgress?.isCompleted && !currentProgress?.isCompleted) {
+        throw new AppError(
+          403,
+          `Unit ${unitNumber} masih terkunci. Selesaikan Unit ${unitNumber - 1} (${subjectCode}) terlebih dahulu.`,
+        );
+      }
+    }
+
+    // Resume unfinished session if already started
+    const existingActive = await prisma.practiceSession.findFirst({
+      where: {
+        userId,
+        sessionType: 'CAMPAIGN',
+        subjectCode,
+        campaignUnit: unitNumber,
+        status: 'IN_PROGRESS',
+      },
+      orderBy: { startedAt: 'desc' },
+    });
+    if (existingActive) {
+      return res.status(200).json({
+        success: true,
+        data: { sessionId: existingActive.id, resumed: true },
+      });
+    }
+
+    const session = await prisma.practiceSession.create({
+      data: {
+        userId,
+        sessionType: 'CAMPAIGN',
+        mode: 'PRACTICE',
+        status: 'IN_PROGRESS',
+        title: `Campaign ${subjectCode} • Unit ${unitNumber}: ${targetUnit.title}`,
+        subjectCode,
+        campaignUnit: unitNumber,
+        questionIds: targetUnit.questionIds,
+        totalQuestions: targetUnit.questionIds.length,
+        maxScore: targetUnit.questionIds.length * 5,
+      },
+    });
+
+    res.status(201).json({
+      success: true,
+      data: { sessionId: session.id, resumed: false },
+    });
+  }),
+);
+
+/**
  * Starts a configurable Topic Drilling session.
  */
 practiceRouter.post(
@@ -213,6 +358,50 @@ practiceRouter.post(
       include: { subject: true },
     });
     if (!topic) throw new AppError(404, 'Topik tidak ditemukan.');
+
+    const entitlement = await getUserEntitlement(userId);
+    if (!entitlement.isPro) {
+      if (entitlement.usage.todayPracticeSessionsUsed >= FREE_LIMITS.DAILY_PRACTICE_SESSIONS_PER_DAY) {
+        throw new AppError(
+          403,
+          'Kuota Paket Free: maksimal 1 sesi latihan per hari sudah digunakan. Upgrade ke Nippia Pro untuk Drilling 24 Topik tanpa batas!',
+          'PRO_REQUIRED',
+          { feature: 'DAILY_PRACTICE_LIMIT', upgradeUrl: '/subscription', priceIdr: 29000 },
+        );
+      }
+      if (body.questionCount > FREE_LIMITS.MAX_QUESTIONS_PER_SESSION) {
+        throw new AppError(
+          403,
+          `Paket Free maksimal ${FREE_LIMITS.MAX_QUESTIONS_PER_SESSION} soal per sesi. Upgrade ke Nippia Pro untuk hingga 50 soal per sesi.`,
+          'PRO_REQUIRED',
+          { feature: 'TOPIC_QUESTION_CAP', upgradeUrl: '/subscription', priceIdr: 29000 },
+        );
+      }
+      if (body.difficulty !== 'MIXED') {
+        throw new AppError(
+          403,
+          'Filter tingkat kesulitan spesifik (EASY/MEDIUM/HARD) hanya tersedia pada Nippia Pro.',
+          'PRO_REQUIRED',
+          { feature: 'TOPIC_DIFFICULTY_FILTER', upgradeUrl: '/subscription', priceIdr: 29000 },
+        );
+      }
+      if (body.mode === 'EXAM') {
+        throw new AppError(
+          403,
+          'Mode Ujian berwaktu pada Latihan per Topik hanya tersedia pada Nippia Pro.',
+          'PRO_REQUIRED',
+          { feature: 'TOPIC_EXAM_MODE', upgradeUrl: '/subscription', priceIdr: 29000 },
+        );
+      }
+      if (body.includeWrong || body.avoidRecent) {
+        throw new AppError(
+          403,
+          'Opsi prioritaskan soal salah & hindari soal baru dijawab khusus untuk Nippia Pro.',
+          'PRO_REQUIRED',
+          { feature: 'TOPIC_SMART_OPTIONS', upgradeUrl: '/subscription', priceIdr: 29000 },
+        );
+      }
+    }
 
     let pool = await prisma.question.findMany({
       where: {
@@ -283,6 +472,11 @@ practiceRouter.post(
   requireAuth,
   asyncHandler(async (req, res) => {
     const userId = req.user!.userId;
+    await requireProOrThrow(
+      userId,
+      'Latih Ulang Soal Salah (Spaced Repetition)',
+      'ERROR_REVIEW',
+    );
     const errors = await prisma.errorNotebook.findMany({
       where: { userId, isMastered: false },
       orderBy: { nextReviewAt: 'asc' },
@@ -624,10 +818,106 @@ practiceRouter.post(
     await awardXpIdempotent(
       userId,
       xpAwarded,
-      session.sessionType === 'DAILY' ? 'DAILY_PRACTICE' : 'TOPIC_DRILL',
+      session.sessionType === 'DAILY'
+        ? 'DAILY_PRACTICE'
+        : session.sessionType === 'CAMPAIGN'
+          ? 'CAMPAIGN_PRACTICE'
+          : 'TOPIC_DRILL',
       session.id,
       `Menyelesaikan ${session.title}`,
     );
+
+    let campaignProgress: {
+      subjectCode: string;
+      unitNumber: number;
+      isCompleted: boolean;
+      justUnlockedNext: boolean;
+      nextUnitNumber: number | null;
+      stars: number;
+      bonusCampaignXp: number;
+      totalUnits: number;
+    } | null = null;
+
+    if (session.sessionType === 'CAMPAIGN' && session.subjectCode && session.campaignUnit) {
+      const subjCode = session.subjectCode;
+      const unitNum = session.campaignUnit;
+      const allAnswered = answered.length >= session.totalQuestions;
+      const accuracyPct = answered.length > 0 ? Math.round((correctCount / answered.length) * 100) : 0;
+      const earnedStars = computeCampaignStars({
+        subjectCode: subjCode,
+        accuracyPct,
+        earnedScore,
+        maxScore,
+        isCompleted: allAnswered,
+      });
+
+      const [existingProg, units] = await Promise.all([
+        prisma.campaignUnitProgress.findUnique({
+          where: {
+            userId_subjectCode_unitNumber: { userId, subjectCode: subjCode, unitNumber: unitNum },
+          },
+        }),
+        buildSubjectCampaignUnits(subjCode),
+      ]);
+
+      const wasCompleted = Boolean(existingProg?.isCompleted);
+      const nowCompleted = wasCompleted || allAnswered;
+
+      await prisma.campaignUnitProgress.upsert({
+        where: {
+          userId_subjectCode_unitNumber: { userId, subjectCode: subjCode, unitNumber: unitNum },
+        },
+        update: {
+          isCompleted: nowCompleted,
+          bestScore: Math.max(existingProg?.bestScore ?? 0, earnedScore),
+          bestCorrect: Math.max(existingProg?.bestCorrect ?? 0, correctCount),
+          bestAccuracy: Math.max(existingProg?.bestAccuracy ?? 0, accuracyPct),
+          stars: Math.max(existingProg?.stars ?? 0, earnedStars),
+          attemptsCount: { increment: 1 },
+          lastSessionId: session.id,
+          completedAt: existingProg?.completedAt ?? (nowCompleted ? new Date() : null),
+        },
+        create: {
+          userId,
+          subjectCode: subjCode,
+          unitNumber: unitNum,
+          isCompleted: nowCompleted,
+          bestScore: earnedScore,
+          bestCorrect: correctCount,
+          bestAccuracy: accuracyPct,
+          stars: earnedStars,
+          attemptsCount: 1,
+          lastSessionId: session.id,
+          completedAt: nowCompleted ? new Date() : null,
+        },
+      });
+
+      let bonusCampaignXp = 0;
+      if (nowCompleted && !wasCompleted) {
+        const isMilestone = unitNum % 5 === 0 || unitNum === units.length;
+        const reward = isMilestone ? 50 : 25;
+        const resUnit = await awardXpIdempotent(
+          userId,
+          reward,
+          'CAMPAIGN_UNIT',
+          `${subjCode}_UNIT_${unitNum}`,
+          `Menuntaskan Campaign ${subjCode} Unit ${unitNum}`,
+        );
+        if (resUnit.awarded) bonusCampaignXp = reward;
+      }
+
+      const nextUnit = unitNum < units.length ? unitNum + 1 : null;
+      campaignProgress = {
+        subjectCode: subjCode,
+        unitNumber: unitNum,
+        isCompleted: nowCompleted,
+        justUnlockedNext: !wasCompleted && nowCompleted && nextUnit !== null,
+        nextUnitNumber: nextUnit,
+        stars: earnedStars,
+        bonusCampaignXp,
+        totalUnits: units.length,
+      };
+    }
 
     await updateDailyStreak(userId);
     await recomputeUserAnalytics(userId);
@@ -660,8 +950,9 @@ practiceRouter.post(
           accuracyPct: answered.length > 0 ? Math.round((correctCount / answered.length) * 100) : 0,
           earnedScore,
           maxScore,
-          xpEarned: xpAwarded + bonusGoalXp,
+          xpEarned: xpAwarded + bonusGoalXp + (campaignProgress?.bonusCampaignXp ?? 0),
           bonusGoalXp,
+          campaignProgress,
           topicsToImprove,
           newAchievements,
         },
@@ -677,6 +968,7 @@ practiceRouter.get(
   asyncHandler(async (req, res) => {
     const userId = req.user!.userId;
     const statusFilter = typeof req.query.status === 'string' ? req.query.status : 'all';
+    const entitlement = await getUserEntitlement(userId);
 
     const items = await prisma.errorNotebook.findMany({
       where: {
@@ -689,11 +981,16 @@ practiceRouter.get(
           include: {
             subject: true,
             topic: true,
+            subtopic: true,
             options: { orderBy: { optionKey: 'asc' } },
+            references: true,
           },
         },
       },
-      orderBy: [{ isMastered: 'asc' }, { nextReviewAt: 'asc' }],
+      orderBy: entitlement.isPro
+        ? [{ isMastered: 'asc' }, { nextReviewAt: 'asc' }]
+        : [{ isMastered: 'asc' }, { lastAttemptAt: 'desc' }],
+      ...(entitlement.isPro ? {} : { take: FREE_LIMITS.ERROR_NOTEBOOK_FREE_LIMIT }),
     });
 
     res.json({ success: true, data: items });
@@ -729,15 +1026,25 @@ practiceRouter.post(
   requireAuth,
   asyncHandler(async (req, res) => {
     const { reason, details } = z
-      .object({ reason: z.string().min(3).max(120), details: z.string().max(1000).optional() })
+      .object({
+        reason: z.string().trim().min(3).max(120),
+        details: z.string().trim().max(1000).optional(),
+      })
       .parse(req.body);
+
+    const questionId = String(req.params.questionId);
+    const exists = await prisma.question.findUnique({
+      where: { id: questionId },
+      select: { id: true },
+    });
+    if (!exists) throw new AppError(404, 'Soal tidak ditemukan.');
 
     const report = await prisma.contentReport.create({
       data: {
         userId: req.user!.userId,
-        questionId: String(req.params.questionId),
+        questionId,
         reason,
-        details,
+        details: details || null,
       },
     });
     res.status(201).json({ success: true, data: report });

@@ -6,6 +6,12 @@ import { asyncHandler, AppError } from '../middleware/errorHandler.js';
 import { prisma } from '../lib/prisma.js';
 import { getTodayWibString } from '../services/gamification.service.js';
 import { getUserWeaknessAnalytics } from '../services/analytics.service.js';
+import {
+  FREE_LIMITS,
+  getProUserIdSet,
+  getUserEntitlement,
+  requireProOrThrow,
+} from '../services/subscription.service.js';
 
 export const dashboardRouter = Router();
 
@@ -254,6 +260,7 @@ dashboardRouter.get(
 
     const unlockedMap = new Map(userAchievements.map((u) => [u.achievementId, u.unlockedAt]));
     const xp = profile?.totalXp ?? 0;
+    const proIdSet = await getProUserIdSet(publicUsers.map((u) => u.id));
 
     const weeklyLeaderboard = [...publicUsers]
       .sort((a, b) => (b.profile?.totalXp ?? 0) - (a.profile?.totalXp ?? 0))
@@ -263,6 +270,7 @@ dashboardRouter.get(
         userId: u.id,
         name: u.name,
         isMe: u.id === userId,
+        isPro: proIdSet.has(u.id),
         totalXp: u.profile?.totalXp ?? 0,
         levelName: u.profile?.levelName ?? 'Pemula',
         currentStreak: u.streak?.currentStreak ?? 0,
@@ -278,6 +286,7 @@ dashboardRouter.get(
         userId: u.id,
         name: u.name,
         isMe: u.id === userId,
+        isPro: proIdSet.has(u.id),
         bestSimScore: u.examSessions[0]?.totalScore ?? 0,
         totalXp: u.profile?.totalXp ?? 0,
         levelName: u.profile?.levelName ?? 'Pemula',
@@ -336,29 +345,75 @@ dashboardRouter.get(
   '/materials',
   requireAuth,
   asyncHandler(async (req, res) => {
+    const userId = req.user!.userId;
     const q = typeof req.query.q === 'string' ? req.query.q.trim() : '';
     const subject = typeof req.query.subject === 'string' ? req.query.subject : '';
 
-    const materials = await prisma.studyMaterial.findMany({
-      where: {
-        ...(subject ? { subject: { code: subject as 'TWK' | 'TIU' | 'TKP' } } : {}),
-        ...(q
+    const [entitlement, materials] = await Promise.all([
+      getUserEntitlement(userId),
+      prisma.studyMaterial.findMany({
+        where: {
+          ...(subject ? { subject: { code: subject as 'TWK' | 'TIU' | 'TKP' } } : {}),
+          ...(q
+            ? {
+                OR: [
+                  { title: { contains: q, mode: 'insensitive' } },
+                  { summary: { contains: q, mode: 'insensitive' } },
+                  { contentMd: { contains: q, mode: 'insensitive' } },
+                ],
+              }
+            : {}),
+        },
+        include: { subject: true, topic: true },
+        orderBy: [{ subject: { orderIndex: 'asc' } }, { createdAt: 'asc' }],
+      }),
+    ]);
+
+    const mapped = materials.map((m) => {
+      const isProPackage = m.slug.startsWith('paket2-') || m.slug.startsWith('paket3-');
+      const isLocked = !entitlement.isPro && isProPackage;
+      return {
+        ...m,
+        packageLabel: m.slug.startsWith('paket3-')
+          ? 'Paket 3'
+          : m.slug.startsWith('paket2-')
+            ? 'Paket 2'
+            : 'Paket 1',
+        requiresPro: isProPackage,
+        isLocked,
+        ...(isLocked
           ? {
-              OR: [
-                { title: { contains: q, mode: 'insensitive' } },
-                { summary: { contains: q, mode: 'insensitive' } },
-                { contentMd: { contains: q, mode: 'insensitive' } },
-              ],
+              contentMd: '',
+              keyPoints: [],
+              formulas: [],
             }
           : {}),
-      },
-      include: { subject: true, topic: true },
-      orderBy: [{ subject: { orderIndex: 'asc' } }, { createdAt: 'asc' }],
+      };
     });
 
-    res.json({ success: true, data: materials });
+    res.json({ success: true, data: mapped });
   }),
 );
+
+async function getFreeFlashcardIdSet(): Promise<Set<string>> {
+  const all = await prisma.flashcard.findMany({
+    select: {
+      id: true,
+      topic: { select: { subject: { select: { code: true } } } },
+    },
+    orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
+  });
+  const countBySubj: Record<string, number> = { TWK: 0, TIU: 0, TKP: 0 };
+  const freeSet = new Set<string>();
+  for (const c of all) {
+    const code = c.topic.subject.code;
+    if ((countBySubj[code] ?? 0) < FREE_LIMITS.FLASHCARD_FREE_PER_SUBJECT) {
+      countBySubj[code] = (countBySubj[code] ?? 0) + 1;
+      freeSet.add(c.id);
+    }
+  }
+  return freeSet;
+}
 
 dashboardRouter.get(
   '/flashcards',
@@ -367,11 +422,13 @@ dashboardRouter.get(
     const userId = req.user!.userId;
     const topicSlug = typeof req.query.topic === 'string' ? req.query.topic : undefined;
 
-    const [cards, progress] = await Promise.all([
+    const [entitlement, freeIdSet, cards, progress] = await Promise.all([
+      getUserEntitlement(userId),
+      getFreeFlashcardIdSet(),
       prisma.flashcard.findMany({
         where: topicSlug ? { topic: { slug: topicSlug } } : undefined,
         include: { topic: { include: { subject: true } } },
-        orderBy: { createdAt: 'asc' },
+        orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
       }),
       prisma.flashcardProgress.findMany({ where: { userId } }),
     ]);
@@ -379,11 +436,19 @@ dashboardRouter.get(
     const progMap = new Map(progress.map((p) => [p.flashcardId, p]));
     res.json({
       success: true,
-      data: cards.map((c) => ({
-        ...c,
-        isMastered: progMap.get(c.id)?.isMastered ?? false,
-        reviewCount: progMap.get(c.id)?.reviewCount ?? 0,
-      })),
+      data: cards.map((c) => {
+        const isFreeCard = freeIdSet.has(c.id);
+        const isLocked = !entitlement.isPro && !isFreeCard;
+        return {
+          ...c,
+          requiresPro: !isFreeCard,
+          isLocked,
+          back: isLocked ? '' : c.back,
+          hint: isLocked ? null : c.hint,
+          isMastered: progMap.get(c.id)?.isMastered ?? false,
+          reviewCount: progMap.get(c.id)?.reviewCount ?? 0,
+        };
+      }),
     });
   }),
 );
@@ -395,6 +460,14 @@ dashboardRouter.post(
     const { isMastered } = z.object({ isMastered: z.boolean() }).parse(req.body);
     const userId = req.user!.userId;
     const flashcardId = String(req.params.id);
+
+    const [entitlement, freeIdSet] = await Promise.all([
+      getUserEntitlement(userId),
+      getFreeFlashcardIdSet(),
+    ]);
+    if (!entitlement.isPro && !freeIdSet.has(flashcardId)) {
+      await requireProOrThrow(userId, 'Kartu Hafalan 3D Lengkap (45 Kartu)', 'FLASHCARDS_PRO');
+    }
 
     const nextDays = isMastered ? 7 : 1;
     const nextReviewAt = new Date(Date.now() + nextDays * 24 * 60 * 60 * 1000);

@@ -5,7 +5,7 @@ COPY package.json package-lock.json* ./
 COPY packages/shared/package.json ./packages/shared/
 COPY apps/api/package.json ./apps/api/
 
-RUN npm install --workspace=@nippia/shared --workspace=@nippia/api
+RUN npm install --no-audit --no-fund --fetch-retries=5 --maxsockets=4 --workspace=@nippia/shared --workspace=@nippia/api
 
 COPY packages/shared ./packages/shared
 COPY apps/api ./apps/api

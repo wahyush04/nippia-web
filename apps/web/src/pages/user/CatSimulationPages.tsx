@@ -14,8 +14,10 @@ import {
   Trophy,
   XCircle,
 } from 'lucide-react';
-import { apiFetch } from '../../lib/api';
+import { apiFetch, ApiError } from '../../lib/api';
+import { useAuthStore } from '../../stores/authStore';
 import { AppLayout } from '../../components/layout/AppLayout';
+import { ProBadge, ProUpgradeBanner } from '../../components/ui/ProBadge';
 import {
   Badge,
   Button,
@@ -30,6 +32,8 @@ import {
 } from '../../components/ui';
 import { FiguralRenderer } from '../../components/skd/FiguralRenderer';
 import { QuestionDiscussionPanel } from '../../components/skd/QuestionDiscussionPanel';
+import { ReportQuestionButton } from '../../components/skd/ReportQuestionButton';
+import { NippiaLogo } from '../../components/ui/NippiaLogo';
 
 interface ScoringConfigItem {
   id: string;
@@ -81,11 +85,27 @@ interface ExamPackagesResponse {
 export function CatSimulationSetupPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const initialMode = searchParams.get('mode') === 'mini' ? 'MINI' : 'FULL';
+  const { user } = useAuthStore();
+  const isPro = Boolean(user?.isPro);
+  const initialMode = searchParams.get('mode') === 'mini' ? 'MINI' : isPro ? 'FULL' : 'MINI';
   const [mode, setMode] = useState<'FULL' | 'MINI'>(initialMode);
   const [formationType, setFormationType] = useState('UMUM');
   const [packageCode, setPackageCode] = useState<'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3'>('ALL');
   const [starting, setStarting] = useState(false);
+  const [startError, setStartError] = useState<{ message: string; isProErr?: boolean } | null>(null);
+
+  const { data: subInfo } = useQuery({
+    queryKey: ['subscription-me'],
+    queryFn: () =>
+      apiFetch<{
+        isPro: boolean;
+        usage: { miniCatUsed: number; fullCatUsed: number };
+        limits: { MINI_CAT_LIFETIME_LIMIT: number };
+      }>('/subscriptions/me'),
+  });
+  const miniUsed = subInfo?.usage?.miniCatUsed ?? 0;
+  const miniLimit = subInfo?.limits?.MINI_CAT_LIFETIME_LIMIT ?? 1;
+  const effectivePro = subInfo?.isPro ?? isPro;
 
   const { data: configs } = useQuery({
     queryKey: ['exam-configs'],
@@ -104,6 +124,7 @@ export function CatSimulationSetupPage() {
 
   const handleStart = async (forceNew = false) => {
     setStarting(true);
+    setStartError(null);
     try {
       const res = await apiFetch<{ sessionId: string; resumed: boolean }>(
         `/exams/start${forceNew ? '?forceNew=true' : ''}`,
@@ -118,6 +139,12 @@ export function CatSimulationSetupPage() {
         },
       );
       navigate(`/cat-simulation/run/${res.sessionId}`);
+    } catch (err) {
+      const apiErr = err instanceof ApiError ? err : null;
+      setStartError({
+        message: apiErr?.message || (err instanceof Error ? err.message : 'Gagal memulai simulasi.'),
+        isProErr: apiErr?.code === 'PRO_REQUIRED',
+      });
     } finally {
       setStarting(false);
     }
@@ -165,6 +192,25 @@ export function CatSimulationSetupPage() {
               <CardTitle>Pilih Format Simulasi</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
+              {!effectivePro && (
+                <ProUpgradeBanner
+                  compact
+                  title={`Paket Free: ${Math.max(0, miniLimit - miniUsed)}/${miniLimit}× Kuota Simulasi CAT Mini Tersedia`}
+                  description="Simulasi Penuh 110 Soal berkali-kali dan dukungan durasi disabilitas 130 menit tersedia di Nippia Pro (Rp 29.000/bln)."
+                />
+              )}
+
+              {startError && (
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs font-medium text-rose-800">
+                  <span>{startError.message}</span>
+                  {startError.isProErr && (
+                    <Link to="/subscription">
+                      <Button size="sm" variant="indigo">Upgrade ke Pro</Button>
+                    </Link>
+                  )}
+                </div>
+              )}
+
               <div className="grid gap-3 sm:grid-cols-2">
                 <button
                   type="button"
@@ -175,7 +221,10 @@ export function CatSimulationSetupPage() {
                       : 'border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <Badge variant="navy">Standar Penuh</Badge>
+                  <div className="flex items-center justify-between gap-2">
+                    <Badge variant="navy">Standar Penuh</Badge>
+                    {!effectivePro && <ProBadge size="xs" />}
+                  </div>
                   <p className="mt-2 text-base font-bold text-slate-900">110 Soal • 100 Menit</p>
                   <p className="mt-1 text-xs text-slate-600">
                     TWK {activeCfg?.twkQuestionCount ?? 30} • TIU {activeCfg?.tiuQuestionCount ?? 35} • TKP{' '}
@@ -191,7 +240,14 @@ export function CatSimulationSetupPage() {
                       : 'border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <Badge variant="indigo">Simulasi Mini</Badge>
+                  <div className="flex items-center justify-between gap-2">
+                    <Badge variant="indigo">Simulasi Mini</Badge>
+                    {!effectivePro && (
+                      <Badge variant={miniUsed >= miniLimit ? 'warning' : 'success'}>
+                        {miniUsed >= miniLimit ? 'Kuota Habis' : '1× Gratis'}
+                      </Badge>
+                    )}
+                  </div>
                   <p className="mt-2 text-base font-bold text-slate-900">30 Soal • 30 Menit</p>
                   <p className="mt-1 text-xs text-slate-600">
                     TWK 8 • TIU 10 • TKP 12 (Skor Estimasi)
@@ -443,16 +499,19 @@ export function CatExamRunnerPage() {
       {/* A. Sticky Exam Header */}
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-slate-900 text-white px-4 py-3 shadow-sm">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-indigo-300">
-              {data.session.title}
-            </p>
-            <div className="flex items-center gap-2 text-sm font-bold">
-              <span>Subtes Aktif: {q?.subjectCode}</span>
-              <span className="text-slate-400">•</span>
-              <span>
-                Terjawab {answeredCount} / {questions.length}
-              </span>
+          <div className="flex items-center gap-3">
+            <NippiaLogo variant="mark" onDark size="sm" />
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-indigo-300">
+                {data.session.title}
+              </p>
+              <div className="flex items-center gap-2 text-sm font-bold">
+                <span>Subtes Aktif: {q?.subjectCode}</span>
+                <span className="text-slate-400">•</span>
+                <span>
+                  Terjawab {answeredCount} / {questions.length}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -492,18 +551,21 @@ export function CatExamRunnerPage() {
                     <Badge variant="indigo">{q.subjectCode}</Badge>
                     <span className="text-xs text-slate-500">{q.topicName}</span>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => updateAnswer({ isFlagged: !q.isFlagged })}
-                    className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold cursor-pointer ${
-                      q.isFlagged
-                        ? 'border-amber-400 bg-amber-50 text-amber-800'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    <Flag className="h-3.5 w-3.5" />
-                    {q.isFlagged ? 'Ditandai Ragu-Ragu' : 'Tandai Ragu-Ragu'}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => updateAnswer({ isFlagged: !q.isFlagged })}
+                      className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold cursor-pointer ${
+                        q.isFlagged
+                          ? 'border-amber-400 bg-amber-50 text-amber-800'
+                          : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                      }`}
+                    >
+                      <Flag className="h-3.5 w-3.5" />
+                      {q.isFlagged ? 'Ditandai Ragu-Ragu' : 'Tandai Ragu-Ragu'}
+                    </button>
+                    <ReportQuestionButton questionId={q.id} questionCode={q.code} />
+                  </div>
                 </div>
 
                 <p className="text-base leading-relaxed font-medium text-slate-900">{q.stem}</p>
@@ -824,11 +886,14 @@ export function ExamResultsPage() {
                       <Badge variant="navy">No. {q.orderIndex + 1}</Badge>
                       <Badge variant="indigo">{q.subjectCode} • {q.topicName}</Badge>
                     </div>
-                    <Badge variant={q.isCorrect ? 'success' : q.selectedKey ? 'warning' : 'neutral'}>
-                      {q.selectedKey
-                        ? `Pilihan: ${q.selectedKey} (+${q.scoreEarned ?? 0} poin)`
-                        : 'Tidak Dijawab (0 poin)'}
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      <Badge variant={q.isCorrect ? 'success' : q.selectedKey ? 'warning' : 'neutral'}>
+                        {q.selectedKey
+                          ? `Pilihan: ${q.selectedKey} (+${q.scoreEarned ?? 0} poin)`
+                          : 'Tidak Dijawab (0 poin)'}
+                      </Badge>
+                      <ReportQuestionButton questionId={q.id} questionCode={q.code} />
+                    </div>
                   </div>
                   <p className="text-sm font-medium text-slate-900">{q.stem}</p>
                   {q.visualSpec && <FiguralRenderer spec={q.visualSpec} />}

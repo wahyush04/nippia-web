@@ -9,7 +9,75 @@ datasource db {
 
 enum UserRole {
   USER
+  HOST_OPERATOR
+  EVENT_ADMIN
   ADMIN
+}
+
+enum LiveEventStatus {
+  DRAFT
+  PUBLISHED
+  REGISTRATION_OPEN
+  REGISTRATION_CLOSED
+  WAITING_ROOM
+  COUNTDOWN
+  LIVE
+  FINALIZING
+  COMPLETED
+  CANCELLED
+}
+
+enum LiveEventVisibility {
+  PUBLIC
+  UNLISTED
+  PRIVATE
+}
+
+enum LiveEventType {
+  FREE
+  PREMIUM
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  EXPIRED
+  CANCELLED
+}
+
+enum SubscriptionOrderStatus {
+  PENDING
+  PAID
+  REJECTED
+  CANCELLED
+  EXPIRED
+}
+
+enum LiveRegistrationStatus {
+  REGISTERED
+  CONFIRMED
+  CANCELLED
+  DISQUALIFIED
+}
+
+enum LiveSessionStatus {
+  WAITING
+  READY
+  IN_PROGRESS
+  SUBMITTED
+  TIME_EXPIRED
+  DISQUALIFIED
+}
+
+enum LiveConnectionStatus {
+  OFFLINE
+  ONLINE
+  DISCONNECTED
+}
+
+enum LiveReviewPolicy {
+  IMMEDIATE
+  DELAYED
+  DISABLED
 }
 
 enum SubjectCode {
@@ -53,7 +121,11 @@ model User {
   id              String    @id @default(cuid())
   name            String
   email           String    @unique
-  passwordHash    String
+  passwordHash    String?
+  googleId        String?   @unique
+  googleEmail     String?
+  avatarUrl       String?
+  authProvider    String    @default("LOCAL") // LOCAL, GOOGLE, HYBRID
   role            UserRole  @default(USER)
   emailVerified   Boolean   @default(false)
   emailVerifyCode String?
@@ -81,8 +153,19 @@ model User {
   streak            UserStreak?
   leaderboardSnaps  LeaderboardSnapshot[]
   aiConversations   AiConversation[]
-  contentReports    ContentReport[]
-  auditLogs         AuditLog[]
+  contentReports         ContentReport[]
+  auditLogs              AuditLog[]
+  campaignProgress       CampaignUnitProgress[]
+  liveEventsCreated      LiveEvent[]             @relation("LiveEventCreator")
+  liveEventRegistrations LiveEventRegistration[]
+  liveEventSessions      LiveEventSession[]
+  liveEventResults       LiveEventResult[]
+  liveEventAnnouncements LiveEventAnnouncement[]
+  liveEventNotifications     LiveEventNotification[]
+  liveEventAuditLogs         LiveEventAuditLog[]
+  subscriptions              UserSubscription[]
+  subscriptionOrders         SubscriptionOrder[] @relation("UserSubscriptionOrders")
+  verifiedSubscriptionOrders SubscriptionOrder[] @relation("VerifiedSubscriptionOrders")
 
   @@index([email])
   @@map("users")
@@ -238,6 +321,7 @@ model Question {
   errorNotebooks   ErrorNotebook[]
   bookmarks        Bookmark[]
   contentReports   ContentReport[]
+  liveQuestionSets LiveEventQuestionSet[]
 
   @@index([subjectId, topicId, difficulty, status])
   @@index([packageCode])
@@ -314,6 +398,7 @@ model ScoringConfiguration {
 
   passingGrades PassingGradeConfiguration[]
   examSessions  ExaminationSession[]
+  liveEvents    LiveEvent[]
 
   @@index([isActive, year])
   @@map("scoring_configurations")
@@ -342,12 +427,13 @@ model PassingGradeConfiguration {
 model PracticeSession {
   id             String        @id @default(cuid())
   userId         String
-  sessionType    String        // DAILY, TOPIC_DRILL, ERROR_REVIEW, ADAPTIVE
+  sessionType    String        // DAILY, TOPIC_DRILL, ERROR_REVIEW, ADAPTIVE, CAMPAIGN
   mode           PracticeMode  @default(PRACTICE)
   status         SessionStatus @default(IN_PROGRESS)
   title          String
   topicId        String?
   subjectCode    SubjectCode?
+  campaignUnit   Int?
   questionIds    String[]
   totalQuestions Int
   answeredCount  Int           @default(0)
@@ -364,7 +450,30 @@ model PracticeSession {
   answers PracticeAnswer[]
 
   @@index([userId, status, startedAt])
+  @@index([userId, sessionType, subjectCode, campaignUnit])
   @@map("practice_sessions")
+}
+
+model CampaignUnitProgress {
+  id            String      @id @default(cuid())
+  userId        String
+  subjectCode   SubjectCode
+  unitNumber    Int
+  isCompleted   Boolean     @default(false)
+  bestScore     Int         @default(0)
+  bestCorrect   Int         @default(0)
+  bestAccuracy  Int         @default(0)
+  stars         Int         @default(0)
+  attemptsCount Int         @default(0)
+  lastSessionId String?
+  completedAt   DateTime?
+  updatedAt     DateTime    @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, subjectCode, unitNumber])
+  @@index([userId, subjectCode])
+  @@map("campaign_unit_progress")
 }
 
 model PracticeAnswer {
@@ -787,4 +896,324 @@ model AuditLog {
   @@index([actorId, createdAt])
   @@index([entity, createdAt])
   @@map("audit_logs")
+}
+
+// ==========================================
+// NIPPIA LIVE AKBAR (SYNCHRONIZED CAT EVENT)
+// ==========================================
+
+model LiveEvent {
+  id                   String              @id @default(cuid())
+  title                String
+  slug                 String              @unique
+  description          String
+  bannerUrl            String?
+  hostName             String              @default("Tim Akademik Nippia")
+  eventStatus          LiveEventStatus     @default(DRAFT)
+  isPaused             Boolean             @default(false)
+  pausedAt             DateTime?
+  totalPausedSeconds   Int                 @default(0)
+  registrationStartAt  DateTime
+  registrationEndAt    DateTime
+  scheduledStartAt     DateTime
+  actualStartAt        DateTime?
+  deadlineAt           DateTime?
+  durationSeconds      Int                 @default(6000)
+  maxParticipants      Int                 @default(1000)
+  visibility           LiveEventVisibility @default(PUBLIC)
+  eventType            LiveEventType       @default(FREE)
+  packageCode          String              @default("ALL")
+  twkCount             Int                 @default(30)
+  tiuCount             Int                 @default(35)
+  tkpCount             Int                 @default(45)
+  difficultyMix        String              @default("BALANCED")
+  scoringConfigId      String?
+  randomizeOptions     Boolean             @default(true)
+  leaderboardPublished Boolean             @default(false)
+  reviewPolicy         LiveReviewPolicy    @default(IMMEDIATE)
+  reviewUnlockAt       DateTime?
+  rulesMd              String?
+  eligibilityText      String?
+  faqJson              Json?
+  snapshotFrozenAt     DateTime?
+  createdBy            String
+  createdAt            DateTime            @default(now())
+  updatedAt            DateTime            @updatedAt
+
+  creator              User                     @relation("LiveEventCreator", fields: [createdBy], references: [id])
+  scoringConfig        ScoringConfiguration?    @relation(fields: [scoringConfigId], references: [id], onDelete: SetNull)
+  registrations        LiveEventRegistration[]
+  questionSets         LiveEventQuestionSet[]
+  sessions             LiveEventSession[]
+  results              LiveEventResult[]
+  announcements        LiveEventAnnouncement[]
+  notifications        LiveEventNotification[]
+  auditLogs            LiveEventAuditLog[]
+  leaderboardSnapshot  EventLeaderboardSnapshot?
+
+  @@index([eventStatus, scheduledStartAt])
+  @@index([visibility, eventType])
+  @@map("live_events")
+}
+
+model LiveEventRegistration {
+  id                 String                 @id @default(cuid())
+  eventId            String
+  userId             String
+  registrationStatus LiveRegistrationStatus @default(REGISTERED)
+  isReady            Boolean                @default(false)
+  readyAt            DateTime?
+  registeredAt       DateTime               @default(now())
+  cancelledAt        DateTime?
+  disqualifiedReason String?
+
+  event LiveEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+  @@index([eventId, registrationStatus])
+  @@index([userId, registrationStatus])
+  @@map("live_event_registrations")
+}
+
+model LiveEventQuestionSet {
+  id               String      @id @default(cuid())
+  eventId          String
+  questionId       String
+  questionOrder    Int
+  subject          SubjectCode
+  topic            String
+  questionSnapshot Json
+  scoringSnapshot  Json
+
+  event    LiveEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  question Question  @relation(fields: [questionId], references: [id])
+
+  @@unique([eventId, questionOrder])
+  @@unique([eventId, questionId])
+  @@index([eventId, subject])
+  @@map("live_event_question_sets")
+}
+
+model LiveEventSession {
+  id                   String               @id @default(cuid())
+  eventId              String
+  userId               String
+  sessionStatus        LiveSessionStatus    @default(WAITING)
+  startedAt            DateTime?
+  submittedAt          DateTime?
+  completionReason     String?
+  lastActivityAt       DateTime             @default(now())
+  connectionStatus     LiveConnectionStatus @default(OFFLINE)
+  optionSeed           String?
+  optionOrderMap       Json?
+  reconnectCount       Int                  @default(0)
+  visibilityViolations Int                  @default(0)
+  submissionToken      String?              @unique
+
+  event   LiveEvent        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user    User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  answers LiveEventAnswer[]
+  result  LiveEventResult?
+
+  @@unique([eventId, userId])
+  @@index([eventId, sessionStatus])
+  @@index([eventId, connectionStatus])
+  @@map("live_event_sessions")
+}
+
+model LiveEventAnswer {
+  id             String   @id @default(cuid())
+  sessionId      String
+  questionId     String
+  selectedOption String?
+  isFlagged      Boolean  @default(false)
+  answerRevision Int      @default(1)
+  answeredAt     DateTime @default(now())
+  scoreAwarded   Int?
+  isCorrect      Boolean?
+
+  session LiveEventSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, questionId])
+  @@index([sessionId, answeredAt])
+  @@map("live_event_answers")
+}
+
+model LiveEventResult {
+  id                    String   @id @default(cuid())
+  eventId               String
+  userId                String
+  sessionId             String   @unique
+  twkScore              Int
+  tiuScore              Int
+  tkpScore              Int
+  totalScore            Int
+  maxScore              Int      @default(550)
+  twkCorrect            Int      @default(0)
+  twkWrong              Int      @default(0)
+  twkUnanswered         Int      @default(0)
+  tiuCorrect            Int      @default(0)
+  tiuWrong              Int      @default(0)
+  tiuUnanswered         Int      @default(0)
+  tkpAnswered           Int      @default(0)
+  tkpUnanswered         Int      @default(0)
+  overallPassed         Boolean?
+  completionTimeSeconds Int
+  topicBreakdown        Json?
+  difficultyBreakdown   Json?
+  finalizedAt           DateTime @default(now())
+  ranking               Int?
+  percentile            Float?
+
+  event   LiveEvent        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user    User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  session LiveEventSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+  @@index([eventId, totalScore, completionTimeSeconds])
+  @@map("live_event_results")
+}
+
+model LiveEventAnnouncement {
+  id        String   @id @default(cuid())
+  eventId   String
+  title     String
+  message   String
+  isPinned  Boolean  @default(false)
+  createdBy String
+  createdAt DateTime @default(now())
+
+  event   LiveEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  creator User      @relation(fields: [createdBy], references: [id])
+
+  @@index([eventId, createdAt])
+  @@map("live_event_announcements")
+}
+
+model LiveEventNotification {
+  id               String    @id @default(cuid())
+  eventId          String
+  userId           String
+  notificationType String
+  title            String
+  message          String
+  deliveryStatus   String    @default("DELIVERED")
+  deliveredAt      DateTime  @default(now())
+  readAt           DateTime?
+
+  event LiveEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId, notificationType])
+  @@index([userId, deliveredAt])
+  @@map("live_event_notifications")
+}
+
+model LiveEventAuditLog {
+  id        String   @id @default(cuid())
+  eventId   String
+  actorId   String
+  action    String
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  event LiveEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  actor User      @relation(fields: [actorId], references: [id])
+
+  @@index([eventId, createdAt])
+  @@map("live_event_audit_logs")
+}
+
+model EventLeaderboardSnapshot {
+  id                String   @id @default(cuid())
+  eventId           String   @unique
+  rankingData       Json
+  totalParticipants Int      @default(0)
+  averageScore      Float    @default(0)
+  highestScore      Int      @default(0)
+  lowestScore       Int      @default(0)
+  generatedAt       DateTime @default(now())
+
+  event LiveEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@map("event_leaderboard_snapshots")
+}
+
+// ==========================================
+// PRO SUBSCRIPTION & BILLING
+// ==========================================
+
+model SubscriptionPlan {
+  id           String   @id @default(cuid())
+  code         String   @unique
+  name         String
+  description  String
+  priceIdr     Int
+  originalIdr  Int?
+  durationDays Int      @default(30)
+  features     Json     @default("[]")
+  isActive     Boolean  @default(true)
+  isPopular    Boolean  @default(true)
+  orderIndex   Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  subscriptions UserSubscription[]
+  orders        SubscriptionOrder[]
+
+  @@map("subscription_plans")
+}
+
+model UserSubscription {
+  id        String             @id @default(cuid())
+  userId    String
+  planId    String
+  status    SubscriptionStatus @default(ACTIVE)
+  startedAt DateTime           @default(now())
+  expiresAt DateTime
+  autoRenew Boolean            @default(false)
+  source    String             @default("ORDER") // ORDER, ADMIN_GRANT
+  note      String?
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+
+  user   User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan   SubscriptionPlan    @relation(fields: [planId], references: [id])
+  orders SubscriptionOrder[]
+
+  @@index([userId, status, expiresAt])
+  @@map("user_subscriptions")
+}
+
+model SubscriptionOrder {
+  id                   String                  @id @default(cuid())
+  orderCode            String                  @unique
+  userId               String
+  planId               String
+  subscriptionId       String?
+  amountIdr            Int
+  paymentMethod        String                  @default("QRIS")
+  status               SubscriptionOrderStatus @default(PENDING)
+  snapToken            String?
+  snapRedirectUrl      String?
+  gatewayTransactionId String?
+  gatewayStatus        String?
+  gatewayRawPayload    Json?
+  paymentProofNote     String?
+  paidAt               DateTime?
+  verifiedById         String?
+  verifiedAt           DateTime?
+  rejectionReason      String?
+  createdAt            DateTime                @default(now())
+  updatedAt            DateTime                @updatedAt
+
+  user         User              @relation("UserSubscriptionOrders", fields: [userId], references: [id], onDelete: Cascade)
+  plan         SubscriptionPlan  @relation(fields: [planId], references: [id])
+  subscription UserSubscription? @relation(fields: [subscriptionId], references: [id], onDelete: SetNull)
+  verifiedBy   User?             @relation("VerifiedSubscriptionOrders", fields: [verifiedById], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@map("subscription_orders")
 }

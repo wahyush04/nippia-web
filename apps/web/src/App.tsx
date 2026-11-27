@@ -51,9 +51,29 @@ import {
   QualityReviewPage,
   QuestionEditorPage,
   QuestionManagementPage,
+  ReportManagementPage,
+  SubscriptionManagementPage,
   TopicManagementPage,
+  TopicQuestionsReviewPage,
   UserManagementPage,
 } from './pages/admin/AdminPages';
+import { SubscriptionPage } from './pages/user/SubscriptionPage';
+import {
+  LiveAkbarDetailPage,
+  LiveAkbarDiscoveryPage,
+  MyLiveEventsPage,
+} from './pages/live/LiveAkbarDiscoveryPages';
+import { WaitingRoomPage } from './pages/live/LiveAkbarWaitingRoomPage';
+import { LiveCatExamPage } from './pages/live/LiveAkbarExamPage';
+import {
+  LiveEventLeaderboardPage,
+  LiveEventResultPage,
+  LiveEventReviewPage,
+} from './pages/live/LiveAkbarResultPages';
+import {
+  AdminLiveEventControlPage,
+  AdminLiveEventsListPage,
+} from './pages/admin/AdminLiveAkbarPages';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -64,7 +84,15 @@ const queryClient = new QueryClient({
   },
 });
 
-function ProtectedRoute({ children, adminOnly = false }: { children: React.ReactNode; adminOnly?: boolean }) {
+function ProtectedRoute({
+  children,
+  adminOnly = false,
+  allowedRoles,
+}: {
+  children: React.ReactNode;
+  adminOnly?: boolean;
+  allowedRoles?: Array<'USER' | 'HOST_OPERATOR' | 'EVENT_ADMIN' | 'ADMIN'>;
+}) {
   const { isAuthenticated, isLoading, user } = useAuthStore();
 
   if (isLoading) {
@@ -80,6 +108,10 @@ function ProtectedRoute({ children, adminOnly = false }: { children: React.React
   }
 
   if (adminOnly && user?.role !== 'ADMIN') {
+    return <Navigate to="/dashboard" replace />;
+  }
+
+  if (allowedRoles && (!user || !allowedRoles.includes(user.role))) {
     return <Navigate to="/dashboard" replace />;
   }
 
@@ -137,14 +169,44 @@ export function App() {
           <Route path="/achievements" element={<ProtectedRoute><AchievementsPage /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+          <Route path="/subscription" element={<ProtectedRoute><SubscriptionPage /></ProtectedRoute>} />
 
-          {/* Admin */}
+          {/* Nippia Live Akbar */}
+          <Route path="/live-events" element={<ProtectedRoute><LiveAkbarDiscoveryPage /></ProtectedRoute>} />
+          <Route path="/live-events/my-events" element={<ProtectedRoute><MyLiveEventsPage /></ProtectedRoute>} />
+          <Route path="/live-events/:eventId" element={<ProtectedRoute><LiveAkbarDetailPage /></ProtectedRoute>} />
+          <Route path="/live-events/:eventId/waiting-room" element={<ProtectedRoute><WaitingRoomPage /></ProtectedRoute>} />
+          <Route path="/live-events/:eventId/exam" element={<ProtectedRoute><LiveCatExamPage /></ProtectedRoute>} />
+          <Route path="/live-events/:eventId/result" element={<ProtectedRoute><LiveEventResultPage /></ProtectedRoute>} />
+          <Route path="/live-events/:eventId/leaderboard" element={<ProtectedRoute><LiveEventLeaderboardPage /></ProtectedRoute>} />
+          <Route path="/live-events/:eventId/review" element={<ProtectedRoute><LiveEventReviewPage /></ProtectedRoute>} />
+
+          {/* Admin & Live Event Operators */}
+          <Route
+            path="/admin/live-events"
+            element={
+              <ProtectedRoute allowedRoles={['HOST_OPERATOR', 'EVENT_ADMIN', 'ADMIN']}>
+                <AdminLiveEventsListPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/live-events/:eventId"
+            element={
+              <ProtectedRoute allowedRoles={['HOST_OPERATOR', 'EVENT_ADMIN', 'ADMIN']}>
+                <AdminLiveEventControlPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/admin" element={<ProtectedRoute adminOnly><AdminDashboardPage /></ProtectedRoute>} />
           <Route path="/admin/questions" element={<ProtectedRoute adminOnly><QuestionManagementPage /></ProtectedRoute>} />
           <Route path="/admin/questions/new" element={<ProtectedRoute adminOnly><QuestionEditorPage /></ProtectedRoute>} />
           <Route path="/admin/questions/:id/edit" element={<ProtectedRoute adminOnly><QuestionEditorPage /></ProtectedRoute>} />
           <Route path="/admin/ai-generator" element={<ProtectedRoute adminOnly><AiGeneratorPage /></ProtectedRoute>} />
           <Route path="/admin/topics" element={<ProtectedRoute adminOnly><TopicManagementPage /></ProtectedRoute>} />
+          <Route path="/admin/topics/:topicSlug" element={<ProtectedRoute adminOnly><TopicQuestionsReviewPage /></ProtectedRoute>} />
+          <Route path="/admin/reports" element={<ProtectedRoute adminOnly><ReportManagementPage /></ProtectedRoute>} />
+          <Route path="/admin/subscriptions" element={<ProtectedRoute adminOnly><SubscriptionManagementPage /></ProtectedRoute>} />
           <Route path="/admin/users" element={<ProtectedRoute adminOnly><UserManagementPage /></ProtectedRoute>} />
           <Route path="/admin/configs" element={<ProtectedRoute adminOnly><ExamAndScoringConfigPage /></ProtectedRoute>} />
           <Route path="/admin/quality" element={<ProtectedRoute adminOnly><QualityReviewPage /></ProtectedRoute>} />

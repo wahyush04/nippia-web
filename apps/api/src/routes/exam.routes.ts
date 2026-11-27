@@ -16,6 +16,11 @@ import {
   getTodayWibString,
   updateDailyStreak,
 } from '../services/gamification.service.js';
+import {
+  FREE_LIMITS,
+  getUserEntitlement,
+  requireProOrThrow,
+} from '../services/subscription.service.js';
 
 export const examRouter = Router();
 
@@ -130,6 +135,21 @@ examRouter.post(
       });
     }
 
+    const entitlement = await getUserEntitlement(userId);
+    if (!entitlement.isPro) {
+      if (body.mode === 'FULL') {
+        await requireProOrThrow(userId, 'Simulasi CAT Penuh 110 Soal', 'FULL_CAT');
+      }
+      if (entitlement.usage.miniCatUsed >= FREE_LIMITS.MINI_CAT_LIFETIME_LIMIT) {
+        throw new AppError(
+          403,
+          'Kuota 1× Simulasi CAT Mini 30 Soal gratis Anda telah digunakan. Upgrade ke Nippia Pro untuk Simulasi CAT 110 Soal tanpa batas!',
+          'PRO_REQUIRED',
+          { feature: 'MINI_CAT_QUOTA', upgradeUrl: '/subscription', priceIdr: 29000 },
+        );
+      }
+    }
+
     const config = body.scoringConfigId
       ? await prisma.scoringConfiguration.findUnique({ where: { id: body.scoringConfigId } })
       : await prisma.scoringConfiguration.findFirst({
@@ -142,7 +162,7 @@ examRouter.post(
     }
 
     const prefs = await prisma.userPreference.findUnique({ where: { userId } });
-    const useDisabilityTime = prefs?.disabilityExtraTime ?? false;
+    const useDisabilityTime = entitlement.isPro ? (prefs?.disabilityExtraTime ?? false) : false;
 
     const twkNeed = body.mode === 'MINI' ? 8 : config.twkQuestionCount;
     const tiuNeed = body.mode === 'MINI' ? 10 : config.tiuQuestionCount;

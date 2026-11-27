@@ -13,7 +13,9 @@ import {
   YAxis,
 } from 'recharts';
 import { apiFetch } from '../../lib/api';
+import { useAuthStore } from '../../stores/authStore';
 import { AppLayout } from '../../components/layout/AppLayout';
+import { ProBadge, ProUpgradeBanner } from '../../components/ui/ProBadge';
 import {
   Badge,
   Button,
@@ -76,6 +78,8 @@ interface WeaknessPayload {
 }
 
 export function WeaknessAnalyticsPage() {
+  const { user } = useAuthStore();
+  const isPro = Boolean(user?.isPro);
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ['weakness-analytics'],
     queryFn: () => apiFetch<WeaknessPayload>('/analytics/weakness'),
@@ -236,30 +240,57 @@ export function WeaknessAnalyticsPage() {
 
         {/* Topic Mastery Heatmap Grid */}
         <Card>
-          <CardHeader>
-            <CardTitle>Peta Penguasaan 24 Topik (Heatmap)</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle className="flex items-center gap-2">
+              <span>Peta Penguasaan 24 Topik (Heatmap)</span>
+              {!isPro && <ProBadge size="xs" />}
+            </CardTitle>
           </CardHeader>
-          <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {data.topicAnalysis.map((t) => (
-              <Link
-                key={t.topicId}
-                to={`/practice/topic/${t.topicSlug}`}
-                className={`rounded-xl border p-3.5 transition-transform hover:-translate-y-0.5 ${heatColor(t.masteryLevel)}`}
-              >
-                <div className="flex items-center justify-between text-xs font-semibold">
-                  <span>{t.subjectCode}</span>
-                  <span>{t.hasSufficientData ? `${t.accuracyPct}%` : `${t.attemptsCount}/5 sampel`}</span>
+          <CardContent>
+            {!isPro ? (
+              <div className="space-y-4">
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 opacity-50 pointer-events-none select-none">
+                  {data.topicAnalysis.slice(0, 4).map((t) => (
+                    <div key={t.topicId} className={`rounded-xl border p-3.5 ${heatColor(t.masteryLevel)}`}>
+                      <div className="flex items-center justify-between text-xs font-semibold">
+                        <span>{t.subjectCode}</span>
+                        <span>{t.hasSufficientData ? `${t.accuracyPct}%` : `${t.attemptsCount}/5 sampel`}</span>
+                      </div>
+                      <p className="mt-1 text-sm font-bold">{t.topicName}</p>
+                      <p className="mt-0.5 text-[11px] opacity-80">{t.masteryLabel}</p>
+                    </div>
+                  ))}
                 </div>
-                <p className="mt-1 text-sm font-bold">{t.topicName}</p>
-                <p className="mt-0.5 text-[11px] opacity-80">{t.masteryLabel}</p>
-                <div className="mt-2">
-                  <ProgressBar value={t.hasSufficientData ? t.accuracyPct : (t.attemptsCount / 5) * 100} />
-                </div>
-                <p className="mt-2 flex items-center gap-1 text-[11px] opacity-75">
-                  <Clock className="h-3 w-3" /> Rata-rata {t.avgTimeSec} dtk/soal
-                </p>
-              </Link>
-            ))}
+                <ProUpgradeBanner
+                  compact
+                  title="Buka Analisis Kelemahan Lengkap 24 Topik"
+                  description="Lihat peta penguasaan & kecepatan pengerjaan per detik untuk seluruh 24 topik kisi-kisi resmi TWK, TIU, dan TKP."
+                />
+              </div>
+            ) : (
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {data.topicAnalysis.map((t) => (
+                  <Link
+                    key={t.topicId}
+                    to={`/practice/topic/${t.topicSlug}`}
+                    className={`rounded-xl border p-3.5 transition-transform hover:-translate-y-0.5 ${heatColor(t.masteryLevel)}`}
+                  >
+                    <div className="flex items-center justify-between text-xs font-semibold">
+                      <span>{t.subjectCode}</span>
+                      <span>{t.hasSufficientData ? `${t.accuracyPct}%` : `${t.attemptsCount}/5 sampel`}</span>
+                    </div>
+                    <p className="mt-1 text-sm font-bold">{t.topicName}</p>
+                    <p className="mt-0.5 text-[11px] opacity-80">{t.masteryLabel}</p>
+                    <div className="mt-2">
+                      <ProgressBar value={t.hasSufficientData ? t.accuracyPct : (t.attemptsCount / 5) * 100} />
+                    </div>
+                    <p className="mt-2 flex items-center gap-1 text-[11px] opacity-75">
+                      <Clock className="h-3 w-3" /> Rata-rata {t.avgTimeSec} dtk/soal
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

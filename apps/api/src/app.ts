@@ -12,6 +12,9 @@ import { practiceRouter } from './routes/practice.routes.js';
 import { examRouter } from './routes/exam.routes.js';
 import { analyticsRouter } from './routes/analytics.routes.js';
 import { adminRouter } from './routes/admin.routes.js';
+import { liveEventsRouter } from './routes/live-events.routes.js';
+import { adminLiveEventsRouter } from './routes/admin-live-events.routes.js';
+import { subscriptionRouter } from './routes/subscription.routes.js';
 
 export function createApp() {
   const app = express();
@@ -58,7 +61,12 @@ export function createApp() {
   app.use('/api/v1/practice', practiceRouter);
   app.use('/api/v1/exams', examRouter);
   app.use('/api/v1/analytics', analyticsRouter);
+  app.use('/api/v1/live-events', liveEventsRouter);
+  app.use('/api/live-events', liveEventsRouter);
+  app.use('/api/v1/admin/live-events', adminLiveEventsRouter);
+  app.use('/api/admin/live-events', adminLiveEventsRouter);
   app.use('/api/v1/admin', adminRouter);
+  app.use('/api/v1/subscriptions', subscriptionRouter);
 
   app.use((_req, res) => {
     res.status(404).json({

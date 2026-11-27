@@ -1,12 +1,30 @@
 import { create } from 'zustand';
+import type { UserRole } from '@nippia/shared';
 import { apiFetch, getAccessToken, setAuthTokens } from '../lib/api';
 
 export interface AuthUser {
   id: string;
   name: string;
   email: string;
-  role: 'USER' | 'ADMIN';
+  role: UserRole;
   emailVerified: boolean;
+  avatarUrl?: string | null;
+  authProvider?: string;
+  googleLinked?: boolean;
+  googleEmail?: string | null;
+  hasPassword?: boolean;
+  isPro?: boolean;
+  tier?: 'FREE' | 'PRO';
+  subscription?: {
+    id: string;
+    planCode: string;
+    planName: string;
+    status: string;
+    startedAt: string;
+    expiresAt: string;
+    daysRemaining: number;
+    source: string;
+  } | null;
   profile?: {
     onboardingCompleted: boolean;
     totalXp: number;

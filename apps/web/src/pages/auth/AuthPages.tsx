@@ -1,21 +1,66 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema, registerSchema } from '@nippia/shared';
 import { z } from 'zod';
-import { GraduationCap } from 'lucide-react';
 import { apiFetch } from '../../lib/api';
 import { useAuthStore, type AuthUser } from '../../stores/authStore';
 import { Button, Card, CardContent, Input } from '../../components/ui';
+import { NippiaLogo } from '../../components/ui/NippiaLogo';
+import {
+  GoogleSignInButton,
+  type GoogleAuthSuccessPayload,
+} from '../../components/auth/GoogleSignInButton';
 
 type LoginForm = z.infer<typeof loginSchema>;
 type RegisterForm = z.infer<typeof registerSchema>;
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { setSession } = useAuthStore();
   const [errorMsg, setErrorMsg] = useState('');
+
+  const handleAuthenticatedUser = (res: { user: AuthUser; accessToken: string; refreshToken: string }) => {
+    setSession(res.user, res.accessToken, res.refreshToken);
+    if (!res.user.profile?.onboardingCompleted && res.user.role !== 'ADMIN') {
+      navigate('/onboarding');
+    } else {
+      navigate(res.user.role === 'ADMIN' ? '/admin' : '/dashboard');
+    }
+  };
+
+  useEffect(() => {
+    const ticket = searchParams.get('googleTicket');
+    const googleError = searchParams.get('googleError');
+    if (googleError) {
+      setErrorMsg(googleError);
+      setSearchParams({}, { replace: true });
+      return;
+    }
+    if (!ticket) return;
+
+    let cancelled = false;
+    setSearchParams({}, { replace: true });
+    apiFetch<GoogleAuthSuccessPayload>('/auth/google/exchange', {
+      method: 'POST',
+      body: JSON.stringify({ ticket }),
+    })
+      .then((res) => {
+        if (!cancelled) handleAuthenticatedUser(res);
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setErrorMsg(err instanceof Error ? err.message : 'Gagal masuk dengan Google.');
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const {
     register,
@@ -31,12 +76,7 @@ export function LoginPage() {
         '/auth/login',
         { method: 'POST', body: JSON.stringify(values) },
       );
-      setSession(res.user, res.accessToken, res.refreshToken);
-      if (!res.user.profile?.onboardingCompleted && res.user.role !== 'ADMIN') {
-        navigate('/onboarding');
-      } else {
-        navigate(res.user.role === 'ADMIN' ? '/admin' : '/dashboard');
-      }
+      handleAuthenticatedUser(res);
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : 'Gagal masuk.');
     }
@@ -51,11 +91,8 @@ export function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-md space-y-5">
         <div className="text-center">
-          <Link to="/" className="inline-flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-white">
-              <GraduationCap className="h-5 w-5" />
-            </div>
-            <span className="text-xl font-bold text-slate-900">Nippia — SKD Master</span>
+          <Link to="/" className="inline-flex justify-center">
+            <NippiaLogo variant="wordmark" size="lg" showSubtitle />
           </Link>
           <p className="mt-2 text-sm text-slate-600">Masuk untuk melanjutkan persiapan SKD Anda</p>
         </div>
@@ -67,6 +104,20 @@ export function LoginPage() {
                 {errorMsg}
               </div>
             )}
+
+            <GoogleSignInButton
+              mode="signin"
+              onSuccess={(res) => handleAuthenticatedUser(res)}
+              onError={(msg) => setErrorMsg(msg)}
+            />
+
+            <div className="relative flex items-center py-1">
+              <div className="flex-grow border-t border-slate-200" />
+              <span className="mx-3 shrink-0 text-[11px] font-medium uppercase tracking-wider text-slate-400">
+                atau dengan email
+              </span>
+              <div className="flex-grow border-t border-slate-200" />
+            </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div>
@@ -156,11 +207,8 @@ export function RegisterPage() {
     <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-md space-y-5">
         <div className="text-center">
-          <Link to="/" className="inline-flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-white">
-              <GraduationCap className="h-5 w-5" />
-            </div>
-            <span className="text-xl font-bold text-slate-900">Nippia — SKD Master</span>
+          <Link to="/" className="inline-flex justify-center">
+            <NippiaLogo variant="wordmark" size="lg" showSubtitle />
           </Link>
           <p className="mt-2 text-sm text-slate-600">Buat akun dan dapatkan rencana belajar adaptif Anda</p>
         </div>
@@ -172,6 +220,28 @@ export function RegisterPage() {
                 {errorMsg}
               </div>
             )}
+
+            <GoogleSignInButton
+              mode="signup"
+              onSuccess={(res) => {
+                setSession(res.user, res.accessToken, res.refreshToken);
+                if (!res.user.profile?.onboardingCompleted && res.user.role !== 'ADMIN') {
+                  navigate('/onboarding');
+                } else {
+                  navigate(res.user.role === 'ADMIN' ? '/admin' : '/dashboard');
+                }
+              }}
+              onError={(msg) => setErrorMsg(msg)}
+            />
+
+            <div className="relative flex items-center py-1">
+              <div className="flex-grow border-t border-slate-200" />
+              <span className="mx-3 shrink-0 text-[11px] font-medium uppercase tracking-wider text-slate-400">
+                atau daftar manual
+              </span>
+              <div className="flex-grow border-t border-slate-200" />
+            </div>
+
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div>
                 <label className="mb-1.5 block text-xs font-semibold text-slate-700">Nama Lengkap</label>

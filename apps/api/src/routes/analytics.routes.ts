@@ -6,6 +6,7 @@ import { prisma } from '../lib/prisma.js';
 import { getUserWeaknessAnalytics, recomputeUserAnalytics } from '../services/analytics.service.js';
 import { generateAdaptiveStudyPlan } from '../services/planner.service.js';
 import { generateTutorReply } from '../services/ai.service.js';
+import { getUserEntitlement, requireProOrThrow } from '../services/subscription.service.js';
 
 export const analyticsRouter = Router();
 
@@ -25,11 +26,12 @@ analyticsRouter.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const userId = req.user!.userId;
+    const entitlement = await getUserEntitlement(userId);
     let plan = await prisma.studyPlan.findFirst({
       where: { userId, isActive: true },
       include: { tasks: { orderBy: { scheduledDate: 'asc' } } },
     });
-    if (!plan) {
+    if (!plan && entitlement.isPro) {
       plan = await generateAdaptiveStudyPlan(userId);
     }
     res.json({ success: true, data: plan });
@@ -40,6 +42,11 @@ analyticsRouter.post(
   '/planner/generate',
   requireAuth,
   asyncHandler(async (req, res) => {
+    await requireProOrThrow(
+      req.user!.userId,
+      'Perencana Belajar Adaptif 14 Hari',
+      'STUDY_PLANNER',
+    );
     const body = z
       .object({
         targetExamDate: z.string().nullable().optional(),
@@ -96,6 +103,7 @@ analyticsRouter.post(
   requireAuth,
   asyncHandler(async (req, res) => {
     const userId = req.user!.userId;
+    await requireProOrThrow(userId, 'Tutor AI Pribadi', 'AI_TUTOR');
     const { message, conversationId, questionId } = z
       .object({
         message: z.string().min(2).max(2000),

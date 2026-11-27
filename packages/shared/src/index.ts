@@ -5,7 +5,52 @@ export type DifficultyLevel = 'EASY' | 'MEDIUM' | 'HARD';
 export type QuestionStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED';
 export type PracticeMode = 'PRACTICE' | 'EXAM';
 export type MasteryLevel = 'MASTERED' | 'GOOD' | 'DEVELOPING' | 'NEEDS_IMPROVEMENT' | 'INSUFFICIENT_DATA';
-export type UserRole = 'USER' | 'ADMIN';
+export type UserRole = 'USER' | 'HOST_OPERATOR' | 'EVENT_ADMIN' | 'ADMIN';
+
+export type LiveEventStatus =
+  | 'DRAFT'
+  | 'PUBLISHED'
+  | 'REGISTRATION_OPEN'
+  | 'REGISTRATION_CLOSED'
+  | 'WAITING_ROOM'
+  | 'COUNTDOWN'
+  | 'LIVE'
+  | 'FINALIZING'
+  | 'COMPLETED'
+  | 'CANCELLED';
+
+export type LiveEventType = 'FREE' | 'PREMIUM';
+export type LiveEventVisibility = 'PUBLIC' | 'UNLISTED' | 'PRIVATE';
+export type LiveRegistrationStatus = 'REGISTERED' | 'CONFIRMED' | 'CANCELLED' | 'DISQUALIFIED';
+export type LiveSessionStatus = 'WAITING' | 'READY' | 'IN_PROGRESS' | 'SUBMITTED' | 'TIME_EXPIRED' | 'DISQUALIFIED';
+export type LiveConnectionStatus = 'OFFLINE' | 'ONLINE' | 'DISCONNECTED';
+export type LiveReviewPolicy = 'IMMEDIATE' | 'DELAYED' | 'DISABLED';
+
+export const LIVE_EVENT_STATUS_LABELS: Record<LiveEventStatus, string> = {
+  DRAFT: 'Draf',
+  PUBLISHED: 'Dipublikasikan',
+  REGISTRATION_OPEN: 'Pendaftaran Dibuka',
+  REGISTRATION_CLOSED: 'Pendaftaran Ditutup',
+  WAITING_ROOM: 'Ruang Tunggu Dibuka',
+  COUNTDOWN: 'Hitung Mundur Ujian',
+  LIVE: 'Sedang Berlangsung',
+  FINALIZING: 'Finalisasi Hasil',
+  COMPLETED: 'Selesai & Hasil Terbit',
+  CANCELLED: 'Dibatalkan',
+};
+
+export const LIVE_EVENT_TRANSITIONS: Record<LiveEventStatus, LiveEventStatus[]> = {
+  DRAFT: ['PUBLISHED', 'REGISTRATION_OPEN', 'CANCELLED'],
+  PUBLISHED: ['REGISTRATION_OPEN', 'WAITING_ROOM', 'CANCELLED'],
+  REGISTRATION_OPEN: ['REGISTRATION_CLOSED', 'WAITING_ROOM', 'CANCELLED'],
+  REGISTRATION_CLOSED: ['REGISTRATION_OPEN', 'WAITING_ROOM', 'COUNTDOWN', 'CANCELLED'],
+  WAITING_ROOM: ['COUNTDOWN', 'LIVE', 'CANCELLED'],
+  COUNTDOWN: ['LIVE', 'WAITING_ROOM', 'CANCELLED'],
+  LIVE: ['FINALIZING', 'CANCELLED'],
+  FINALIZING: ['COMPLETED', 'LIVE'],
+  COMPLETED: [],
+  CANCELLED: [],
+};
 
 export const SKD_LEVELS = [
   { name: 'Pemula', minXp: 0, maxXp: 499 },
@@ -164,3 +209,39 @@ export interface QuestionBankJsonItem {
   }>;
   disclaimer: string;
 }
+
+export const liveEventCreateSchema = z.object({
+  title: z.string().min(4, 'Judul event minimal 4 karakter').max(180),
+  slug: z
+    .string()
+    .min(3, 'Slug minimal 3 karakter')
+    .max(120)
+    .regex(/^[a-z0-9-]+$/, 'Slug hanya boleh huruf kecil, angka, dan tanda hubung'),
+  description: z.string().min(10, 'Deskripsi event minimal 10 karakter'),
+  bannerUrl: z.string().url().optional().or(z.literal('')).nullable(),
+  hostName: z.string().min(2).max(120).default('Tim Akademik Nippia'),
+  registrationStartAt: z.string(),
+  registrationEndAt: z.string(),
+  scheduledStartAt: z.string(),
+  durationMinutes: z.number().int().min(5).max(240).default(100),
+  maxParticipants: z.number().int().min(10).max(50000).default(1000),
+  visibility: z.enum(['PUBLIC', 'UNLISTED', 'PRIVATE']).default('PUBLIC'),
+  eventType: z.enum(['FREE', 'PREMIUM']).default('FREE'),
+  packageCode: z.enum(['ALL', 'PAKET_1', 'PAKET_2', 'PAKET_3']).default('ALL'),
+  twkCount: z.number().int().min(0).max(60).default(30),
+  tiuCount: z.number().int().min(0).max(60).default(35),
+  tkpCount: z.number().int().min(0).max(60).default(45),
+  difficultyMix: z.enum(['BALANCED', 'EASY', 'MEDIUM', 'HARD']).default('BALANCED'),
+  scoringConfigId: z.string().optional().nullable(),
+  randomizeOptions: z.boolean().default(true),
+  leaderboardPublished: z.boolean().default(false),
+  reviewPolicy: z.enum(['IMMEDIATE', 'DELAYED', 'DISABLED']).default('IMMEDIATE'),
+  reviewUnlockAt: z.string().optional().nullable(),
+  rulesMd: z.string().optional(),
+  eligibilityText: z.string().optional(),
+  faqItems: z
+    .array(z.object({ q: z.string().min(2), a: z.string().min(2) }))
+    .optional(),
+});
+
+export const liveEventUpdateSchema = liveEventCreateSchema.partial();

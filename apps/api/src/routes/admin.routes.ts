@@ -5,6 +5,11 @@ import { logAudit, requireAdmin, requireAuth } from '../middleware/auth.js';
 import { asyncHandler, AppError } from '../middleware/errorHandler.js';
 import { prisma } from '../lib/prisma.js';
 import { generateDraftQuestionsForAdmin } from '../services/ai.service.js';
+import {
+  activateSubscriptionForUser,
+  ensureDefaultSubscriptionPlans,
+  markOrderPaidAndActivate,
+} from '../services/subscription.service.js';
 
 export const adminRouter = Router();
 
@@ -93,14 +98,18 @@ adminRouter.get(
   '/questions',
   asyncHandler(async (req, res) => {
     const page = Math.max(1, Number(req.query.page ?? 1));
-    const pageSize = Math.min(100, Math.max(1, Number(req.query.pageSize ?? 20)));
+    const pageSize = Math.min(200, Math.max(1, Number(req.query.pageSize ?? 20)));
     const subject = typeof req.query.subject === 'string' ? req.query.subject : '';
+    const topicSlug = typeof req.query.topicSlug === 'string' ? req.query.topicSlug : '';
+    const packageCode = typeof req.query.packageCode === 'string' ? req.query.packageCode : '';
     const status = typeof req.query.status === 'string' ? req.query.status : '';
     const difficulty = typeof req.query.difficulty === 'string' ? req.query.difficulty : '';
     const q = typeof req.query.q === 'string' ? req.query.q.trim() : '';
 
     const where = {
       ...(subject ? { subject: { code: subject as 'TWK' | 'TIU' | 'TKP' } } : {}),
+      ...(topicSlug ? { topic: { slug: topicSlug } } : {}),
+      ...(packageCode ? { packageCode } : {}),
       ...(status ? { status: status as 'DRAFT' | 'PUBLISHED' | 'ARCHIVED' } : {}),
       ...(difficulty ? { difficulty: difficulty as 'EASY' | 'MEDIUM' | 'HARD' } : {}),
       ...(q
@@ -124,7 +133,7 @@ adminRouter.get(
           options: { orderBy: { optionKey: 'asc' } },
           references: true,
         },
-        orderBy: [{ updatedAt: 'desc' }],
+        orderBy: topicSlug ? [{ code: 'asc' }] : [{ updatedAt: 'desc' }],
         skip: (page - 1) * pageSize,
         take: pageSize,
       }),
@@ -326,6 +335,27 @@ adminRouter.get(
   }),
 );
 
+adminRouter.get(
+  '/questions/:id',
+  asyncHandler(async (req, res) => {
+    const question = await prisma.question.findUnique({
+      where: { id: String(req.params.id) },
+      include: {
+        subject: true,
+        topic: true,
+        subtopic: true,
+        options: { orderBy: { optionKey: 'asc' } },
+        references: true,
+        versions: { orderBy: { version: 'desc' }, take: 5 },
+      },
+    });
+    if (!question) {
+      throw new AppError(404, 'Soal tidak ditemukan.');
+    }
+    res.json({ success: true, data: question });
+  }),
+);
+
 adminRouter.post(
   '/questions/import',
   asyncHandler(async (req, res) => {
@@ -495,13 +525,94 @@ adminRouter.get(
   }),
 );
 
+adminRouter.get(
+  '/reports',
+  asyncHandler(async (req, res) => {
+    const status = typeof req.query.status === 'string' ? req.query.status : 'ALL';
+    const subjectCode = typeof req.query.subjectCode === 'string' ? req.query.subjectCode : '';
+    const search = typeof req.query.q === 'string' ? req.query.q.trim() : '';
+    const page = Math.max(1, Number(req.query.page ?? 1));
+    const pageSize = Math.min(100, Math.max(1, Number(req.query.pageSize ?? 25)));
+
+    const baseWhere = {
+      ...(subjectCode ? { question: { subject: { code: subjectCode as 'TWK' | 'TIU' | 'TKP' } } } : {}),
+      ...(search
+        ? {
+            OR: [
+              { reason: { contains: search, mode: 'insensitive' as const } },
+              { details: { contains: search, mode: 'insensitive' as const } },
+              { user: { name: { contains: search, mode: 'insensitive' as const } } },
+              { user: { email: { contains: search, mode: 'insensitive' as const } } },
+              { question: { code: { contains: search, mode: 'insensitive' as const } } },
+              { question: { stem: { contains: search, mode: 'insensitive' as const } } },
+            ],
+          }
+        : {}),
+    };
+
+    const where = {
+      ...baseWhere,
+      ...(status !== 'ALL' ? { status } : {}),
+    };
+
+    const [total, items, openCount, reviewedCount, resolvedCount, dismissedCount] = await Promise.all([
+      prisma.contentReport.count({ where }),
+      prisma.contentReport.findMany({
+        where,
+        include: {
+          user: { select: { id: true, name: true, email: true } },
+          question: {
+            include: {
+              subject: true,
+              topic: true,
+              subtopic: true,
+              options: { orderBy: { optionKey: 'asc' } },
+              references: true,
+            },
+          },
+        },
+        orderBy: [{ createdAt: 'desc' }],
+        skip: (page - 1) * pageSize,
+        take: pageSize,
+      }),
+      prisma.contentReport.count({ where: { status: 'OPEN' } }),
+      prisma.contentReport.count({ where: { status: 'REVIEWED' } }),
+      prisma.contentReport.count({ where: { status: 'RESOLVED' } }),
+      prisma.contentReport.count({ where: { status: 'DISMISSED' } }),
+    ]);
+
+    res.json({
+      success: true,
+      data: {
+        items,
+        counts: {
+          ALL: openCount + reviewedCount + resolvedCount + dismissedCount,
+          OPEN: openCount,
+          REVIEWED: reviewedCount,
+          RESOLVED: resolvedCount,
+          DISMISSED: dismissedCount,
+        },
+        pagination: { page, pageSize, total, totalPages: Math.max(1, Math.ceil(total / pageSize)) },
+      },
+    });
+  }),
+);
+
 adminRouter.patch(
   '/reports/:id',
   asyncHandler(async (req, res) => {
     const { status } = z.object({ status: z.enum(['OPEN', 'REVIEWED', 'RESOLVED', 'DISMISSED']) }).parse(req.body);
+    const id = String(req.params.id);
+    const existing = await prisma.contentReport.findUnique({ where: { id } });
+    if (!existing) throw new AppError(404, 'Laporan soal tidak ditemukan.');
+
     const updated = await prisma.contentReport.update({
-      where: { id: String(req.params.id) },
+      where: { id },
       data: { status },
+    });
+    await logAudit(req.user!.userId, 'UPDATE_REPORT_STATUS', 'ContentReport', id, {
+      previousStatus: existing.status,
+      newStatus: status,
     });
     res.json({ success: true, data: updated });
   }),
@@ -661,5 +772,230 @@ adminRouter.post(
       year: created.year,
     });
     res.status(201).json({ success: true, data: created });
+  }),
+);
+
+// ==========================================
+// ADMIN SUBSCRIPTION & BILLING MANAGEMENT
+// ==========================================
+
+adminRouter.get(
+  '/subscriptions',
+  asyncHandler(async (req, res) => {
+    await ensureDefaultSubscriptionPlans();
+    const orderStatus = typeof req.query.status === 'string' ? req.query.status : 'ALL';
+    const userQuery = typeof req.query.q === 'string' ? req.query.q.trim() : '';
+    const now = new Date();
+
+    const [
+      plans,
+      activeSubscriptions,
+      orders,
+      pendingCount,
+      paidCount,
+      revenueAgg,
+      users,
+    ] = await Promise.all([
+      prisma.subscriptionPlan.findMany({ orderBy: { orderIndex: 'asc' } }),
+      prisma.userSubscription.findMany({
+        where: { status: 'ACTIVE', expiresAt: { gt: now } },
+        include: {
+          user: { select: { id: true, name: true, email: true, role: true } },
+          plan: { select: { id: true, code: true, name: true, priceIdr: true } },
+        },
+        orderBy: { expiresAt: 'asc' },
+        take: 100,
+      }),
+      prisma.subscriptionOrder.findMany({
+        where:
+          orderStatus !== 'ALL'
+            ? { status: orderStatus as 'PENDING' | 'PAID' | 'REJECTED' | 'CANCELLED' | 'EXPIRED' }
+            : undefined,
+        include: {
+          user: { select: { id: true, name: true, email: true } },
+          plan: { select: { id: true, code: true, name: true, priceIdr: true, durationDays: true } },
+          verifiedBy: { select: { id: true, name: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+        take: 100,
+      }),
+      prisma.subscriptionOrder.count({ where: { status: 'PENDING' } }),
+      prisma.subscriptionOrder.count({ where: { status: 'PAID' } }),
+      prisma.subscriptionOrder.aggregate({
+        where: { status: 'PAID' },
+        _sum: { amountIdr: true },
+      }),
+      prisma.user.findMany({
+        where: userQuery
+          ? {
+              OR: [
+                { name: { contains: userQuery, mode: 'insensitive' } },
+                { email: { contains: userQuery, mode: 'insensitive' } },
+              ],
+            }
+          : undefined,
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          role: true,
+          subscriptions: {
+            where: { status: 'ACTIVE', expiresAt: { gt: now } },
+            include: { plan: { select: { name: true, code: true } } },
+            orderBy: { expiresAt: 'desc' },
+            take: 1,
+          },
+        },
+        orderBy: { createdAt: 'desc' },
+        take: 30,
+      }),
+    ]);
+
+    res.json({
+      success: true,
+      data: {
+        summary: {
+          activeProCount: activeSubscriptions.length,
+          pendingOrdersCount: pendingCount,
+          paidOrdersCount: paidCount,
+          totalRevenueIdr: revenueAgg._sum.amountIdr ?? 0,
+        },
+        plans,
+        activeSubscriptions,
+        orders,
+        users: users.map((u) => ({
+          id: u.id,
+          name: u.name,
+          email: u.email,
+          role: u.role,
+          isPro: u.role === 'ADMIN' || u.subscriptions.length > 0,
+          activeSubscription: u.subscriptions[0] ?? null,
+        })),
+      },
+    });
+  }),
+);
+
+adminRouter.patch(
+  '/subscriptions/plans/:id',
+  asyncHandler(async (req, res) => {
+    const body = z
+      .object({
+        name: z.string().min(2).max(100).optional(),
+        priceIdr: z.number().int().min(1000).optional(),
+        originalIdr: z.number().int().min(1000).nullable().optional(),
+        durationDays: z.number().int().min(1).max(3650).optional(),
+        isActive: z.boolean().optional(),
+      })
+      .parse(req.body);
+
+    const updated = await prisma.subscriptionPlan.update({
+      where: { id: String(req.params.id) },
+      data: body,
+    });
+    await logAudit(req.user!.userId, 'UPDATE_SUBSCRIPTION_PLAN', 'SubscriptionPlan', updated.id, body);
+    res.json({ success: true, data: updated });
+  }),
+);
+
+adminRouter.patch(
+  '/subscriptions/orders/:id',
+  asyncHandler(async (req, res) => {
+    const { action, rejectionReason } = z
+      .object({
+        action: z.enum(['APPROVE', 'REJECT']),
+        rejectionReason: z.string().max(300).optional(),
+      })
+      .parse(req.body);
+
+    const orderId = String(req.params.id);
+    if (action === 'APPROVE') {
+      const updated = await markOrderPaidAndActivate({
+        orderId,
+        verifiedById: req.user!.userId,
+        note: 'Diverifikasi oleh Admin',
+      });
+      await logAudit(req.user!.userId, 'APPROVE_SUBSCRIPTION_ORDER', 'SubscriptionOrder', orderId, {
+        userId: updated.userId,
+        amountIdr: updated.amountIdr,
+      });
+      return res.json({ success: true, data: updated });
+    }
+
+    const existing = await prisma.subscriptionOrder.findUnique({ where: { id: orderId } });
+    if (!existing) throw new AppError(404, 'Order langganan tidak ditemukan.');
+    if (existing.status !== 'PENDING') {
+      throw new AppError(400, 'Hanya order PENDING yang dapat ditolak.');
+    }
+
+    const rejected = await prisma.subscriptionOrder.update({
+      where: { id: orderId },
+      data: {
+        status: 'REJECTED',
+        rejectionReason: rejectionReason?.trim() || 'Pembayaran belum terverifikasi.',
+        verifiedById: req.user!.userId,
+        verifiedAt: new Date(),
+      },
+      include: { plan: true },
+    });
+    await logAudit(req.user!.userId, 'REJECT_SUBSCRIPTION_ORDER', 'SubscriptionOrder', orderId, {
+      reason: rejected.rejectionReason,
+    });
+    res.json({ success: true, data: rejected });
+  }),
+);
+
+adminRouter.post(
+  '/subscriptions/grant',
+  asyncHandler(async (req, res) => {
+    const body = z
+      .object({
+        userId: z.string().min(1),
+        planCode: z.string().default('PRO_MONTHLY'),
+        durationDays: z.number().int().min(1).max(730).optional(),
+        note: z.string().max(300).optional(),
+      })
+      .parse(req.body);
+
+    await ensureDefaultSubscriptionPlans();
+    const plan = await prisma.subscriptionPlan.findUnique({ where: { code: body.planCode } });
+    if (!plan) throw new AppError(404, 'Paket langganan tidak ditemukan.');
+
+    const sub = await activateSubscriptionForUser({
+      userId: body.userId,
+      planId: plan.id,
+      source: 'ADMIN_GRANT',
+      durationDaysOverride: body.durationDays,
+      note: body.note?.trim() || `Aktivasi Pro manual oleh Admin (${body.durationDays ?? plan.durationDays} hari)`,
+    });
+    await logAudit(req.user!.userId, 'GRANT_PRO_SUBSCRIPTION', 'UserSubscription', sub.id, {
+      targetUserId: body.userId,
+      durationDays: body.durationDays ?? plan.durationDays,
+    });
+    res.status(201).json({ success: true, data: sub });
+  }),
+);
+
+adminRouter.post(
+  '/subscriptions/revoke',
+  asyncHandler(async (req, res) => {
+    const { userId, note } = z
+      .object({
+        userId: z.string().min(1),
+        note: z.string().max(300).optional(),
+      })
+      .parse(req.body);
+
+    const result = await prisma.userSubscription.updateMany({
+      where: { userId, status: 'ACTIVE' },
+      data: {
+        status: 'CANCELLED',
+        note: note?.trim() || 'Dinonaktifkan oleh Admin',
+      },
+    });
+    await logAudit(req.user!.userId, 'REVOKE_PRO_SUBSCRIPTION', 'User', userId, {
+      cancelledCount: result.count,
+    });
+    res.json({ success: true, data: { cancelledCount: result.count } });
   }),
 );
