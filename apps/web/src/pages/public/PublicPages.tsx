@@ -702,23 +702,166 @@ export function PrivacyPage() {
   );
 }
 
+const TERMS_SECTIONS: Array<{
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+}> = [
+  {
+    title: '1. Ketentuan Penggunaan (Conditions of Use)',
+    paragraphs: [
+      'Layanan Nippia — SKD Master ("Nippia", dapat diakses melalui https://nippia.my.id) disediakan kepada Anda sebagai pengguna dengan syarat Anda menyetujui seluruh syarat, ketentuan, dan pemberitahuan yang tercantum di halaman ini maupun ketentuan tambahan yang berlaku pada halaman atau fitur tertentu di dalam platform.',
+    ],
+  },
+  {
+    title: '2. Gambaran Umum (Overview)',
+    paragraphs: [
+      'Dengan mengakses, mendaftar, atau menggunakan layanan Nippia, Anda menyatakan telah membaca, memahami, dan menyetujui untuk terikat oleh Syarat & Ketentuan ini beserta Kebijakan Privasi kami tanpa pengecualian. Apabila Anda tidak menyetujui bagian mana pun dari Syarat & Ketentuan ini, Anda wajib menghentikan penggunaan platform Nippia.',
+    ],
+  },
+  {
+    title: '3. Perubahan Situs & Syarat Ketentuan (Modification of Terms & Pricing)',
+    paragraphs: [
+      'Nippia berhak mengubah, memperbarui, menangguhkan, atau menghentikan sebagian atau seluruh fitur, materi, harga paket langganan, dan ketentuan layanan dari waktu ke waktu. Kami berhak menyesuaikan tarif paket Pro maupun menolak atau membatalkan pesanan apabila terjadi kekeliruan teknis pencantuman harga atau indikasi penyalahgunaan promo. Penggunaan berkelanjutan setelah pembaruan berarti Anda menyetujui perubahan tersebut.',
+    ],
+  },
+  {
+    title: '4. Pendaftaran Akun & Keamanan Akses (Sign Up)',
+    paragraphs: [
+      'Untuk mengakses bank soal, simulasi CAT, dan pembelian paket langganan Nippia Pro, Anda wajib mendaftarkan akun menggunakan data yang akurat dan terkini (melalui formulir pendaftaran atau Google Sign-In).',
+    ],
+    bullets: [
+      'Anda bertanggung jawab penuh menjaga kerahasiaan kata sandi, token sesi, serta seluruh aktivitas yang terjadi melalui akun Anda.',
+      'Anda dilarang membagikan akun berbayar kepada pihak lain, menyamar sebagai individu atau institusi lain, maupun memanipulasi identitas atau afiliasi.',
+    ],
+  },
+  {
+    title: '5. Pemberian Lisensi Penggunaan (Grant of License)',
+    paragraphs: [
+      'Nippia memberikan hak akses dan lisensi terbatas, non-eksklusif, tidak dapat dipindahtangankan, dan hanya untuk keperluan belajar mandiri (non-komersial) selama akun atau masa aktif langganan Anda berlaku. Anda dilarang untuk:',
+    ],
+    bullets: [
+      'Memodifikasi, menyadur massal, mendekompilasi, membongkar (reverse engineer), atau melakukan scraping otomatis terhadap seluruh atau sebagian sistem Nippia.',
+      'Menyalin, menggandakan, menjual kembali, atau mendistribusikan soal latihan, pembahasan, flashcard, maupun modul materi Nippia tanpa izin tertulis.',
+    ],
+  },
+  {
+    title: '6. Hak Cipta & Kekayaan Intelektual (Proprietary Rights & Copyrights)',
+    paragraphs: [
+      'Seluruh konten, naskah soal orisinal, pembahasan, modul ringkas, ilustrasi figural, desain antarmuka, kode sumber, merek dagang, dan logo yang tampil di Nippia adalah milik Nippia — SKD Master serta dilindungi oleh peraturan hak cipta yang berlaku di Republik Indonesia dan hukum internasional.',
+    ],
+  },
+  {
+    title: '7. Biaya Langganan, Pembayaran & Kebijakan Pengembalian (Fees & Refund Policy)',
+    paragraphs: [
+      'Layanan Nippia menyediakan paket Gratis (Free) serta paket berlangganan digital Nippia Pro (seperti Nippia Pro Bulanan Rp 29.000 / 30 hari dan Nippia Pro 3 Bulan Rp 79.000 / 90 hari sesuai daftar harga terbaru di halaman Langganan).',
+    ],
+    bullets: [
+      'Pembayaran online diproses melalui penyedia gerbang pembayaran resmi Midtrans (QRIS, e-wallet, Virtual Account, atau metode resmi lainnya yang tersedia pada halaman checkout) maupun transfer manual terverifikasi ke rekening BCA 6000125057 a.n. Wahyu Syarif Hidayatullah.',
+      'Karena seluruh paket Nippia merupakan produk digital dengan aktivasi akses instan (digital goods), transaksi yang telah sukses dan mengaktifkan status Pro pada akun tidak dapat dibatalkan atau diuangkan kembali (non-refundable).',
+      'Pengecualian pengembalian dana atau kompensasi masa aktif hanya berlaku apabila terjadi kegagalan aktivasi sistem atau pendebitan ganda terverifikasi dalam waktu maksimal 7 (tujuh) hari sejak tanggal transaksi dengan menyertakan bukti pembayaran resmi.',
+    ],
+  },
+  {
+    title: '8. Kelayakan Pengguna & Komunikasi Elektronik (Eligibility & Electronic Communications)',
+    paragraphs: [
+      'Layanan ini ditujukan bagi individu yang mempersiapkan diri menghadapi seleksi CPNS SKD secara mandiri. Dengan menggunakan Nippia, Anda menyetujui pengiriman komunikasi elektronik terkait verifikasi akun, status transaksi langganan, jadwal Tryout Live Akbar, serta informasi pembaruan layanan melalui email atau notifikasi di dalam platform.',
+    ],
+  },
+  {
+    title: '9. Dukungan Layanan & Pelaporan (Support)',
+    paragraphs: [
+      'Pengguna dapat menyampaikan laporan kualitas soal melalui fitur Laporan Soal di dalam aplikasi, atau menghubungi dukungan teknis dan konfirmasi pembayaran melalui email resmi support@nippia.my.id maupun telepon / WhatsApp resmi 085737275048 pada jam operasional layanan.',
+    ],
+  },
+  {
+    title: '10. Penghentian & Penangguhan Layanan (Terms of Termination)',
+    paragraphs: [
+      'Nippia berhak menangguhkan sementara atau menghentikan akses akun Anda dengan segera tanpa kewajiban ganti rugi apabila:',
+    ],
+    bullets: [
+      'Terdeteksi aktivitas yang membahayakan stabilitas atau keamanan server platform (termasuk serangan siber, bot otomatis, atau eksploitasi celah sistem).',
+      'Pengguna melakukan pelanggaran material atas Syarat & Ketentuan ini, kecurangan pada event Tryout Live Akbar, atau penyalahgunaan sistem referral/komisi mitra.',
+    ],
+  },
+  {
+    title: '11. Keamanan, Kerahasiaan & Kewajiban Pengguna (Security & Your Obligations)',
+    paragraphs: [
+      'Nippia menerapkan langkah keamanan standar industri (enkripsi kata sandi, proteksi sesi, dan verifikasi webhook kriptografis) untuk menjaga interaksi pengguna dan tidak menyimpan nomor kartu atau kredensial pembayaran sensitif secara langsung. Di sisi lain, Anda menjamin bahwa setiap teks, laporan, atau berkas gambar yang dikirim ke platform:',
+    ],
+    bullets: [
+      'Bebas dari virus, worm, Trojan, atau skrip berbahaya.',
+      'Tidak melanggar hukum, hak kekayaan intelektual pihak lain, tidak bersifat ancaman, pornografi, penipuan, maupun ujaran kebencian SARA.',
+    ],
+  },
+  {
+    title: '12. Kebijakan Privasi (Privacy Policy)',
+    paragraphs: [
+      'Informasi pribadi yang Anda berikan (seperti nama, email, preferensi belajar, dan riwayat simulasi) hanya digunakan untuk penyelenggaraan layanan Nippia serta pemrosesan pesanan langganan Anda, dan tidak diperjualbelikan kepada pihak ketiga mana pun. Penjelasan lengkap tercantum pada halaman Kebijakan Privasi (/privacy).',
+    ],
+  },
+  {
+    title: '13. Sangkalan & Ganti Rugi (Disclaimer & Indemnity)',
+    paragraphs: [
+      'Nippia adalah platform persiapan mandiri independen dan tidak berafiliasi dengan Badan Kepegawaian Negara (BKN) maupun KemenPAN-RB. Skor simulasi, klasifikasi penguasaan topik, dan analitik kelemahan bersifat estimasi edukatif untuk membantu persiapan Anda serta tidak menjamin kelulusan seleksi resmi CPNS. Nippia tidak menjamin seluruh materi bebas sepenuhnya dari kesalahan tik namun terus menyediakan saluran koreksi aktif.',
+      'Anda setuju untuk membebaskan dan melindungi Nippia beserta pengelola dari segala tuntutan, kerugian, atau klaim pihak ketiga yang timbul akibat penyalahgunaan platform atau pelanggaran Syarat & Ketentuan oleh Anda.',
+    ],
+  },
+  {
+    title: '14. Hukum yang Berlaku (Applicable Laws)',
+    paragraphs: [
+      'Syarat & Ketentuan ini diatur, ditafsirkan, dan dilaksanakan berdasarkan hukum yang berlaku di Negara Kesatuan Republik Indonesia.',
+    ],
+  },
+  {
+    title: '15. Pertanyaan, Masukan & Pemberitahuan Legal (Questions & Legal Notice)',
+    paragraphs: [
+      'Kami menyambut pertanyaan, masukan, dan klarifikasi terkait Syarat & Ketentuan, privasi, maupun transaksi melalui situs resmi https://nippia.my.id, email support@nippia.my.id, atau telepon / WhatsApp resmi 085737275048.',
+      'Legal Notice: Nippia — SKD Master (nippia.my.id). Hak Cipta © 2026 Seluruh Hak Dilindungi.',
+    ],
+  },
+];
+
 export function TermsPage() {
   return (
     <PublicLayout>
       <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 space-y-6">
-        <h1 className="text-3xl font-bold text-slate-900">Syarat & Ketentuan Layanan</h1>
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="indigo">Dokumen Legal &amp; Layanan Digital</Badge>
+            <Badge variant="neutral">Diperbarui: 27 November 2026</Badge>
+          </div>
+          <h1 className="text-3xl font-bold text-slate-900">Syarat &amp; Ketentuan Layanan (Terms &amp; Conditions)</h1>
+          <p className="text-sm text-slate-600">
+            Ketentuan penggunaan platform pembelajaran dan layanan langganan digital{' '}
+            <span className="font-semibold text-slate-800">Nippia — SKD Master</span> (https://nippia.my.id).
+          </p>
+        </div>
+
         <Card>
-          <CardContent className="p-6 space-y-4 text-sm leading-relaxed text-slate-700">
-            <p>
-              Dengan mendaftar dan menggunakan Nippia — SKD Master, Anda setuju untuk menggunakan
-              materi soal latihan dan pembahasan hanya untuk keperluan pembelajaran pribadi dan tidak
-              mendistribusikan ulang secara komersial tanpa izin.
-            </p>
-            <p>
-              Skor simulasi, klasifikasi penguasaan topik, dan rekomendasi belajar di platform ini
-              bersifat estimasi edukatif untuk membantu persiapan Anda dan tidak menjamin kelulusan
-              seleksi resmi CPNS.
-            </p>
+          <CardContent className="p-6 sm:p-8 space-y-6 text-sm leading-relaxed text-slate-700">
+            {TERMS_SECTIONS.map((section) => (
+              <section key={section.title} className="space-y-2.5 border-b border-slate-100 pb-5 last:border-b-0 last:pb-0">
+                <h2 className="text-base font-bold text-slate-900">{section.title}</h2>
+                {section.paragraphs.map((p, idx) => (
+                  <p key={idx}>{p}</p>
+                ))}
+                {section.bullets && section.bullets.length > 0 && (
+                  <ul className="list-disc pl-5 space-y-1.5 text-slate-700">
+                    {section.bullets.map((b, idx) => (
+                      <li key={idx}>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600">
+              <span>Butuh informasi terkait pengelolaan data pribadi?</span>
+              <Link to="/privacy" className="font-semibold text-indigo-600 hover:underline">
+                Baca Kebijakan Privasi Nippia →
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>
