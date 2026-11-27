@@ -72,7 +72,7 @@ interface ExamHistoryItem {
 
 interface ExamPackagesResponse {
   packages: Array<{
-    code: 'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3';
+    code: 'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3' | 'PAKET_4' | 'PAKET_5';
     label: string;
     twk: number;
     tiu: number;
@@ -90,7 +90,7 @@ export function CatSimulationSetupPage() {
   const initialMode = searchParams.get('mode') === 'mini' ? 'MINI' : isPro ? 'FULL' : 'MINI';
   const [mode, setMode] = useState<'FULL' | 'MINI'>(initialMode);
   const [formationType, setFormationType] = useState('UMUM');
-  const [packageCode, setPackageCode] = useState<'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3'>('ALL');
+  const [packageCode, setPackageCode] = useState<'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3' | 'PAKET_4' | 'PAKET_5'>('ALL');
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<{ message: string; isProErr?: boolean } | null>(null);
 
@@ -263,14 +263,16 @@ export function CatSimulationSetupPage() {
                   <Select
                     value={packageCode}
                     onChange={(e) =>
-                      setPackageCode(e.target.value as 'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3')
+                      setPackageCode(e.target.value as 'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3' | 'PAKET_4' | 'PAKET_5')
                     }
                   >
                     {(packageData?.packages ?? [
-                      { code: 'ALL', label: 'Acak / Campuran Semua Bank Soal', twk: 90, tiu: 195, tkp: 135, total: 420 },
+                      { code: 'ALL', label: 'Acak / Campuran Semua Bank Soal', twk: 152, tiu: 265, tkp: 225, total: 642 },
                       { code: 'PAKET_1', label: 'Paket 1 — SKD Lengkap Standar', twk: 30, tiu: 35, tkp: 45, total: 110 },
                       { code: 'PAKET_2', label: 'Paket 2 — SKD Lengkap Standar', twk: 30, tiu: 35, tkp: 45, total: 110 },
                       { code: 'PAKET_3', label: 'Paket 3 — SKD Lengkap Standar', twk: 30, tiu: 35, tkp: 45, total: 110 },
+                      { code: 'PAKET_4', label: 'Paket 4 — SKD Lengkap Standar', twk: 30, tiu: 35, tkp: 45, total: 110 },
+                      { code: 'PAKET_5', label: 'Paket 5 — SKD Lengkap Standar', twk: 30, tiu: 35, tkp: 45, total: 110 },
                     ]).map((pkg) => (
                       <option key={pkg.code} value={pkg.code}>
                         {pkg.label} ({pkg.total} soal: TWK {pkg.twk} • TIU {pkg.tiu} • TKP {pkg.tkp})

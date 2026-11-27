@@ -3,7 +3,9 @@ import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import { env } from '../config/env.js';
 import { prisma } from '../lib/prisma.js';
+import { logger } from '../lib/logger.js';
 import { AppError } from '../middleware/errorHandler.js';
+import { getUserEntitlement } from './subscription.service.js';
 import type { UserRole } from '@nippia/shared';
 import type { AuthPayload } from '../middleware/auth.js';
 
@@ -131,7 +133,7 @@ export async function loginUser(input: { email: string; password: string }) {
     include: { plan: true },
     orderBy: { expiresAt: 'desc' },
   });
-  const isPro = Boolean(activeSub) || user.role === 'ADMIN';
+  const isPro = Boolean(activeSub) || user.role === 'ADMIN' || user.role === 'CONTENT_PARTNER';
 
   return {
     user: {
@@ -287,31 +289,30 @@ export async function loginOrRegisterWithGoogle(profile: {
 }) {
   const email = profile.email.trim().toLowerCase();
 
-  let user = await prisma.user.findFirst({
-    where: {
-      OR: [{ googleId: profile.googleId }, { email }],
-    },
+  let user = await prisma.user.findUnique({
+    where: { googleId: profile.googleId },
     include: { profile: true, preferences: true, streak: true },
   });
 
   let isNewUser = false;
 
-  if (user) {
-    const nextProvider = user.passwordHash ? 'HYBRID' : 'GOOGLE';
-    user = await prisma.user.update({
-      where: { id: user.id },
-      data: {
-        googleId: user.googleId ?? profile.googleId,
-        googleEmail: user.googleEmail ?? email,
-        avatarUrl: profile.avatarUrl ?? user.avatarUrl,
-        authProvider: user.authProvider === 'HYBRID' ? 'HYBRID' : nextProvider,
-        emailVerified: true,
-        emailVerifyCode: null,
-        name: user.name || profile.name,
-      },
-      include: { profile: true, preferences: true, streak: true },
+  if (!user) {
+    const existingByEmail = await prisma.user.findUnique({
+      where: { email },
+      select: { id: true, googleId: true },
     });
-  } else {
+
+    if (existingByEmail) {
+      logger.warn('Blocked automatic Google email link on existing local account', {
+        existingUserId: existingByEmail.id,
+      });
+      throw new AppError(
+        409,
+        'Email ini sudah terdaftar menggunakan kata sandi. Silakan masuk dengan email & kata sandi Anda, lalu tautkan akun Google secara manual di menu Pengaturan.',
+        'GOOGLE_LINK_REQUIRED',
+      );
+    }
+
     isNewUser = true;
     user = await prisma.user.create({
       data: {
@@ -347,9 +348,24 @@ export async function loginOrRegisterWithGoogle(profile: {
       },
       include: { profile: true, preferences: true, streak: true },
     });
+  } else {
+    user = await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        googleEmail: user.googleEmail ?? email,
+        avatarUrl: profile.avatarUrl ?? user.avatarUrl,
+        emailVerified: true,
+        emailVerifyCode: null,
+        name: user.name || profile.name,
+      },
+      include: { profile: true, preferences: true, streak: true },
+    });
   }
 
-  const tokens = await issueTokenPair({ id: user.id, email: user.email, role: user.role });
+  const [tokens, entitlement] = await Promise.all([
+    issueTokenPair({ id: user.id, email: user.email, role: user.role }),
+    getUserEntitlement(user.id),
+  ]);
 
   return {
     isNewUser,
@@ -364,6 +380,9 @@ export async function loginOrRegisterWithGoogle(profile: {
       googleLinked: Boolean(user.googleId),
       googleEmail: user.googleEmail,
       hasPassword: Boolean(user.passwordHash),
+      isPro: entitlement.isPro,
+      tier: entitlement.tier,
+      subscription: entitlement.subscription,
       profile: user.profile,
       preferences: user.preferences,
       streak: user.streak,

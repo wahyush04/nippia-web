@@ -10,6 +10,21 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    sourcemap: false,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-query': ['@tanstack/react-query', 'zustand'],
+          'vendor-charts': ['recharts'],
+          'vendor-socket': ['socket.io-client'],
+          'vendor-icons': ['lucide-react'],
+        },
+      },
+    },
+  },
   server: {
     port: 5173,
     proxy: {

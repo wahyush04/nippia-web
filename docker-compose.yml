@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nippia_secret_2026}
       POSTGRES_DB: ${POSTGRES_DB:-skd_master}
     ports:
-      - "${POSTGRES_PORT:-5433}:5432"
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -22,7 +22,7 @@ services:
     container_name: nippia-skd-redis
     restart: unless-stopped
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -43,10 +43,12 @@ services:
     environment:
       NODE_ENV: production
       PORT: 4000
+      TRUST_PROXY: "true"
+      ALLOW_LOCAL_ORIGIN: ${ALLOW_LOCAL_ORIGIN:-true}
       DATABASE_URL: postgresql://${POSTGRES_USER:-nippia}:${POSTGRES_PASSWORD:-nippia_secret_2026}@postgres:5432/${POSTGRES_DB:-skd_master}?schema=public
       REDIS_URL: ${REDIS_URL:-redis://redis:6379}
-      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-change_me_access_secret_min_32_chars}
-      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change_me_refresh_secret_min_32_chars}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-local_staging_access_secret_override_in_prod_32chars}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-local_staging_refresh_secret_override_in_prod_32chars}
       CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
       APP_URL: ${APP_URL:-http://localhost:5173}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
@@ -59,12 +61,18 @@ services:
       MIDTRANS_SERVER_KEY: ${MIDTRANS_SERVER_KEY:-}
       MIDTRANS_CLIENT_KEY: ${MIDTRANS_CLIENT_KEY:-}
     ports:
-      - "4000:4000"
+      - "127.0.0.1:4000:4000"
 
   web:
     build:
       context: .
       dockerfile: apps/web/Dockerfile
+      args:
+        VITE_API_URL: /api/v1
+        VITE_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+        VITE_APP_URL: ${APP_URL:-http://localhost:5173}
+        VITE_APP_ENV: staging
+        VITE_ENABLE_DEMO_LOGIN: "false"
     container_name: nippia-skd-web
     restart: unless-stopped
     depends_on:

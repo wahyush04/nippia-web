@@ -6,7 +6,6 @@ import {
   Bell,
   BookMarked,
   BookOpen,
-  Bot,
   CalendarDays,
   Compass,
   Crown,
@@ -19,8 +18,8 @@ import {
   Radio,
   Settings,
   Shield,
-  Sparkles,
   Target,
+  Ticket,
   Timer,
   Trophy,
   User,
@@ -39,7 +38,6 @@ const USER_NAV = [
   { label: 'Latihan per Topik', to: '/topics', icon: Compass },
   { label: 'Simulasi CAT', to: '/cat-simulation', icon: Timer },
   { label: 'Analisis Kelemahan', to: '/analytics', icon: BarChart3 },
-  { label: 'Tutor AI', to: '/ai-tutor', icon: Bot },
   { label: 'Perencana Belajar', to: '/planner', icon: CalendarDays },
   { label: 'Buku Kesalahan', to: '/error-notebook', icon: BookMarked },
   { label: 'Kartu Hafalan', to: '/flashcards', icon: Layers },
@@ -53,7 +51,6 @@ const ADMIN_NAV = [
   { label: 'Dasbor Admin', to: '/admin', icon: Shield },
   { label: 'Langganan & Order', to: '/admin/subscriptions', icon: Crown },
   { label: 'Kelola Bank Soal', to: '/admin/questions', icon: BookOpen },
-  { label: 'Generator Soal AI', to: '/admin/ai-generator', icon: Sparkles },
   { label: 'Topik & Kisi-Kisi', to: '/admin/topics', icon: Compass },
   { label: 'Laporan Soal', to: '/admin/reports', icon: Flag },
   { label: 'Pengguna', to: '/admin/users', icon: User },
@@ -61,10 +58,18 @@ const ADMIN_NAV = [
   { label: 'Kontrol Kualitas', to: '/admin/quality', icon: BarChart3 },
 ];
 
+const CONTENT_PARTNER_NAV = [
+  { label: 'Kelola Bank Soal', to: '/admin/questions', icon: BookOpen },
+  { label: 'Laporan Soal', to: '/admin/reports', icon: Flag },
+  { label: 'Topik & Kisi-Kisi', to: '/admin/topics', icon: Compass },
+  { label: 'Voucher & Komisi', to: '/partner/voucher', icon: Ticket },
+];
+
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { user, logout } = useAuthStore();
   const navigate = useNavigate();
+  const isContentPartner = user?.role === 'CONTENT_PARTNER';
 
   const handleLogout = async () => {
     await logout();
@@ -135,6 +140,35 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             </NavLink>
           );
         })}
+
+        {isContentPartner && (
+          <div className="pt-4">
+            <p className="px-3 pb-1 text-[11px] font-semibold uppercase tracking-wider text-amber-300">
+              Panel Kontributor
+            </p>
+            {CONTENT_PARTNER_NAV.map((item) => {
+              const Icon = item.icon;
+              return (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setMobileOpen(false)}
+                  className={({ isActive }) =>
+                    cn(
+                      'flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium transition-colors',
+                      isActive
+                        ? 'bg-indigo-600 text-white shadow-xs'
+                        : 'text-slate-200 hover:bg-slate-700/60 hover:text-white',
+                    )
+                  }
+                >
+                  <Icon className="h-4 w-4 shrink-0" />
+                  <span className="truncate">{item.label}</span>
+                </NavLink>
+              );
+            })}
+          </div>
+        )}
 
         {(user?.role === 'ADMIN' || user?.role === 'EVENT_ADMIN' || user?.role === 'HOST_OPERATOR') && (
           <div className="pt-4">

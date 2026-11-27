@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { UserRole } from '@nippia/shared';
-import { apiFetch, getAccessToken, setAuthTokens } from '../lib/api';
+import { apiFetch, getAccessToken, registerUnauthorizedHandler, setAuthTokens } from '../lib/api';
 
 export interface AuthUser {
   id: string;
@@ -106,3 +106,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     set({ user: null, isAuthenticated: false, isLoading: false });
   },
 }));
+
+registerUnauthorizedHandler(() => {
+  useAuthStore.setState({ user: null, isAuthenticated: false, isLoading: false });
+});

@@ -60,6 +60,8 @@ export function requireAdmin(req: Request, _res: Response, next: NextFunction) {
 
 export const requireEventAdmin = requireRoles(['EVENT_ADMIN', 'ADMIN']);
 export const requireEventOperator = requireRoles(['HOST_OPERATOR', 'EVENT_ADMIN', 'ADMIN']);
+export const requireContentCurator = requireRoles(['CONTENT_PARTNER', 'ADMIN']);
+export const requirePartnerPortal = requireRoles(['CONTENT_PARTNER', 'ADMIN']);
 
 export async function logAudit(
   actorId: string,

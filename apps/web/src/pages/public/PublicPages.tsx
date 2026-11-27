@@ -4,7 +4,6 @@ import {
   BarChart3,
   BookMarked,
   BookOpen,
-  Bot,
   CalendarDays,
   CheckCircle2,
   Compass,
@@ -67,12 +66,6 @@ export function LandingPage() {
       badge: 'Diagnostik Akurat',
       title: 'Analisis Kelemahan Berbasis Data',
       desc: 'Peta penguasaan per topik dengan batas sampel minimal agar diagnosa tidak bias—langsung tunjukkan topik mana yang paling perlu diprioritaskan.',
-    },
-    {
-      icon: Bot,
-      badge: 'Terpandu Referensi',
-      title: 'Tutor AI Pribadi Berbasis Bank Materi',
-      desc: 'Tanyakan soal sulit langsung dari halaman pembahasan dan dapatkan penjelasan langkah demi langkah yang berpijak pada materi terverifikasi Nippia.',
     },
     {
       icon: CalendarDays,
@@ -150,7 +143,7 @@ export function LandingPage() {
     {
       num: '04',
       title: 'Tambal Kelemahan sampai Siap',
-      desc: 'Ulangi soal yang keliru lewat Buku Kesalahan berjadwal, pelajari Pusat Materi, dan diskusikan konsep tersulit bersama Tutor AI.',
+      desc: 'Ulangi soal yang keliru lewat Buku Kesalahan berjadwal, pelajari Pusat Materi, dan pantau perkembangan penguasaan topik Anda.',
     },
   ];
 
@@ -163,7 +156,7 @@ export function LandingPage() {
             <div className="lg:col-span-7">
               <Badge variant="indigo" className="mb-4">
                 <Sparkles className="h-3.5 w-3.5" />
-                Platform Persiapan CPNS SKD Terpadu • Berbasis Analitik & AI
+                Platform Persiapan CPNS SKD Terpadu • Berbasis Analitik &amp; Latihan Adaptif
               </Badge>
               <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl leading-[1.14]">
                 Taklukkan Seleksi Kompetensi Dasar dengan{' '}
@@ -172,7 +165,7 @@ export function LandingPage() {
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
                 Nippia — SKD Master menyatukan bank soal terkurasi TWK, TIU (termasuk Figural visual),
                 dan TKP dengan pembelajaran bertahap 10 soal per unit, Buku Kesalahan <em>spaced repetition</em>,
-                Kartu Hafalan 3D, dan Tutor AI dalam satu dasbor.
+                Kartu Hafalan 3D, dan Pusat Materi dalam satu dasbor.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -184,7 +177,7 @@ export function LandingPage() {
                 </Link>
                 <Link to="/login">
                   <Button variant="outline" size="lg">
-                    Masuk dengan Google / Demo
+                    Masuk ke Akun Anda
                   </Button>
                 </Link>
               </div>
@@ -529,7 +522,7 @@ export function LandingPage() {
           {[
             {
               q: 'Apakah bisa langsung daftar dan coba fitur secara gratis?',
-              a: 'Ya. Anda dapat mendaftar gratis menggunakan akun Google atau Email, ataupun masuk memakai akun demo untuk mencoba Campaign harian, Simulasi CAT, Flashcard, dan Tutor AI.',
+              a: 'Ya. Anda dapat mendaftar gratis menggunakan akun Google atau Email, ataupun masuk memakai akun demo untuk mencoba Campaign harian, Simulasi CAT, Pusat Materi, dan Flashcard.',
             },
             {
               q: 'Apakah soal TIU Figural sudah memiliki gambar?',
@@ -602,7 +595,7 @@ export function FeaturesPage() {
     },
     {
       badge: 'Ekosistem Retensi',
-      title: 'Buku Kesalahan, Kartu Hafalan 3D, Pusat Materi & Tutor AI',
+      title: 'Buku Kesalahan, Kartu Hafalan 3D & Pusat Materi',
       points: [
         'Jawaban keliru otomatis tersimpan ke Buku Kesalahan lengkap dengan pembahasan langkah demi langkah, gambar figural, dan jadwal ulang berjarak.',
         '45 Kartu Hafalan 3D interaktif serta 18 modul Pusat Materi untuk pasal UUD 1945, rumus cepat TIU, dan prinsip kompetensi TKP.',
@@ -699,7 +692,7 @@ export function PrivacyPage() {
               untuk menampilkan atau menyembunyikan profil Anda dari papan peringkat publik.
             </p>
             <p>
-              <strong>Keamanan Data & AI:</strong> Kunci API layanan AI disimpan sepenuhnya di sisi
+              <strong>Keamanan Data &amp; Privasi:</strong> Kata sandi dienkripsi dengan aman di sisi
               server. Data pribadi pengguna tidak dijual kepada pihak ketiga mana pun.
             </p>
           </CardContent>
@@ -722,7 +715,7 @@ export function TermsPage() {
               mendistribusikan ulang secara komersial tanpa izin.
             </p>
             <p>
-              Skor simulasi, klasifikasi penguasaan topik, dan rekomendasi AI di platform ini
+              Skor simulasi, klasifikasi penguasaan topik, dan rekomendasi belajar di platform ini
               bersifat estimasi edukatif untuk membantu persiapan Anda dan tidak menjamin kelulusan
               seleksi resmi CPNS.
             </p>

@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { requireAuth } from '../middleware/auth.js';
 import { asyncHandler, AppError } from '../middleware/errorHandler.js';
 import { prisma } from '../lib/prisma.js';
+import { env } from '../config/env.js';
 import {
   createSubscriptionOrder,
   ensureDefaultSubscriptionPlans,
@@ -16,6 +17,7 @@ import {
   syncOrderWithMidtransStatus,
   verifyMidtransSignature,
 } from '../services/midtrans.service.js';
+import { validateVoucherForCheckout } from '../services/partner.service.js';
 
 export const subscriptionRouter = Router();
 
@@ -69,6 +71,36 @@ subscriptionRouter.get(
 );
 
 subscriptionRouter.post(
+  '/vouchers/validate',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const { code, planCode } = z
+      .object({
+        code: z.string().min(2).max(30),
+        planCode: z.string().default('PRO_MONTHLY'),
+      })
+      .parse(req.body ?? {});
+
+    const validated = await validateVoucherForCheckout({
+      code,
+      buyerUserId: req.user!.userId,
+      planCode,
+    });
+
+    res.json({
+      success: true,
+      data: {
+        voucherCode: validated.voucher.code,
+        ownerName: validated.voucher.owner.name,
+        originalPriceIdr: validated.originalPriceIdr,
+        discountIdr: validated.discountIdr,
+        finalAmountIdr: validated.finalAmountIdr,
+      },
+    });
+  }),
+);
+
+subscriptionRouter.post(
   '/orders',
   requireAuth,
   asyncHandler(async (req, res) => {
@@ -78,6 +110,7 @@ subscriptionRouter.post(
         paymentMethod: z
           .enum(['MIDTRANS_SNAP', 'QRIS', 'VIRTUAL_ACCOUNT', 'EWALLET', 'TRANSFER_MANUAL'])
           .default('MIDTRANS_SNAP'),
+        voucherCode: z.string().max(30).optional(),
         paymentProofNote: z.string().max(500).optional(),
         instantActivate: z.boolean().optional(),
       })
@@ -94,6 +127,7 @@ subscriptionRouter.post(
       userId,
       planCode: body.planCode,
       paymentMethod: body.paymentMethod,
+      voucherCode: body.voucherCode,
       paymentProofNote: body.paymentProofNote,
     });
 
@@ -135,17 +169,26 @@ subscriptionRouter.post(
       }
     }
 
-    // Fallback instant activation (demo / dev simulation without gateway keys)
-    if (body.instantActivate && body.paymentMethod !== 'TRANSFER_MANUAL') {
-      const paidOrder = await markOrderPaidAndActivate({
-        orderId: order.id,
-        note: `Aktivasi Instan (${body.paymentMethod})`,
-      });
-      const entitlement = await getUserEntitlement(userId);
-      return res.status(201).json({
-        success: true,
-        data: { order: paidOrder, entitlement, activated: true },
-      });
+    // Fallback instant activation strictly blocked in production
+    if (body.instantActivate) {
+      if (!env.enableSimulatedPayments) {
+        throw new AppError(
+          403,
+          'Aktivasi instan lokal dinonaktifkan di produksi. Gunakan Midtrans Checkout atau Transfer Manual terverifikasi.',
+          'SIMULATED_PAYMENT_DISABLED',
+        );
+      }
+      if (body.paymentMethod !== 'TRANSFER_MANUAL') {
+        const paidOrder = await markOrderPaidAndActivate({
+          orderId: order.id,
+          note: `Aktivasi Instan (${body.paymentMethod})`,
+        });
+        const entitlement = await getUserEntitlement(userId);
+        return res.status(201).json({
+          success: true,
+          data: { order: paidOrder, entitlement, activated: true },
+        });
+      }
     }
 
     const entitlement = await getUserEntitlement(userId);
@@ -215,20 +258,25 @@ subscriptionRouter.post(
       });
     }
 
-    if (
-      body.instantActivate &&
-      existing.paymentMethod !== 'TRANSFER_MANUAL' &&
-      !existing.snapToken
-    ) {
-      const paidOrder = await markOrderPaidAndActivate({
-        orderId: existing.id,
-        note: `Konfirmasi Gateway (${existing.paymentMethod})`,
-      });
-      const entitlement = await getUserEntitlement(userId);
-      return res.json({
-        success: true,
-        data: { order: paidOrder, entitlement, activated: true },
-      });
+    if (body.instantActivate) {
+      if (!env.enableSimulatedPayments) {
+        throw new AppError(
+          403,
+          'Konfirmasi instan lokal dinonaktifkan di produksi.',
+          'SIMULATED_PAYMENT_DISABLED',
+        );
+      }
+      if (existing.paymentMethod !== 'TRANSFER_MANUAL' && !existing.snapToken) {
+        const paidOrder = await markOrderPaidAndActivate({
+          orderId: existing.id,
+          note: `Konfirmasi Gateway (${existing.paymentMethod})`,
+        });
+        const entitlement = await getUserEntitlement(userId);
+        return res.json({
+          success: true,
+          data: { order: paidOrder, entitlement, activated: true },
+        });
+      }
     }
 
     const updated = await prisma.subscriptionOrder.findUnique({

@@ -48,6 +48,13 @@ const TOPIC_SEED = [
 ];
 
 async function main() {
+  if (process.env.NODE_ENV === 'production' && process.env.ALLOW_PRODUCTION_SEED !== 'true') {
+    console.error(
+      '[SEED BLOCKED] Menolak menjalankan seed.ts secara otomatis di NODE_ENV=production. Untuk seeding data referensi saja di produksi, jalankan dengan ALLOW_PRODUCTION_SEED=true SEED_REFERENCE_ONLY=true.',
+    );
+    process.exit(1);
+  }
+
   console.log('Mulai seeding database Nippia - SKD Master...');
 
   // 1. Subjects
@@ -92,7 +99,7 @@ async function main() {
     topicMap.set(t.slug, { id: upserted.id, subjectId });
   }
 
-  // 3. Questions (Paket 1 + Paket 2 + Paket 3 + 90 TIU Figural PDF = 420 published SKD questions)
+  // 3. Questions (Paket 1–5 + Top-up Topik + 90 TIU Figural PDF = 642 published SKD questions)
   const questionSources: Array<{ file: string; packageCode: string }> = [
     { file: 'twk.json', packageCode: 'PAKET_1' },
     { file: 'tiu.json', packageCode: 'PAKET_1' },
@@ -103,6 +110,13 @@ async function main() {
     { file: 'paket3-twk.json', packageCode: 'PAKET_3' },
     { file: 'paket3-tiu.json', packageCode: 'PAKET_3' },
     { file: 'paket3-tkp.json', packageCode: 'PAKET_3' },
+    { file: 'paket4-twk.json', packageCode: 'PAKET_4' },
+    { file: 'paket4-tiu.json', packageCode: 'PAKET_4' },
+    { file: 'paket4-tkp.json', packageCode: 'PAKET_4' },
+    { file: 'paket5-twk.json', packageCode: 'PAKET_5' },
+    { file: 'paket5-tiu.json', packageCode: 'PAKET_5' },
+    { file: 'paket5-tkp.json', packageCode: 'PAKET_5' },
+    { file: 'topup-topics.json', packageCode: 'TOPUP' },
     { file: 'pdf-figural.json', packageCode: 'PDF_FIGURAL' },
   ];
   let totalQuestions = 0;
@@ -172,7 +186,7 @@ async function main() {
       totalQuestions++;
     }
   }
-  console.log(`Seeded ${totalQuestions} soal SKD (Paket 1, Paket 2, Paket 3, dan 90 TIU Figural PDF).`);
+  console.log(`Seeded ${totalQuestions} soal SKD (Paket 1–5, Top-Up Topik, dan 90 TIU Figural PDF).`);
 
   // 4. Scoring Configuration (Versioned & Configurable)
   const existingConfig = await prisma.scoringConfiguration.findFirst({
@@ -638,29 +652,41 @@ async function main() {
     }
   }
 
-  // 8. Demo Users (Admin & Sample Learners)
+  // 8. Demo Users, Sample Sessions & Live Showcase (NEVER executed in production or SEED_REFERENCE_ONLY=true)
+  const shouldSeedDemoData =
+    process.env.NODE_ENV !== 'production' && process.env.SEED_REFERENCE_ONLY !== 'true';
+  if (!shouldSeedDemoData) {
+    console.log(
+      'Mode referensi aktif: demo users, riwayat latihan contoh, dan event live sampel dilewati. Menjamin SubscriptionPlan default...',
+    );
+  }
+
   const adminEmail = 'admin@nippia.id';
   const adminHash = await bcrypt.hash('AdminSkd2026!', 12);
-  await prisma.user.upsert({
-    where: { email: adminEmail },
-    update: {},
-    create: {
-      name: 'Administrator Nippia',
-      email: adminEmail,
-      passwordHash: adminHash,
-      role: 'ADMIN',
-      emailVerified: true,
-      profile: { create: { onboardingCompleted: true, totalXp: 1800, levelName: 'Menengah' } },
-      preferences: { create: { isLeaderboardPublic: false } },
-      streak: { create: { currentStreak: 3, longestStreak: 5 } },
-    },
-  });
+  if (shouldSeedDemoData) {
+    await prisma.user.upsert({
+      where: { email: adminEmail },
+      update: {},
+      create: {
+        name: 'Administrator Nippia',
+        email: adminEmail,
+        passwordHash: adminHash,
+        role: 'ADMIN',
+        emailVerified: true,
+        profile: { create: { onboardingCompleted: true, totalXp: 1800, levelName: 'Menengah' } },
+        preferences: { create: { isLeaderboardPublic: false } },
+        streak: { create: { currentStreak: 3, longestStreak: 5 } },
+      },
+    });
+  }
 
   const demoEmail = 'peserta@nippia.id';
   const demoHash = await bcrypt.hash('BelajarSkd2026!', 12);
-  const existingDemo = await prisma.user.findUnique({ where: { email: demoEmail } });
+  const existingDemo = shouldSeedDemoData
+    ? await prisma.user.findUnique({ where: { email: demoEmail } })
+    : null;
   let demoUser = existingDemo;
-  if (!demoUser) {
+  if (shouldSeedDemoData && !demoUser) {
     demoUser = await prisma.user.create({
       data: {
         name: 'Siti Rahmawati',
@@ -786,10 +812,12 @@ async function main() {
     }
   }
 
-  // Second learner for leaderboard
+  // Second learner for leaderboard (Demo only)
   const rizkyEmail = 'rizky@nippia.id';
-  let rizkyUser = await prisma.user.findUnique({ where: { email: rizkyEmail } });
-  if (!rizkyUser) {
+  let rizkyUser = shouldSeedDemoData
+    ? await prisma.user.findUnique({ where: { email: rizkyEmail } })
+    : null;
+  if (shouldSeedDemoData && !rizkyUser) {
     rizkyUser = await prisma.user.create({
       data: {
         name: 'Rizky Pratama',
@@ -811,31 +839,49 @@ async function main() {
     });
   }
 
-  // Host Operator & Event Admin accounts for Live Akbar RBAC
+  // Host Operator & Event Admin accounts for Live Akbar RBAC + Content Partner Demo
   const staffAccounts = [
     { email: 'operator@nippia.id', name: 'Host Operator Live Akbar', role: 'HOST_OPERATOR' as const },
     { email: 'eventadmin@nippia.id', name: 'Event Admin Nippia', role: 'EVENT_ADMIN' as const },
+    { email: 'kontributor@nippia.id', name: 'Kontributor Soal Nippia', role: 'CONTENT_PARTNER' as const },
   ];
-  for (const s of staffAccounts) {
-    if (!(await prisma.user.findUnique({ where: { email: s.email } }))) {
-      await prisma.user.create({
-        data: {
-          name: s.name,
-          email: s.email,
-          passwordHash: demoHash,
-          role: s.role,
-          emailVerified: true,
-          profile: { create: { onboardingCompleted: true, levelName: 'Ahli', totalXp: 8000 } },
-          preferences: { create: { isLeaderboardPublic: false } },
-          streak: { create: { currentStreak: 1, longestStreak: 1 } },
-        },
-      });
+  if (shouldSeedDemoData) {
+    for (const s of staffAccounts) {
+      let staff = await prisma.user.findUnique({ where: { email: s.email } });
+      if (!staff) {
+        staff = await prisma.user.create({
+          data: {
+            name: s.name,
+            email: s.email,
+            passwordHash: demoHash,
+            role: s.role,
+            emailVerified: true,
+            profile: { create: { onboardingCompleted: true, levelName: 'Ahli', totalXp: 8000 } },
+            preferences: { create: { isLeaderboardPublic: false } },
+            streak: { create: { currentStreak: 1, longestStreak: 1 } },
+          },
+        });
+      }
+      if (s.role === 'CONTENT_PARTNER') {
+        await prisma.partnerVoucher.upsert({
+          where: { ownerId: staff.id },
+          update: {},
+          create: {
+            ownerId: staff.id,
+            code: 'NIPPIA4K',
+            discountIdr: 4000,
+            commissionIdr: 5000,
+            newUsersOnly: true,
+            isActive: true,
+          },
+        });
+      }
     }
   }
 
-  // Seed Live Akbar Events (1 Open Registration + 1 Completed Showcase with Leaderboard)
-  const adminCreator = await prisma.user.findFirst({ where: { role: 'ADMIN' } });
-  const activeCfg = await prisma.scoringConfiguration.findFirst({ where: { isActive: true } });
+  // Seed Live Akbar Events (1 Open Registration + 1 Completed Showcase with Leaderboard - Demo only)
+  const adminCreator = shouldSeedDemoData ? await prisma.user.findFirst({ where: { role: 'ADMIN' } }) : null;
+  const activeCfg = shouldSeedDemoData ? await prisma.scoringConfiguration.findFirst({ where: { isActive: true } }) : null;
 
   if (adminCreator && activeCfg) {
     const openSlug = 'tryout-akbar-nasional-2026-gelombang-1';
@@ -1007,7 +1053,7 @@ async function main() {
     update: {
       name: 'Nippia Pro Bulanan',
       description:
-        'Akses penuh seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT Unlimited, Live Akbar Premium, Tutor AI, & Spaced Repetition.',
+        'Akses penuh seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT Unlimited, Live Akbar Premium, Jadwal 14 Hari, & Spaced Repetition.',
       priceIdr: 29000,
       originalIdr: 49000,
       durationDays: 30,
@@ -1021,7 +1067,7 @@ async function main() {
         'Gratis semua event Nippia Live Akbar Premium',
         '45 Kartu Hafalan 3D & 18 Modul Pusat Materi (Paket 1–3)',
         'Buku Kesalahan tanpa batas + Latih Ulang Spaced Repetition',
-        'Tanya jawab Tutor AI, Jadwal 14 Hari & Analisis Kelemahan penuh',
+        'Generator Jadwal 14 Hari & Analisis Kelemahan 24 Topik penuh',
         'Badge eksklusif PRO di Profil, Sidebar, dan Leaderboard',
       ],
     },
@@ -1029,7 +1075,7 @@ async function main() {
       code: 'PRO_MONTHLY',
       name: 'Nippia Pro Bulanan',
       description:
-        'Akses penuh seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT Unlimited, Live Akbar Premium, Tutor AI, & Spaced Repetition.',
+        'Akses penuh seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT Unlimited, Live Akbar Premium, Jadwal 14 Hari, & Spaced Repetition.',
       priceIdr: 29000,
       originalIdr: 49000,
       durationDays: 30,
@@ -1043,7 +1089,7 @@ async function main() {
         'Gratis semua event Nippia Live Akbar Premium',
         '45 Kartu Hafalan 3D & 18 Modul Pusat Materi (Paket 1–3)',
         'Buku Kesalahan tanpa batas + Latih Ulang Spaced Repetition',
-        'Tanya jawab Tutor AI, Jadwal 14 Hari & Analisis Kelemahan penuh',
+        'Generator Jadwal 14 Hari & Analisis Kelemahan 24 Topik penuh',
         'Badge eksklusif PRO di Profil, Sidebar, dan Leaderboard',
       ],
     },

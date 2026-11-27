@@ -6,6 +6,7 @@ import { createAdapter } from '@socket.io/redis-adapter';
 import { env } from '../config/env.js';
 import type { AuthPayload } from '../middleware/auth.js';
 import { prisma } from '../lib/prisma.js';
+import { logger } from '../lib/logger.js';
 import {
   dispatchEventNotifications,
   finalizeEventAndRankings,
@@ -19,6 +20,16 @@ let redisSub: Redis | null = null;
 let redisStateClient: Redis | null = null;
 let schedulerTimer: NodeJS.Timeout | null = null;
 let tickRunning = false;
+
+export async function pingRealtimeRedis(): Promise<boolean> {
+  if (!redisStateClient) return false;
+  try {
+    const res = await redisStateClient.ping();
+    return res === 'PONG';
+  } catch {
+    return false;
+  }
+}
 
 interface AuthedSocket extends Socket {
   data: {
@@ -74,9 +85,9 @@ export function attachRealtime(httpServer: HttpServer): SocketIOServer {
       redisSub = redisPub.duplicate();
       redisStateClient = redisPub.duplicate();
       io.adapter(createAdapter(redisPub, redisSub));
-      console.log('[Realtime] Redis adapter enabled for Socket.IO');
+      logger.info('Redis adapter enabled for Socket.IO');
     } catch (err) {
-      console.warn('[Realtime] Failed to connect Redis adapter, falling back to memory adapter:', err);
+      logger.warn('Failed to connect Redis adapter, falling back to memory adapter', { error: err });
     }
   }
 
@@ -341,7 +352,7 @@ export function startLiveEventScheduler() {
       });
 
       for (const ev of expiredLive) {
-        console.log(`[LiveAkbar Scheduler] Deadline expired for event ${ev.id}, finalizing...`);
+        logger.info('LiveAkbar deadline expired, finalizing event', { eventId: ev.id });
         await finalizeEventAndRankings(ev.id, ev.createdBy);
         const completed = await prisma.liveEvent.update({
           where: { id: ev.id },

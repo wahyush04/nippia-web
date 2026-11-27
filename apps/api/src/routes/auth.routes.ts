@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import crypto from 'crypto';
 import { z } from 'zod';
 import { loginSchema, onboardingSchema, registerSchema, getLevelForXp } from '@nippia/shared';
 import { asyncHandler, AppError } from '../middleware/errorHandler.js';
@@ -204,11 +205,19 @@ authRouter.post(
   '/verify-email',
   requireAuth,
   asyncHandler(async (req, res) => {
-    const { code } = z.object({ code: z.string().min(1) }).parse(req.body);
+    const { code } = z.object({ code: z.string().min(1).max(128) }).parse(req.body);
     const user = await prisma.user.findUnique({ where: { id: req.user!.userId } });
     if (!user) throw new AppError(404, 'Pengguna tidak ditemukan');
-    if (user.emailVerifyCode && user.emailVerifyCode !== code) {
-      throw new AppError(400, 'Kode verifikasi tidak sesuai');
+    if (user.emailVerified) {
+      return res.json({ success: true, data: { emailVerified: true } });
+    }
+    if (!user.emailVerifyCode) {
+      throw new AppError(400, 'Kode verifikasi tidak tersedia atau sudah kedaluwarsa.', 'VERIFY_CODE_MISSING');
+    }
+    const expectedBuf = Buffer.from(user.emailVerifyCode, 'utf8');
+    const providedBuf = Buffer.from(code.trim(), 'utf8');
+    if (expectedBuf.length !== providedBuf.length || !crypto.timingSafeEqual(expectedBuf, providedBuf)) {
+      throw new AppError(400, 'Kode verifikasi tidak sesuai', 'INVALID_VERIFY_CODE');
     }
     await prisma.user.update({
       where: { id: user.id },

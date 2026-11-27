@@ -1,0 +1,3332 @@
+[
+  {
+    "id": "TKP-P5-001",
+    "subject": "TKP",
+    "topic": "Pelayanan Publik",
+    "topicSlug": "pelayanan-publik",
+    "subtopic": "Prioritas Kelompok Rentan di Ruang Tunggu",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Anda melihat seorang ibu yang menggendong bayi dan seorang lansia berkursi roda berdiri di sudut ruang tunggu pelayanan karena kursi antrean penuh oleh pemohon muda yang sehat. Sementara itu, loket prioritas masih digunakan untuk layanan reguler karena antrean biasa menumpuk. Tindakan Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Membiarkan mereka berdiri sambil mempercepat ketikan agar antrean reguler segera bergeser.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Kurang sigap memberikan kenyamanan minimum kepada kelompok rentan."
+      },
+      {
+        "key": "B",
+        "text": "Segera mencarikan tempat duduk layak dan mengaktifkan kembali fungsi loket prioritas sesuai SOP dengan memberi penjelasan sopan kepada pengantre reguler.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Tanggap atas hak kelompok rentan sekaligus menjaga ketertiban komunikasi dengan pengantre lain."
+      },
+      {
+        "key": "C",
+        "text": "Menyuruh petugas keamanan memindahkan dua pengantre muda secara paksa dari kursinya.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Niat membantu baik, namun cara paksa tanpa penjelasan dapat memicu gesekan."
+      },
+      {
+        "key": "D",
+        "text": "Mengingatkan bahwa pemohon dengan bayi atau lansia sebaiknya datang saat jam sepi menjelang siang.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Membatasi waktu akses kelompok rentan yang justru harus diprioritaskan."
+      },
+      {
+        "key": "E",
+        "text": "Menawarkan mereka duduk di ruang kerja staf bagian dalam sambil tetap menunggu giliran nomor antrean reguler.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Memberi tempat duduk, tetapi belum memulihkan hak percepatan layanan di loket prioritas."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Kelompok rentan (lansia, ibu hamil/menyusui, anak-anak, disabilitas) berhak atas sarana tunggu nyaman dan jalur prioritas layanan publik.",
+      "stepByStep": [
+        "Segera sediakan tempat duduk yang nyaman.",
+        "Aktifkan jalur prioritas sesuai ketentuan.",
+        "Berikan pengertian santun kepada pengantre reguler."
+      ],
+      "correctReason": "Opsi B (skor 5): Tanggap atas hak kelompok rentan sekaligus menjaga ketertiban komunikasi dengan pengantre lain.",
+      "distractorAnalysis": {
+        "A": "Skor 2 — Kurang sigap memberikan kenyamanan minimum kepada kelompok rentan.",
+        "C": "Skor 3 — Niat membantu baik, namun cara paksa tanpa penjelasan dapat memicu gesekan.",
+        "D": "Skor 1 — Membatasi waktu akses kelompok rentan yang justru harus diprioritaskan.",
+        "E": "Skor 4 — Memberi tempat duduk, tetapi belum memulihkan hak percepatan layanan di loket prioritas."
+      },
+      "quickTrick": "Segera bantu duduk + aktifkan loket prioritas + edukasi pengantre lain dengan sopan.",
+      "commonMistakes": "Menggunakan loket prioritas untuk reguler hingga kelompok rentan terbengkalai.",
+      "studyMaterialTip": "Pelayanan inklusif memperhatikan kenyamanan fisik dan percepatan akses sekaligus."
+    },
+    "references": [
+      {
+        "title": "Pedoman Pelayanan Ramah Kelompok Rentan",
+        "source": "KemenPAN-RB",
+        "note": "Fasilitas & Jalur Prioritas"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-002",
+    "subject": "TKP",
+    "topic": "Pelayanan Publik",
+    "topicSlug": "pelayanan-publik",
+    "subtopic": "Keterbukaan Kanal Pengaduan Masyarakat",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Seorang warga mengeluhkan lambannya penerbitan izin usahanya di kolom ulasan publik daring instansi Anda dengan kalimat cukup pedas. Anda mengetahui terdapat keterlambatan teknis di sistem verifikasi lintas dinas tiga hari lalu. Sikap terbaik tim pelayanan adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menghapus ulasan tersebut atau menyembunyikan komentarnya agar citra kantor di internet tetap baik.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Anti-kritik dan menghilangkan akuntabilitas pengaduan publik."
+      },
+      {
+        "key": "B",
+        "text": "Menanggapi secara resmi dan santun dengan permintaan maaf, menjelaskan progres terkini secara objektif, menindaklanjuti percepatan ke dinas terkait, dan menyediakan kontak pelacakan resmi.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Responsif, transparan, berorientasi penyelesaian masalah warga, serta menjaga marwah layanan digital."
+      },
+      {
+        "key": "C",
+        "text": "Membalas bahwa keterlambatan bukan salah instansi Anda melainkan berada di dinas teknis lain.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Saling melempar kesalahan antarinstansi tidak membantu pemohon."
+      },
+      {
+        "key": "D",
+        "text": "Meminta warga tersebut menghapus ulasannya dulu baru permohonannya dibantu dipercepat.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Menahan layanan demi menghapus kritik tidak etis."
+      },
+      {
+        "key": "E",
+        "text": "Menelepon warga secara pribadi untuk meminta maaf tanpa menuliskan respons tindak lanjut di kanal ulasan publik.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sudah responsif ke pemohon, namun publik yang membaca ulasan belum melihat transparansi penyelesaian."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pengelolaan pengaduan publik (SP4N-LAPOR! & ulasan digital) menuntut tanggapan empatik, bebas defensif, dan fokus pada penuntasan masalah.",
+      "stepByStep": [
+        "Respons keluhan dengan sopan tanpa menghapus atau menyalahkan.",
+        "Koordinasikan percepatan kendala lintas instansi.",
+        "Berikan pembaruan status yang terukur kepada pemohon."
+      ],
+      "correctReason": "Opsi B (skor 5): Responsif, transparan, berorientasi penyelesaian masalah warga, serta menjaga marwah layanan digital.",
+      "distractorAnalysis": {
+        "A": "Skor 1 — Anti-kritik dan menghilangkan akuntabilitas pengaduan publik.",
+        "C": "Skor 2 — Saling melempar kesalahan antarinstansi tidak membantu pemohon.",
+        "D": "Skor 3 — Menahan layanan demi menghapus kritik tidak etis.",
+        "E": "Skor 4 — Sudah responsif ke pemohon, namun publik yang membaca ulasan belum melihat transparansi penyelesaian."
+      },
+      "quickTrick": "Terima keluhan terbuka + minta maaf tulus + tindak lanjuti progresnya secara nyata.",
+      "commonMistakes": "Menghapus ulasan negatif atau melempar tanggung jawab ke instansi lain.",
+      "studyMaterialTip": "Ulasan publik yang direspons cepat dan solutif justru meningkatkan kepercayaan masyarakat."
+    },
+    "references": [
+      {
+        "title": "Pengelolaan Pengaduan Pelayanan Publik",
+        "source": "Perpres No. 76 Tahun 2013",
+        "note": "Respons Kanal Publik"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-003",
+    "subject": "TKP",
+    "topic": "Pelayanan Publik",
+    "topicSlug": "pelayanan-publik",
+    "subtopic": "Menjaga Keadilan Antrean dari Kenalan Pribadi",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Saat antrean loket cukup panjang, seorang tetangga dekat Anda datang menghampiri meja samping dan berbisik meminta tolong agar berkasnya langsung Anda selesaikan sekarang karena ia sedang buru-buru menjemput anak sekolah. Sikap yang paling adil dan melayani adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Langsung memproses berkasnya di sela panggilan antrean agar tidak menyakiti hubungan bertetangga.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Korupsi waktu antrean yang merampas hak warga lain yang datang lebih awal."
+      },
+      {
+        "key": "B",
+        "text": "Memintanya menitipkan berkas untuk Anda kerjakan setelah jam tutup kantor tanpa mengambil nomor antrean.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Tetap merupakan jalur istimewa berbasis relasi pribadi."
+      },
+      {
+        "key": "C",
+        "text": "Menjelaskan dengan ramah dan hormat bahwa seluruh pemohon dilayani sesuai nomor antrean demi keadilan bersama, membantunya mengambil nomor antrean/mengecek kelengkapan berkas terlebih dahulu agar saat gilirannya langsung tuntas.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Teguh pada keadilan antrean namun tetap bersikap hangat dan membantu kelancaran berkas secara prosedural."
+      },
+      {
+        "key": "D",
+        "text": "Menolaknya dengan suara keras di depan pengantre lain supaya warga melihat Anda sangat jujur.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mempermalukan orang di depan umum tidak sesuai kesantunan pelayanan."
+      },
+      {
+        "key": "E",
+        "text": "Menyarankannya mendaftar ulang lewat layanan daring saja tanpa membantu mengecek kelengkapan berkas yang sudah ia bawa.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Menolak jalur istimewa secara adil, tetapi kurang membantu memeriksa kesiapan berkas atau opsi layanan mandiri."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Keadilan (non-diskriminasi) adalah prinsip inti layanan publik: kenalan, kerabat, dan masyarakat umum diperlakukan sama pada urutan layanan.",
+      "stepByStep": [
+        "Tolak permintaan mendahului antrean secara halus dan konsisten.",
+        "Bantu arahkan ke prosedur antrean resmi atau cek syarat awal.",
+        "Pertahankan keramahan agar relasi sosial tetap baik."
+      ],
+      "correctReason": "Opsi C (skor 5): Teguh pada keadilan antrean namun tetap bersikap hangat dan membantu kelancaran berkas secara prosedural.",
+      "distractorAnalysis": {
+        "A": "Skor 1 — Korupsi waktu antrean yang merampas hak warga lain yang datang lebih awal.",
+        "B": "Skor 2 — Tetap merupakan jalur istimewa berbasis relasi pribadi.",
+        "D": "Skor 3 — Mempermalukan orang di depan umum tidak sesuai kesantunan pelayanan.",
+        "E": "Skor 4 — Menolak jalur istimewa secara adil, tetapi kurang membantu memeriksa kesiapan berkas atau opsi layanan mandiri."
+      },
+      "quickTrick": "Teguh tolak potong antrean + tetap ramah memandu lewat prosedur resmi.",
+      "commonMistakes": "Membolehkan \"titip berkas\" kenalan atau menegur dengan kasar.",
+      "studyMaterialTip": "Standar layanan adil melarang hak istimewa bagi kenalan pribadi."
+    },
+    "references": [
+      {
+        "title": "Asas Persamaan Perlakuan Pelayanan Publik",
+        "source": "UU 25/2009",
+        "note": "Anti-Jalur Khusus Relasi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-004",
+    "subject": "TKP",
+    "topic": "Pelayanan Publik",
+    "topicSlug": "pelayanan-publik",
+    "subtopic": "Layanan Jemput Bola untuk Wilayah Terpencil",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Data menunjukkan banyak warga dusun pegunungan yang sulit dijangkau transportasi umum belum memiliki dokumen kependudukan lengkap meski layanan di kantor kecamatan sudah gratis. Usulan pelayanan publik terbaik yang dapat Anda ajukan adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengusulkan program layanan keliling terjadwal (jemput bola) bekerja sama dengan perangkat desa agar warga dusun terpencil memperoleh dokumen secara mudah dan terkoordinasi.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menjangkau hambatan geografis dan ekonomi warga melalui kolaborasi layanan keliling."
+      },
+      {
+        "key": "B",
+        "text": "Membuat spanduk pengumuman tambahan di pinggir jalan raya utama kecamatan.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Tidak menyelesaikan kendala jarak dan akses transportasi warga dusun pegunungan."
+      },
+      {
+        "key": "C",
+        "text": "Mengusulkan denda keterlambatan pengurusan dokumen supaya warga terpaksa turun ke kecamatan.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Menambah beban masyarakat rentan akses alih-alih memudahkan."
+      },
+      {
+        "key": "D",
+        "text": "Menunggu hingga pihak pemerintah desa mengumpulkan seluruh berkas warganya lalu mengantarkannya ke kantor.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sudah memudahkan lewat kolektif desa, namun untuk dokumen biometrik/verifikasi langsung, layanan keliling lebih tuntas."
+      },
+      {
+        "key": "E",
+        "text": "Menyediakan air minum gratis tambahan di kantor kecamatan bagi warga yang datang dari dusun jauh.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Baik untuk kenyamanan di kantor, tetapi belum mengatasi sulitnya perjalanan turun dari dusun."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Pelayanan publik proaktif berupaya mendekatkan layanan ke masyarakat yang terhambat akses geografis melalui kolaborasi dengan perangkat lokal.",
+      "stepByStep": [
+        "Petakan kelompok masyarakat yang terhambat jarak/akses.",
+        "Rancang layanan jemput bola terjadwal dengan desa.",
+        "Pastikan persyaratan dan jadwal disosialisasikan jauh hari."
+      ],
+      "correctReason": "Opsi A (skor 5): Menjangkau hambatan geografis dan ekonomi warga melalui kolaborasi layanan keliling.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Tidak menyelesaikan kendala jarak dan akses transportasi warga dusun pegunungan.",
+        "C": "Skor 1 — Menambah beban masyarakat rentan akses alih-alih memudahkan.",
+        "D": "Skor 4 — Sudah memudahkan lewat kolektif desa, namun untuk dokumen biometrik/verifikasi langsung, layanan keliling lebih tuntas.",
+        "E": "Skor 3 — Baik untuk kenyamanan di kantor, tetapi belum mengatasi sulitnya perjalanan turun dari dusun."
+      },
+      "quickTrick": "Atasi kendala geografis dengan layanan keliling/jemput bola terkoordinasi.",
+      "commonMistakes": "Menghukum ketertinggalan akses warga dengan denda atau sosialisasi pasif.",
+      "studyMaterialTip": "Pelayanan modern bergerak mendatangi kebutuhan warga."
+    },
+    "references": [
+      {
+        "title": "Inovasi Layanan Jemput Bola Dukcapil",
+        "source": "Kemendagri & KemenPAN-RB",
+        "note": "Aksesibilitas Wilayah 3T"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-005",
+    "subject": "TKP",
+    "topic": "Pelayanan Publik",
+    "topicSlug": "pelayanan-publik",
+    "subtopic": "Bahasa Sederhana untuk Pemohon Awam",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Seorang petani lansia datang ingin mengurus surat keterangan tanah, tetapi ia terus terlihat bingung saat Anda membacakan istilah administratif seperti \"validasi spasial\", \"konfirmasi NJOP\", dan \"integrasi berkas digital\". Langkah Anda selanjutnya adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Tetap membacakan daftar istilah pada SOP kata demi kata agar sesuai standar baku tertulis.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mengutamakan jargon teknis di atas pemahaman nyata warga."
+      },
+      {
+        "key": "B",
+        "text": "Menjelaskan ulang dengan bahasa sehari-hari yang sederhana dan hangat, memberi contoh dokumen fisik yang dimaksud (seperti SPPT PBB dan fotokopi KTP), serta menuliskan urutan singkat yang mudah dipahami.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Empatik komunikatif: menerjemahkan birokrasi teknis ke bahasa yang dipahami langsung oleh warga."
+      },
+      {
+        "key": "C",
+        "text": "Menyuruhnya pulang dan mengajak anaknya yang melek teknologi pada kunjungan berikutnya.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Menolak memberi penjelasan yang ramah sesuai kapasitas pemohon."
+      },
+      {
+        "key": "D",
+        "text": "Menyerahkan brosur persyaratan bergambar tanpa menjelaskannya lagi secara lisan.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Membantu secara visual namun kurang pendampingan lisan bagi lansia."
+      },
+      {
+        "key": "E",
+        "text": "Mengulang penjelasan yang sama dengan suara lebih pelan tanpa mengganti istilah teknisnya.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sudah sabar, tetapi akar kebingungannya adalah istilah teknis yang belum disederhanakan."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Komunikasi efektif pelayan publik menyesuaikan pilihan kata dengan latar belakang pemohon agar tidak terjadi salah paham dan bolak-balik.",
+      "stepByStep": [
+        "Terjemahkan jargon administratif ke contoh dokumen sehari-hari.",
+        "Tulis langkah singkat yang jelas.",
+        "Konfirmasi kembali apakah pemohon sudah memahaminya."
+      ],
+      "correctReason": "Opsi B (skor 5): Empatik komunikatif: menerjemahkan birokrasi teknis ke bahasa yang dipahami langsung oleh warga.",
+      "distractorAnalysis": {
+        "A": "Skor 2 — Mengutamakan jargon teknis di atas pemahaman nyata warga.",
+        "C": "Skor 1 — Menolak memberi penjelasan yang ramah sesuai kapasitas pemohon.",
+        "D": "Skor 3 — Membantu secara visual namun kurang pendampingan lisan bagi lansia.",
+        "E": "Skor 4 — Sudah sabar, tetapi akar kebingungannya adalah istilah teknis yang belum disederhanakan."
+      },
+      "quickTrick": "Ganti jargon teknis dengan bahasa sederhana & contoh dokumen nyata.",
+      "commonMistakes": "Mengulang istilah teknis yang sama atau memulangkan warga awam.",
+      "studyMaterialTip": "Pelayanan yang berhasil diukur dari pemahaman pemohon, bukan banyaknya istilah baku yang diucapkan petugas."
+    },
+    "references": [
+      {
+        "title": "Komunikasi Publik Inklusif",
+        "source": "LAN RI",
+        "note": "Penyederhanaan Bahasa Layanan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-006",
+    "subject": "TKP",
+    "topic": "Pelayanan Publik",
+    "topicSlug": "pelayanan-publik",
+    "subtopic": "Menjaga Fokus & Keramahan Menjelang Jam Pulang",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Hari Jumat pukul 16.20 WIB, sepuluh menit sebelum jam layanan resmi ditutup, datang seorang pemohon terengah-engah karena terjebak macet dan hampir kehabisan waktu mengurus legalisasi berkas yang mendesak untuk seleksi kerja besok. Tindakan Anda yang tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menolak menerimanya karena sistem loket akan segera dimatikan pukul 16.30 sehingga khawatir lembur beberapa menit.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Loket masih dalam jam operasional (16.20 < 16.30); menolak pemohon yang datang sah merugikan warga."
+      },
+      {
+        "key": "B",
+        "text": "Menerimanya dengan wajah tersenyum dan tenang, segera memeriksa kelengkapan berkas, serta memproses legalisasi dengan teliti tanpa tergesa-gesa meski sedikit melewati jam pulang.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Memenuhi jam layanan resmi dengan tulus, teliti, dan penuh kepedulian terhadap kebutuhan mendesak warga."
+      },
+      {
+        "key": "C",
+        "text": "Memprosesnya sambil menggerutu agar pemohon tahu Anda sudah hampir pulang.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Melayani dengan sikap menggerutu merusak kenyamanan dan citra layanan publik."
+      },
+      {
+        "key": "D",
+        "text": "Menerima berkasnya saja lalu memintanya mengambil hasil legalisasi pada hari Senin pagi.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Tidak membantu kebutuhan seleksinya yang berlangsung besok (Sabtu)."
+      },
+      {
+        "key": "E",
+        "text": "Meminta ia memilih hanya dua lembar berkas terpenting saja karena waktu sudah mepet.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Berusaha mengakomodasi cepat, padahal jika masih cukup waktu seluruh legalisasi bisa dituntaskan dengan cermat."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Selama pemohon tiba dalam jam layanan resmi, petugas wajib melayani penuh dengan sikap ramah dan ketelitian mutu yang sama seperti pagi hari.",
+      "stepByStep": [
+        "Sambut dengan ramah tanpa menunjukkan keterpaksaan.",
+        "Verifikasi syarat dan proses dengan cermat.",
+        "Tuntaskan sebelum memutus operasional loket."
+      ],
+      "correctReason": "Opsi B (skor 5): Memenuhi jam layanan resmi dengan tulus, teliti, dan penuh kepedulian terhadap kebutuhan mendesak warga.",
+      "distractorAnalysis": {
+        "A": "Skor 2 — Loket masih dalam jam operasional (16.20 < 16.30); menolak pemohon yang datang sah merugikan warga.",
+        "C": "Skor 1 — Melayani dengan sikap menggerutu merusak kenyamanan dan citra layanan publik.",
+        "D": "Skor 3 — Tidak membantu kebutuhan seleksinya yang berlangsung besok (Sabtu).",
+        "E": "Skor 4 — Berusaha mengakomodasi cepat, padahal jika masih cukup waktu seluruh legalisasi bisa dituntaskan dengan cermat."
+      },
+      "quickTrick": "Selama masih jam buka, layani tuntas, ramah, dan teliti!",
+      "commonMistakes": "Mengeluh di depan warga atau menutup antrean sebelum jam resmi berakhir.",
+      "studyMaterialTip": "Kualitas pelayanan di menit-menit akhir hari kerja adalah cerminan ketulusan pengabdian."
+    },
+    "references": [
+      {
+        "title": "Etika Operasional Loket",
+        "source": "KemenPAN-RB",
+        "note": "Disiplin Jam Layanan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-007",
+    "subject": "TKP",
+    "topic": "Pelayanan Publik",
+    "topicSlug": "pelayanan-publik",
+    "subtopic": "Mencegah Penolakan Berkas Berulang-ulang (Bolak-Balik)",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Anda mendapati seorang warga sudah tiga kali bolak-balik mengurus perizinan karena setiap datang hanya diberi tahu satu kekurangan yang berbeda oleh petugas berbeda. Saat ia datang ke meja Anda dengan raut putus asa, tindakan terbaik Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Memeriksa seluruh berkasnya secara menyeluruh dari awal hingga akhir dalam satu kali pemeriksaan, menandai setiap poin kurang secara lengkap dan jelas sekaligus, lalu memandu langkah pengisiannya hingga siap diproses.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menghentikan siklus bolak-balik dengan audit syarat menyeluruh satu kali jalan dan pendampingan penuh."
+      },
+      {
+        "key": "B",
+        "text": "Hanya memeriksa syarat tahap ini saja supaya cepat, karena tahap verifikasi berikutnya bukan bagian tugas meja Anda.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Berpotensi mengulangi keluhan bolak-balik ke empat kalinya."
+      },
+      {
+        "key": "C",
+        "text": "Meminta maaf atas pelayanan petugas sebelumnya lalu memintanya membaca formulir panduan dari situs web.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Kurang memberikan pendampingan konkret atas kekurangan seluruh berkas saat itu juga."
+      },
+      {
+        "key": "D",
+        "text": "Meloloskan berkasnya meski ada syarat yang masih kurang sedikit sebagai kompensasi rasa kasihan.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Melanggar kepatuhan persyaratan hukum yang justru membahayakan keabsahan izin."
+      },
+      {
+        "key": "E",
+        "text": "Memeriksa seluruh berkas dan menuliskan daftar kekurangan lengkap lalu menyarankan ia datang kembali besok pagi.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sudah memeriksa menyeluruh sekaligus, namun jika bisa dibantu pengisian atau pengunduhan syarat ringan di tempat akan jauh lebih membantu."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Prinsip pemeriksaan menyeluruh sekali jalan (comprehensive first-pass check) mencegah warga dirugikan waktu dan ongkos oleh pemeriksaan sepotong-sepotong.",
+      "stepByStep": [
+        "Dengarkan pengalamannya dengan empati.",
+        "Audit seluruh daftar persyaratan dari hulu ke hilir sekaligus.",
+        "Bantu lengkapi yang bisa diselesaikan di tempat tanpa melanggar aturan."
+      ],
+      "correctReason": "Opsi A (skor 5): Menghentikan siklus bolak-balik dengan audit syarat menyeluruh satu kali jalan dan pendampingan penuh.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Berpotensi mengulangi keluhan bolak-balik ke empat kalinya.",
+        "C": "Skor 3 — Kurang memberikan pendampingan konkret atas kekurangan seluruh berkas saat itu juga.",
+        "D": "Skor 1 — Melanggar kepatuhan persyaratan hukum yang justru membahayakan keabsahan izin.",
+        "E": "Skor 4 — Sudah memeriksa menyeluruh sekaligus, namun jika bisa dibantu pengisian atau pengunduhan syarat ringan di tempat akan jauh lebih membantu."
+      },
+      "quickTrick": "Periksa tuntas seluruh syarat sekaligus + pandu penyelesaian agar tidak bolak-balik lagi.",
+      "commonMistakes": "Menerobos aturan syarat sah atau memeriksa hanya sebagian tugas meja sendiri.",
+      "studyMaterialTip": "Mengakhiri pengalaman buruk warga dengan pemeriksaan tuntas mengembalikan kepercayaan publik."
+    },
+    "references": [
+      {
+        "title": "Penyederhanaan Prosedur Layanan",
+        "source": "KemenPAN-RB",
+        "note": "Pemeriksaan Menyeluruh Sekali Jalan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-008",
+    "subject": "TKP",
+    "topic": "Jejaring Kerja",
+    "topicSlug": "jejaring-kerja",
+    "subtopic": "Membangun Jaringan Kerja Sama Saat Ditugaskan di Proyek Baru",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Anda baru saja ditunjuk menjadi koordinator gugus tugas lintas instansi daerah yang seluruh anggotanya belum saling mengenal sebelumnya. Agar kolaborasi cepat solid dan produktif sejak pekan pertama, langkah awal paling tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Langsung membagi tugas masing-masing anggota lewat surat tugas tertulis tanpa pertemuan awal supaya menghemat waktu.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Pembagian sepihak tanpa dialog awal memicu kebingungan peran dan rasa tidak terhubung."
+      },
+      {
+        "key": "B",
+        "text": "Mengadakan pertemuan perkenalan terfokus untuk menyamakan pemahaman tujuan bersama, memetakan keahlian tiap anggota, serta menyepakati kanal komunikasi dan jadwal koordinasi rutin.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Membangun fondasi kepercayaan, kejelasan peran berbasis kompetensi, dan ritme komunikasi efektif."
+      },
+      {
+        "key": "C",
+        "text": "Menunggu anggota lain berinisiatif memperkenalkan diri atau bertanya jika bingung tugasnya.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Koordinator pasif membuat gugus tugas berjalan lambat dan terpecah."
+      },
+      {
+        "key": "D",
+        "text": "Mengadakan acara makan bersama santai tanpa membahas pembagian peran proyek sama sekali di pekan pertama.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Membangun keakraban sosial, tetapi menunda kejelasan koordinasi kerja proyek."
+      },
+      {
+        "key": "E",
+        "text": "Meminta tiap anggota mengirimkan CV dan laporan harian pribadi melalui email ke Anda.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Memetakan profil anggota secara individual, namun belum membangun dialog interaktif antarsesama anggota."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pembentukan tim lintas instansi menuntut kejelasan visi bersama, pemetaan kekuatan anggota, dan kesepakatan kanal koordinasi sejak awal.",
+      "stepByStep": [
+        "Inisiasi pertemuan perdana untuk membangun koneksi dan tujuan bersama.",
+        "Petakan kompetensi dan peran tiap instansi.",
+        "Tetapkan jadwal sinkronisasi dan kanal komunikasi bersama."
+      ],
+      "correctReason": "Opsi B (skor 5): Membangun fondasi kepercayaan, kejelasan peran berbasis kompetensi, dan ritme komunikasi efektif.",
+      "distractorAnalysis": {
+        "A": "Skor 2 — Pembagian sepihak tanpa dialog awal memicu kebingungan peran dan rasa tidak terhubung.",
+        "C": "Skor 1 — Koordinator pasif membuat gugus tugas berjalan lambat dan terpecah.",
+        "D": "Skor 3 — Membangun keakraban sosial, tetapi menunda kejelasan koordinasi kerja proyek.",
+        "E": "Skor 4 — Memetakan profil anggota secara individual, namun belum membangun dialog interaktif antarsesama anggota."
+      },
+      "quickTrick": "Pertemuan awal: samakan tujuan + petakan keahlian + sepakati kanal koordinasi.",
+      "commonMistakes": "Bekerja langsung lewat surat instruksi kaku tanpa membangun keterikatan tim.",
+      "studyMaterialTip": "Koordinator jejaring kerja berperan menyatukan arah sebelum membagi beban."
+    },
+    "references": [
+      {
+        "title": "Kepemimpinan Kolaboratif Lintas Instansi",
+        "source": "LAN RI",
+        "note": "Pembentukan Gugus Tugas"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-009",
+    "subject": "TKP",
+    "topic": "Jejaring Kerja",
+    "topicSlug": "jejaring-kerja",
+    "subtopic": "Menerima Ide Rekan Kerja Lebih Muda/Yunior",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Seorang staf magang atau pegawai paling muda di tim Anda mengusulkan pendekatan baru dalam menyajikan data laporan yang lebih ringkas, namun cara ini mengubah format kebiasaan tim selama tiga tahun terakhir. Sikap Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menolak usulan tersebut secara halus karena staf baru belum memahami sejarah panjang format lama kantor.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Menutup inovasi hanya berdasarkan senioritas jabatan."
+      },
+      {
+        "key": "B",
+        "text": "Mendengarkan presentasi idenya secara terbuka, menguji kelebihan serta kesesuaiannya dengan kebutuhan pengguna laporan, dan siap mengadopsinya bersama tim bila terbukti lebih efektif.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Meritokratis, inklusif terhadap gagasan dari semua jenjang, dan berorientasi mutu hasil."
+      },
+      {
+        "key": "C",
+        "text": "Memujinya di depan rapat namun tetap memakai format lama tanpa pernah menguji idenya.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Pujian basa-basi tanpa tindak lanjut mematikan motivasi kontribusi anggota muda."
+      },
+      {
+        "key": "D",
+        "text": "Menegurnya agar fokus menyelesaikan tugas dasar saja sebelum mengubah kebiasaan tim.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Mematikan kreativitas dan merusak iklim jejaring kerja yang sehat."
+      },
+      {
+        "key": "E",
+        "text": "Memintanya menerapkan format baru tersebut hanya untuk laporannya sendiri sebagai bahan perbandingan.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Memberi ruang uji coba terbatas, namun keterlibatan seluruh tim untuk mengevaluasi relevansi lebih kolaboratif."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Jejaring kerja sehat menghargai kontribusi gagasan berdasarkan kualitas dan manfaatnya, bukan pangkat atau lama bekerja.",
+      "stepByStep": [
+        "Dengarkan gagasan tanpa prasangka senioritas.",
+        "Uji kelayakan dan dampaknya secara objektif bersama tim.",
+        "Adopsi perubahan yang terbukti meningkatkan kualitas."
+      ],
+      "correctReason": "Opsi B (skor 5): Meritokratis, inklusif terhadap gagasan dari semua jenjang, dan berorientasi mutu hasil.",
+      "distractorAnalysis": {
+        "A": "Skor 2 — Menutup inovasi hanya berdasarkan senioritas jabatan.",
+        "C": "Skor 3 — Pujian basa-basi tanpa tindak lanjut mematikan motivasi kontribusi anggota muda.",
+        "D": "Skor 1 — Mematikan kreativitas dan merusak iklim jejaring kerja yang sehat.",
+        "E": "Skor 4 — Memberi ruang uji coba terbatas, namun keterlibatan seluruh tim untuk mengevaluasi relevansi lebih kolaboratif."
+      },
+      "quickTrick": "Nilai ide dari manfaat objektifnya, bukan dari jabatan pengusulnya.",
+      "commonMistakes": "Menganggap anggota baru tidak berhak mengusulkan pembaruan sistem kerja.",
+      "studyMaterialTip": "Sikap terbuka terhadap masukan dari siapa pun memperkuat inovasi tim."
+    },
+    "references": [
+      {
+        "title": "Budaya Kerja Inklusif & Inovatif",
+        "source": "ASN BerAKHLAK",
+        "note": "Keterbukaan Gagasan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-010",
+    "subject": "TKP",
+    "topic": "Jejaring Kerja",
+    "topicSlug": "jejaring-kerja",
+    "subtopic": "Menjaga Komitmen Waktu Terhadap Rekan Eksternal",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Anda berjanji mengirimkan bahan final narasi kerja sama ke mitra perguruan tinggi paling lambat pukul 14.00 hari ini. Pukul 13.00, Anda mendapat kendala tak terduga karena pejabat penanda tangan masih berada di rapat mendadak hingga pukul 15.30. Tindakan komunikasi terbaik Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Segera menghubungi narahubung mitra sebelum pukul 14.00 untuk menginformasikan penundaan secara jujur, menjelaskan alasannya, serta menyampaikan pembaruan estimasi waktu kirim berikut draf final yang siap ditinjau.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menjaga kredibilitas kemitraan melalui pemberitahuan dini sebelum tenggat terlewati dan memberi bahan kerja sementara."
+      },
+      {
+        "key": "B",
+        "text": "Diam saja sampai tanda tangan diperoleh pukul 16.00 lalu langsung mengirimkannya sambil meminta maaf di email.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Membuat mitra menunggu tanpa kepastian melewati jam janji pukul 14.00."
+      },
+      {
+        "key": "C",
+        "text": "Mengirimkan dokumen dengan memindai tanda tangan lama agar janji pukul 14.00 tetap terpenuhi.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Pemalsuan administrasi yang melanggar hukum."
+      },
+      {
+        "key": "D",
+        "text": "Mengirim pesan singkat tepat pukul 14.30 setelah tenggat lewat bahwa berkas menyusul sore nanti.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Terlambat memberi kabar sehingga mitra sudah terlanjur menyusun agenda menunggu."
+      },
+      {
+        "key": "E",
+        "text": "Menghubungi mitra pukul 13.15 hanya untuk mengabarkan bahwa dokumen belum ditandatangani tanpa estimasi jam baru maupun draf.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Komunikasi awal baik, tetapi kurang memberikan kepastian jadwal revisi atau draf awal."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kepercayaan mitra dijaga dengan komunikasi proaktif SEBELUM tenggat jatuh tempo apabila terjadi penundaan di luar kendali.",
+      "stepByStep": [
+        "Beri tahu mitra lebih awal sebelum jam kesepakatan habis.",
+        "Berikan estimasi waktu terbaru yang realistis.",
+        "Kirim draf peninjauan jika memungkinkan agar mitra tetap bisa bekerja paralel."
+      ],
+      "correctReason": "Opsi A (skor 5): Menjaga kredibilitas kemitraan melalui pemberitahuan dini sebelum tenggat terlewati dan memberi bahan kerja sementara.",
+      "distractorAnalysis": {
+        "B": "Skor 3 — Membuat mitra menunggu tanpa kepastian melewati jam janji pukul 14.00.",
+        "C": "Skor 1 — Pemalsuan administrasi yang melanggar hukum.",
+        "D": "Skor 2 — Terlambat memberi kabar sehingga mitra sudah terlanjur menyusun agenda menunggu.",
+        "E": "Skor 4 — Komunikasi awal baik, tetapi kurang memberikan kepastian jadwal revisi atau draf awal."
+      },
+      "quickTrick": "Kabar sebelum tenggat terlewat + alasan jujur + estimasi baru + bantu draf paralel.",
+      "commonMistakes": "Baru mengabari setelah terlambat atau nekat menerabas prosedur tanda tangan.",
+      "studyMaterialTip": "Relasi profesional tumbuh ketika mitra tidak dibiarkan menebak-nebak dalam ketidakpastian."
+    },
+    "references": [
+      {
+        "title": "Komunikasi Kemitraan Profesional",
+        "source": "LAN RI",
+        "note": "Manajemen Ekspektasi Mitra"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-011",
+    "subject": "TKP",
+    "topic": "Jejaring Kerja",
+    "topicSlug": "jejaring-kerja",
+    "subtopic": "Menangani Anggota Tim yang Pasif (Free Rider)",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Dalam kelompok kerja persiapan pameran layanan publik, ada satu anggota yang selalu absen saat rapat koordinasi dan belum mengumpulkan satu pun bagian tugasnya mendekati pekan terakhir. Anggota lain mulai kesal dan ingin mengeluarkannya begitu saja. Sebagai ketua kelompok, langkah terbaik Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengajaknya berbicara empat mata untuk menanyakan kendala nyatanya secara terbuka, menegaskan kembali komitmen peran dengan rincian tugas harian yang jelas dan terpantau, baru berkoordinasi dengan atasan jika tetap tidak kooperatif.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Pendekatan pembinaan yang adil, mengklarifikasi hambatan, menetapkan akuntabilitas terukur, lalu eskalasi proporsional."
+      },
+      {
+        "key": "B",
+        "text": "Langsung membagi tugas anggota tersebut ke anggota lain diam-diam agar pameran berjalan aman tanpa konflik.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Membiarkan perilaku pasif tanpa pembinaan dan membebani anggota rajin secara tidak adil."
+      },
+      {
+        "key": "C",
+        "text": "Menyindir ketidakaktifannya di grup chat tim agar ia merasa malu dan segera bekerja.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Merusak psikologis tim dan memicu permusuhan terbuka."
+      },
+      {
+        "key": "D",
+        "text": "Mengikuti desakan anggota lain untuk mencoret namanya dari daftar panitia dan langsung mengirim laporan ke pimpinan.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Tegas menjaga keadilan tim, tetapi melewatkan dialog klarifikasi empat mata yang mungkin mengungkap kendala teknis/pribadi."
+      },
+      {
+        "key": "E",
+        "text": "Mengundurkan diri dari posisi ketua kelompok karena lelah mengurus anggota yang tidak bertanggung jawab.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Lari dari tanggung jawab kepemimpinan tim."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Menangani anggota tim yang pasif memerlukan dialog personal terlebih dahulu, penetapan target terukur, dan pelibatan atasan bila komitmen tetap dilanggar.",
+      "stepByStep": [
+        "Ajak bicara empat mata untuk menggali penyebab pasifnya.",
+        "Tetapkan komitmen target kecil yang mudah dipantau.",
+        "Laporkan secara objektif ke pimpinan bila tetap mangkir."
+      ],
+      "correctReason": "Opsi A (skor 5): Pendekatan pembinaan yang adil, mengklarifikasi hambatan, menetapkan akuntabilitas terukur, lalu eskalasi proporsional.",
+      "distractorAnalysis": {
+        "B": "Skor 3 — Membiarkan perilaku pasif tanpa pembinaan dan membebani anggota rajin secara tidak adil.",
+        "C": "Skor 1 — Merusak psikologis tim dan memicu permusuhan terbuka.",
+        "D": "Skor 4 — Tegas menjaga keadilan tim, tetapi melewatkan dialog klarifikasi empat mata yang mungkin mengungkap kendala teknis/pribadi.",
+        "E": "Skor 2 — Lari dari tanggung jawab kepemimpinan tim."
+      },
+      "quickTrick": "Tegur & gali kendala empat mata -> kontrak tugas terukur -> eskalasi objektif bila tetap abai.",
+      "commonMistakes": "Menyindir di grup atau langsung menanggung diam-diam tanpa pembinaan.",
+      "studyMaterialTip": "Ketegasan yang diawali klarifikasi empat mata mencerminkan kedewasaan pemimpin jejaring kerja."
+    },
+    "references": [
+      {
+        "title": "Dinamika Kelompok Kerja ASN",
+        "source": "Modul Jejaring Kerja",
+        "note": "Penanganan Anggota Pasif"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-012",
+    "subject": "TKP",
+    "topic": "Jejaring Kerja",
+    "topicSlug": "jejaring-kerja",
+    "subtopic": "Sinergi Antarbidang Saat Beban Puncak",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Bidang Humas dan Bidang Hukum di kantor Anda sedang memiliki agenda besar bersamaan: Humas harus menyusun rilis tanggapan publik dalam 3 jam, sedangkan Bidang Hukum harus memverifikasi kesesuaian regulasinya agar tidak salah tafsir hukum. Cara kerja paling kolaboratif adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Membentuk sesi penyusunan paralel secara bersama antara perwakilan Humas dan Hukum sehingga penulisan bahasa publik dan penelaahan pasal hukum berjalan serentak dalam satu draf.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menghilangkan antrean kerja berurutan (silo) lewat ko-kreasi waktu nyata lintas bidang."
+      },
+      {
+        "key": "B",
+        "text": "Meminta Humas menyelesaikan draf total dalam 2,5 jam dulu lalu menyerahkannya ke Bidang Hukum pada 30 menit terakhir.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Berisiko revisi besar di menit akhir yang membuat tenggat 3 jam terlewati."
+      },
+      {
+        "key": "C",
+        "text": "Meminta Bidang Hukum menulis seluruh rilis berita menggunakan bahasa peraturan agar pasti aman.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mengabaikan keahlian komunikasi publik Humas sehingga rilis sulit dipahami warga."
+      },
+      {
+        "key": "D",
+        "text": "Mengirimkan rilis langsung tanpa verifikasi Bidang Hukum karena mengejar kecepatan respons publik.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Berisiko fatal menyalahi ketentuan peraturan perundang-undangan."
+      },
+      {
+        "key": "E",
+        "text": "Meminta pimpinan menunda tenggat tanggapan publik hingga besok supaya masing-masing bidang bekerja santai.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Mengurangi risiko kesalahan, tetapi mengorbankan kecepatan respons krisis publik padahal kerja paralel memungkinkan."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Sinergi lintas kompetensi mengatasi keterbatasan waktu tanpa mengorbankan kualitas hukum maupun efektivitas komunikasi publik.",
+      "stepByStep": [
+        "Gabungkan perwakilan kedua bidang dalam satu meja kerja/dokumen bersama.",
+        "Susun poin komunikasi dan verifikasi regulasi secara serentak.",
+        "Finalisasi bersama sebelum tenggat 3 jam."
+      ],
+      "correctReason": "Opsi A (skor 5): Menghilangkan antrean kerja berurutan (silo) lewat ko-kreasi waktu nyata lintas bidang.",
+      "distractorAnalysis": {
+        "B": "Skor 3 — Berisiko revisi besar di menit akhir yang membuat tenggat 3 jam terlewati.",
+        "C": "Skor 2 — Mengabaikan keahlian komunikasi publik Humas sehingga rilis sulit dipahami warga.",
+        "D": "Skor 1 — Berisiko fatal menyalahi ketentuan peraturan perundang-undangan.",
+        "E": "Skor 4 — Mengurangi risiko kesalahan, tetapi mengorbankan kecepatan respons krisis publik padahal kerja paralel memungkinkan."
+      },
+      "quickTrick": "Kerja paralel/bersama dalam satu draf memadukan kecepatan dan ketepatan lintas bidang.",
+      "commonMistakes": "Bekerja berurutan terpisah (silo) saat tenggat sangat sempit.",
+      "studyMaterialTip": "Kolaborasi paralel adalah kunci respons cepat organisasi modern."
+    },
+    "references": [
+      {
+        "title": "Kolaborasi Lintas Fungsi (Cross-Functional)",
+        "source": "LAN RI",
+        "note": "Sinergi Waktu Nyata"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-013",
+    "subject": "TKP",
+    "topic": "Jejaring Kerja",
+    "topicSlug": "jejaring-kerja",
+    "subtopic": "Menghargai Kontribusi Rekan dalam Keberhasilan Tim",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Proyek integrasi layanan yang Anda presentasikan mendapat pujian tinggi dari Kepala Badan. Padahal sebagian besar kerja pengolahan data di balik layar dikerjakan secara teliti oleh dua rekan Anda yang cenderung pendiam. Sikap Anda di hadapan pimpinan dan forum adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menyampaikan ucapan terima kasih kepada seluruh tim, menyebut secara eksplisit peran dan kontribusi berharga kedua rekan tersebut di forum, serta memastikan catatan apresiasi masuk dalam evaluasi tim.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Adil mengakui kontribusi anggota di balik layar dan memperkuat rasa saling percaya di dalam jejaring tim."
+      },
+      {
+        "key": "B",
+        "text": "Menerima pujian tersebut untuk diri sendiri karena Anda yang menyusun paparan dan mempresentasikannya dengan baik.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Mengklaim kerja kolektif sebagai prestasi pribadi merusak kepercayaan tim."
+      },
+      {
+        "key": "C",
+        "text": "Mengucapkan terima kasih atas nama \"tim\" secara umum lalu memberi ucapan pribadi ke dua rekan itu di luar ruangan saja.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sudah menghargai secara pribadi, namun pengakuan eksplisit di hadapan pimpinan memberi dampak penghargaan karier yang jauh lebih adil."
+      },
+      {
+        "key": "D",
+        "text": "Merendah dengan mengatakan proyek itu sebenarnya biasa saja dan masih banyak kekurangan.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mengurangi makna kerja keras rekan tim yang sudah lembur."
+      },
+      {
+        "key": "E",
+        "text": "Meminta salah satu rekan tersebut maju menggantikan seluruh sesi tanya jawab tanpa persiapan.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Berisiko menyulitkan rekan yang pendiam jika tidak dipersiapkan sebelumnya."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kepercayaan jangka panjang dalam jejaring kerja dibangun saat pemimpin/presenter jujur membagi pengakuan atas kontribusi tiap anggota.",
+      "stepByStep": [
+        "Terima apresiasi pimpinan dengan rendah hati.",
+        "Sebutkan secara terbuka kontribusi spesifik rekan tim di balik layar.",
+        "Dorong pengakuan formal dalam penilaian kinerja."
+      ],
+      "correctReason": "Opsi A (skor 5): Adil mengakui kontribusi anggota di balik layar dan memperkuat rasa saling percaya di dalam jejaring tim.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Mengklaim kerja kolektif sebagai prestasi pribadi merusak kepercayaan tim.",
+        "C": "Skor 4 — Sudah menghargai secara pribadi, namun pengakuan eksplisit di hadapan pimpinan memberi dampak penghargaan karier yang jauh lebih adil.",
+        "D": "Skor 2 — Mengurangi makna kerja keras rekan tim yang sudah lembur.",
+        "E": "Skor 3 — Berisiko menyulitkan rekan yang pendiam jika tidak dipersiapkan sebelumnya."
+      },
+      "quickTrick": "Bagikan pujian secara terbuka kepada rekan di balik layar yang berkontribusi nyata.",
+      "commonMistakes": "Menunggangi kerja keras tim untuk pencitraan pribadi.",
+      "studyMaterialTip": "Berbagi pengakuan adalah perekat loyalitas jejaring kerja."
+    },
+    "references": [
+      {
+        "title": "Integritas & Kepemimpinan Tim",
+        "source": "BerAKHLAK BKN",
+        "note": "Kredit Kontribusi Adil"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-014",
+    "subject": "TKP",
+    "topic": "Jejaring Kerja",
+    "topicSlug": "jejaring-kerja",
+    "subtopic": "Memelihara Relasi Pascakegiatan Bersama",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Kegiatan seminar regional bersama antara instansi Anda, organisasi profesi, dan tiga pemerintah kabupaten telah selesai dilaksanakan dengan sukses. Agar jejaring kerja yang sudah terbangun tidak putus setelah acara usai, langkah strategis yang Anda lakukan adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengirimkan laporan ringkas dampak kegiatan dan ucapan apresiasi resmi kepada seluruh mitra, mendokumentasikan rekomendasi tindak lanjut bersama, serta menjaga komunikasi berkala terkait implementasinya.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Mengubah momentum acara menjadi kemitraan berkelanjutan berbasis tindak lanjut nyata."
+      },
+      {
+        "key": "B",
+        "text": "Langsung menutup grup koordinasi acara di aplikasi pesan keesokan paginya supaya memori ponsel bersih.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Memutus jaringan komunikasi mitra sebelum tindak lanjut atau evaluasi bersama tuntas."
+      },
+      {
+        "key": "C",
+        "text": "Hanya menghubungi mereka kembali jika tahun depan instansi Anda mengadakan acara serupa.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Relasi transaksional sesaat, bukan jejaring kerja berkelanjutan."
+      },
+      {
+        "key": "D",
+        "text": "Mengunggah foto bersama seluruh panitia di media sosial pribadi sambil menandai akun mitra.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Menunjukkan keakraban simbolis tanpa tindak lanjut substantif."
+      },
+      {
+        "key": "E",
+        "text": "Mengirimkan sertifikat elektronik dan ucapan terima kasih formal lewat email satu minggu kemudian.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sopan secara administratif, tetapi belum membangun jembatan kolaborasi tindak lanjut."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Jejaring kerja sejati dipelihara setelah kegiatan seremonial selesai melalui evaluasi bersama, berbagi hasil, dan tindak lanjut program.",
+      "stepByStep": [
+        "Sampaikan apresiasi dan rangkuman hasil kegiatan ke seluruh mitra.",
+        "Catat dan pantau kesepakatan tindak lanjut.",
+        "Pelihara komunikasi berkala meski belum ada proyek baru."
+      ],
+      "correctReason": "Opsi A (skor 5): Mengubah momentum acara menjadi kemitraan berkelanjutan berbasis tindak lanjut nyata.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Memutus jaringan komunikasi mitra sebelum tindak lanjut atau evaluasi bersama tuntas.",
+        "C": "Skor 2 — Relasi transaksional sesaat, bukan jejaring kerja berkelanjutan.",
+        "D": "Skor 3 — Menunjukkan keakraban simbolis tanpa tindak lanjut substantif.",
+        "E": "Skor 4 — Sopan secara administratif, tetapi belum membangun jembatan kolaborasi tindak lanjut."
+      },
+      "quickTrick": "Tutup acara dengan laporan hasil + apresiasi + komunikasi tindak lanjut berkala.",
+      "commonMistakes": "Menjalin relasi hanya saat butuh atau memutus kontak begitu acara berakhir.",
+      "studyMaterialTip": "Keberlanjutan tindak lanjut membedakan kemitraan strategis dari kepanitiaan sesaat."
+    },
+    "references": [
+      {
+        "title": "Manajemen Kemitraan Berkelanjutan",
+        "source": "LAN RI",
+        "note": "Pasca-Kegiatan Bersama"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-015",
+    "subject": "TKP",
+    "topic": "Sosial Budaya",
+    "topicSlug": "sosial-budaya",
+    "subtopic": "Menghargai Perbedaan Pola Makan & Keyakinan Rekan Kerja",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Saat merencanakan rapat kerja dan jamuan makan siang bersama tim yang terdiri atas anggota dengan beragam agama dan pantangan makanan tertentu, tindakan Anda sebagai penanggung jawab konsumsi adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Memesan menu seragam dari satu restoran favorit pimpinan tanpa mengecek pantangan makanan peserta.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Mengabaikan kebutuhan dan keyakinan sebagian anggota tim."
+      },
+      {
+        "key": "B",
+        "text": "Mendata kebutuhan/pantangan makanan peserta sebelumnya, menyediakan pilihan menu halal serta opsi ramah bagi yang berpantang atau berpuasa dengan pelabelan jelas.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Peka, menghormati keberagaman keyakinan maupun kondisi kesehatan, dan inklusif bagi semua."
+      },
+      {
+        "key": "C",
+        "text": "Menyuruh peserta yang memiliki pantangan khusus membawa bekal sendiri dari rumah masing-masing.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Meminggirkan anggota minoritas dari kebersamaan acara tim."
+      },
+      {
+        "key": "D",
+        "text": "Memberikan uang pengganti tunai hanya kepada peserta yang pantangannya tidak terakomodasi di menu utama.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Lebih baik dari mengabaikan, namun memisahkan anggota saat jamuan bersama."
+      },
+      {
+        "key": "E",
+        "text": "Memesan menu vegetarian untuk seluruh peserta tanpa berkonsultasi agar dianggap aman untuk semua.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Bermaksud inklusif, tetapi mendata preferensi dan menyediakan varian berlabel lebih menghargai keberagaman pilihan."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Kepedulian terhadap hal sehari-hari seperti pantangan makanan berbasis keyakinan atau kesehatan mencerminkan praktik nyata nilai Harmonis.",
+      "stepByStep": [
+        "Identifikasi pantangan agama dan kesehatan sebelum memesan.",
+        "Sediakan pilihan menu yang aman dan berlabel jelas.",
+        "Pastikan semua anggota merasakan kehangatan kebersamaan yang setara."
+      ],
+      "correctReason": "Opsi B (skor 5): Peka, menghormati keberagaman keyakinan maupun kondisi kesehatan, dan inklusif bagi semua.",
+      "distractorAnalysis": {
+        "A": "Skor 1 — Mengabaikan kebutuhan dan keyakinan sebagian anggota tim.",
+        "C": "Skor 2 — Meminggirkan anggota minoritas dari kebersamaan acara tim.",
+        "D": "Skor 3 — Lebih baik dari mengabaikan, namun memisahkan anggota saat jamuan bersama.",
+        "E": "Skor 4 — Bermaksud inklusif, tetapi mendata preferensi dan menyediakan varian berlabel lebih menghargai keberagaman pilihan."
+      },
+      "quickTrick": "Data kebutuhan & pantangan sebelumnya -> sediakan pilihan aman berlabel jelas untuk semua.",
+      "commonMistakes": "Menganggap selera mayoritas otomatis berlaku untuk semua anggota.",
+      "studyMaterialTip": "Detail kecil yang inklusif membangun rasa dihargai di tim majemuk."
+    },
+    "references": [
+      {
+        "title": "Nilai Harmonis dalam Aktivitas Kantor",
+        "source": "BerAKHLAK BKN",
+        "note": "Akomodasi Keberagaman"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-016",
+    "subject": "TKP",
+    "topic": "Sosial Budaya",
+    "topicSlug": "sosial-budaya",
+    "subtopic": "Empati Terhadap Rekan yang Berduka",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Salah satu rekan satu unit kerja yang berbeda agama dengan Anda baru saja mengalami musibah meninggalnya orang tua. Sementara itu, besok ada target laporan mingguan yang harus dikumpulkan. Sikap sosial dan empati Anda yang paling tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengucapkan belasungkawa yang tulus dengan tetap menghormati tata cara duka keyakinannya, ikut menggalang dukungan rekan, serta membantu mengambil alih sementara porsi tugas mendesak agar ia tenang mendampingi keluarga.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menyatukan penghormatan lintas keyakinan dengan dukungan moral dan solidaritas kerja konkret."
+      },
+      {
+        "key": "B",
+        "text": "Mengirimkan pesan singkat turut berduka namun menanyakan kapan ia bisa mengirim file laporan sebelum besok sore.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Tidak memiliki kepekaan empati saat rekan sedang berduka."
+      },
+      {
+        "key": "C",
+        "text": "Tidak mengucapkan belasungkawa secara langsung karena khawatir salah memakai istilah doa agama yang berbeda.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Ketakutan berlebihan membuat tampak acuh tak acuh saat rekan berduka."
+      },
+      {
+        "key": "D",
+        "text": "Hadir melayat bersama rekan kerja lain tanpa membahas atau membantu pekerjaan kantornya yang tertinggal.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Kehadiran melayat sangat baik, dan melengkapinya dengan dukungan pengalihan tugas sementara jauh lebih menenangkan rekan."
+      },
+      {
+        "key": "E",
+        "text": "Mengirim karangan bunga atas nama pribadi saja dan tetap fokus mengerjakan porsi tugas sendiri.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Minimal secara formalitas, namun kurang kepekaan solidaritas tim."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Solidaritas kemanusiaan melintasi batas agama melalui ucapan belasungkawa yang tulus, penghormatan tradisi duka, dan keringanan beban tugas tim.",
+      "stepByStep": [
+        "Sampaikan simpati dengan bahasa universal yang menghormati keyakinannya.",
+        "Koordinasikan pengambilalihan sementara tugas mendesak dengan atasan.",
+        "Dukung secara moral bersama rekan satu unit."
+      ],
+      "correctReason": "Opsi A (skor 5): Menyatukan penghormatan lintas keyakinan dengan dukungan moral dan solidaritas kerja konkret.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Tidak memiliki kepekaan empati saat rekan sedang berduka.",
+        "C": "Skor 2 — Ketakutan berlebihan membuat tampak acuh tak acuh saat rekan berduka.",
+        "D": "Skor 4 — Kehadiran melayat sangat baik, dan melengkapinya dengan dukungan pengalihan tugas sementara jauh lebih menenangkan rekan.",
+        "E": "Skor 3 — Minimal secara formalitas, namun kurang kepekaan solidaritas tim."
+      },
+      "quickTrick": "Belasungkawa santun lintas keyakinan + bantu sementara porsi tugasnya.",
+      "commonMistakes": "Ragu berbelasungkawa karena beda keyakinan atau menagih tugas saat hari duka.",
+      "studyMaterialTip": "Kemanusiaan dan kepedulian rekan kerja selalu menuntut empati nyata."
+    },
+    "references": [
+      {
+        "title": "Toleransi dan Solidaritas Sosial ASN",
+        "source": "LAN RI",
+        "note": "Empati Lintas Keyakinan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-017",
+    "subject": "TKP",
+    "topic": "Sosial Budaya",
+    "topicSlug": "sosial-budaya",
+    "subtopic": "Pelestarian Kearifan Lokal dalam Program Dinas",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Instansi Anda hendak menyosialisasikan program ketahanan pangan dan perilaku hidup sehat kepada masyarakat desa adat yang memiliki tradisi musyawarah balai dan bahasa kiasan khas daerah. Pendekatan paling efektif dan berwawasan sosial budaya adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Berdialog lebih dulu dengan tokoh adat setempat untuk menyelaraskan pesan program dengan nilai kearifan lokal yang sudah hidup di masyarakat, lalu menyampaikannya secara santun melalui forum musyawarah desa.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menghormati struktur sosial lokal dan mengawinkan program pemerintah dengan budaya setempat agar diterima tulus."
+      },
+      {
+        "key": "B",
+        "text": "Membawa spanduk seragam dari pusat dan membacakan modul teknis kesehatan persis seperti di ibu kota.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Tidak kontekstual dan terasa asing bagi warga desa adat."
+      },
+      {
+        "key": "C",
+        "text": "Mengganti seluruh tradisi musyawarah desa menjadi penyuluhan formal satu arah yang dipimpin pejabat dinas.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Mengabaikan kearifan lokal dan merusak penerimaan sosial."
+      },
+      {
+        "key": "D",
+        "text": "Membuat pamflet berbahasa Indonesia yang diterjemahkan seadanya lewat mesin penerjemah otomatis.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Berisiko menghasilkan terjemahan kaku atau salah makna budaya."
+      },
+      {
+        "key": "E",
+        "text": "Meminta izin kepala desa terlebih dahulu untuk membagikan paket bantuan sambil menyelipkan materi program.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Menghormati otoritas administratif desa, namun dialog mendalam dengan tokoh adat atas pesan kearifan lokal lebih berkelanjutan."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Program publik berhasil apabila dikomunikasikan melalui pintu gerbang budaya dan tokoh adat setempat dengan menghormati tata nilai masyarakat.",
+      "stepByStep": [
+        "Konsultasikan substansi program dengan tokoh adat dan desa.",
+        "Selaraskan penyampaian dengan kearifan lokal tanpa mengubah tujuan sehat/pangan.",
+        "Gunakan forum musyawarah warga yang partisipatif."
+      ],
+      "correctReason": "Opsi A (skor 5): Menghormati struktur sosial lokal dan mengawinkan program pemerintah dengan budaya setempat agar diterima tulus.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Tidak kontekstual dan terasa asing bagi warga desa adat.",
+        "C": "Skor 1 — Mengabaikan kearifan lokal dan merusak penerimaan sosial.",
+        "D": "Skor 3 — Berisiko menghasilkan terjemahan kaku atau salah makna budaya.",
+        "E": "Skor 4 — Menghormati otoritas administratif desa, namun dialog mendalam dengan tokoh adat atas pesan kearifan lokal lebih berkelanjutan."
+      },
+      "quickTrick": "Gandeng tokoh adat + selaraskan pesan dengan kearifan lokal + musyawarah warga.",
+      "commonMistakes": "Memaksakan format seragam tanpa membaca konteks budaya lokal.",
+      "studyMaterialTip": "Pendekatan kultural mempercepat penerimaan kebijakan publik."
+    },
+    "references": [
+      {
+        "title": "Pembangunan Berbasis Kearifan Lokal",
+        "source": "Kemendesa & LAN RI",
+        "note": "Komunikasi Lintas Budaya"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-018",
+    "subject": "TKP",
+    "topic": "Sosial Budaya",
+    "topicSlug": "sosial-budaya",
+    "subtopic": "Menjaga Kerukunan di Tengah Polarisasi Opini Sosial",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Di media sosial maupun obrolan kantin, rekan-rekan kantor mulai terpolarisasi menjadi dua kubu akibat isu sosial-politik nasional yang sedang panas hingga mulai saling melabeli dengan sebutan merendahkan. Sebagai rekan kerja yang menjaga persatuan, sikap Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Tidak ikut memanaskan perdebatan dengan label merendahkan, mengingatkan pentingnya menjaga profesionalitas serta persaudaraan di lingkungan kerja meski berbeda pandangan, dan mengajak kembali fokus pada tugas melayani masyarakat.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menjadi penyejuk (perekat bangsa), menghargai perbedaan pendapat secara dewasa, dan mengembalikan fokus pelayanan."
+      },
+      {
+        "key": "B",
+        "text": "Membela salah satu kubu yang menurut Anda paling benar secara vokal supaya kelompok lawan diam.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Memperdalam perpecahan dan membawa polarisasi ke ruang kerja ASN."
+      },
+      {
+        "key": "C",
+        "text": "Memilih makan di meja terpisah sendirian selama berminggu-minggu sampai isu mereda.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Menghindari masalah tanpa berusaha meredakan ketegangan rekan kerja."
+      },
+      {
+        "key": "D",
+        "text": "Ikut menimpali sindiran halus kepada kedua kubu agar tampak netral namun tetap menghibur.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Sindiran justru memperkeruh suasana emosional kedua pihak."
+      },
+      {
+        "key": "E",
+        "text": "Mengingatkan bahwa perbedaan politik dilarang dibahas sama sekali selama berada di dalam gedung kantor.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Menjaga kondusivitas ruang kerja, tetapi pendekatan persuasif yang menekankan persaudaraan dan fokus layanan lebih membangun kesadaran jangka panjang."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "ASN berperan sebagai perekat dan pemersatu bangsa dengan meredam polarisasi sosial tanpa memperkeruh suasana dengan pelabelan.",
+      "stepByStep": [
+        "Jaga jarak dari pelabelan dan provokasi.",
+        "Redakan suasana dengan ajakan saling menghargai.",
+        "Arahkan energi kembali ke pelayanan publik yang menyatukan."
+      ],
+      "correctReason": "Opsi A (skor 5): Menjadi penyejuk (perekat bangsa), menghargai perbedaan pendapat secara dewasa, dan mengembalikan fokus pelayanan.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Memperdalam perpecahan dan membawa polarisasi ke ruang kerja ASN.",
+        "C": "Skor 3 — Menghindari masalah tanpa berusaha meredakan ketegangan rekan kerja.",
+        "D": "Skor 2 — Sindiran justru memperkeruh suasana emosional kedua pihak.",
+        "E": "Skor 4 — Menjaga kondusivitas ruang kerja, tetapi pendekatan persuasif yang menekankan persaudaraan dan fokus layanan lebih membangun kesadaran jangka panjang."
+      },
+      "quickTrick": "Netral menenangkan + tolak pelabelan + ajak bersatu dalam tugas pelayanan.",
+      "commonMistakes": "Ikut kubu-kubuan atau menyindir kedua belah pihak.",
+      "studyMaterialTip": "Dalam TKP Perekat Bangsa, penyejuk konflik dan pengutamaan persatuan selalu bernilai 5."
+    },
+    "references": [
+      {
+        "title": "ASN Perekat dan Pemersatu Bangsa",
+        "source": "UU ASN",
+        "note": "Meredam Polarisasi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-019",
+    "subject": "TKP",
+    "topic": "Sosial Budaya",
+    "topicSlug": "sosial-budaya",
+    "subtopic": "Sikap Inklusif terhadap Rekan Penyandang Disabilitas",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Kantor Anda menerima pegawai baru melalui formasi disabilitas yang menggunakan kursi roda. Anda menyadari akses masuk menuju ruang rapat lantai dua belum memiliki jalur landai (ram) sementara beberapa rapat tim kerap diadakan di sana. Sikap paling peduli dan solutif adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengusulkan pemindahan lokasi rapat tim ke ruang pertemuan lantai dasar yang mudah diakses kursi roda sekaligus mengajukan usulan pengadaan aksesibilitas ramah disabilitas ke bagian umum/sarana prasarana.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Solusi cepat jangka pendek (pindah ke lantai dasar) berpadu dengan perbaikan fasilitas jangka panjang."
+      },
+      {
+        "key": "B",
+        "text": "Mengikutsertakan rekan tersebut lewat panggilan video dari meja kerjanya setiap kali tim rapat di lantai dua.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Memungkinkan keterlibatan teknis, tetapi tetap memisahkannya secara fisik dari tim padahal lantai dasar bisa digunakan."
+      },
+      {
+        "key": "C",
+        "text": "Menggendongnya bersama-sama menaiki tangga setiap kali ada rapat tanpa mengubah lokasi maupun fasilitas.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Tidak praktis, berisiko keselamatan, dan mengabaikan kemandirian penyandang disabilitas."
+      },
+      {
+        "key": "D",
+        "text": "Membebaskannya dari kewajiban menghadiri rapat tim supaya ia tidak kerepotan naik tangga.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Mengecualikan hak partisipasi rekan disabilitas dari pengambilan keputusan tim."
+      },
+      {
+        "key": "E",
+        "text": "Menunggu hingga rekan tersebut mengajukan surat keluhan resmi kepada pimpinan terlebih dahulu.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Pasif; seharusnya kepekaan sosial membuat rekan lain berinisiatif sebelum diminta."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Lingkungan kerja inklusif menciptakan akomodasi yang layak agar pegawai disabilitas dapat bekerja dan berpartisipasi setara dengan bermartabat.",
+      "stepByStep": [
+        "Pindahkan aktivitas rapat ke ruang aksesibel seketika.",
+        "Usulkan pembenahan sarana fisik (ram/lift/toilet aksesibel).",
+        "Jamin hak partisipasi penuh tanpa diskriminasi."
+      ],
+      "correctReason": "Opsi A (skor 5): Solusi cepat jangka pendek (pindah ke lantai dasar) berpadu dengan perbaikan fasilitas jangka panjang.",
+      "distractorAnalysis": {
+        "B": "Skor 4 — Memungkinkan keterlibatan teknis, tetapi tetap memisahkannya secara fisik dari tim padahal lantai dasar bisa digunakan.",
+        "C": "Skor 2 — Tidak praktis, berisiko keselamatan, dan mengabaikan kemandirian penyandang disabilitas.",
+        "D": "Skor 1 — Mengecualikan hak partisipasi rekan disabilitas dari pengambilan keputusan tim.",
+        "E": "Skor 3 — Pasif; seharusnya kepekaan sosial membuat rekan lain berinisiatif sebelum diminta."
+      },
+      "quickTrick": "Pindah rapat ke ruang aksesibel segera + usulkan perbaikan fasilitas ramah disabilitas.",
+      "commonMistakes": "Menghilangkan keterlibatannya rapat atau menunggu komplain darinya.",
+      "studyMaterialTip": "Aksesibilitas adalah hak infrastruktur, bukan belas kasihan."
+    },
+    "references": [
+      {
+        "title": "UU No. 8 Tahun 2016 tentang Penyandang Disabilitas",
+        "source": "KemenPAN-RB",
+        "note": "Akomodasi Layak ASN"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-020",
+    "subject": "TKP",
+    "topic": "Sosial Budaya",
+    "topicSlug": "sosial-budaya",
+    "subtopic": "Menghadapi Prasangka Kedaerahan dalam Perekrutan Tugas",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Saat membentuk tim pelaksana acara budaya nusantara di kantor, seorang rekan menyarankan agar hanya pegawai dari suku mayoritas daerah tersebut yang menjadi panitia inti dengan alasan lebih paham adat setempat. Sikap Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menyarankan agar panitia inti tetap terbuka bagi seluruh pegawai berkompeten dari beragam latar belakang sambil melibatkan pegawai putra daerah sebagai penasihat konten adat agar acara tetap autentik sekaligus mencerminkan kebersamaan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Memadukan keautentikan pengetahuan budaya lokal dengan prinsip inklusivitas Bhinneka Tunggal Ika."
+      },
+      {
+        "key": "B",
+        "text": "Menyetujui usulan itu sepenuhnya karena acara budaya memang urusan eksklusif suku tertentu.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Membentuk sekat eksklusivisme di lingkungan instansi pemerintah yang majemuk."
+      },
+      {
+        "key": "C",
+        "text": "Melarang sama sekali pegawai suku setempat menjadi ketua panitia agar tidak terkesan dikuasai satu kelompok.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Diskriminatif ke arah sebaliknya."
+      },
+      {
+        "key": "D",
+        "text": "Menarik diri dari kepanitiaan karena tidak berasal dari suku daerah acara tersebut.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Pasif mengalah pada eksklusivitas tanpa memberi perspektif persatuan."
+      },
+      {
+        "key": "E",
+        "text": "Menyetujui susunan tertutup asalkan seluruh pegawai lain tetap diundang menonton pada hari pelaksanaan.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Masih membatasi partisipasi aktif panitia inti berdasarkan asal suku."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Bhinneka Tunggal Ika di tempat kerja berarti merayakan keunikan budaya lokal secara terbuka melalui kolaborasi seluruh elemen, bukan eksklusivisme identitas.",
+      "stepByStep": [
+        "Libatkan tokoh/pegawai setempat untuk keakuratan tradisi.",
+        "Buka kepanitiaan secara inklusif lintas latar belakang.",
+        "Jadikan acara budaya sebagai wahana pemersatu seluruh pegawai."
+      ],
+      "correctReason": "Opsi A (skor 5): Memadukan keautentikan pengetahuan budaya lokal dengan prinsip inklusivitas Bhinneka Tunggal Ika.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Membentuk sekat eksklusivisme di lingkungan instansi pemerintah yang majemuk.",
+        "C": "Skor 1 — Diskriminatif ke arah sebaliknya.",
+        "D": "Skor 3 — Pasif mengalah pada eksklusivitas tanpa memberi perspektif persatuan.",
+        "E": "Skor 4 — Masih membatasi partisipasi aktif panitia inti berdasarkan asal suku."
+      },
+      "quickTrick": "Panitia inklusif lintas latar belakang + manfaatkan keahlian lokal untuk autentisitas budaya.",
+      "commonMistakes": "Mengeksklusifkan acara budaya hanya untuk satu suku atau menolak peran putra daerah.",
+      "studyMaterialTip": "Budaya daerah adalah kekayaan bersama bangsa Indonesia."
+    },
+    "references": [
+      {
+        "title": "Wawasan Nusantara & Kebhinnekaan",
+        "source": "BPIP",
+        "note": "Inklusivitas Budaya"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-021",
+    "subject": "TKP",
+    "topic": "Sosial Budaya",
+    "topicSlug": "sosial-budaya",
+    "subtopic": "Menghindari Gaya Hidup Pamer (Flexing) sebagai ASN",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Beberapa rekan di unit kerja Anda kerap mengunggah gaya hidup mewah, barang bermerek, dan makan di restoran mahal saat masih memakai seragam dinas ke akun media sosial publik mereka, padahal masyarakat sekitar kantor banyak berasal dari kalangan sederhana. Sikap bijak Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menjaga kesederhanaan dan kepantasan perilaku baik luring maupun di media sosial sesuai etika ASN, serta mengingatkan rekan secara halus dalam obrolan akrab mengenai kepekaan sosial dan menjaga kepercayaan masyarakat terhadap instansi.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Memberi teladan hidup sederhana (low profile) sekaligus peduli mengingatkan rekan dengan cara santun."
+      },
+      {
+        "key": "B",
+        "text": "Ikut memamerkan pencapaian pribadi di media sosial agar masyarakat melihat ASN juga mampu hidup sejahtera.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Mengabaikan kepekaan sosial dan arahan etika kesederhanaan ASN."
+      },
+      {
+        "key": "C",
+        "text": "Membuat unggahan sindiran panjang di akun sendiri untuk menyentil rekan-rekan yang suka pamer.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Menambah konflik internal melalui sindiran publik."
+      },
+      {
+        "key": "D",
+        "text": "Diam menjaga sikap diri sendiri tanpa pernah menegur karena gaya hidup adalah hak pribadi di luar jam kerja.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Menjaga diri sendiri sudah baik, tetapi saat memakai seragam dinas hal itu menyangkut citra publik instansi sehingga mengingatkan rekan secara santun lebih bertanggung jawab."
+      },
+      {
+        "key": "E",
+        "text": "Menjauhi dan memutus pertemanan dengan seluruh rekan yang gemar mengunggah foto mewah.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Ekstrem secara relasi sosial dan tidak membantu mengingatkan."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kepekaan sosial budaya ASN mencakup sikap hidup sederhana dan menghindari pamer kemewahan yang melukai rasa keadilan masyarakat.",
+      "stepByStep": [
+        "Terapkan kesederhanaan dan etika bermedia sosial pada diri sendiri.",
+        "Sampaikan pengingat empatik secara pribadi kepada rekan bila membawa atribut dinas.",
+        "Prioritaskan kepercayaan publik di atas validasi media sosial."
+      ],
+      "correctReason": "Opsi A (skor 5): Memberi teladan hidup sederhana (low profile) sekaligus peduli mengingatkan rekan dengan cara santun.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Mengabaikan kepekaan sosial dan arahan etika kesederhanaan ASN.",
+        "C": "Skor 2 — Menambah konflik internal melalui sindiran publik.",
+        "D": "Skor 4 — Menjaga diri sendiri sudah baik, tetapi saat memakai seragam dinas hal itu menyangkut citra publik instansi sehingga mengingatkan rekan secara santun lebih bertanggung jawab.",
+        "E": "Skor 3 — Ekstrem secara relasi sosial dan tidak membantu mengingatkan."
+      },
+      "quickTrick": "Teladani kesederhanaan + ingatkan rekan secara santun & pribadi demi kepekaan publik.",
+      "commonMistakes": "Menyindir di media sosial atau membela flexing memakai seragam sebagai privasi penuh.",
+      "studyMaterialTip": "Kepekaan terhadap kondisi ekonomi masyarakat sekitar adalah bagian dari kecerdasan sosial budaya."
+    },
+    "references": [
+      {
+        "title": "Arahan Hidup Sederhana & Etika Bermedsos ASN",
+        "source": "KemenPAN-RB",
+        "note": "Kepekaan Sosial Publik"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-022",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Kerahasiaan Data Pribadi Warga di Dokumen Publik",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Anda diminta mengunggah pengumuman daftar penerima bantuan sosial beserta jadwal pencairannya ke situs web resmi instansi. Dalam file Excel mentah dari tim pendata terdapat kolom NIK lengkap, nomor rekening, dan nomor telepon pribadi seluruh penerima. Langkah paling tepat sebelum mengunggah adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Langsung mengunggah file apa adanya supaya transparan dan memudahkan warga mengecek data mereka secara cepat.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Pelanggaran serius perlindungan data pribadi (UU PDP) yang membuka peluang penipuan."
+      },
+      {
+        "key": "B",
+        "text": "Memilah dan menyamarkan (masking) data sensitif seperti NIK, nomor rekening, dan nomor telepon dengan hanya menampilkan informasi aman yang dibutuhkan warga (nama, wilayah, dan kode registrasi/sebagian digit tersensor), sesuai prinsip perlindungan data pribadi.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menyeimbangkan transparansi informasi publik dengan perlindungan data pribadi sesuai regulasi."
+      },
+      {
+        "key": "C",
+        "text": "Mengunggah file lengkap namun mengubah formatnya menjadi PDF agar sulit disalin langsung.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Data sensitif di PDF tetap terbaca publik dan mudah disalahgunakan."
+      },
+      {
+        "key": "D",
+        "text": "Memutuskan tidak mengumumkan daftar penerima sama sekali di situs web agar tidak mengambil risiko hukum.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mengorbankan hak transparansi informasi publik padahal penyamaran digit (masking) adalah solusi aman."
+      },
+      {
+        "key": "E",
+        "text": "Menghapus kolom nomor rekening dan telepon saja sementara NIK 16 digit dibiarkan terbuka lengkap.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sudah mengurangi risiko sebagian, tetapi NIK lengkap masih tergolong data pribadi strategis yang rentan disalahgunakan."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Transformasi layanan publik digital wajib patuh terhadap UU Pelindungan Data Pribadi (UU PDP) dengan prinsip minimisasi data dan penyamaran informasi sensitif.",
+      "stepByStep": [
+        "Identifikasi kolom data pribadi spesifik/sensitif (NIK, rekening, telepon).",
+        "Lakukan penyaringan atau penyamaran (masking) sebagian digit.",
+        "Terbitkan informasi publik yang akurat sekaligus aman."
+      ],
+      "correctReason": "Opsi B (skor 5): Menyeimbangkan transparansi informasi publik dengan perlindungan data pribadi sesuai regulasi.",
+      "distractorAnalysis": {
+        "A": "Skor 1 — Pelanggaran serius perlindungan data pribadi (UU PDP) yang membuka peluang penipuan.",
+        "C": "Skor 2 — Data sensitif di PDF tetap terbaca publik dan mudah disalahgunakan.",
+        "D": "Skor 3 — Mengorbankan hak transparansi informasi publik padahal penyamaran digit (masking) adalah solusi aman.",
+        "E": "Skor 4 — Sudah mengurangi risiko sebagian, tetapi NIK lengkap masih tergolong data pribadi strategis yang rentan disalahgunakan."
+      },
+      "quickTrick": "Samarkan/saring data sensitif (NIK, rekening, HP) sebelum publikasi digital terbuka.",
+      "commonMistakes": "Mengunggah data mentah demi alasan \"transparansi\" atau tidak mengumumkan sama sekali.",
+      "studyMaterialTip": "Transparansi publik bukan berarti menelanjangi data pribadi warga di internet."
+    },
+    "references": [
+      {
+        "title": "UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi",
+        "source": "Kominfo",
+        "note": "Minimisasi & Masking Data Publik"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-023",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Penerapan Tanda Tangan Elektronik Tersertifikasi",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Kantor Anda mulai memberlakukan Tanda Tangan Elektronik (TTE) tersertifikasi pada sistem persuratan. Seorang rekan mengeluh merasa proses verifikasi kode sandinya merepotkan dan menyarankan agar surat penting tetap dipindai dengan gambar tanda tangan basah tempelan saja supaya cepat. Sikap Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menjelaskan keunggulan legalitas, keamanan anti-pemalsuan, dan kemudahan pelacakan TTE tersertifikasi, lalu membantu mendemonstrasikan cara penggunaannya agar rekan tidak lagi merasa repot.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Mengedukasi aspek hukum dan keamanan digital secara ramah serta mendampingi adopsi teknologi."
+      },
+      {
+        "key": "B",
+        "text": "Setuju memakai gambar tanda tangan tempelan saja untuk surat-surat internal yang dianggap tidak terlalu penting.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Gambar tanda tangan yang ditempel sangat mudah dipalsukan dan tidak memiliki kekuatan hukum TTE tersertifikasi."
+      },
+      {
+        "key": "C",
+        "text": "Menyuruhnya tetap memakai TTE karena itu perintah pimpinan tanpa mau menjelaskan cara pakainya.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Benar secara kepatuhan, namun kurang membantu menghilangkan hambatan adaptasi rekan."
+      },
+      {
+        "key": "D",
+        "text": "Meminjamkan akun TTE milik Anda sendiri untuk menandatangani surat rekan tersebut sementara waktu.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Pelanggaran fatal keamanan identitas elektronik pribadi."
+      },
+      {
+        "key": "E",
+        "text": "Menggunakan TTE dengan konsisten untuk semua surat tugas Anda sendiri sambil membiarkan rekan memilih sesuai kenyamanannya.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Konsisten secara pribadi tetapi kurang menjaga standar keamanan persuratan unit."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "TTE tersertifikasi menjamin keaslian, keutuhan, dan nir-penyangkalan dokumen digital; jauh lebih aman dibanding gambar tanda tangan tempelan.",
+      "stepByStep": [
+        "Tolak praktik tempel gambar tanda tangan maupun berbagi akun TTE.",
+        "Jelaskan manfaat keabsahan hukum dan efisiensi TTE.",
+        "Bantu ajarkan alur klik tanda tangan agar terasa mudah."
+      ],
+      "correctReason": "Opsi A (skor 5): Mengedukasi aspek hukum dan keamanan digital secara ramah serta mendampingi adopsi teknologi.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Gambar tanda tangan yang ditempel sangat mudah dipalsukan dan tidak memiliki kekuatan hukum TTE tersertifikasi.",
+        "C": "Skor 3 — Benar secara kepatuhan, namun kurang membantu menghilangkan hambatan adaptasi rekan.",
+        "D": "Skor 2 — Pelanggaran fatal keamanan identitas elektronik pribadi.",
+        "E": "Skor 4 — Konsisten secara pribadi tetapi kurang menjaga standar keamanan persuratan unit."
+      },
+      "quickTrick": "Edukasi manfaat hukum/keamanan TTE + bantu praktikkan agar mudah dipakai.",
+      "commonMistakes": "Menganggap gambar tanda tangan (.png) setara TTE tersertifikasi.",
+      "studyMaterialTip": "TTE tidak boleh dipindahtangankan atau diwakilkan akunnya kepada siapa pun."
+    },
+    "references": [
+      {
+        "title": "Penerapan Tanda Tangan Elektronik Pemerintah",
+        "source": "BSrE - BSSN",
+        "note": "TTE Tersertifikasi vs Tanda Tangan Pindai"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-024",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Menjaga Keamanan Perangkat & Layar di Area Bersama",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Anda sedang mengakses sistem basis data kepegawaian pada komputer kantor yang terhubung jaringan, lalu dipanggil mendadak ke ruang rapat di lantai lain selama 20 menit. Banyak tamu dan rekan lalu-lalang di sekitar meja Anda. Langkah keamanan TIK paling tepat sebelum beranjak adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengunci layar komputer (Win+L / Lock Screen) serta menutup/keluar dari sesi sistem sensitif sebelum meninggalkan meja, dan membiasakan perilaku serupa di unit kerja.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Kebiasaan dasar keamanan fisik-digital (clear screen policy) mencegah akses tidak sah saat meja ditinggal."
+      },
+      {
+        "key": "B",
+        "text": "Mengecilkan jendela peramban (minimize) saja supaya cepat dilanjutkan saat kembali dari rapat.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Siapa pun yang menggerakkan tetikus bisa langsung membuka kembali sistem yang masih login."
+      },
+      {
+        "key": "C",
+        "text": "Membiarkannya terbuka sambil berpesan ke rekan di meja sebelah untuk sesekali melirik layar Anda.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Rekan bisa lengah atau ikut berpindah tempat."
+      },
+      {
+        "key": "D",
+        "text": "Menutup layar dengan selembar kertas kalender atau membalik arah monitor saja.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Tidak melindungi akses sistem sama sekali."
+      },
+      {
+        "key": "E",
+        "text": "Mematikan tombol daya monitor tanpa mengunci sistem operasi komputer.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Menyembunyikan tampilan sementara, namun jika monitor dinyalakan kembali sesi login masih terbuka."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kebijakan layar bersih (Clear Screen Policy) adalah standar keamanan informasi paling mendasar di perkantoran modern.",
+      "stepByStep": [
+        "Selalu tekan kunci layar (Lock) saat beranjak dari meja walau sebentar.",
+        "Logout dari sistem berisiko tinggi jika ditinggal lama.",
+        "Ajak tim membudayakan keamanan fisik perangkat."
+      ],
+      "correctReason": "Opsi A (skor 5): Kebiasaan dasar keamanan fisik-digital (clear screen policy) mencegah akses tidak sah saat meja ditinggal.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Siapa pun yang menggerakkan tetikus bisa langsung membuka kembali sistem yang masih login.",
+        "C": "Skor 3 — Rekan bisa lengah atau ikut berpindah tempat.",
+        "D": "Skor 1 — Tidak melindungi akses sistem sama sekali.",
+        "E": "Skor 4 — Menyembunyikan tampilan sementara, namun jika monitor dinyalakan kembali sesi login masih terbuka."
+      },
+      "quickTrick": "Selalu Lock Screen + logout sesi sensitif setiap kali meninggalkan meja.",
+      "commonMistakes": "Sekadar minimize jendela atau mematikan layar monitor saja.",
+      "studyMaterialTip": "Satu detik mengunci layar melindungi data instansi dari penyalahgunaan pihak tak berwenang."
+    },
+    "references": [
+      {
+        "title": "Kebijakan Keamanan Informasi SMKI / ISO 27001",
+        "source": "BSSN",
+        "note": "Clear Desk & Clear Screen Policy"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-025",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Pemanfaatan Dasbor Data untuk Pengambilan Keputusan",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Instansi Anda baru meluncurkan dasbor analitik layanan publik waktu nyata (real-time), namun atasan Anda masih sering meminta tim mengetik ulang ringkasan angka harian ke dokumen Word panjang setiap sore. Langkah adaptif dan konstruktif Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menyajikan paparan singkat kepada atasan mengenai cara membaca indikator kunci di dasbor baru beserta fitur ekspor ringkasnya, sehingga pelaporan menjadi lebih cepat dan akurat.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Membantu pimpinan merasakan nilai praktis teknologi baru tanpa menolak tugas secara konfrontatif."
+      },
+      {
+        "key": "B",
+        "text": "Langsung berhenti membuat laporan Word tanpa memberi tahu atasan dan menyuruh beliau membuka dasbor sendiri.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Tidak etis dan memutus arus informasi yang dibutuhkan atasan."
+      },
+      {
+        "key": "C",
+        "text": "Tetap menyalin angka dari dasbor ke Word setiap sore sampai tahun anggaran berganti.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Kerja ganda yang membuang manfaat investasi dasbor digital."
+      },
+      {
+        "key": "D",
+        "text": "Menyarankan rekan kerja menolak perintah mengetik manual karena tidak sesuai semangat digitalisasi.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Memicu penolakan tanpa mengedukasi kemudahan solusi."
+      },
+      {
+        "key": "E",
+        "text": "Mengirimkan tangkapan layar grafik dasbor melalui chat tiap sore sebagai pelengkap laporan Word.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Memperkenalkan visualisasi dasbor perlahan, namun mendampingi penggunaan dasbor dan ekspor otomatis jauh lebih efisien."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Transformasi TIK berhasil apabila pegawai mampu menjembatani adopsi teknologi hingga ke level pengambil keputusan.",
+      "stepByStep": [
+        "Pahami alur kerja pelaporan yang dibutuhkan pimpinan.",
+        "Tunjukkan cara cepat memperoleh data sama lewat dasbor/ekspor otomatis.",
+        "Bantu masa transisi hingga atasan nyaman menggunakannya."
+      ],
+      "correctReason": "Opsi A (skor 5): Membantu pimpinan merasakan nilai praktis teknologi baru tanpa menolak tugas secara konfrontatif.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Tidak etis dan memutus arus informasi yang dibutuhkan atasan.",
+        "C": "Skor 2 — Kerja ganda yang membuang manfaat investasi dasbor digital.",
+        "D": "Skor 3 — Memicu penolakan tanpa mengedukasi kemudahan solusi.",
+        "E": "Skor 4 — Memperkenalkan visualisasi dasbor perlahan, namun mendampingi penggunaan dasbor dan ekspor otomatis jauh lebih efisien."
+      },
+      "quickTrick": "Demonstrasikan kemudahan dasbor + fitur ekspor ringkas kepada pimpinan secara santun.",
+      "commonMistakes": "Menolak perintah mentah-mentah atau pasrah melakukan kerja ganda selamanya.",
+      "studyMaterialTip": "Menghemat waktu pimpinan adalah cara tercepat mendorong adopsi teknologi di birokrasi."
+    },
+    "references": [
+      {
+        "title": "Pengambilan Keputusan Berbasis Data",
+        "source": "Satu Data Indonesia",
+        "note": "Adopsi Dasbor Eksekutif"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-026",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Mengatasi Kendala Koneksi saat Presentasi Penting",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Sepuluh menit sebelum Anda mempresentasikan laporan program menggunakan aplikasi daring di aula dinas, jaringan Wi-Fi gedung tiba-tiba putus total dan teknisi memperkirakan pemulihan butuh 20 menit. Tindakan antisipatif dan solutif terbaik adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Segera beralih ke salinan cadangan presentasi luring (offline PDF/PPT) yang sudah Anda siapkan atau memakai koneksi tethering sementara yang aman agar acara tetap berjalan tepat waktu.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Memiliki rencana cadangan (backup offline & jalur alternatif) sehingga teknologi gagal tidak melumpuhkan acara."
+      },
+      {
+        "key": "B",
+        "text": "Meminta pembawa acara menunda pembukaan selama 20 menit sampai Wi-Fi gedung menyala kembali.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mengganggu jadwal peserta tanpa memanfaatkan opsi cadangan."
+      },
+      {
+        "key": "C",
+        "text": "Menyalahkan petugas TI di depan seluruh hadirin karena jaringan gedung sering bermasalah.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Tidak profesional dan tidak menyelesaikan jalannya presentasi."
+      },
+      {
+        "key": "D",
+        "text": "Membatalkan tampilan slide dan langsung membacakan seluruh angka statistik panjang tanpa alat bantu visual.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mengurangi pemahaman audiens jika materi penuh angka tanpa salinan offline."
+      },
+      {
+        "key": "E",
+        "text": "Meminjam ponsel rekan secara mendadak untuk tethering sambil mengunduh ulang file dari cloud saat peserta sudah duduk menunggu.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Mencari solusi koneksi cadangan, meski menyimpan salinan offline jauh lebih tangguh dan minim jeda."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kesiapan digital profesional selalu menyertakan rencana cadangan luring (offline fallback) saat menghadapi kegagalan infrastruktur jaringan.",
+      "stepByStep": [
+        "Selalu bawa salinan file offline di perangkat presentasi.",
+        "Aktifkan jalur alternatif (offline atau hotspot aman) dengan cepat.",
+        "Jaga kelancaran acara tanpa menyalahkan pihak lain."
+      ],
+      "correctReason": "Opsi A (skor 5): Memiliki rencana cadangan (backup offline & jalur alternatif) sehingga teknologi gagal tidak melumpuhkan acara.",
+      "distractorAnalysis": {
+        "B": "Skor 3 — Mengganggu jadwal peserta tanpa memanfaatkan opsi cadangan.",
+        "C": "Skor 1 — Tidak profesional dan tidak menyelesaikan jalannya presentasi.",
+        "D": "Skor 2 — Mengurangi pemahaman audiens jika materi penuh angka tanpa salinan offline.",
+        "E": "Skor 4 — Mencari solusi koneksi cadangan, meski menyimpan salinan offline jauh lebih tangguh dan minim jeda."
+      },
+      "quickTrick": "Gunakan cadangan file offline atau koneksi alternatif agar presentasi berjalan mulus.",
+      "commonMistakes": "Bergantung 100% pada tautan internet tanpa mengunduh salinan offline.",
+      "studyMaterialTip": "Siapkan file offline adalah aturan emas setiap presentasi berbasis TIK."
+    },
+    "references": [
+      {
+        "title": "Ketahanan Operasional TIK",
+        "source": "LAN RI",
+        "note": "Rencana Cadangan Luring"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-027",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Penggunaan Perangkat Lunak Berlisensi Resmi",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Anda membutuhkan aplikasi desain grafis untuk membuat infografis layanan publik, tetapi anggaran unit belum membeli lisensi aplikasi berbayar populer tersebut. Seorang teman menyarankan Anda mengunduh versi bajakan (crack) agar pekerjaan cepat selesai. Sikap Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menolak penggunaan perangkat lunak bajakan karena melanggar hak cipta dan rawan disisipi malware berbahaya bagi jaringan kantor, lalu memilih menggunakan aplikasi desain legal berbasis web gratis atau perangkat lunak sumber terbuka (open source) yang aman.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Mematuhi hukum HAKI dan keamanan siber sekaligus tetap produktif memakai alternatif legal gratis/open source."
+      },
+      {
+        "key": "B",
+        "text": "Menginstal versi bajakan sementara lalu segera menghapusnya setelah infografis selesai dibuat.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Sekali dijalankan, program crack berisiko menanamkan ransomware/trojan ke jaringan instansi."
+      },
+      {
+        "key": "C",
+        "text": "Menolak membuat infografis sama sekali sampai tahun anggaran depan tersedia dana lisensi berbayar.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Menghambat output layanan informasi padahal tersedia alternatif legal gratis."
+      },
+      {
+        "key": "D",
+        "text": "Meminta teman tersebut membuatkan desainnya di laptop pribadinya menggunakan aplikasi bajakan lalu mengirim hasilnya.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Memindahkan risiko pelanggaran lisensi ke pihak lain."
+      },
+      {
+        "key": "E",
+        "text": "Menggunakan aplikasi pengolah kata seadanya yang tersedia di komputer meski tampilan visualnya kurang komunikatif.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Aman dan legal, tetapi memanfaatkan platform desain web resmi/open source memberi kualitas visual jauh lebih baik."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Adaptasi TIK berintegritas menolak perangkat lunak bajakan (risiko hukum & malware) dan cakap memanfaatkan ekosistem perangkat lunak legal gratis atau sumber terbuka.",
+      "stepByStep": [
+        "Tolak aplikasi crack/bajakan di seluruh perangkat kerja.",
+        "Cari alternatif resmi gratis (freemium legal) atau open source.",
+        "Tetap hasilkan infografis layanan publik yang berkualitas."
+      ],
+      "correctReason": "Opsi A (skor 5): Mematuhi hukum HAKI dan keamanan siber sekaligus tetap produktif memakai alternatif legal gratis/open source.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Sekali dijalankan, program crack berisiko menanamkan ransomware/trojan ke jaringan instansi.",
+        "C": "Skor 2 — Menghambat output layanan informasi padahal tersedia alternatif legal gratis.",
+        "D": "Skor 3 — Memindahkan risiko pelanggaran lisensi ke pihak lain.",
+        "E": "Skor 4 — Aman dan legal, tetapi memanfaatkan platform desain web resmi/open source memberi kualitas visual jauh lebih baik."
+      },
+      "quickTrick": "Tolak software bajakan + pakai alternatif legal gratis/open source.",
+      "commonMistakes": "Menganggap crack aman dipakai sementara atau menyerah tidak berkarya.",
+      "studyMaterialTip": "Software bajakan adalah pintu utama infeksi ransomware di jaringan perkantoran."
+    },
+    "references": [
+      {
+        "title": "HAKI & Penggunaan Perangkat Lunak Legal di Instansi",
+        "source": "Kominfo & BSSN",
+        "note": "Risiko Malware Software Bajakan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-028",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Pembaruan Pengetahuan Teknologi Berkelanjutan",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Di akhir tahun, kantor Anda berencana mengadopsi alur kerja berbasis kecerdasan analitik dan integrasi API antaraplikasi yang istilah serta cara kerjanya belum pernah Anda pelajari saat kuliah. Sikap paling adaptif Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mulai mempelajari konsep dasarnya secara mandiri melalui sumber belajar resmi/pelatihan daring terpercaya, mencatat potensi penerapannya di unit Anda, dan berdiskusi dengan tim TI kantor.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Proaktif melakukan upskilling lebih awal sebelum teknologi resmi diterapkan."
+      },
+      {
+        "key": "B",
+        "text": "Menunggu hingga kantor memanggil instruktur dan mewajibkan seluruh pegawai mengikuti kelas tatap muka.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Bergantung penuh pada dorongan eksternal tanpa inisiatif belajar mandiri."
+      },
+      {
+        "key": "C",
+        "text": "Merasa sudah terlalu terlambat belajar teknologi baru dan berharap dipindahkan ke bagian arsip manual.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Menyerah pada perubahan dan menghambat pengembangan kompetensi ASN."
+      },
+      {
+        "key": "D",
+        "text": "Membaca sekilas artikel berita tentang tren teknologi tersebut hanya sebagai bahan obrolan santai.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Pengetahuan dangkal tanpa upaya mengaitkan dengan kebutuhan kerja."
+      },
+      {
+        "key": "E",
+        "text": "Menyarankan teman muda saja yang mempelajari bidang teknis baru tersebut sementara Anda mengurus administrasi.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Memanfaatkan kekuatan tim, namun kurang mau ikut memperbarui literasi pribadi."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Pembelajar sepanjang hayat (continuous learning) membuat ASN tetap relevan menghadapi evolusi teknologi tata kelola pemerintahan.",
+      "stepByStep": [
+        "Hilangkan rasa takut terhadap istilah teknologi baru.",
+        "Pelajari dasar konseptualnya dari sumber resmi.",
+        "Kaitkan dengan perbaikan layanan di unit kerja sendiri."
+      ],
+      "correctReason": "Opsi A (skor 5): Proaktif melakukan upskilling lebih awal sebelum teknologi resmi diterapkan.",
+      "distractorAnalysis": {
+        "B": "Skor 3 — Bergantung penuh pada dorongan eksternal tanpa inisiatif belajar mandiri.",
+        "C": "Skor 1 — Menyerah pada perubahan dan menghambat pengembangan kompetensi ASN.",
+        "D": "Skor 2 — Pengetahuan dangkal tanpa upaya mengaitkan dengan kebutuhan kerja.",
+        "E": "Skor 4 — Memanfaatkan kekuatan tim, namun kurang mau ikut memperbarui literasi pribadi."
+      },
+      "quickTrick": "Belajar proaktif mandiri + diskusi dengan ahli internal + petakan manfaat kerja.",
+      "commonMistakes": "Menghindar ke pekerjaan manual atau menunggu pelatihan wajib.",
+      "studyMaterialTip": "Nilai Kompeten dan Adaptif mendorong ASN belajar sebelum disuruh."
+    },
+    "references": [
+      {
+        "title": "ASN Pembelajar (Corporate University)",
+        "source": "LAN RI",
+        "note": "Upskilling Digital Berkelanjutan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-029",
+    "subject": "TKP",
+    "topic": "Adaptasi terhadap Perkembangan TIK",
+    "topicSlug": "adaptasi-tik",
+    "subtopic": "Menjaga Etika & Keamanan Jaringan Wi-Fi Publik Saat Dinas Luar",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Saat melakukan perjalanan dinas di bandara atau kafe, Anda mendadak diminta atasan mengakses portal keuangan internal kantor untuk mengunduh dan memverifikasi dokumen penting segera. Di lokasi hanya tersedia jaringan Wi-Fi publik gratis tanpa kata sandi. Tindakan paling aman adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menghindari koneksi Wi-Fi publik terbuka untuk mengakses sistem sensitif kantor, dan memilih menggunakan koneksi seluler pribadi/tethering aman atau VPN resmi kantor yang terenkripsi.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Mengamankan transmisi data rahasia negara dari risiko penyadapan di jaringan publik (man-in-the-middle)."
+      },
+      {
+        "key": "B",
+        "text": "Langsung terhubung ke Wi-Fi publik bandara agar kuota internet pribadi tidak cepat habis.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Sangat membahayakan kredensial dan data keuangan instansi di jaringan terbuka."
+      },
+      {
+        "key": "C",
+        "text": "Menggunakan Wi-Fi publik dengan mengaktifkan mode penyamaran (Incognito) pada peramban karena dianggap sudah terenkripsi.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mode Incognito hanya menghapus riwayat lokal di perangkat, TIDAK mengenkripsi lalu lintas Wi-Fi dari penyadap jaringan."
+      },
+      {
+        "key": "D",
+        "text": "Menolak permintaan atasan dan menunda pengunduhan dokumen hingga tiba di hotel malam hari.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Aman dari Wi-Fi publik, tetapi menunda kebutuhan mendesak padahal jaringan seluler/VPN tersedia."
+      },
+      {
+        "key": "E",
+        "text": "Tetap memakai Wi-Fi publik namun segera mengganti kata sandi akun portal kepegawaian seminggu kemudian.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Data dokumen keuangan tetap berisiko tersadap saat diunduh di jaringan terbuka."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Keamanan siber saat kerja jarak jauh (remote work) menuntut penghindaran Wi-Fi publik tanpa enkripsi untuk akses sistem pemerintahan, beralih ke tethering pribadi dan VPN resmi.",
+      "stepByStep": [
+        "Jangan pernah login sistem sensitif di Wi-Fi publik terbuka.",
+        "Gunakan jaringan seluler/tethering pribadi serta VPN resmi instansi.",
+        "Penuhi kebutuhan kerja mendesak secara cepat dan aman."
+      ],
+      "correctReason": "Opsi A (skor 5): Mengamankan transmisi data rahasia negara dari risiko penyadapan di jaringan publik (man-in-the-middle).",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Sangat membahayakan kredensial dan data keuangan instansi di jaringan terbuka.",
+        "C": "Skor 2 — Mode Incognito hanya menghapus riwayat lokal di perangkat, TIDAK mengenkripsi lalu lintas Wi-Fi dari penyadap jaringan.",
+        "D": "Skor 3 — Aman dari Wi-Fi publik, tetapi menunda kebutuhan mendesak padahal jaringan seluler/VPN tersedia.",
+        "E": "Skor 4 — Data dokumen keuangan tetap berisiko tersadap saat diunduh di jaringan terbuka."
+      },
+      "quickTrick": "Pakai tethering pribadi / VPN resmi kantor saat dinas luar, hindari Wi-Fi publik terbuka.",
+      "commonMistakes": "Mengira mode Incognito melindungi lalu lintas Wi-Fi publik.",
+      "studyMaterialTip": "Literasi keamanan jaringan seluler jauh lebih aman daripada Wi-Fi gratis tanpa sandi."
+    },
+    "references": [
+      {
+        "title": "Keamanan Kerja Jarak Jauh ASN",
+        "source": "BSSN",
+        "note": "Risiko Wi-Fi Publik & VPN"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-030",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Menjaga Kualitas Meski Terjadi Perubahan Kebijakan Mendadak",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Anda telah mengerjakan draf kajian kebijakan hampir rampung 90% selama dua minggu. Mendadak rapat pimpinan mengubah arah fokus kajian karena ada peraturan menteri yang baru terbit kemarin sehingga separuh bagian harus ditulis ulang dalam waktu empat hari. Sikap profesional Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Memahami alasan perubahan regulasi tersebut dengan tenang, menyelamatkan bagian data yang masih relevan, lalu menyusun rencana kerja padat untuk menyelesaikan penyesuaian sesuai peraturan baru tepat waktu.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Tangguh, fleksibel terhadap dinamika hukum terbaru, dan tetap berorientasi kualitas serta tenggat."
+      },
+      {
+        "key": "B",
+        "text": "Tetap mengumpulkan draf lama dengan menambahkan catatan kaki bahwa peraturan baru baru saja terbit.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Menghasilkan kajian yang langsung usang dan menyalahi aturan terkini."
+      },
+      {
+        "key": "C",
+        "text": "Mengeluh berkepanjangan di depan rekan kerja karena merasa jerih payah dua minggu sia-sia.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Membuang energi produktif dan menurunkan moral tim."
+      },
+      {
+        "key": "D",
+        "text": "Meminta penambahan waktu selama dua minggu lagi persis seperti durasi penyusunan awal.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Kurang berupaya memilah bagian yang masih bisa digunakan ulang (reusable)."
+      },
+      {
+        "key": "E",
+        "text": "Menyelesaikan penyesuaian dalam empat hari dengan hanya mengganti judul dan bagian kesimpulan saja.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Mengejar tenggat, namun kurang menjaga ketuntasan substansi isi kajian."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Profesionalisme kebijakan berarti mengutamakan validitas regulasi terkini dengan ketahanan mental (resilience) dan pemanfaatan ulang aset data yang masih sah.",
+      "stepByStep": [
+        "Terima perubahan regulasi secara objektif.",
+        "Audit bagian riset lama yang masih sah agar hemat waktu.",
+        "Susun eksekusi terfokus mengejar tenggat empat hari."
+      ],
+      "correctReason": "Opsi A (skor 5): Tangguh, fleksibel terhadap dinamika hukum terbaru, dan tetap berorientasi kualitas serta tenggat.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Menghasilkan kajian yang langsung usang dan menyalahi aturan terkini.",
+        "C": "Skor 2 — Membuang energi produktif dan menurunkan moral tim.",
+        "D": "Skor 3 — Kurang berupaya memilah bagian yang masih bisa digunakan ulang (reusable).",
+        "E": "Skor 4 — Mengejar tenggat, namun kurang menjaga ketuntasan substansi isi kajian."
+      },
+      "quickTrick": "Audit data relevan + sesuaikan isi utuh dengan regulasi baru + kelola waktu padat.",
+      "commonMistakes": "Mempertahankan produk usang atau sekadar mengganti sampul dan kesimpulan.",
+      "studyMaterialTip": "Ketangguhan menghadapi revisi regulasi adalah keseharian analis pemerintahan."
+    },
+    "references": [
+      {
+        "title": "Resiliensi dan Mutu Kerja ASN",
+        "source": "LAN RI",
+        "note": "Adaptasi Revisi Regulasi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-031",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Objektivitas Penilaian Rekan/Vendor",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Anda tergabung dalam panitia penilai proposal hibah program masyarakat. Salah satu proposal berasal dari yayasan milik teman akrab Anda di masa kuliah, dan hasilnya memang cukup baik namun masih kalah skor teknis dibanding dua proposal dari lembaga lain yang tidak Anda kenal. Keputusan berintegritas Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menyatakan potensi benturan kepentingan (conflict of interest) sejak awal kepada ketua panitia atau mundur dari penilaian proposal tersebut, serta memastikan skor seluruh proposal dinilai murni berdasarkan rubrik objektif.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Standar tertinggi tata kelola antikorupsi: deklarasi benturan kepentingan dan objektivitas mutlak berbasis rubrik."
+      },
+      {
+        "key": "B",
+        "text": "Memberi nilai sedikit lebih tinggi pada proposal teman agar masuk urutan pemenang karena tujuannya juga untuk kegiatan sosial.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Kecurangan penilaian berbasis nepotisme/pertemanan."
+      },
+      {
+        "key": "C",
+        "text": "Menilai tetap berdasarkan rubrik secara diam-diam tanpa memberi tahu ketua panitia bahwa Anda mengenal pemilik yayasan.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Hasil penilaiannya adil, tetapi mendeklarasikan hubungan pertemanan menjaga akuntabilitas dari gugatan di kemudian hari."
+      },
+      {
+        "key": "D",
+        "text": "Mengusulkan penambahan kuota pemenang di menit akhir supaya proposal teman ikut lolos tanpa menggeser dua teratas.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mengubah aturan kuota demi mengakomodasi kepentingan kenalan."
+      },
+      {
+        "key": "E",
+        "text": "Meminta teman tersebut memperbaiki proposalnya secara diam-diam di luar jadwal resmi supaya nilainya mengalahkan dua lembaga lain.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Memberi perlakuan istimewa dan bocoran penilaian melanggar keadilan kompetisi."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Penanganan benturan kepentingan (Conflict of Interest) mewajibkan pengungkapan transparan dan pelepasan diri (recusal) dari pengambilan keputusan terkait pihak dekat.",
+      "stepByStep": [
+        "Deklarasikan hubungan kedekatan kepada ketua tim.",
+        "Hindari menilai berkas pihak terkait (recusal).",
+        "Pertahankan integritas rubrik untuk seluruh peserta."
+      ],
+      "correctReason": "Opsi A (skor 5): Standar tertinggi tata kelola antikorupsi: deklarasi benturan kepentingan dan objektivitas mutlak berbasis rubrik.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Kecurangan penilaian berbasis nepotisme/pertemanan.",
+        "C": "Skor 4 — Hasil penilaiannya adil, tetapi mendeklarasikan hubungan pertemanan menjaga akuntabilitas dari gugatan di kemudian hari.",
+        "D": "Skor 2 — Mengubah aturan kuota demi mengakomodasi kepentingan kenalan.",
+        "E": "Skor 3 — Memberi perlakuan istimewa dan bocoran penilaian melanggar keadilan kompetisi."
+      },
+      "quickTrick": "Deklarasikan benturan kepentingan sejak awal + jaga penilaian 100% objektif berbasis rubrik.",
+      "commonMistakes": "Diam tidak melapor kedekatan atau memberi bocoran revisi diam-diam.",
+      "studyMaterialTip": "Deklarasi conflict of interest melindungi Anda sekaligus menjaga marwah keputusan panitia."
+    },
+    "references": [
+      {
+        "title": "Pedoman Penanganan Benturan Kepentingan",
+        "source": "PermenPAN-RB No. 37 Tahun 2012",
+        "note": "Deklarasi & Recusal"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-032",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Pengakuan Batas Kompetensi & Konsultasi Ahli",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Dalam memeriksa berkas perizinan lingkungan hidup, Anda menemukan parameter uji limbah kimia yang berada di luar pengetahuan teknis Anda dan berpotensi berdampak besar bila salah ditafsirkan. Tenggat persetujuan tinggal dua hari lagi. Tindakan paling profesional adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Segera berkonsultasi dengan pejabat fungsional/ahli teknis terkait di instansi atau unit verifikasi laboratorium guna memvalidasi angka tersebut sebelum menerbitkan persetujuan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menjunjung prinsip kehati-hatian (prudent), jujur atas batas keahlian, dan berkolaborasi mencari akurasi sebelum memutuskan."
+      },
+      {
+        "key": "B",
+        "text": "Langsung menyetujui berkas tersebut karena seluruh lampiran tanda tangan laboratorium swasta sudah lengkap.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Meloloskan potensi risiko lingkungan tanpa memahami validitas substansinya."
+      },
+      {
+        "key": "C",
+        "text": "Mengira-ngira sendiri makna angkanya berdasarkan artikel populer di internet agar terlihat serba bisa.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Sangat berbahaya mengambil keputusan teknis berdampak lingkungan berdasarkan tebakan."
+      },
+      {
+        "key": "D",
+        "text": "Menolak berkas tersebut secara sepihak agar aman dari risiko tanggung jawab di kemudian hari.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mengorbankan pemohon yang mungkin sudah memenuhi syarat hanya karena ketidaktahuan verifikator."
+      },
+      {
+        "key": "E",
+        "text": "Meminta pemohon menjelaskan sendiri arti angka kimianya melalui telepon lalu mempercayainya penuh.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Ada upaya mencari kejelasan, namun memvalidasi ke pihak independen/ahli internal jauh lebih objektif daripada sekadar penjelasan pemohon."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Profesionalisme bukan berarti berpura-pura tahu segalanya, melainkan mengenali batas keahlian dan segera memvalidasi ke pakar berwenang sebelum mengambil keputusan berisiko.",
+      "stepByStep": [
+        "Identifikasi parameter kritis di luar keahlian pribadi.",
+        "Segera konsultasikan dengan pejabat fungsional/ahli internal.",
+        "Terbitkan keputusan berbasis verifikasi ilmiah dan regulasi."
+      ],
+      "correctReason": "Opsi A (skor 5): Menjunjung prinsip kehati-hatian (prudent), jujur atas batas keahlian, dan berkolaborasi mencari akurasi sebelum memutuskan.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Meloloskan potensi risiko lingkungan tanpa memahami validitas substansinya.",
+        "C": "Skor 1 — Sangat berbahaya mengambil keputusan teknis berdampak lingkungan berdasarkan tebakan.",
+        "D": "Skor 3 — Mengorbankan pemohon yang mungkin sudah memenuhi syarat hanya karena ketidaktahuan verifikator.",
+        "E": "Skor 4 — Ada upaya mencari kejelasan, namun memvalidasi ke pihak independen/ahli internal jauh lebih objektif daripada sekadar penjelasan pemohon."
+      },
+      "quickTrick": "Jujur pada batas kompetensi -> segera konsultasi ahli berwenang sebelum memutuskan.",
+      "commonMistakes": "Menebak-nebak demi gengsi atau asal menolak/menyetujui.",
+      "studyMaterialTip": "Kesalahan pada izin lingkungan berisiko merugikan masyarakat luas; validasi ahli selalu tepat."
+    },
+    "references": [
+      {
+        "title": "Etika Pengambilan Keputusan Profesional",
+        "source": "LAN RI",
+        "note": "Prinsip Kehati-hatian"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-033",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Disiplin Keuangan Perjalanan Dinas",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Anda mendapat uang muka biaya perjalanan dinas untuk kegiatan tiga hari di luar kota. Ternyata panitia pusat menyediakan penginapan penuh pada malam kedua sehingga sebagian anggaran penginapan tidak terpakai dan tanpa kuitansi. Sikap akuntabel Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Melaporkan pengeluaran riil secara jujur dalam pertanggungjawaban SPJ dan mengembalikan sisa anggaran penginapan yang tidak terpakai ke kas negara/bendahara sesuai aturan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Integritas keuangan negara yang ketat (at cost / riil) tanpa merekayasa bukti pengeluaran."
+      },
+      {
+        "key": "B",
+        "text": "Menggunakan sisa uang penginapan tersebut untuk membeli oleh-oleh khas daerah bagi rekan-rekan satu kantor.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Penyalahgunaan anggaran perjalanan dinas meski dibagikan ke rekan kantor."
+      },
+      {
+        "key": "C",
+        "text": "Meminta kuitansi kosong dari resepsionis hotel pada malam pertama dan mengisinya seolah menginap dua malam penuh.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Manipulasi SPJ/kuitansi fiktif merupakan tindak pidana korupsi."
+      },
+      {
+        "key": "D",
+        "text": "Menyimpan sisa uang tersebut sebagai kompensasi rasa lelah perjalanan dinas yang padat.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mengambil dana negara di luar hak riil yang ditetapkan peraturan."
+      },
+      {
+        "key": "E",
+        "text": "Menanyakan terlebih dahulu ke rekan senior bagaimana biasanya mereka menyikapi sisa biaya penginapan agar tidak berbeda sendiri.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Mencari referensi aturan sebelum memutuskan, meski aturan akuntabilitas pengembalian sisa riil sudah sangat jelas."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Pertanggungjawaban keuangan negara menganut prinsip pengeluaran riil (at cost) untuk komponen hotel/transportasi dan melarang keras kuitansi fiktif.",
+      "stepByStep": [
+        "Catat seluruh pengeluaran sesuai bukti transaksi nyata.",
+        "Tolak pembuatan kuitansi kosong atau mark-up.",
+        "Setorkan kembali sisa dana yang tidak terpakai ke bendahara/kas negara."
+      ],
+      "correctReason": "Opsi A (skor 5): Integritas keuangan negara yang ketat (at cost / riil) tanpa merekayasa bukti pengeluaran.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Penyalahgunaan anggaran perjalanan dinas meski dibagikan ke rekan kantor.",
+        "C": "Skor 1 — Manipulasi SPJ/kuitansi fiktif merupakan tindak pidana korupsi.",
+        "D": "Skor 3 — Mengambil dana negara di luar hak riil yang ditetapkan peraturan.",
+        "E": "Skor 4 — Mencari referensi aturan sebelum memutuskan, meski aturan akuntabilitas pengembalian sisa riil sudah sangat jelas."
+      },
+      "quickTrick": "Laporkan biaya riil apa adanya + kembalikan sisa tak terpakai ke kas negara.",
+      "commonMistakes": "Menganggap sisa anggaran penginapan sebagai hak pribadi atau membuat nota fiktif untuk oleh-oleh.",
+      "studyMaterialTip": "SPJ fiktif adalah salah satu temuan audit BPK yang paling fatal bagi ASN."
+    },
+    "references": [
+      {
+        "title": "Standar Biaya Masukan & Perjalanan Dinas",
+        "source": "PMK Kemenkeu RI",
+        "note": "Prinsip At Cost & Pengembalian Sisa"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-034",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Menjaga Ketenangan dan Solusi Saat Rapat Tegang",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Saat Anda memaparkan temuan evaluasi kinerja yang kurang baik pada suatu program, salah satu kepala seksi langsung memotong pembicaraan dengan nada kesal dan menuduh data tim Anda keliru. Suasana rapat mendadak menegang. Sikap profesional Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Tetap tenang menjaga intonasi suara yang sopan, mempersilakan beliau menyampaikan poin keberatannya secara spesifik, lalu menyandingkan sumber data mentah secara terbuka agar forum dapat memeriksa dan menyepakati perbaikan bersama.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Kendali emosi matang, fokus pada verifikasi data objektif, dan menjaga martabat semua peserta rapat."
+      },
+      {
+        "key": "B",
+        "text": "Membalas dengan nada lebih tinggi bahwa data Anda 100% benar dan kinerja seksi beliaulah yang buruk.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Konfrontatif, menyerang pribadi, dan membakar suasana rapat."
+      },
+      {
+        "key": "C",
+        "text": "Langsung menutup slide paparan dan menyerahkan berkas ke pimpinan rapat karena merasa tidak dihargai.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Baper dan menghentikan pembahasan substansi evaluasi penting."
+      },
+      {
+        "key": "D",
+        "text": "Langsung meminta maaf dan menarik kembali seluruh angka temuan Anda supaya suasana rapat kembali damai.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mengorbankan kebenaran data evaluasi demi menghindari ketegangan."
+      },
+      {
+        "key": "E",
+        "text": "Tetap melanjutkan membaca slide paparan tanpa menanggapi keberatan beliau sampai selesai baru menawarkan diskusi nanti.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Menjaga ketenangan, tetapi mengabaikan keberatan mendadak membuat peserta lain ikut meragukan paparan jika tidak segera diklarifikasi."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kecerdasan emosional di forum profesional terlihat saat menghadapi sanggahan keras dengan ketenangan berbasis bukti objektif.",
+      "stepByStep": [
+        "Jaga ekspresi dan nada suara tetap tenang.",
+        "Ajak mengidentifikasi titik perbedaan data secara spesifik.",
+        "Uji silang sumber data bersama demi perbaikan program."
+      ],
+      "correctReason": "Opsi A (skor 5): Kendali emosi matang, fokus pada verifikasi data objektif, dan menjaga martabat semua peserta rapat.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Konfrontatif, menyerang pribadi, dan membakar suasana rapat.",
+        "C": "Skor 2 — Baper dan menghentikan pembahasan substansi evaluasi penting.",
+        "D": "Skor 3 — Mengorbankan kebenaran data evaluasi demi menghindari ketegangan.",
+        "E": "Skor 4 — Menjaga ketenangan, tetapi mengabaikan keberatan mendadak membuat peserta lain ikut meragukan paparan jika tidak segera diklarifikasi."
+      },
+      "quickTrick": "Tenang -> minta poin spesifik -> sandingkan data objektif demi perbaikan bersama.",
+      "commonMistakes": "Terpancing adu emosi atau langsung mencabut data benar tanpa verifikasi.",
+      "studyMaterialTip": "Biarkan data yang berbicara dengan tenang tanpa perlu menaikkan suara."
+    },
+    "references": [
+      {
+        "title": "Kecerdasan Emosional & Komunikasi Eksekutif",
+        "source": "LAN RI",
+        "note": "Menghadapi Keberatan Data"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-035",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Berani Menolak Instruksi yang Melanggar Prosedur Hukum",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Menjelang penutupan tahun anggaran, atasan langsung meminta Anda menandatangani berita acara serah terima barang bahwa pekerjaan pengadaan sudah selesai 100% agar anggaran tidak hangus, padahal di gudang baru tiba 70% barang dan sisanya baru dijanjikan penyedia minggu depan. Sikap paling berintegritas adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menolak menandatangani berita acara serah terima 100% secara sopan dengan memaparkan fakta fisik 70% di gudang serta risiko hukum pidananya, lalu menawarkan opsi pencatatan kemajuan riil atau skema perpanjangan sesuai aturan pengadaan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Integritas teguh menolak pemalsuan dokumen resmi negara sambil memberi solusi administratif yang sah."
+      },
+      {
+        "key": "B",
+        "text": "Menandatanganinya karena atasan berjanji siap bertanggung jawab penuh secara pribadi jika ada pemeriksaan.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Tanda tangan pejabat/panitia pada BAST fiktif tetap mengikat tanggung jawab hukum pidana penanda tangan."
+      },
+      {
+        "key": "C",
+        "text": "Menandatangani namun diam-diam menuliskan keterangan kecil \"sebagian menyusul\" di belakang berkas tanpa memberi tahu atasan.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Dokumen BAST tetap menjadi cacat hukum dan memicu kekacauan akuntabilitas."
+      },
+      {
+        "key": "D",
+        "text": "Langsung menolak dengan suara keras sambil mengancam akan melaporkan atasan ke aparat penegak hukum detik itu juga.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Niat menjaga hukum benar, tetapi cara konfrontatif mengancam sebelum memberi penjelasan sopan dan solusi sah memperburuk relasi kerja."
+      },
+      {
+        "key": "E",
+        "text": "Mengambil cuti mendadak pada hari penandatanganan agar orang lain saja yang menandatangani dokumen tersebut.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Menghindari keterlibatan pribadi, tetapi tidak berani mengingatkan risiko hukum atau membenahi proses unit."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Loyalitas ASN adalah kepada peraturan perundang-undangan dan kebenaran fakta, bukan pada perintah atasan yang melanggar hukum (seperti BAST fiktif).",
+      "stepByStep": [
+        "Verifikasi kondisi fisik barang di lapangan secara jujur.",
+        "Tolak penandatanganan BAST fiktif secara santun namun tegas.",
+        "Tawarkan mekanisme pembayaran progres/adendum sah sesuai peraturan pengadaan."
+      ],
+      "correctReason": "Opsi A (skor 5): Integritas teguh menolak pemalsuan dokumen resmi negara sambil memberi solusi administratif yang sah.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Tanda tangan pejabat/panitia pada BAST fiktif tetap mengikat tanggung jawab hukum pidana penanda tangan.",
+        "C": "Skor 2 — Dokumen BAST tetap menjadi cacat hukum dan memicu kekacauan akuntabilitas.",
+        "D": "Skor 3 — Niat menjaga hukum benar, tetapi cara konfrontatif mengancam sebelum memberi penjelasan sopan dan solusi sah memperburuk relasi kerja.",
+        "E": "Skor 4 — Menghindari keterlibatan pribadi, tetapi tidak berani mengingatkan risiko hukum atau membenahi proses unit."
+      },
+      "quickTrick": "Tolak tegas & sopan perintah melanggar hukum + tawarkan solusi prosedural yang sah.",
+      "commonMistakes": "Luluh oleh janji atasan \"saya yang tanggung jawab\" atau menghindar dengan cuti.",
+      "studyMaterialTip": "Dalam pengadaan pemerintah, BAST fiktif adalah pelanggaran berat tanpa pengecualian."
+    },
+    "references": [
+      {
+        "title": "Perpres Pengadaan Barang/Jasa Pemerintah",
+        "source": "LKPP & BPK",
+        "note": "Larangan BAST Fiktif"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-036",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Evaluasi Diri & Keterbukaan Menerima Umpan Balik",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Dalam sesi evaluasi kinerja triwulan, atasan Anda memberi catatan bahwa kualitas analisis laporan Anda sangat tajam, namun penyajian tabelnya terlalu padat sehingga sulit dibaca cepat oleh pemangku kepentingan. Respons terbaik Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Berterima kasih atas masukan konstruktif tersebut, menanyakan contoh format ringkas yang diharapkan, dan langsung memperbarui standar penyajian tabel pada laporan berikutnya.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Berpola pikir bertumbuh (growth mindset): menerima kritik objektif tanpa defensif lalu segera mengeksekusi perbaikan."
+      },
+      {
+        "key": "B",
+        "text": "Menjelaskan bahwa tabel padat tersebut memang sengaja dibuat lengkap agar tidak ada angka yang terlewat.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Cenderung defensif membela kebiasaan lama meski atasan sudah menyoroti keterbacaan."
+      },
+      {
+        "key": "C",
+        "text": "Merasa kecewa karena atasan tidak cukup menghargai keakuratan analisis yang sudah Anda buat susah payah.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Baper terhadap kritik konstruktif padahal atasan sudah mengapresiasi ketajaman analisis."
+      },
+      {
+        "key": "D",
+        "text": "Mengurangi separuh isi analisisnya juga pada laporan berikutnya supaya halamannya terlihat lebih kosong.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Salah menafsirkan masukan: yang perlu disederhanakan adalah penyajian visual tabelnya, bukan memangkas mutu analisis."
+      },
+      {
+        "key": "E",
+        "text": "Menerima masukan dengan baik saat rapat namun baru akan mengubah formatnya jika tahun depan dimintai lagi.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sikap menerima baik, namun lambat menindaklanjuti perbaikan."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Pegawai profesional menyambut umpan balik sebagai cermin peningkatan mutu kerja dan segera menerjemahkannya menjadi perbaikan nyata.",
+      "stepByStep": [
+        "Apresiasi umpan balik tanpa pembelaan berlebihan.",
+        "Klarifikasi standar keterbacaan yang diharapkan.",
+        "Terapkan perbaikan nyata di laporan terdekat."
+      ],
+      "correctReason": "Opsi A (skor 5): Berpola pikir bertumbuh (growth mindset): menerima kritik objektif tanpa defensif lalu segera mengeksekusi perbaikan.",
+      "distractorAnalysis": {
+        "B": "Skor 3 — Cenderung defensif membela kebiasaan lama meski atasan sudah menyoroti keterbacaan.",
+        "C": "Skor 1 — Baper terhadap kritik konstruktif padahal atasan sudah mengapresiasi ketajaman analisis.",
+        "D": "Skor 2 — Salah menafsirkan masukan: yang perlu disederhanakan adalah penyajian visual tabelnya, bukan memangkas mutu analisis.",
+        "E": "Skor 4 — Sikap menerima baik, namun lambat menindaklanjuti perbaikan."
+      },
+      "quickTrick": "Terima masukan + klarifikasi contoh harapan + langsung perbaiki pada karya berikutnya.",
+      "commonMistakes": "Defensif atau salah membuang substansi analisis.",
+      "studyMaterialTip": "Pujian plus catatan perbaikan berarti peluang naik kelas kompetensi."
+    },
+    "references": [
+      {
+        "title": "Pengelolaan Kinerja Pegawai ASN",
+        "source": "PermenPAN-RB No. 6 Tahun 2022",
+        "note": "Umpan Balik Berkelanjutan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-037",
+    "subject": "TKP",
+    "topic": "Profesionalisme",
+    "topicSlug": "profesionalisme",
+    "subtopic": "Konsistensi Mutu pada Tugas Rutin Administratif",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Anda sering mendapat tugas pengarsipan dan pengecekan ulang nomor surat keluar yang terasa monoton dibandingkan tugas penyusunan konsep program strategis. Rekan lain menyarankan Anda mengerjakannya cepat-cepatan saja karena jarang diperiksa detail. Sikap Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Tetap mengerjakannya dengan ketelitian tinggi dan standar mutu konsisten karena satu kesalahan nomor atau arsip surat dapat menimbulkan masalah hukum atau hambatan pencarian di kemudian hari.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Memahami dampak krusial tugas administratif dan menjaga etos profesional pada pekerjaan besar maupun rutin."
+      },
+      {
+        "key": "B",
+        "text": "Mengerjakannya seadanya saja agar sisa energi Anda fokus ke tugas penyusunan program strategis.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Meremehkan tugas rutin hingga berpotensi menimbulkan cacat administrasi."
+      },
+      {
+        "key": "C",
+        "text": "Mengajukan pengalihan seluruh tugas pengarsipan kepada tenaga honorer supaya Anda fokus pada tugas bergengsi.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Merendahkan nilai tugas administratif dan melimpahkan tanggung jawab pribadi."
+      },
+      {
+        "key": "D",
+        "text": "Mengecek agak cepat dulu dan baru merapikannya enam bulan sekali menjelang pemeriksaan auditor.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Menumpuk risiko kesalahan dan kerja lembur mendadak saat audit."
+      },
+      {
+        "key": "E",
+        "text": "Mengikuti saran rekan untuk mengecek bagian tanggal saja tanpa memverifikasi ulang penomoran lampiran.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Kelalaian sebagian tetap berisiko salah rujukan surat."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Profesionalisme sejati menaruh rasa hormat dan ketelitian yang sama baik pada tugas strategis maupun ketertiban administrasi rutin.",
+      "stepByStep": [
+        "Jaga daftar periksa singkat untuk ketepatan penomoran dan arsip.",
+        "Selesaikan secara tertib tiap hari agar tidak menumpuk.",
+        "Pahami peran strategis arsip sebagai bukti akuntabilitas instansi."
+      ],
+      "correctReason": "Opsi A (skor 5): Memahami dampak krusial tugas administratif dan menjaga etos profesional pada pekerjaan besar maupun rutin.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Meremehkan tugas rutin hingga berpotensi menimbulkan cacat administrasi.",
+        "C": "Skor 1 — Merendahkan nilai tugas administratif dan melimpahkan tanggung jawab pribadi.",
+        "D": "Skor 3 — Menumpuk risiko kesalahan dan kerja lembur mendadak saat audit.",
+        "E": "Skor 4 — Kelalaian sebagian tetap berisiko salah rujukan surat."
+      },
+      "quickTrick": "Teliti dan konsisten menjaga mutu pada setiap skala tugas kedinasan.",
+      "commonMistakes": "Menganggap pekerjaan administratif rutin tidak perlu dikerjakan cermat.",
+      "studyMaterialTip": "Tertib arsip adalah benteng pertama saat terjadi sengketa atau audit."
+    },
+    "references": [
+      {
+        "title": "Tata Naskah Dinas & Kearsipan ASN",
+        "source": "ANRI",
+        "note": "Akuntabilitas Administrasi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-038",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Mendampingi Anggota Keluarga/Lingkungan Terpapar Informasi Ekstrem",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Anda menyadari seorang keponakan atau anggota keluarga dekat yang baru lulus kuliah mulai menarik diri dari keluarga, kerap menonton video ceramah anonim bernada keras yang mengajak memusuhi negara serta menyebut seluruh pegawai pemerintah sebagai bagian sistem sesat. Sikap paling bijak dan bertanggung jawab adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menjaga komunikasi hangat penuh empati tanpa menghakimi secara kasar, perlahan mengajak dialog terbuka dengan menghadirkan sumber pengetahuan/tokoh keagamaan moderat terpercaya, serta berkonsultasi ke layanan konseling atau pencegahan deradikalisasi resmi jika diperlukan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menggunakan pendekatan kasih sayang keluarga yang memeluk sambil membimbing ke sumber otoritatif moderat serta bantuan resmi bila berlanjut."
+      },
+      {
+        "key": "B",
+        "text": "Langsung memarahinya keras-keras dan membuang semua bukunya di depan keluarga agar ia takut.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Konfrontasi keras sering membuat anak muda merasa terasing dan makin terdorong masuk lebih dalam ke jaringan ekstrem."
+      },
+      {
+        "key": "C",
+        "text": "Membiarkannya saja karena ia sudah dewasa dan berhak memilih tontonan serta pandangan hidupnya.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Pembiaran pada fase awal penarikan diri berisiko membiarkannya direkrut sel radikal."
+      },
+      {
+        "key": "D",
+        "text": "Diam-diam memblokir situs internet di rumah tanpa pernah berbicara dengannya mengenai isi pemikirannya.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Ia tetap bisa mengakses lewat kuota seluler dan jarak emosional keluarga tetap melebar."
+      },
+      {
+        "key": "E",
+        "text": "Menasihatinya berkali-kali bahwa menjadi ASN tidak sesat lalu menyuruhnya sibuk melamar kerja agar lupa sendiri.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Niat baik dan berusaha menyibukkan ke arah positif, namun mengabaikan pelurusan akar pemahaman bersama tokoh moderat."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Pencegahan dini (early intervention) di lingkup keluarga menuntut kehangatan dialog tanpa menghakimi, penawaran narasi moderat dari tokoh kredibel, dan dukungan konseling ahli.",
+      "stepByStep": [
+        "Pertahankan jembatan komunikasi yang hangat (jangan dijauhi).",
+        "Gali keresahan di balik ketertarikannya pada konten keras.",
+        "Hubungkan dengan tokoh agama moderat atau konselor resmi BNPT/FKPT."
+      ],
+      "correctReason": "Opsi A (skor 5): Menggunakan pendekatan kasih sayang keluarga yang memeluk sambil membimbing ke sumber otoritatif moderat serta bantuan resmi bila berlanjut.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Konfrontasi keras sering membuat anak muda merasa terasing dan makin terdorong masuk lebih dalam ke jaringan ekstrem.",
+        "C": "Skor 1 — Pembiaran pada fase awal penarikan diri berisiko membiarkannya direkrut sel radikal.",
+        "D": "Skor 3 — Ia tetap bisa mengakses lewat kuota seluler dan jarak emosional keluarga tetap melebar.",
+        "E": "Skor 4 — Niat baik dan berusaha menyibukkan ke arah positif, namun mengabaikan pelurusan akar pemahaman bersama tokoh moderat."
+      },
+      "quickTrick": "Rangkul dialog hangat tanpa menghakimi + kenalkan rujukan moderat kredibel + konsultasi layanan resmi bila perlu.",
+      "commonMistakes": "Memusuhi/mengusir atau justru membiarkan tanpa pendampingan.",
+      "studyMaterialTip": "Isolasi emosional mempercepat radikalisasi; rangkulan yang bijak membukakan jalan kembali."
+    },
+    "references": [
+      {
+        "title": "Panduan Keluarga Tangguh Anti-Radikalisme",
+        "source": "BNPT & KemenPPPA",
+        "note": "Intervensi Dini Persuasif"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-039",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Menjaga Integritas Rekrutmen Pembicara Kegiatan Kantor",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Sebagai panitia kegiatan pembinaan mental dan kebangsaan di kantor, Anda mendapat usulan narasumber dari seorang rekan. Setelah menelusuri rekam jejak digitalnya secara objektif, narasumber tersebut pernah berulang kali menyampaikan ujaran kebencian terhadap keberagaman dan mempertanyakan keabsahan Pancasila. Langkah Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menyampaikan temuan rekam jejak objektif tersebut kepada ketua panitia dan pimpinan, lalu merekomendasikan penggantian narasumber dengan figur kompeten yang berwawasan kebangsaan dan moderat.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menerapkan penyaringan preventif berbasis fakta rekam jejak untuk menjaga marwah acara instansi negara."
+      },
+      {
+        "key": "B",
+        "text": "Tetap mengundangnya dengan syarat di dalam kontrak acara ia tidak boleh membahas politik atau negara.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Berisiko tinggi narasumber menyisipkan narasi terselubung dan mencoreng nama instansi."
+      },
+      {
+        "key": "C",
+        "text": "Langsung membatalkan tanpa memberi penjelasan berbasis fakta kepada rekan pengusul sehingga memicu salah paham.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Tindakan pencegahan benar, tetapi penyampaian tertutup tanpa basis fakta memicu gesekan internal."
+      },
+      {
+        "key": "D",
+        "text": "Tetap meloloskannya karena rekan pengusul menjamin bahwa pembicara tersebut adalah temannya sendiri.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mengabaikan uji kelayakan demi sungkan kepada rekan."
+      },
+      {
+        "key": "E",
+        "text": "Mengundangnya dalam sesi tertutup non-resmi di luar kantor saja agar tidak tercatat di laporan instansi.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Justru memfasilitasi penyebaran paham anti-Pancasila secara terselubung ke pegawai."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Instansi pemerintah wajib melakukan penapisan (vetting) rekam jejak narasumber kegiatan resmi guna mencegah masuknya paham intoleransi dan anti-Pancasila.",
+      "stepByStep": [
+        "Lakukan verifikasi rekam jejak publik kandidat narasumber.",
+        "Laporkan temuan faktual ke panitia dan pimpinan.",
+        "Pilih pengganti yang kredibel dan meneguhkan nilai kebangsaan."
+      ],
+      "correctReason": "Opsi A (skor 5): Menerapkan penyaringan preventif berbasis fakta rekam jejak untuk menjaga marwah acara instansi negara.",
+      "distractorAnalysis": {
+        "B": "Skor 3 — Berisiko tinggi narasumber menyisipkan narasi terselubung dan mencoreng nama instansi.",
+        "C": "Skor 4 — Tindakan pencegahan benar, tetapi penyampaian tertutup tanpa basis fakta memicu gesekan internal.",
+        "D": "Skor 2 — Mengabaikan uji kelayakan demi sungkan kepada rekan.",
+        "E": "Skor 1 — Justru memfasilitasi penyebaran paham anti-Pancasila secara terselubung ke pegawai."
+      },
+      "quickTrick": "Sampaikan temuan fakta rekam jejak + ganti narasumber dengan figur moderat berwawasan kebangsaan.",
+      "commonMistakes": "Tetap mengundang karena sungkan pada pengusul atau berharap narasumber menahan diri.",
+      "studyMaterialTip": "Pencegahan dini pada pintu masuk acara kantor jauh lebih mudah daripada membersihkan dampaknya."
+    },
+    "references": [
+      {
+        "title": "SKB Pembinaan Ideologi Pancasila di Instansi Pemerintah",
+        "source": "BKN & BPIP",
+        "note": "Seleksi Narasumber Kantor"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-040",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Sikap Terhadap Penolakan Kerja Sama Berbasis Identitas dalam Layanan Publik",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Seorang petugas pelayanan di loket sebelah menolak melayani pemohon warga negara tertentu hanya karena pemohon tersebut mengenakan simbol agama yang berbeda dengannya, dan berdalih hal itu melanggar prinsip pribadinya. Sebagai rekan kerja sekaligus saksi kejadian, tindakan Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Segera mengambil alih pelayanan pemohon tersebut dengan ramah dan adil agar hak warganya terpenuhi tanpa tertunda, lalu melaporkan tindakan diskriminatif petugas tersebut kepada atasan untuk ditindak dan dibina sesuai kode etik ASN.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Melindungi hak warga secara instan dengan pelayanan setara sekaligus menegakkan disiplin anti-diskriminasi birokrasi."
+      },
+      {
+        "key": "B",
+        "text": "Membiarkan pemohon pindah mencari kantor kecamatan lain supaya petugas sebelah tidak merasa terpaksa.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mengizinkan diskriminasi merampas hak konstitusional warga negara."
+      },
+      {
+        "key": "C",
+        "text": "Menyalahkan pemohon dengan menyarankan melepas atribut keagamaannya sementara jika ingin cepat dilayani.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Memaksa warga menanggalkan kebebasan ekspresi agama yang sah demi dilayani negara adalah pelanggaran berat."
+      },
+      {
+        "key": "D",
+        "text": "Mengambil alih pelayanan pemohon secara ramah tanpa pernah melaporkan kejadian penolakan petugas tersebut ke atasan.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Berhasil menyelamatkan layanan warga saat itu, tetapi tanpa laporan pembinaan, petugas tersebut bisa mengulangi diskriminasi kepada warga lain."
+      },
+      {
+        "key": "E",
+        "text": "Berdebat panjang di depan loket dengan petugas sebelah sementara pemohon dibiarkan menunggu kebingungan.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mengutamakan debat sebelum menuntaskan hak warga yang berdiri di depan loket."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Aparatur negara wajib melayani seluruh warga negara tanpa membedakan suku, agama, ras, atau golongan; diskriminasi di loket adalah pelanggaran sumpah jabatan.",
+      "stepByStep": [
+        "Selamatkan layanan warga segera dengan sikap hangat dan netral.",
+        "Hindari pertengkaran terbuka di hadapan pemohon.",
+        "Laporkan pelanggaran kode etik pelayan publik ke atasan untuk pembinaan."
+      ],
+      "correctReason": "Opsi A (skor 5): Melindungi hak warga secara instan dengan pelayanan setara sekaligus menegakkan disiplin anti-diskriminasi birokrasi.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Mengizinkan diskriminasi merampas hak konstitusional warga negara.",
+        "C": "Skor 1 — Memaksa warga menanggalkan kebebasan ekspresi agama yang sah demi dilayani negara adalah pelanggaran berat.",
+        "D": "Skor 4 — Berhasil menyelamatkan layanan warga saat itu, tetapi tanpa laporan pembinaan, petugas tersebut bisa mengulangi diskriminasi kepada warga lain.",
+        "E": "Skor 3 — Mengutamakan debat sebelum menuntaskan hak warga yang berdiri di depan loket."
+      },
+      "quickTrick": "Ambil alih & layani warga dengan ramah segera + laporkan tindakan diskriminatif ke atasan.",
+      "commonMistakes": "Menyuruh warga mengalah atau mendiamkan perilaku diskriminatif rekan.",
+      "studyMaterialTip": "Pelayanan publik dan anti-intoleransi selalu mendahulukan hak warga yang dirugikan."
+    },
+    "references": [
+      {
+        "title": "Asas Non-Diskriminatif Pelayanan Publik",
+        "source": "UU 25/2009 & UUD 1945",
+        "note": "Layanan Tanpa Sekat Identitas"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-041",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Menangkal Ujaran Kebencian di Grup Media Sosial Profesi",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "EASY",
+    "stem": "Di sebuah forum daring komunitas profesi lintas daerah, seorang anggota mengunggah gambar karikatur yang menghina keyakinan agama tertentu disertai ajakan memboikot pelaku usaha dari kelompok tersebut. Langkah tepat Anda sebagai anggota grup adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Tidak ikut menyebarkan atau menyukai unggahan tersebut, menyuarakan penolakan santun agar forum tetap menghormati keberagaman serta etika bermedia, serta melaporkan konten kebencian tersebut ke admin grup dan fitur laporan platform.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Bertindak aktif menghentikan penyebaran ujaran kebencian melalui koreksi etika dan mekanisme pelaporan platform/admin."
+      },
+      {
+        "key": "B",
+        "text": "Menyimpan gambar tersebut lalu mengirimkannya ke grup lain sebagai contoh lelucon yang keterlaluan.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Memperluas jangkauan konten penghinaan SARA."
+      },
+      {
+        "key": "C",
+        "text": "Meninggalkan komentar makian balik yang sama kasarnya kepada pengunggah.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Menambah kebencian baru tanpa menggunakan mekanisme pelaporan sehat."
+      },
+      {
+        "key": "D",
+        "text": "Menggulir layar melewatinya seolah tidak melihat apa pun karena tidak menyangkut pekerjaan Anda.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Apatis membiarkan ruang publik profesional diracuni ujaran kebencian."
+      },
+      {
+        "key": "E",
+        "text": "Menegur pengunggah secara santun melalui pesan pribadi tanpa melaporkan unggahan ke admin grup.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Baik dalam etika menegur, namun jika konten tetap terpajang di grup tanpa laporan admin/platform, provokasi terus terbaca anggota lain."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Ruang digital sehat membutuhkan kewargaan digital aktif: menolak menyebar ujaran kebencian, menjaga etika dialog, dan memanfaatkan fitur report/moderasi admin.",
+      "stepByStep": [
+        "Hentikan rantai distribusi konten kebencian.",
+        "Ingatkan koridor etika saling menghormati di forum.",
+        "Laporkan ke moderator grup dan sistem pelaporan platform (UU ITE)."
+      ],
+      "correctReason": "Opsi A (skor 5): Bertindak aktif menghentikan penyebaran ujaran kebencian melalui koreksi etika dan mekanisme pelaporan platform/admin.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Memperluas jangkauan konten penghinaan SARA.",
+        "C": "Skor 2 — Menambah kebencian baru tanpa menggunakan mekanisme pelaporan sehat.",
+        "D": "Skor 3 — Apatis membiarkan ruang publik profesional diracuni ujaran kebencian.",
+        "E": "Skor 4 — Baik dalam etika menegur, namun jika konten tetap terpajang di grup tanpa laporan admin/platform, provokasi terus terbaca anggota lain."
+      },
+      "quickTrick": "Tolak sebar + tegaskan etika keberagaman + lapor admin & platform.",
+      "commonMistakes": "Membalas cacian dengan cacian atau membiarkan konten SARA terpampang bebas.",
+      "studyMaterialTip": "Melaporkan ujaran kebencian ke moderator/platform memutus peredarannya secara sah."
+    },
+    "references": [
+      {
+        "title": "UU ITE Pasal 28 Ayat (2) & Etika Netizen",
+        "source": "Kemenkominfo",
+        "note": "Moderasi Ujaran Kebencian"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-042",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Menilai Konten Kebencian Terselubung dalam Produk Layanan/Publikasi",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "HARD",
+    "stem": "Saat melakukan penyuntingan akhir naskah buletin resmi instansi sebelum naik cetak, Anda menemukan satu paragraf opini kiriman kontributor yang secara halus menyisipkan prasangka negatif terhadap kelompok etnis tertentu di daerah Anda. Apa yang harus Anda lakukan?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menunda pencetakan sejenak, menandai kalimat bermasalah tersebut secara objektif berdasarkan pedoman etik penulisan publik, lalu berkoordinasi dengan redaktur dan penulis untuk merevisi atau menghapus bagian diskriminatif sebelum diterbitkan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Menjaga publikasi resmi negara bersih dari muatan diskriminasi dengan prosedur editorial yang akuntabel."
+      },
+      {
+        "key": "B",
+        "text": "Tetap mencetak apa adanya karena kolom opini sepenuhnya merupakan tanggung jawab pribadi penulis.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Buletin resmi instansi membawa marwah negara sehingga tidak boleh menampung prasangka etnis."
+      },
+      {
+        "key": "C",
+        "text": "Menghapus sendiri separuh artikel tanpa memberi tahu redaktur atau penulis agar cepat selesai.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mencegah terbitnya konten bermasalah, tetapi menyalahi etika koordinasi redaksi."
+      },
+      {
+        "key": "D",
+        "text": "Membatalkan penerbitan seluruh buletin edisi bulan ini padahal artikel lainnya sudah bagus.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Tidak proporsional dan merugikan kerja tim atas satu paragraf yang bisa direvisi."
+      },
+      {
+        "key": "E",
+        "text": "Mengubah beberapa kata yang terlalu keras menjadi sedikit lebih halus tanpa menghilangkan gagasan prasangkanya.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Prasangka diskriminatif tetap tersisa dalam publikasi pemerintah."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Fungsi kurasi/editorial media resmi pemerintah wajib menyaring segala bentuk stereotip atau diskriminasi sebelum dipublikasikan ke masyarakat.",
+      "stepByStep": [
+        "Tahan proses cetak sebelum naskah bersih dari prasangka SARA.",
+        "Koordinasikan revisi objektif bersama redaktur/penulis.",
+        "Terbitkan hanya materi yang menjunjung persatuan dan kebhinnekaan."
+      ],
+      "correctReason": "Opsi A (skor 5): Menjaga publikasi resmi negara bersih dari muatan diskriminasi dengan prosedur editorial yang akuntabel.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Buletin resmi instansi membawa marwah negara sehingga tidak boleh menampung prasangka etnis.",
+        "C": "Skor 3 — Mencegah terbitnya konten bermasalah, tetapi menyalahi etika koordinasi redaksi.",
+        "D": "Skor 2 — Tidak proporsional dan merugikan kerja tim atas satu paragraf yang bisa direvisi.",
+        "E": "Skor 4 — Prasangka diskriminatif tetap tersisa dalam publikasi pemerintah."
+      },
+      "quickTrick": "Tahan cetak + tandai berbasis etik + koordinasikan revisi/penghapusan bagian diskriminatif.",
+      "commonMistakes": "Bersembunyi di balik dalih \"tanggung jawab penulis opini\" pada media resmi kantor.",
+      "studyMaterialTip": "Publikasi resmi instansi harus bebas 100% dari prasangka etnis dan agama."
+    },
+    "references": [
+      {
+        "title": "Pedoman Komunikasi Publik Berwawasan Kebangsaan",
+        "source": "Kemenkominfo",
+        "note": "Kurasi Publikasi Instansi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-043",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Komitmen Kebangsaan di Tengah Tawaran Kerja/Komunitas Berideologi Bertentangan",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Seorang kenalan menawarkan proyek sampingan berbayar sangat tinggi untuk mengelola situs web dan konten media sosial bagi organisasi non-pemerintah yang ternyata secara terselubung mempromosikan gerakan separatis pemisahan diri dari NKRI. Sikap tegas Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menolak tegas tawaran tersebut tanpa kompromi karena bertentangan dengan sumpah kesetiaan ASN terhadap keutuhan NKRI, serta melaporkan aktivitas organisasi mencurigakan tersebut ke pihak berwenang sesuai ketentuan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Loyalitas mutlak terhadap kedaulatan NKRI di atas imbalan finansial apa pun."
+      },
+      {
+        "key": "B",
+        "text": "Menerima pekerjaan teknis pemrograman situsnya saja asalkan bukan Anda yang menulis artikel politiknya.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Membangun infrastruktur digital gerakan separatis tetap membantu menyebarkan makar/separatisme."
+      },
+      {
+        "key": "C",
+        "text": "Menolak secara diam-diam dengan alasan sedang sibuk mengurus keluarga tanpa peduli dampak situs tersebut.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Sudah menolak keterlibatan pribadi, namun melaporkan ancaman terhadap keutuhan NKRI lebih bertanggung jawab sebagai abdi negara."
+      },
+      {
+        "key": "D",
+        "text": "Meminta bayaran dinaikkan dua kali lipat untuk menguji keseriusan mereka sebelum menolak.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mempermainkan isu kedaulatan negara dan memberi sinyal mau bernegosiasi."
+      },
+      {
+        "key": "E",
+        "text": "Menyarankan teman Anda yang bukan ASN untuk mengambil tawaran proyek berbayar tinggi tersebut.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Mendorong orang lain terlibat dalam promosi separatisme."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Keutuhan Negara Kesatuan Republik Indonesia (NKRI) adalah harga mati bagi ASN; tidak ada alasan teknis maupun imbalan materi yang membenarkan keterlibatan dalam agenda separatisme.",
+      "stepByStep": [
+        "Tolak tanpa ragu seluruh bentuk kerja sama pendukung separatisme.",
+        "Jangan alihkan kepada pihak lain.",
+        "Laporkan indikasi penggalangan separatisme ke otoritas berwenang."
+      ],
+      "correctReason": "Opsi A (skor 5): Loyalitas mutlak terhadap kedaulatan NKRI di atas imbalan finansial apa pun.",
+      "distractorAnalysis": {
+        "B": "Skor 1 — Membangun infrastruktur digital gerakan separatis tetap membantu menyebarkan makar/separatisme.",
+        "C": "Skor 4 — Sudah menolak keterlibatan pribadi, namun melaporkan ancaman terhadap keutuhan NKRI lebih bertanggung jawab sebagai abdi negara.",
+        "D": "Skor 2 — Mempermainkan isu kedaulatan negara dan memberi sinyal mau bernegosiasi.",
+        "E": "Skor 3 — Mendorong orang lain terlibat dalam promosi separatisme."
+      },
+      "quickTrick": "Tolak tanpa kompromi atas nama kesetiaan NKRI + laporkan indikasi ke pihak berwenang.",
+      "commonMistakes": "Menganggap \"cuma bantu coding/desain teknis\" tidak ikut bersalah.",
+      "studyMaterialTip": "Dalam wawasan kebangsaan, mendukung alat propaganda separatisme sama seriusnya dengan mendukung ideologinya."
+    },
+    "references": [
+      {
+        "title": "Nilai Loyal ASN & Keutuhan NKRI",
+        "source": "UU ASN & Tap MPR",
+        "note": "Penolakan Separatisme"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-044",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Menjaga Persatuan Warga saat Ada Sengketa Pendirian Fasilitas Bersama",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Di wilayah tugas Anda timbul perselisihan antara dua kelompok warga mengenai rencana pembangunan taman baca masyarakat dan tempat kegiatan lintas warga karena masing-masing kelompok menuntut pengelolaan eksklusif bagi golongannya saja. Sikap Anda dalam memediasi adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Memfasilitasi dialog musyawarah yang mempertemukan tokoh kedua kelompok secara setara, menekankan prinsip fasilitas umum milik bersama bagi seluruh warga tanpa sekat golongan, dan merumuskan tata kelola inklusif bersama.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Mengedepankan musyawarah mufakat dan pengelolaan inklusif yang menyatukan seluruh warga."
+      },
+      {
+        "key": "B",
+        "text": "Memutuskan menyerahkan pengelolaan kepada kelompok yang jumlah penduduknya paling banyak supaya cepat selesai.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Mayoritarianisme pada fasilitas publik justru menumbuhkan rasa tersingkir bagi kelompok lain."
+      },
+      {
+        "key": "C",
+        "text": "Mengusulkan pembatalan pembangunan taman baca agar tidak ada yang bertengkar.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Mengorbankan kepentingan pendidikan dan ruang bersama warga karena takut memediasi."
+      },
+      {
+        "key": "D",
+        "text": "Mengimbau salah satu kelompok mengalah saja demi menjaga kedamaian tahun ini.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Tidak menyelesaikan kesetaraan hak kelola jangka panjang."
+      },
+      {
+        "key": "E",
+        "text": "Menetapkan pemerintah kelurahan mengambil alih kunci taman baca tanpa melibatkan perwakilan warga mana pun dalam pengurusannya.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Mencegah dominasi salah satu golongan, namun membentuk pengurus gabungan lintas unsur warga jauh lebih memberdayakan kohesi sosial."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Fasilitas publik merupakan ruang perjumpaan sosial yang harus dikelola secara inklusif dan demokratis melalui musyawarah mufakat.",
+      "stepByStep": [
+        "Hadirkan seluruh perwakilan unsur warga secara setara.",
+        "Tegaskan fungsi publik sebagai ruang bersama bebas eksklusivitas.",
+        "Bentuk kepengurusan bersama lintas unsur warga."
+      ],
+      "correctReason": "Opsi A (skor 5): Mengedepankan musyawarah mufakat dan pengelolaan inklusif yang menyatukan seluruh warga.",
+      "distractorAnalysis": {
+        "B": "Skor 2 — Mayoritarianisme pada fasilitas publik justru menumbuhkan rasa tersingkir bagi kelompok lain.",
+        "C": "Skor 1 — Mengorbankan kepentingan pendidikan dan ruang bersama warga karena takut memediasi.",
+        "D": "Skor 3 — Tidak menyelesaikan kesetaraan hak kelola jangka panjang.",
+        "E": "Skor 4 — Mencegah dominasi salah satu golongan, namun membentuk pengurus gabungan lintas unsur warga jauh lebih memberdayakan kohesi sosial."
+      },
+      "quickTrick": "Musyawarah setara + tegaskan milik bersama inklusif + bentuk tata kelola gabungan.",
+      "commonMistakes": "Menyerahkan hanya ke mayoritas atau membatalkan fasilitas publik.",
+      "studyMaterialTip": "Dialog inklusif mengubah sumber konflik menjadi jembatan kolaborasi warga."
+    },
+    "references": [
+      {
+        "title": "Resolusi Konflik Sosial Kemasyarakatan",
+        "source": "Kemendagri",
+        "note": "Tata Kelola Ruang Publik Inklusif"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  },
+  {
+    "id": "TKP-P5-045",
+    "subject": "TKP",
+    "topic": "Anti Radikalisme",
+    "topicSlug": "anti-radikalisme",
+    "subtopic": "Sikap Kritis Terhadap Ajakan Boikot Institusi Negara & Penolakan Hukum",
+    "questionType": "SITUATIONAL_JUDGEMENT",
+    "difficulty": "MEDIUM",
+    "stem": "Anda menemui unggahan di komunitas daring daerah yang mengajak warga tidak membayar pajak serta menolak mengakui kewenangan pengadilan negeri dengan alasan hukum positif buatan manusia tidak perlu ditaati. Sebagai ASN yang melek literasi kebangsaan, langkah bijak Anda adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menyampaikan penjelasan edukatif yang santun bahwa ketaatan pada pajak dan hukum konstitusional adalah kesepakatan bersama bangsa demi membiayai fasilitas publik dan keadilan warga, serta melaporkan ajakan pembangkangan terstruktur bila mengarah pada pelanggaran hukum.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Skor 5: Mengcounter narasi anti-negara dengan argumen rasional manfaat publik yang sejuk sekaligus waspada terhadap provokasi terorganisir."
+      },
+      {
+        "key": "B",
+        "text": "Menutup mata dan tidak berkomentar karena menganggap urusan pajak adalah tanggung jawab Direktorat Jenderal Pajak saja.",
+        "score": 4,
+        "isCorrect": false,
+        "rationale": "Skor 4: Aman dari ikut menyebarkan, namun kurang peduli terhadap serangan ideologis terhadap legalitas negara."
+      },
+      {
+        "key": "C",
+        "text": "Membalas kolom komentar dengan ejekan bahwa siapa pun yang menolak hukum harus diusir dari Indonesia.",
+        "score": 3,
+        "isCorrect": false,
+        "rationale": "Skor 3: Emosional dan tidak mengedukasi warga awam yang membaca unggahan tersebut."
+      },
+      {
+        "key": "D",
+        "text": "Menyetujui sebagian pendapatnya karena memang masih ada kasus korupsi anggaran di berita.",
+        "score": 1,
+        "isCorrect": false,
+        "rationale": "Skor 1: Membenarkan penolakan eksistensi hukum negara alih-alih mendorong perbaikan dalam koridor hukum."
+      },
+      {
+        "key": "E",
+        "text": "Membagikan ulang unggahan tersebut ke forum rekan kantor tanpa komentar klarifikasi.",
+        "score": 2,
+        "isCorrect": false,
+        "rationale": "Skor 2: Menyebarkan mentah narasi pembangkangan hukum tanpa konteks klarifikasi."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Kritik terhadap oknum atau korupsi harus disalurkan untuk memperbaiki negara hukum, bukan menolak legalitas konstitusi, pajak, dan pengadilan negara.",
+      "stepByStep": [
+        "Bedakan kritik perbaikan tata kelola vs penolakan hukum negara.",
+        "Berikan edukasi santun soal fungsi pajak dan peradilan bagi rakyat.",
+        "Laporkan ajakan pembangkangan sistematis melalui kanal resmi."
+      ],
+      "correctReason": "Opsi A (skor 5): Mengcounter narasi anti-negara dengan argumen rasional manfaat publik yang sejuk sekaligus waspada terhadap provokasi terorganisir.",
+      "distractorAnalysis": {
+        "B": "Skor 4 — Aman dari ikut menyebarkan, namun kurang peduli terhadap serangan ideologis terhadap legalitas negara.",
+        "C": "Skor 3 — Emosional dan tidak mengedukasi warga awam yang membaca unggahan tersebut.",
+        "D": "Skor 1 — Membenarkan penolakan eksistensi hukum negara alih-alih mendorong perbaikan dalam koridor hukum.",
+        "E": "Skor 2 — Menyebarkan mentah narasi pembangkangan hukum tanpa konteks klarifikasi."
+      },
+      "quickTrick": "Edukasi sejuk manfaat konstitusi/pajak bagi publik + laporkan bila provokasi melanggar hukum.",
+      "commonMistakes": "Ikut membenarkan pembangkangan hukum dengan alasan kritik terhadap oknum.",
+      "studyMaterialTip": "Narasi moderat selalu menekankan fungsi keadilan bersama dalam bingkai NKRI."
+    },
+    "references": [
+      {
+        "title": "Kesadaran Bela Negara & Ketaatan Hukum",
+        "source": "Kemenhan & BPIP",
+        "note": "Counter-Narasi Anti-Konstitusi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; pembobotan 1–5 disusun untuk latihan kompetensi dan bukan kunci resmi BKN."
+  }
+]

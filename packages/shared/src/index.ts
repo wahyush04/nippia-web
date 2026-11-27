@@ -5,7 +5,7 @@ export type DifficultyLevel = 'EASY' | 'MEDIUM' | 'HARD';
 export type QuestionStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED';
 export type PracticeMode = 'PRACTICE' | 'EXAM';
 export type MasteryLevel = 'MASTERED' | 'GOOD' | 'DEVELOPING' | 'NEEDS_IMPROVEMENT' | 'INSUFFICIENT_DATA';
-export type UserRole = 'USER' | 'HOST_OPERATOR' | 'EVENT_ADMIN' | 'ADMIN';
+export type UserRole = 'USER' | 'CONTENT_PARTNER' | 'HOST_OPERATOR' | 'EVENT_ADMIN' | 'ADMIN';
 
 export type LiveEventStatus =
   | 'DRAFT'
@@ -140,39 +140,74 @@ export const onboardingSchema = z.object({
   skipped: z.boolean().optional(),
 });
 
-export const questionOptionInputSchema = z.object({
-  optionKey: z.enum(['A', 'B', 'C', 'D', 'E']),
-  text: z.string().min(1, 'Teks pilihan wajib diisi'),
-  scoreValue: z.number().int().min(0).max(5),
-  isCorrect: z.boolean().default(false),
-  optionFeedback: z.string().optional(),
-  visualSpec: z.any().optional(),
-});
+const SAFE_IMAGE_URL_REGEX =
+  /^(https?:\/\/[^\s]+|data:image\/(png|jpeg|jpg|webp|gif);base64,[A-Za-z0-9+/=]+)$/i;
 
-export const questionCreateSchema = z.object({
-  code: z.string().min(3).max(50).optional(),
-  subjectCode: z.enum(['TWK', 'TIU', 'TKP']),
-  topicSlug: z.string().min(2),
-  subtopicName: z.string().optional(),
-  questionType: z.string().default('MULTIPLE_CHOICE'),
-  difficulty: z.enum(['EASY', 'MEDIUM', 'HARD']),
-  stem: z.string().min(10, 'Pertanyaan minimal 10 karakter'),
-  visualSpec: z.any().optional(),
-  explanation: z.string().min(10, 'Pembahasan wajib diisi'),
-  conceptSummary: z.string().optional(),
-  stepByStep: z.array(z.string()).optional(),
-  whyOthersWrong: z.record(z.string()).optional(),
-  quickTrick: z.string().optional(),
-  commonMistakes: z.string().optional(),
-  references: z.array(z.object({
-    title: z.string(),
-    source: z.string(),
-    note: z.string().optional(),
-  })).optional(),
-  status: z.enum(['DRAFT', 'PUBLISHED', 'ARCHIVED']).default('PUBLISHED'),
-  isAiGenerated: z.boolean().default(false),
-  options: z.array(questionOptionInputSchema).length(5, 'Harus memiliki tepat 5 pilihan (A-E)'),
-});
+export const visualSpecSchema = z
+  .any()
+  .refine((val) => {
+    if (val === null || val === undefined) return true;
+    if (typeof val !== 'object') return false;
+    const obj = val as Record<string, unknown>;
+    if (obj.kind === 'image' || obj.type === 'image') {
+      return (
+        typeof obj.url === 'string' &&
+        obj.url.length <= 2_500_000 &&
+        SAFE_IMAGE_URL_REGEX.test(obj.url.trim())
+      );
+    }
+    return true;
+  }, 'Format atau ukuran URL gambar visual tidak valid.')
+  .nullable()
+  .optional();
+
+export const questionOptionInputSchema = z
+  .object({
+    optionKey: z.enum(['A', 'B', 'C', 'D', 'E']),
+    text: z.string().default(''),
+    scoreValue: z.number().int().min(0).max(5),
+    isCorrect: z.boolean().default(false),
+    optionFeedback: z.string().optional(),
+    visualSpec: visualSpecSchema,
+  })
+  .refine((o) => o.text.trim().length > 0 || Boolean(o.visualSpec), {
+    message: 'Teks pilihan atau gambar opsi wajib diisi',
+    path: ['text'],
+  });
+
+export const questionCreateSchema = z
+  .object({
+    code: z.string().min(3).max(50).optional(),
+    subjectCode: z.enum(['TWK', 'TIU', 'TKP']),
+    topicSlug: z.string().min(2),
+    subtopicName: z.string().optional(),
+    questionType: z.string().default('MULTIPLE_CHOICE'),
+    difficulty: z.enum(['EASY', 'MEDIUM', 'HARD']),
+    stem: z.string().min(3, 'Pertanyaan wajib diisi'),
+    visualSpec: visualSpecSchema,
+    explanation: z.string().min(10, 'Pembahasan wajib diisi'),
+    conceptSummary: z.string().optional(),
+    stepByStep: z.array(z.string()).optional(),
+    whyOthersWrong: z.record(z.string()).optional(),
+    quickTrick: z.string().optional(),
+    commonMistakes: z.string().optional(),
+    references: z
+      .array(
+        z.object({
+          title: z.string(),
+          source: z.string(),
+          note: z.string().optional(),
+        }),
+      )
+      .optional(),
+    status: z.enum(['DRAFT', 'PUBLISHED', 'ARCHIVED']).default('PUBLISHED'),
+    isAiGenerated: z.boolean().default(false),
+    options: z.array(questionOptionInputSchema).length(5, 'Harus memiliki tepat 5 pilihan (A-E)'),
+  })
+  .refine((q) => q.stem.trim().length >= 10 || Boolean(q.visualSpec), {
+    message: 'Pertanyaan minimal 10 karakter (kecuali disertai gambar)',
+    path: ['stem'],
+  });
 
 export interface QuestionBankJsonItem {
   id: string;
@@ -227,7 +262,7 @@ export const liveEventCreateSchema = z.object({
   maxParticipants: z.number().int().min(10).max(50000).default(1000),
   visibility: z.enum(['PUBLIC', 'UNLISTED', 'PRIVATE']).default('PUBLIC'),
   eventType: z.enum(['FREE', 'PREMIUM']).default('FREE'),
-  packageCode: z.enum(['ALL', 'PAKET_1', 'PAKET_2', 'PAKET_3']).default('ALL'),
+  packageCode: z.enum(['ALL', 'PAKET_1', 'PAKET_2', 'PAKET_3', 'PAKET_4', 'PAKET_5']).default('ALL'),
   twkCount: z.number().int().min(0).max(60).default(30),
   tiuCount: z.number().int().min(0).max(60).default(35),
   tkpCount: z.number().int().min(0).max(60).default(45),

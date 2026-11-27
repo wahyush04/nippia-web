@@ -1,0 +1,2187 @@
+[
+  {
+    "id": "TWK-P5-001",
+    "subject": "TWK",
+    "topic": "Nasionalisme",
+    "topicSlug": "nasionalisme",
+    "subtopic": "Peran Pers dalam Kebangkitan Nasional",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Surat kabar berbahasa Melayu seperti Medan Prijaji yang dirintis Tirto Adhi Soerjo memiliki arti penting bagi tumbuhnya nasionalisme Indonesia karena...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menjadi corong resmi kebijakan tanam paksa pemerintah Hindia Belanda",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Medan Prijaji justru kritis membela rakyat pribumi dari kesewenang-wenangan kolonial."
+      },
+      {
+        "key": "B",
+        "text": "Membentuk ruang publik pemikiran kritis pribumi dan menyebarkan kesadaran kesetaraan serta persatuan lintas daerah",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pers nasional awal menumbuhkan kesadaran kolektif bangsa terjajah."
+      },
+      {
+        "key": "C",
+        "text": "Mengharuskan seluruh pembacanya menulis menggunakan bahasa Belanda",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru menggunakan bahasa Melayu agar terjangkau luas oleh rakyat bumiputra."
+      },
+      {
+        "key": "D",
+        "text": "Melarang organisasi pergerakan mana pun memuat gagasan kemerdekaan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pers pergerakan justru menyuarakan aspirasi kemajuan rakyat."
+      },
+      {
+        "key": "E",
+        "text": "Hanya beredar di lingkungan bangsawan istana Eropa",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Dirancang untuk menyadarkan masyarakat luas di Nusantara."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pers nasional perintis (Tirto Adhi Soerjo) berperan besar membangun solidaritas dan kesadaran hak-hak rakyat Nusantara.",
+      "stepByStep": [
+        "Kenali tokoh Tirto Adhi Soerjo sebagai Bapak Pers Nasional.",
+        "Fungsi Medan Prijaji: advokasi rakyat dan kesadaran kebangsaan.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Mengaitkan peran literasi media pers dengan lahirnya kesadaran nasional.",
+      "distractorAnalysis": {
+        "A": "Medan Prijaji justru kritis membela rakyat pribumi dari kesewenang-wenangan kolonial.",
+        "C": "Justru menggunakan bahasa Melayu agar terjangkau luas oleh rakyat bumiputra.",
+        "D": "Pers pergerakan justru menyuarakan aspirasi kemajuan rakyat.",
+        "E": "Dirancang untuk menyadarkan masyarakat luas di Nusantara."
+      },
+      "quickTrick": "Medan Prijaji + Tirto Adhi Soerjo = Pers pergerakan pembela rakyat pribumi.",
+      "commonMistakes": "Mengira pers awal hanya memuat iklan komersial tanpa pesan kebangsaan.",
+      "studyMaterialTip": "Pahami Hari Pers Nasional dan peran media dalam mempercepat integrasi gagasan."
+    },
+    "references": [
+      {
+        "title": "Sejarah Pergerakan Nasional & Kebangsaan Indonesia",
+        "source": "Arsip Nasional RI / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-002",
+    "subject": "TWK",
+    "topic": "Nasionalisme",
+    "topicSlug": "nasionalisme",
+    "subtopic": "Keteladanan Tokoh Bangsa",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Keputusan Sri Sultan Hamengkubuwono IX menyatakan Kesultanan Yogyakarta bergabung dengan Republik Indonesia dan menyumbangkan dana besar untuk perjuangan awal kemerdekaan mencerminkan nilai...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Feodalisme daerah yang mengutamakan kekuasaan keraton di atas negara",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Beliau justru menundukkan kedaulatan lokal ke dalam pangkuan NKRI."
+      },
+      {
+        "key": "B",
+        "text": "Pengorbanan tulus dan pengutamaan persatuan nasional di atas kepentingan kekuasaan lokal",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pengabdian nyata demi tegaknya Republik Indonesia yang baru merdeka."
+      },
+      {
+        "key": "C",
+        "text": "Netralitas pasif menunggu hasil perang kemerdekaan berakhir",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Dukungan diberikan segera setelah Proklamasi 1945 (Amanat 5 September 1945)."
+      },
+      {
+        "key": "D",
+        "text": "Penolakan terhadap keberadaan pemerintahan pusat di Jakarta",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Yogyakarta bahkan menjadi ibu kota sementara RI saat Jakarta genting."
+      },
+      {
+        "key": "E",
+        "text": "Upaya memisahkan diri menjadi negara federal terpisah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan fakta historis integrasi Yogyakarta."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Amanat 5 September 1945 menunjukkan kerelaan tokoh daerah berkorban demi eksistensi negara kesatuan.",
+      "stepByStep": [
+        "Ingat peran Yogyakarta dalam mempertahankan kemerdekaan RI.",
+        "Nilai intinya: pengorbanan kekuasaan dan harta demi negara.",
+        "Opsi B benar."
+      ],
+      "correctReason": "Teladan nyata nasionalisme dalam bentuk kerelaan berkorban untuk negara.",
+      "distractorAnalysis": {
+        "A": "Beliau justru menundukkan kedaulatan lokal ke dalam pangkuan NKRI.",
+        "C": "Dukungan diberikan segera setelah Proklamasi 1945 (Amanat 5 September 1945).",
+        "D": "Yogyakarta bahkan menjadi ibu kota sementara RI saat Jakarta genting.",
+        "E": "Bertentangan dengan fakta historis integrasi Yogyakarta."
+      },
+      "quickTrick": "Sultan HB IX -> Integrasi cepat + dukungan finansial + ibu kota RI di Yogya.",
+      "commonMistakes": "Melewatkan konteks Amanat 5 September 1945.",
+      "studyMaterialTip": "Pelajari kontribusi daerah-daerah (Aceh, Yogyakarta, Sulawesi, Maluku) di awal kemerdekaan."
+    },
+    "references": [
+      {
+        "title": "Sejarah Pergerakan Nasional & Kebangsaan Indonesia",
+        "source": "Arsip Nasional RI / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-003",
+    "subject": "TWK",
+    "topic": "Nasionalisme",
+    "topicSlug": "nasionalisme",
+    "subtopic": "Netralitas ASN dalam Pemilu",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Kaitan erat antara kewajiban menjaga netralitas ASN dalam pemilihan umum dengan semangat nasionalisme kebangsaan adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "ASN dilarang menggunakan hak pilihnya di tempat pemungutan suara",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "ASN tetap memiliki hak pilih secara rahasia, hanya dilarang berpihak secara praktis/kampanye."
+      },
+      {
+        "key": "B",
+        "text": "Netralitas memastikan birokrasi melayani seluruh warga negara secara adil tanpa terpecah oleh loyalitas politik golongan",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: ASN adalah perekat bangsa yang menjaga keutuhan layanan publik lintas pemilih."
+      },
+      {
+        "key": "C",
+        "text": "ASN wajib mendukung calon petahana demi stabilitas pemerintahan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mendukung calon mana pun melanggar asas netralitas ASN."
+      },
+      {
+        "key": "D",
+        "text": "Layanan publik hanya diberikan kepada pendukung partai pemenang pemilu",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pelayanan publik bersifat imparsial untuk semua warga."
+      },
+      {
+        "key": "E",
+        "text": "Netralitas berarti ASN tidak perlu mengikuti perkembangan kebijakan negara",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "ASN wajib memahami kebijakan pemerintahan yang sah."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "ASN berfungsi sebagai pelaksana kebijakan publik, pelayan publik, sekaligus perekat dan pemersatu bangsa (UU 20/2023).",
+      "stepByStep": [
+        "Ingat 3 fungsi ASN menurut UU ASN.",
+        "Mengapa harus netral? Agar negara hadir untuk semua golongan, bukan kelompok politik.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Menjaga birokrasi tetap profesional, adil, dan mempersatukan warga.",
+      "distractorAnalysis": {
+        "A": "ASN tetap memiliki hak pilih secara rahasia, hanya dilarang berpihak secara praktis/kampanye.",
+        "C": "Mendukung calon mana pun melanggar asas netralitas ASN.",
+        "D": "Pelayanan publik bersifat imparsial untuk semua warga.",
+        "E": "ASN wajib memahami kebijakan pemerintahan yang sah."
+      },
+      "quickTrick": "ASN punya hak pilih di bilik suara, tapi wajib netral di ruang publik/kerja.",
+      "commonMistakes": "Mengira netralitas ASN berarti kehilangan hak pilih sebagai warga negara.",
+      "studyMaterialTip": "Pahami tiga fungsi utama pegawai ASN dalam UU No. 20 Tahun 2023."
+    },
+    "references": [
+      {
+        "title": "Sejarah Pergerakan Nasional & Kebangsaan Indonesia",
+        "source": "Arsip Nasional RI / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-004",
+    "subject": "TWK",
+    "topic": "Nasionalisme",
+    "topicSlug": "nasionalisme",
+    "subtopic": "Politik Luar Negeri Bebas Aktif",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Indonesia konsisten mengirimkan pasukan penjaga perdamaian PBB (Kontingen Garuda) dan menolak bergabung dalam pakta pertahanan militer blok mana pun. Sikap tersebut menunjukkan penerapan nasionalisme Indonesia di kancah global berdasarkan prinsip...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Isolasionisme penuh tanpa diplomasi multilateral",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pengiriman Kontingen Garuda membuktikan keterlibatan aktif di PBB."
+      },
+      {
+        "key": "B",
+        "text": "Politik luar negeri bebas aktif yang diabadikan dalam Pembukaan UUD 1945",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: bebas menentukan sikap tanpa memihak blok kekuatan dan aktif ikut melaksanakan ketertiban dunia."
+      },
+      {
+        "key": "C",
+        "text": "Ekspansionisme wilayah melalui pengerahan militer ke negara lain",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kontingen Garuda bertugas di bawah mandat perdamaian PBB."
+      },
+      {
+        "key": "D",
+        "text": "Ketergantungan pertahanan terhadap satu negara adidaya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan asas bebas menentukan sikap."
+      },
+      {
+        "key": "E",
+        "text": "Penolakan terhadap Piagam Perserikatan Bangsa-Bangsa",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Indonesia justru mendukung penuh misi perdamaian PBB."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pembukaan UUD 1945 alinea ke-4 menugaskan negara ikut melaksanakan ketertiban dunia berdasarkan kemerdekaan, perdamaian abadi, dan keadilan sosial.",
+      "stepByStep": [
+        "Hubungkan penolakan pakta militer (\"bebas\") dan misi perdamaian (\"aktif\").",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Mencerminkan pelaksanaan politik luar negeri bebas aktif sesuai Pembukaan UUD 1945.",
+      "distractorAnalysis": {
+        "A": "Pengiriman Kontingen Garuda membuktikan keterlibatan aktif di PBB.",
+        "C": "Kontingen Garuda bertugas di bawah mandat perdamaian PBB.",
+        "D": "Bertentangan dengan asas bebas menentukan sikap.",
+        "E": "Indonesia justru mendukung penuh misi perdamaian PBB."
+      },
+      "quickTrick": "Tolak blok militer = Bebas; Kirim misi damai PBB = Aktif.",
+      "commonMistakes": "Menganggap \"bebas\" berarti pasif tidak mau terlibat isu perdamaian dunia.",
+      "studyMaterialTip": "Kaitkan konsep bebas aktif Mohammad Hatta (\"Mendayung di Antara Dua Karang\")."
+    },
+    "references": [
+      {
+        "title": "Sejarah Pergerakan Nasional & Kebangsaan Indonesia",
+        "source": "Arsip Nasional RI / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-005",
+    "subject": "TWK",
+    "topic": "Integritas",
+    "topicSlug": "integritas",
+    "subtopic": "Pengendalian Gratifikasi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Seorang petugas perizinan menemukan parsel bernilai jutaan rupiah di meja kerjanya yang dikirim oleh perusahaan pemohon izin tanpa sepengetahuannya saat jam istirahat. Agar terhindar dari jerat hukum gratifikasi, tindakan yang tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Membawa pulang parsel tersebut karena diterima tanpa pernah diminta terlebih dahulu",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Gratifikasi terkait jabatan tetap wajib dilaporkan meski tanpa permintaan."
+      },
+      {
+        "key": "B",
+        "text": "Melaporkan penerimaan barang tersebut kepada Unit Pengendalian Gratifikasi (UPG) atau KPK dalam batas waktu sesuai ketentuan",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: sesuai UU Tipikor, pelaporan paling lambat 30 hari kerja menghapus sifat pidana gratifikasi."
+      },
+      {
+        "key": "C",
+        "text": "Membagikannya merata ke seluruh pegawai subbagian agar semua ikut menikmati",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Membagi gratifikasi tidak menggugurkan pelanggaran hukum."
+      },
+      {
+        "key": "D",
+        "text": "Membuang kartu pengirimnya supaya tidak dapat ditelusuri asal barang",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menghilangkan jejak administrasi justru mencurigakan."
+      },
+      {
+        "key": "E",
+        "text": "Menyimpan barang tersebut selama satu tahun sebelum memakainya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Penundaan tanpa laporan resmi melanggar ketentuan gratifikasi."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pegawai negeri/penyelenggara negara yang menerima gratifikasi tak dapat ditolak di awal wajib melaporkannya ke KPK/UPG maksimal 30 hari kerja.",
+      "stepByStep": [
+        "Identifikasi situasi: barang diterima tanpa sempat ditolak langsung.",
+        "Prosedur legal: lapor UPG instansi atau KPK <= 30 hari kerja.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Mematuhi mekanisme resmi pelaporan gratifikasi sesuai undang-undang.",
+      "distractorAnalysis": {
+        "A": "Gratifikasi terkait jabatan tetap wajib dilaporkan meski tanpa permintaan.",
+        "C": "Membagi gratifikasi tidak menggugurkan pelanggaran hukum.",
+        "D": "Menghilangkan jejak administrasi justru mencurigakan.",
+        "E": "Penundaan tanpa laporan resmi melanggar ketentuan gratifikasi."
+      },
+      "quickTrick": "Tak sempat tolak gratifikasi -> Lapor UPG/KPK maks 30 hari kerja.",
+      "commonMistakes": "Mengira hadiah yang tidak diminta dan dibagikan ke tim aman dari pelanggaran gratifikasi.",
+      "studyMaterialTip": "Ingat batas waktu pelaporan gratifikasi ke KPK adalah 30 hari kerja sejak diterima."
+    },
+    "references": [
+      {
+        "title": "UU No. 20 Tahun 2023 tentang ASN & Nilai Dasar BerAKHLAK",
+        "source": "Lembaran Negara RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-006",
+    "subject": "TWK",
+    "topic": "Integritas",
+    "topicSlug": "integritas",
+    "subtopic": "Konsistensi Perkataan dan Perbuatan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Dalam standar perilaku ASN BerAKHLAK, integritas paling utama tercermin dari keselarasan antara...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Popularitas pegawai di media sosial dan jumlah pengikut",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Integritas diukur dari kelurusan moral dan perilaku, bukan popularitas."
+      },
+      {
+        "key": "B",
+        "text": "Nilai moral yang diyakini, ucapan yang disampaikan, dan tindakan nyata sehari-hari",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: integritas berarti keutuhan antara pikiran, ucapan, dan perbuatan."
+      },
+      {
+        "key": "C",
+        "text": "Kedekatan personal dengan pimpinan tertinggi dan lamanya masa kerja",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Senioritas atau kedekatan bukan tolok ukur integritas."
+      },
+      {
+        "key": "D",
+        "text": "Kemampuan menghindari pekerjaan sulit agar tidak pernah melakukan kesalahan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Integritas mencakup tanggung jawab menyelesaikan amanah."
+      },
+      {
+        "key": "E",
+        "text": "Kesediaan menyesuaikan aturan hukum dengan keinginan pihak pemberi sponsor",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru mencederai integritas."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Integritas berasal dari kata integer (utuh): tidak bermuka dua, konsisten jujur baik saat diawasi maupun saat sendiri.",
+      "stepByStep": [
+        "Recall definisi dasar integritas.",
+        "Pikiran = Ucapan = Perbuatan.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Merangkum esensi integritas moral dan perilaku aparatur.",
+      "distractorAnalysis": {
+        "A": "Integritas diukur dari kelurusan moral dan perilaku, bukan popularitas.",
+        "C": "Senioritas atau kedekatan bukan tolok ukur integritas.",
+        "D": "Integritas mencakup tanggung jawab menyelesaikan amanah.",
+        "E": "Justru mencederai integritas."
+      },
+      "quickTrick": "Integritas = Utuh (Pikiran + Ucapan + Perbuatan konsisten pada kebenaran).",
+      "commonMistakes": "Menyamakan integritas semata dengan kepatuhan saat ada atasan saja.",
+      "studyMaterialTip": "Kaitkan nilai Jujur dan Akuntabel dalam core values ASN BerAKHLAK."
+    },
+    "references": [
+      {
+        "title": "UU No. 20 Tahun 2023 tentang ASN & Nilai Dasar BerAKHLAK",
+        "source": "Lembaran Negara RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-007",
+    "subject": "TWK",
+    "topic": "Integritas",
+    "topicSlug": "integritas",
+    "subtopic": "Integritas Pengelolaan Data",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Menjelang audit tahunan, seorang koordinator program meminta stafnya mengubah tanggal penandatanganan berita acara serah terima barang menjadi mundur dua bulan agar terlihat selesai sebelum tahun anggaran berakhir. Sikap staf yang menjunjung tinggi integritas adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengikuti perintah karena takut dinilai tidak loyal kepada atasan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Loyalitas kepada pimpinan tidak boleh melanggar hukum dan kebenaran dokumen."
+      },
+      {
+        "key": "B",
+        "text": "Menolak melakukan rekayasa tanggal dokumen dengan sopan, menjelaskan risiko hukum pemalsuan administrasi, dan menyajikan data sesuai fakta",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: menjaga keautentikan dokumen publik dan menolak perintah yang melanggar hukum."
+      },
+      {
+        "key": "C",
+        "text": "Mengubah tanggal sebagian dokumen saja sebagai jalan tengah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pemalsuan sebagian tetap pelanggaran integritas dan hukum."
+      },
+      {
+        "key": "D",
+        "text": "Meminta rekan magang yang mengetik ulang berita acara tersebut",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Melimpahkan pelanggaran kepada pihak lain tidak etis."
+      },
+      {
+        "key": "E",
+        "text": "Mengubah tanggal asal diberi catatan kecil bahwa hal itu perintah atasan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Perintah atasan yang melanggar aturan tidak membenarkan pemalsuan akta/berita acara."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "ASN wajib menaati perintah kedinasan yang sah; perintah yang memaksa pemalsuan dokumen (backdate fiktif) wajib ditolak secara profesional.",
+      "stepByStep": [
+        "Kenali bentuk pelanggaran: backdating berita acara resmi.",
+        "Tolak santun, jelaskan konsekuensi hukum, pertahankan fakta sebenarnya.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Menjunjung tinggi kebenaran faktual dan integritas administrasi negara.",
+      "distractorAnalysis": {
+        "A": "Loyalitas kepada pimpinan tidak boleh melanggar hukum dan kebenaran dokumen.",
+        "C": "Pemalsuan sebagian tetap pelanggaran integritas dan hukum.",
+        "D": "Melimpahkan pelanggaran kepada pihak lain tidak etis.",
+        "E": "Perintah atasan yang melanggar aturan tidak membenarkan pemalsuan akta/berita acara."
+      },
+      "quickTrick": "Perintah atasan memalsukan data/tanggal -> Tolak santun & pertahankan data riil.",
+      "commonMistakes": "Beranggapan semua perintah atasan harus dituruti meskipun menyalahi fakta.",
+      "studyMaterialTip": "Pelajari batasan kepatuhan terhadap perintah kedinasan dalam PP Disiplin PNS."
+    },
+    "references": [
+      {
+        "title": "UU No. 20 Tahun 2023 tentang ASN & Nilai Dasar BerAKHLAK",
+        "source": "Lembaran Negara RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-008",
+    "subject": "TWK",
+    "topic": "Integritas",
+    "topicSlug": "integritas",
+    "subtopic": "Anti-Nepotisme Rekrutmen",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Sebagai tim verifikasi administrasi seleksi pegawai kontrak daerah, Anda mendapati keponakan Anda mendaftar namun tidak melampirkan salah satu syarat wajib surat pengalaman kerja. Sikap berintegritas yang harus diambil adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Meluluskannya sementara dengan janji syarat menyusul setelah wawancara",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Melanggar prinsip keadilan terhadap pelamar lain yang gugur karena kurang syarat."
+      },
+      {
+        "key": "B",
+        "text": "Melaporkan hubungan keluarga agar tidak terjadi konflik kepentingan sekaligus memverifikasi secara objektif sesuai standar gugur syarat bagi semua pelamar",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: menggabungkan transparansi benturan kepentingan dan kepastian aturan yang adil."
+      },
+      {
+        "key": "C",
+        "text": "Menghubungi keponakan secara pribadi agar mengunggah berkas di luar batas waktu sistem",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Perlakuan istimewa melanggar integritas seleksi."
+      },
+      {
+        "key": "D",
+        "text": "Meminta anggota tim lain meluluskannya supaya Anda tidak disalahkan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Intervensi tidak sehat yang merusak objektivitas."
+      },
+      {
+        "key": "E",
+        "text": "Mengubah daftar persyaratan seleksi agar pengalaman kerja menjadi opsional",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak berwenang dan memihak."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Tata kelola seleksi publik menuntut standar penilaian seragam tanpa privilese kekerabatan (anti-nepotisme).",
+      "stepByStep": [
+        "Temukan dua isu: potensi nepotisme dan syarat tidak lengkap.",
+        "Deklarasi + tegakkan aturan setara untuk semua peserta.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Memadukan pencegahan konflik kepentingan dengan keadilan aturan.",
+      "distractorAnalysis": {
+        "A": "Melanggar prinsip keadilan terhadap pelamar lain yang gugur karena kurang syarat.",
+        "C": "Perlakuan istimewa melanggar integritas seleksi.",
+        "D": "Intervensi tidak sehat yang merusak objektivitas.",
+        "E": "Tidak berwenang dan memihak."
+      },
+      "quickTrick": "Kerabat kurang syarat = Deklarasi + Terapkan aturan sama rata (Anti-Nepotisme).",
+      "commonMistakes": "Menganggap memberi kesempatan susulan hanya kepada keluarga tidak merugikan siapa pun.",
+      "studyMaterialTip": "Ingat larangan KKN (Korupsi, Kolusi, Nepotisme) dalam UU No. 28 Tahun 1999."
+    },
+    "references": [
+      {
+        "title": "UU No. 20 Tahun 2023 tentang ASN & Nilai Dasar BerAKHLAK",
+        "source": "Lembaran Negara RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-009",
+    "subject": "TWK",
+    "topic": "Bela Negara",
+    "topicSlug": "bela-negara",
+    "subtopic": "Lima Nilai Dasar Bela Negara",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Salah satu dari lima nilai dasar Bela Negara yang menekankan kesiapan menjaga kelestarian lingkungan hidup, mencintai produk dalam negeri, dan menjaga nama baik bangsa disebut nilai...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Cinta tanah air",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: mengenal, mencintai, menjaga wilayah, lingkungan, dan kebudayaan bangsa termasuk wujud cinta tanah air."
+      },
+      {
+        "key": "B",
+        "text": "Kemampuan awal bela negara secara fisik militer saja",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kemampuan awal bela negara mencakup psikis, fisik, dan kecakapan menjaga kebugaran serta kesiapsiagaan."
+      },
+      {
+        "key": "C",
+        "text": "Eksklusivitas kelompok daerah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bukan bagian dari nilai dasar Bela Negara."
+      },
+      {
+        "key": "D",
+        "text": "Ketaatan buta tanpa nalar kritis",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai dasar keempat adalah Setia pada Pancasila sebagai ideologi negara."
+      },
+      {
+        "key": "E",
+        "text": "Dominasi budaya tunggal nasional",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan kebhinnekaan Indonesia."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Lima nilai dasar Bela Negara: (1) Cinta Tanah Air, (2) Sadar Berbangsa & Bernegara, (3) Setia pada Pancasila, (4) Rela Berkorban, (5) Kemampuan Awal Bela Negara.",
+      "stepByStep": [
+        "Cocokkan indikator menjaga lingkungan, wilayah, serta produk dalam negeri.",
+        "Masuk ke nilai pertama: Cinta Tanah Air.",
+        "Opsi A benar."
+      ],
+      "correctReason": "Sesuai indikator resmi nilai dasar pertama Bela Negara.",
+      "distractorAnalysis": {
+        "B": "Kemampuan awal bela negara mencakup psikis, fisik, dan kecakapan menjaga kebugaran serta kesiapsiagaan.",
+        "C": "Bukan bagian dari nilai dasar Bela Negara.",
+        "D": "Nilai dasar keempat adalah Setia pada Pancasila sebagai ideologi negara.",
+        "E": "Bertentangan dengan kebhinnekaan Indonesia."
+      },
+      "quickTrick": "5 Nilai Bela Negara: Cinta Tanah Air, Sadar Berbangsa, Setia Pancasila, Rela Berkorban, Kemampuan Awal.",
+      "commonMistakes": "Tertukar antara indikator Cinta Tanah Air dan Sadar Berbangsa & Bernegara.",
+      "studyMaterialTip": "Pahami contoh implementasi masing-masing dari 5 nilai dasar Bela Negara."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2019 tentang PSDN untuk Pertahanan Negara",
+        "source": "Kemhan RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-010",
+    "subject": "TWK",
+    "topic": "Bela Negara",
+    "topicSlug": "bela-negara",
+    "subtopic": "Sishankamrata (Pasal 30 UUD 1945)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Sistem pertahanan dan keamanan negara Indonesia menurut Pasal 30 ayat (2) UUD NRI Tahun 1945 menganut prinsip Sishankamrata, yang berarti...",
+    "options": [
+      {
+        "key": "A",
+        "text": "TNI dan Polri menjadi kekuatan utama, sedangkan rakyat menjadi kekuatan pendukung",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pertahanan dan keamanan rakyat semesta memposisikan TNI & Polri sebagai kekuatan utama dan rakyat sebagai kekuatan pendukung."
+      },
+      {
+        "key": "B",
+        "text": "Seluruh rakyat dipersenjatai penuh tanpa melibatkan struktur TNI dan Polri",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menyalahi peran profesional TNI dan Polri sebagai kekuatan utama."
+      },
+      {
+        "key": "C",
+        "text": "Tanggung jawab keamanan sepenuhnya diserahkan kepada perusahaan swasta asing",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan kedaulatan pertahanan nasional."
+      },
+      {
+        "key": "D",
+        "text": "Polri bertugas menjaga perbatasan militer perang dan TNI mengurus lalu lintas kota",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tugas pokok TNI adalah pertahanan negara dan Polri memelihara kamtibmas serta penegakan hukum."
+      },
+      {
+        "key": "E",
+        "text": "Rakyat hanya berperan sebagai penonton apabila terjadi ancaman kedaulatan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Rakyat merupakan kekuatan pendukung aktif dalam Sishankamrata."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Pasal 30 ayat (2): Sishankamrata melibatkan TNI dan Polri sebagai kekuatan utama, serta rakyat sebagai kekuatan pendukung.",
+      "stepByStep": [
+        "Recall bunyi Pasal 30 ayat (2) UUD 1945.",
+        "Kekuatan utama = TNI dan Polri; Kekuatan pendukung = Rakyat.",
+        "Opsi A tepat."
+      ],
+      "correctReason": "Menjabarkan struktur Sishankamrata sesuai Pasal 30 ayat (2) UUD 1945.",
+      "distractorAnalysis": {
+        "B": "Menyalahi peran profesional TNI dan Polri sebagai kekuatan utama.",
+        "C": "Bertentangan dengan kedaulatan pertahanan nasional.",
+        "D": "Tugas pokok TNI adalah pertahanan negara dan Polri memelihara kamtibmas serta penegakan hukum.",
+        "E": "Rakyat merupakan kekuatan pendukung aktif dalam Sishankamrata."
+      },
+      "quickTrick": "Sishankamrata: Utama = TNI + Polri; Pendukung = Rakyat.",
+      "commonMistakes": "Mengira kekuatan utama hanya TNI atau kekuatan pendukung adalah Komponen Cadangan saja.",
+      "studyMaterialTip": "Bandingkan ayat (2), (3), dan (4) pada Pasal 30 UUD 1945."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2019 tentang PSDN untuk Pertahanan Negara",
+        "source": "Kemhan RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-011",
+    "subject": "TWK",
+    "topic": "Bela Negara",
+    "topicSlug": "bela-negara",
+    "subtopic": "Kesiapsiagaan Bencana Nasional",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Ketika terjadi bencana banjir bandang di wilayah kerja, seorang pegawai dinas sosial sigap mengoordinasikan posko logistik dan memastikan bantuan kelompok rentan tersalurkan tepat waktu meski di hari libur. Tindakan tersebut menunjukkan...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pelanggaran jam kerja karena bekerja di hari libur tanpa izin tertulis",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kedaruratan bencana membutuhkan respons cepat kemanusiaan sesuai koordinasi."
+      },
+      {
+        "key": "B",
+        "text": "Kerelaan berkorban untuk bangsa dan negara melalui kesiapsiagaan penanggulangan bencana",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: mengutamakan keselamatan sesama warga dan kesiapsiagaan krisis adalah wujud bela negara."
+      },
+      {
+        "key": "C",
+        "text": "Pengambilalihan tugas TNI dalam bidang persenjataan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Logistik bencana merupakan ranah kemanusiaan dan penanggulangan bencana."
+      },
+      {
+        "key": "D",
+        "text": "Upaya mencari pengakuan publik melalui aksi darurat",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Fokus utama adalah menyelamatkan dan membantu warga terdampak."
+      },
+      {
+        "key": "E",
+        "text": "Penolakan terhadap fungsi BNPB dan BPBD setempat",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru mendukung kerja terpadu penanggulangan bencana."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Penanggulangan bencana alam termasuk bagian dari kesiapsiagaan menghadapi ancaman nonmiliter serta wujud nilai Rela Berkorban untuk Bangsa.",
+      "stepByStep": [
+        "Analisis konteks: kerja sukarela saat krisis demi warga terdampak.",
+        "Kaitkan dengan nilai ke-4 Bela Negara (Rela Berkorban).",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Mengorbankan waktu pribadi demi keselamatan masyarakat dan tugas kemanusiaan.",
+      "distractorAnalysis": {
+        "A": "Kedaruratan bencana membutuhkan respons cepat kemanusiaan sesuai koordinasi.",
+        "C": "Logistik bencana merupakan ranah kemanusiaan dan penanggulangan bencana.",
+        "D": "Fokus utama adalah menyelamatkan dan membantu warga terdampak.",
+        "E": "Justru mendukung kerja terpadu penanggulangan bencana."
+      },
+      "quickTrick": "Sigap tanggap bencana / korban waktu pribadi untuk masyarakat = Rela Berkorban.",
+      "commonMistakes": "Menganggap bencana alam tidak berkaitan dengan konteks Bela Negara.",
+      "studyMaterialTip": "Pahami bahwa ancaman nirmiliter dalam UU PSDN mencakup bencana alam dan wabah."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2019 tentang PSDN untuk Pertahanan Negara",
+        "source": "Kemhan RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-012",
+    "subject": "TWK",
+    "topic": "Bela Negara",
+    "topicSlug": "bela-negara",
+    "subtopic": "Bahaya Narkotika bagi Ketahanan Nasional",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Keterlibatan aktif komunitas pemuda dalam kampanye antinarkotika dan penyuluhan kesehatan mental remaja dipandang sebagai langkah bela negara karena...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Narkotika dapat melemahkan kualitas sumber daya manusia generasi penerus bangsa secara masif",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: penyalahgunaan narkotika menjadi ancaman nirmiliter serius bagi ketahanan sosial dan SDM nasional."
+      },
+      {
+        "key": "B",
+        "text": "Kampanye tersebut bertujuan menggantikan peran seluruh sekolah formal",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Sifatnya melengkapi edukasi sekolah dan keluarga."
+      },
+      {
+        "key": "C",
+        "text": "Narkotika hanya merugikan perdagangan barang mewah luar negeri",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Dampak utamanya adalah kerusakan kesehatan, sosial, dan keamanan nasional."
+      },
+      {
+        "key": "D",
+        "text": "Kegiatan tersebut menjamin pemuda langsung diangkat menjadi pejabat negara",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Motivasi bela negara bersifat pengabdian sukarela."
+      },
+      {
+        "key": "E",
+        "text": "Menghilangkan kebutuhan aparat penegak hukum memberantas bandar",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Edukasi pencegahan bersinergi dengan penegakan hukum."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Ketahanan nasional sangat bergantung pada kualitas generasi mudanya; narkotika melemahkan daya saing dan ketahanan sosial bangsa.",
+      "stepByStep": [
+        "Hubungkan pencegahan narkotika dengan kualitas SDM (aspek demografi/sosial ketahanan nasional).",
+        "Opsi A tepat."
+      ],
+      "correctReason": "Melindungi generasi muda dari kehancuran fisik, mental, dan sosial akibat narkotika.",
+      "distractorAnalysis": {
+        "B": "Sifatnya melengkapi edukasi sekolah dan keluarga.",
+        "C": "Dampak utamanya adalah kerusakan kesehatan, sosial, dan keamanan nasional.",
+        "D": "Motivasi bela negara bersifat pengabdian sukarela.",
+        "E": "Edukasi pencegahan bersinergi dengan penegakan hukum."
+      },
+      "quickTrick": "Anti-narkoba = lindungi SDM generasi penerus = Bela Negara.",
+      "commonMistakes": "Menganggap kampanye anti-narkoba sekadar isu kesehatan pribadi, bukan ketahanan nasional.",
+      "studyMaterialTip": "Pahami konsep proxy war dan pelemahan generasi bangsa melalui penyalahgunaan narkotika."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2019 tentang PSDN untuk Pertahanan Negara",
+        "source": "Kemhan RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-013",
+    "subject": "TWK",
+    "topic": "UUD 1945",
+    "topicSlug": "uud-1945",
+    "subtopic": "Hak Asasi Manusia dalam UUD 1945",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Dalam Pasal 28I ayat (1) UUD NRI Tahun 1945 ditegaskan kelompok hak asasi manusia yang tidak dapat dikurangi dalam keadaan apa pun (non-derogable rights), meliputi antara lain...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Hak untuk bebas dari pajak penghasilan dan pajak bumi bangunan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pajak justru kewajiban warga negara menurut Pasal 23A."
+      },
+      {
+        "key": "B",
+        "text": "Hak untuk hidup, hak untuk tidak disiksa, hak kemerdekaan pikiran dan hati nurani, hak beragama, serta hak untuk tidak diperbudak",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: sesuai rumusan lengkap non-derogable rights pada Pasal 28I ayat (1)."
+      },
+      {
+        "key": "C",
+        "text": "Hak memilih tempat parkir gratis di fasilitas milik negara",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bukan bagian dari hak asasi fundamental konstitusi."
+      },
+      {
+        "key": "D",
+        "text": "Hak menjadi kepala daerah tanpa mengikuti pemilihan demokratis",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jabatan politik harus melalui mekanisme demokratis."
+      },
+      {
+        "key": "E",
+        "text": "Hak menguasai sumber daya alam tambang secara sepihak tanpa izin negara",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kekayaan alam dikuasai negara untuk kemakmuran rakyat (Pasal 33)."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pasal 28I ayat (1) mencantumkan hak-hak dasar absolut (non-derogable rights) yang tidak boleh dikurangi dalam keadaan apa pun.",
+      "stepByStep": [
+        "Ingat isi Pasal 28I ayat (1): hidup, tidak disiksa, merdeka pikiran/hati nurani, beragama, tidak diperbudak, diakui pribadi di hadapan hukum, tidak dituntut atas hukum surut.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Sesuai bunyi Pasal 28I ayat (1) UUD NRI Tahun 1945.",
+      "distractorAnalysis": {
+        "A": "Pajak justru kewajiban warga negara menurut Pasal 23A.",
+        "C": "Bukan bagian dari hak asasi fundamental konstitusi.",
+        "D": "Jabatan politik harus melalui mekanisme demokratis.",
+        "E": "Kekayaan alam dikuasai negara untuk kemakmuran rakyat (Pasal 33)."
+      },
+      "quickTrick": "28I(1) = Hak tak dapat dikurangi dalam keadaan apa pun (hidup, anti-siksa, beragama, anti-perbudakan, non-retroaktif).",
+      "commonMistakes": "Mencampuradukkan hak absolut (28I ayat 1) dengan pembatasan hak demi ketertiban umum (Pasal 28J ayat 2).",
+      "studyMaterialTip": "Kuasai perbedaan Pasal 28A sampai Pasal 28J UUD 1945."
+    },
+    "references": [
+      {
+        "title": "UUD NRI Tahun 1945 Pasca-Amandemen I–IV",
+        "source": "MPR RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-014",
+    "subject": "TWK",
+    "topic": "UUD 1945",
+    "topicSlug": "uud-1945",
+    "subtopic": "Mekanisme Pembuatan Undang-Undang",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Sesuai Pasal 20 ayat (4) dan (5) UUD NRI Tahun 1945, apabila sebuah Rancangan Undang-Undang (RUU) telah disetujui bersama oleh DPR dan Presiden namun Presiden tidak mengesahkannya dalam waktu 30 hari, akibat hukumnya adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "RUU tersebut otomatis batal dan tidak boleh diajukan kembali pada masa sidang berikutnya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Aturan batal berlaku jika belum mendapat persetujuan bersama; setelah disetujui bersama justru sah menjadi UU."
+      },
+      {
+        "key": "B",
+        "text": "RUU tersebut sah menjadi Undang-Undang dan wajib diundangkan",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: Pasal 20 ayat (5) menegaskan dalam 30 hari tidak disahkan, RUU sah menjadi UU dan wajib diundangkan."
+      },
+      {
+        "key": "C",
+        "text": "Mahkamah Agung harus mengambil alih fungsi legislasi untuk membatalkan RUU",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "MA tidak memiliki kewenangan membatalkan RUU sebelum diundangkan."
+      },
+      {
+        "key": "D",
+        "text": "DPR harus membubarkan kabinet dan memilih presiden baru",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Dalam sistem presidensial Indonesia, Presiden dan DPR tidak saling membubarkan."
+      },
+      {
+        "key": "E",
+        "text": "MPR melakukan referendum nasional untuk menentukan nasib RUU",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak diatur mekanisme referendum RUU dalam UUD 1945."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Pasal 20 ayat (5) mencegah kebuntuan legislasi dengan menetapkan RUU yang telah disetujui bersama otomatis sah menjadi UU setelah 30 hari.",
+      "stepByStep": [
+        "Recall Pasal 20 ayat (5) UUD 1945.",
+        "Kata kunci: disetujui bersama -> lewat 30 hari -> sah menjadi UU dan wajib diundangkan.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Sesuai bunyi eksplisit Pasal 20 ayat (5) UUD NRI Tahun 1945.",
+      "distractorAnalysis": {
+        "A": "Aturan batal berlaku jika belum mendapat persetujuan bersama; setelah disetujui bersama justru sah menjadi UU.",
+        "C": "MA tidak memiliki kewenangan membatalkan RUU sebelum diundangkan.",
+        "D": "Dalam sistem presidensial Indonesia, Presiden dan DPR tidak saling membubarkan.",
+        "E": "Tidak diatur mekanisme referendum RUU dalam UUD 1945."
+      },
+      "quickTrick": "Sudah disetujui bersama DPR+Presiden -> 30 hari tak diteken = Sah jadi UU!",
+      "commonMistakes": "Mengira RUU langsung batal jika tidak ditandatangani Presiden.",
+      "studyMaterialTip": "Bedakan kasus RUU belum disetujui bersama (tidak boleh diajukan lagi pada masa sidang itu, Pasal 20 ayat 3) vs sudah disetujui bersama (ayat 5)."
+    },
+    "references": [
+      {
+        "title": "UUD NRI Tahun 1945 Pasca-Amandemen I–IV",
+        "source": "MPR RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-015",
+    "subject": "TWK",
+    "topic": "UUD 1945",
+    "topicSlug": "uud-1945",
+    "subtopic": "Perekonomian Nasional (Pasal 33)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Berdasarkan Pasal 33 ayat (4) UUD NRI Tahun 1945, perekonomian nasional diselenggarakan berdasarkan atas demokrasi ekonomi dengan beberapa prinsip utama, kecuali...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Kebersamaan dan efisiensi berkeadilan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Termasuk dalam bunyi Pasal 33 ayat (4)."
+      },
+      {
+        "key": "B",
+        "text": "Berkelanjutan dan berwawasan lingkungan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Termasuk dalam bunyi Pasal 33 ayat (4)."
+      },
+      {
+        "key": "C",
+        "text": "Kemandirian serta menjaga keseimbangan kemajuan dan kesatuan ekonomi nasional",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Termasuk dalam bunyi Pasal 33 ayat (4)."
+      },
+      {
+        "key": "D",
+        "text": "Persaingan bebas tanpa batas yang mengutamakan monopoli swasta mutlak",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat (kecuali): Pasal 33 menolak monopoli merugikan rakyat dan liberalisme bebas tanpa kendali."
+      },
+      {
+        "key": "E",
+        "text": "Demokrasi ekonomi untuk kemakmuran bersama",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Sejalan dengan jiwa Pasal 33 ayat (1)–(4)."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Pasal 33 ayat (4): demokrasi ekonomi berprinsip kebersamaan, efisiensi berkeadilan, berkelanjutan, berwawasan lingkungan, kemandirian, dan keseimbangan kesatuan ekonomi nasional.",
+      "stepByStep": [
+        "Perhatikan kata kunci \"kecuali\".",
+        "A, B, C, E sesuai Pasal 33 ayat (4); D bertentangan (monopoli tanpa batas).",
+        "Opsi D tepat."
+      ],
+      "correctReason": "Sistem ekonomi Pancasila menolak persaingan bebas eksploitatif dan monopoli.",
+      "distractorAnalysis": {
+        "A": "Termasuk dalam bunyi Pasal 33 ayat (4).",
+        "B": "Termasuk dalam bunyi Pasal 33 ayat (4).",
+        "C": "Termasuk dalam bunyi Pasal 33 ayat (4).",
+        "E": "Sejalan dengan jiwa Pasal 33 ayat (1)–(4)."
+      },
+      "quickTrick": "Pasal 33(4) = Bersama, Efisien Berkeadilan, Berkelanjutan, Lingkungan, Mandiri, Seimbang.",
+      "commonMistakes": "Lupa bahwa \"kecuali\" mencari pernyataan yang bertentangan dengan konstitusi.",
+      "studyMaterialTip": "Hafalkan butir-butir Pasal 33 ayat (1) hingga ayat (5)."
+    },
+    "references": [
+      {
+        "title": "UUD NRI Tahun 1945 Pasca-Amandemen I–IV",
+        "source": "MPR RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-016",
+    "subject": "TWK",
+    "topic": "UUD 1945",
+    "topicSlug": "uud-1945",
+    "subtopic": "Wewenang Dewan Perwakilan Daerah",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Sesuai Pasal 22D UUD NRI Tahun 1945, ruang lingkup Rancangan Undang-Undang yang dapat diajukan serta ikut dibahas oleh Dewan Perwakilan Daerah (DPD) berfokus pada isu...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pembentukan undang-undang pidana militer dan perjanjian perang internasional",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak termasuk cakupan Pasal 22D."
+      },
+      {
+        "key": "B",
+        "text": "Otonomi daerah, hubungan pusat dan daerah, pembentukan/pemekaran/penggabungan daerah, pengelolaan SDA & sumber ekonomi lainnya, serta perimbangan keuangan pusat-daerah",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: sesuai rumusan lengkap Pasal 22D ayat (1) dan (2) UUD 1945."
+      },
+      {
+        "key": "C",
+        "text": "Pengangkatan duta besar dan pemberian grasi presiden",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Merupakan ranah Presiden bersama DPR/MA."
+      },
+      {
+        "key": "D",
+        "text": "Penetapan seluruh putusan kasasi perkara perdata niaga",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kewenangan lembaga peradilan di bawah Mahkamah Agung."
+      },
+      {
+        "key": "E",
+        "text": "Pengesahan perubahan Pembukaan UUD 1945 secara sepihak",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "DPD tidak dapat mengubah Pembukaan UUD 1945."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "DPD mewakili kepentingan daerah pada isu otonomi, relasi pusat-daerah, pemekaran wilayah, pengelolaan SDA, dan perimbangan keuangan.",
+      "stepByStep": [
+        "Ingat fokus kewenangan DPD di Pasal 22D.",
+        "Seluruh tema seputar daerah, SDA, dan perimbangan keuangan.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Sesuai bunyi Pasal 22D UUD NRI Tahun 1945.",
+      "distractorAnalysis": {
+        "A": "Tidak termasuk cakupan Pasal 22D.",
+        "C": "Merupakan ranah Presiden bersama DPR/MA.",
+        "D": "Kewenangan lembaga peradilan di bawah Mahkamah Agung.",
+        "E": "DPD tidak dapat mengubah Pembukaan UUD 1945."
+      },
+      "quickTrick": "DPD = Otda + Hubungan Pusat-Daerah + Pemekaran + SDA + Perimbangan Keuangan.",
+      "commonMistakes": "Mengira DPD memiliki hak pengesahan bersama atas semua jenis RUU seperti DPR.",
+      "studyMaterialTip": "Pahami bahwa DPD ikut membahas dan memberi pertimbangan, sedangkan persetujuan pengesahan tetap di DPR + Presiden."
+    },
+    "references": [
+      {
+        "title": "UUD NRI Tahun 1945 Pasca-Amandemen I–IV",
+        "source": "MPR RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-017",
+    "subject": "TWK",
+    "topic": "NKRI",
+    "topicSlug": "nkri",
+    "subtopic": "Kekhususan Pemerintahan Daerah (Pasal 18B)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Pengakuan dan penghormatan negara terhadap Daerah Istimewa Yogyakarta, Aceh, DKI Jakarta, dan Provinsi di Papua dalam sistem pemerintahan NKRI memiliki landasan konstitusional pada...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pasal 18B ayat (1) UUD NRI Tahun 1945",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: Pasal 18B ayat (1) menyatakan negara mengakui dan menghormati satuan pemerintahan daerah yang bersifat khusus atau istimewa yang diatur dengan undang-undang."
+      },
+      {
+        "key": "B",
+        "text": "Pasal 18A ayat (2) tentang pemisahan negara bagian federal",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pasal 18A ayat (2) mengatur hubungan keuangan, pelayanan umum, dan pemanfaatan SDA, bukan negara federal."
+      },
+      {
+        "key": "C",
+        "text": "Pasal 29 ayat (1) tentang kebebasan beragama",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak mengatur kekhususan daerah."
+      },
+      {
+        "key": "D",
+        "text": "Pasal 1 ayat (2) tentang kedaulatan rakyat",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengatur prinsip umum kedaulatan rakyat."
+      },
+      {
+        "key": "E",
+        "text": "Pasal 36B tentang lagu kebangsaan Indonesia Raya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengatur lagu kebangsaan."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Meskipun berbentuk negara kesatuan, NKRI menerapkan otonomi asimetris dengan menghormati kekhususan/keistimewaan sejarah dan budaya daerah (Pasal 18B ayat 1).",
+      "stepByStep": [
+        "Recall Pasal 18, 18A, dan 18B UUD 1945.",
+        "18B(1) = daerah khusus/istimewa; 18B(2) = kesatuan masyarakat hukum adat.",
+        "Opsi A tepat."
+      ],
+      "correctReason": "Sesuai Pasal 18B ayat (1) UUD NRI Tahun 1945.",
+      "distractorAnalysis": {
+        "B": "Pasal 18A ayat (2) mengatur hubungan keuangan, pelayanan umum, dan pemanfaatan SDA, bukan negara federal.",
+        "C": "Tidak mengatur kekhususan daerah.",
+        "D": "Mengatur prinsip umum kedaulatan rakyat.",
+        "E": "Mengatur lagu kebangsaan."
+      },
+      "quickTrick": "18B(1) = Daerah Khusus/Istimewa; 18B(2) = Masyarakat Hukum Adat.",
+      "commonMistakes": "Menganggap adanya daerah otonomi khusus mengubah bentuk NKRI menjadi serikat/federal.",
+      "studyMaterialTip": "Kuasai seluruh cakupan Bab VI Pemerintahan Daerah (Pasal 18, 18A, 18B)."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2014 & Wawasan Nusantara",
+        "source": "Kemendagri RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-018",
+    "subject": "TWK",
+    "topic": "NKRI",
+    "topicSlug": "nkri",
+    "subtopic": "Wawasan Nusantara Aspek Geopolitik",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Sebagai negara kepulauan di posisi silang antara dua benua (Asia dan Australia) serta dua samudra (Hindia dan Pasifik), implikasi geopolitik positif bagi NKRI menurut konsep Wawasan Nusantara adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Indonesia wajib menutup seluruh jalur perdagangan laut internasional",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Posisi silang justru memberi peluang menjadi poros maritim perdagangan dunia."
+      },
+      {
+        "key": "B",
+        "text": "Indonesia memiliki posisi strategis sebagai jalur lalu lintas perdagangan, diplomasi, dan komunikasi global yang perlu dikelola berdaulat",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: posisi silang adalah aset strategis geopolitik dan geoekonomi jika dikelola berdaulat."
+      },
+      {
+        "key": "C",
+        "text": "Setiap provinsi bebas menentukan kebijakan pertahanan luar negeri sendiri",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pertahanan dan polugri adalah urusan absolut Pemerintah Pusat."
+      },
+      {
+        "key": "D",
+        "text": "Wilayah udara di atas ALKI bukan bagian dari kedaulatan Indonesia",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ruang udara di atas perairan kepulauan tetap berada di bawah kedaulatan NKRI."
+      },
+      {
+        "key": "E",
+        "text": "Kekayaan laut bebas dieksploitasi kapal asing tanpa izin resmi",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "UU dan UNCLOS melindungi hak berdaulat atas ZEE dan laut teritorial."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Posisi silang Nusantara menghadirkan peluang ekonomi maritim sekaligus menuntut kewaspadaan pertahanan serta kedaulatan wilayah.",
+      "stepByStep": [
+        "Analisis letak geografis posisi silang Indonesia.",
+        "Identifikasi manfaat strategisnya bagi perdagangan dan peran global.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Memandang posisi silang secara objektif sebagai keunggulan geopolitik yang harus dijaga kedaulatannya.",
+      "distractorAnalysis": {
+        "A": "Posisi silang justru memberi peluang menjadi poros maritim perdagangan dunia.",
+        "C": "Pertahanan dan polugri adalah urusan absolut Pemerintah Pusat.",
+        "D": "Ruang udara di atas perairan kepulauan tetap berada di bawah kedaulatan NKRI.",
+        "E": "UU dan UNCLOS melindungi hak berdaulat atas ZEE dan laut teritorial."
+      },
+      "quickTrick": "Posisi silang = Poros maritim & jalur perdagangan strategis + jaga kedaulatan.",
+      "commonMistakes": "Hanya melihat ancaman luar tanpa menyadari potensi strategis ekonomi maritim.",
+      "studyMaterialTip": "Pahami batasan Laut Teritorial (12 mil), Zona Tambahan (24 mil), dan ZEE (200 mil)."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2014 & Wawasan Nusantara",
+        "source": "Kemendagri RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-019",
+    "subject": "TWK",
+    "topic": "NKRI",
+    "topicSlug": "nkri",
+    "subtopic": "Zona Ekonomi Eksklusif (ZEE)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Menurut hukum laut internasional (UNCLOS 1982) yang diratifikasi Indonesia, hak utama yang dimiliki NKRI di Zona Ekonomi Eksklusif (ZEE) sejauh 200 mil laut dari garis pangkal adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Hak berdaulat untuk eksplorasi, eksploitasi, konservasi, dan pengelolaan sumber daya alam hayati maupun nonhayati di perairan dan dasar lautnya",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: pada ZEE negara pantai memiliki hak berdaulat ekonomi, sementara kapal asing tetap menikmati kebebasan pelayaran dan penerbangan."
+      },
+      {
+        "key": "B",
+        "text": "Melarang seluruh pesawat sipil internasional terbang melintas di atas zona ZEE",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kebebasan lintas udara tetap berlaku di atas ZEE."
+      },
+      {
+        "key": "C",
+        "text": "Menghentikan semua kapal dagang asing agar tidak berlayar melewati ZEE Indonesia",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kebebasan pelayaran tetap diakui di ZEE sesuai UNCLOS."
+      },
+      {
+        "key": "D",
+        "text": "Memperluas batas daratan resmi hingga 500 mil laut ke tengah samudra",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Batas ZEE adalah 200 mil laut dari garis pangkal."
+      },
+      {
+        "key": "E",
+        "text": "Menghapus kewajiban konservasi ikan di perairan sekitar pulau terluar",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "ZEE justru disertai tanggung jawab konservasi sumber daya hayati."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Di Laut Teritorial (12 mil) berlaku kedaulatan penuh; di ZEE (200 mil) berlaku hak berdaulat sumber daya ekonomi & yurisdiksi kelautan.",
+      "stepByStep": [
+        "Bedakan Kedaulatan Penuh (Laut Teritorial 12 mil) vs Hak Berdaulat Ekonomi (ZEE 200 mil).",
+        "Opsi A tepat secara hukum laut internasional."
+      ],
+      "correctReason": "Sesuai ketentuan UNCLOS 1982 tentang Zona Ekonomi Eksklusif.",
+      "distractorAnalysis": {
+        "B": "Kebebasan lintas udara tetap berlaku di atas ZEE.",
+        "C": "Kebebasan pelayaran tetap diakui di ZEE sesuai UNCLOS.",
+        "D": "Batas ZEE adalah 200 mil laut dari garis pangkal.",
+        "E": "ZEE justru disertai tanggung jawab konservasi sumber daya hayati."
+      },
+      "quickTrick": "ZEE (200 mil) = Hak berdaulat eksplorasi/eksploitasi SDA + tetap boleh lintas kapal/pesawat asing.",
+      "commonMistakes": "Mengira di ZEE kapal asing dilarang melintas sama sekali.",
+      "studyMaterialTip": "Pelajari pembagian 3 zona laut dalam UNCLOS: Laut Teritorial (12 mil), ZEE (200 mil), dan Landas Kontinen."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2014 & Wawasan Nusantara",
+        "source": "Kemendagri RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-020",
+    "subject": "TWK",
+    "topic": "NKRI",
+    "topicSlug": "nkri",
+    "subtopic": "Peran ASN Memperkuat Integrasi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Penempatan CPNS dari berbagai latar belakang daerah ke unit pelayanan publik di seluruh Indonesia secara nasional bertujuan strategis untuk...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menghapus adat istiadat daerah tempat penugasan berlangsung",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pegawai justru wajib menghormati kearifan lokal setempat."
+      },
+      {
+        "key": "B",
+        "text": "Memperkuat ikatan kebangsaan lintas daerah dan memastikan standar pelayanan publik merata di seluruh NKRI",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: mobilitas ASN memperkukuh persatuan Indonesia dan pemerataan kualitas birokrasi."
+      },
+      {
+        "key": "C",
+        "text": "Menjauhkan pegawai dari pemahaman terhadap kondisi wilayah nasional",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Penugasan lintas daerah justru memperkaya wawasan nusantara pegawai."
+      },
+      {
+        "key": "D",
+        "text": "Menciptakan persaingan tertutup antarpenduduk asli dan pendatang",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan asas perekat bangsa."
+      },
+      {
+        "key": "E",
+        "text": "Mengurangi efisiensi koordinasi antara pemerintah pusat dan daerah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jaringan kerja lintas wilayah memperkuat koordinasi nasional."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "ASN berstatus kepegawaian nasional yang berfungsi sebagai perekat dan pemersatu bangsa di seluruh wilayah NKRI.",
+      "stepByStep": [
+        "Hubungkan rekrutmen & penempatan nasional ASN dengan keutuhan NKRI.",
+        "Opsi B paling komprehensif."
+      ],
+      "correctReason": "Menjaga pemerataan kualitas layanan dan integrasi nasional.",
+      "distractorAnalysis": {
+        "A": "Pegawai justru wajib menghormati kearifan lokal setempat.",
+        "C": "Penugasan lintas daerah justru memperkaya wawasan nusantara pegawai.",
+        "D": "Bertentangan dengan asas perekat bangsa.",
+        "E": "Jaringan kerja lintas wilayah memperkuat koordinasi nasional."
+      },
+      "quickTrick": "ASN tersebar di seluruh Indonesia = Pemersatu Bangsa + Pemerataan Layanan NKRI.",
+      "commonMistakes": "Melihat penempatan daerah semata-mata sebagai kebijakan teknis administratif.",
+      "studyMaterialTip": "Pahami peran strategis birokrasi sebagai tulang punggung persatuan negara kesatuan."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2014 & Wawasan Nusantara",
+        "source": "Kemendagri RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-021",
+    "subject": "TWK",
+    "topic": "NKRI",
+    "topicSlug": "nkri",
+    "subtopic": "Pertahanan Ancaman Separatisme",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Pendekatan komprehensif yang paling berkelanjutan untuk meredam gerakan separatisme di wilayah NKRI adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menutup akses pendidikan dan komunikasi warga di daerah rawan konflik",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Isolasi justru memperlebar ketidakpuasan dan ketertinggalan."
+      },
+      {
+        "key": "B",
+        "text": "Menggabungkan penegakan hukum yang adil terhadap pelaku kekerasan dengan percepatan pembangunan kesejahteraan, dialog sosial-budaya, dan layanan publik setara",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: memadukan kepastian hukum, keadilan pembangunan, dan pendekatan kemanusiaan yang bermartabat."
+      },
+      {
+        "key": "C",
+        "text": "Mengabaikan aspirasi pembangunan infrastruktur daerah terpencil",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ketimpangan pembangunan sering dimanfaatkan sebagai narasi perpecahan."
+      },
+      {
+        "key": "D",
+        "text": "Memindahkan seluruh penduduk sipil keluar dari provinsi tersebut",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bukan solusi konstitusional dan melanggar hak warga."
+      },
+      {
+        "key": "E",
+        "text": "Menghentikan penyaluran dana otonomi dan bantuan sosial sepenuhnya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Merugikan warga sipil yang berhak atas kesejahteraan."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Menjaga keutuhan NKRI menuntut keseimbangan antara ketegasan hukum konstitusional dan keadilan pembangunan serta dialog sosial.",
+      "stepByStep": [
+        "Analisis akar masalah disintegrasi dan cara mengatasinya secara konstitusional.",
+        "Kombinasi hukum + kesejahteraan + dialog selalu unggul.",
+        "Opsi B benar."
+      ],
+      "correctReason": "Menyelesaikan persoalan di hulu (kesejahteraan/keadilan) sekaligus menjaga kedaulatan hukum.",
+      "distractorAnalysis": {
+        "A": "Isolasi justru memperlebar ketidakpuasan dan ketertinggalan.",
+        "C": "Ketimpangan pembangunan sering dimanfaatkan sebagai narasi perpecahan.",
+        "D": "Bukan solusi konstitusional dan melanggar hak warga.",
+        "E": "Merugikan warga sipil yang berhak atas kesejahteraan."
+      },
+      "quickTrick": "Solusi keutuhan NKRI berkelanjutan: Penegakan Hukum Adil + Kesejahteraan + Dialog.",
+      "commonMistakes": "Memilih pendekatan sepihak yang mengabaikan kesejahteraan dan dialog warga.",
+      "studyMaterialTip": "Kaitkan pembangunan merata dengan Sila ke-5 dan Persatuan Indonesia."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2014 & Wawasan Nusantara",
+        "source": "Kemendagri RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-022",
+    "subject": "TWK",
+    "topic": "Bhinneka Tunggal Ika",
+    "topicSlug": "bhinneka-tunggal-ika",
+    "subtopic": "Sikap Menghadapi Primordialisme Sempit",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Dalam pemilihan ketua organisasi pemuda di sebuah lingkungan kerja yang majemuk, seorang rekan mengajak Anda memilih kandidat X hanya karena kesamaan suku daerah asal meski rekam jejak kandidat lain jauh lebih kompeten. Sikap yang tepat sesuai semangat Bhinneka Tunggal Ika adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mengikuti ajakan tersebut demi menjaga solidaritas satu kampung halaman",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ini wujud primordialisme sempit yang menghambat objektivitas organisasi."
+      },
+      {
+        "key": "B",
+        "text": "Menolak ajakan berbasis sentimen suku dan memilih kandidat berdasarkan integritas, visi kerja, serta kapabilitasnya",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: menempatkan keadilan dan prestasi di atas sentimen primordial."
+      },
+      {
+        "key": "C",
+        "text": "Membentuk organisasi tandingan khusus anggota dari suku asal Anda",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Memecah belah kesatuan lingkungan kerja."
+      },
+      {
+        "key": "D",
+        "text": "Tidak mau memilih siapa pun dan mengajak rekan lain memboikot pemilihan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Sikap apatis dan destruktif terhadap demokrasi organisasi."
+      },
+      {
+        "key": "E",
+        "text": "Membuat isu negatif tentang latar belakang suku kandidat lain",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tindakan intoleran yang merusak keharmonisan."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Bhinneka Tunggal Ika menuntut pembatasan primordialisme sempit agar tidak mengalahkan meritokrasi, keadilan, dan persatuan.",
+      "stepByStep": [
+        "Kenali masalah: ajakan memilih berbasis sentimen kesukuan.",
+        "Prinsip yang tepat: nilai kompetensi dan integritas, tolak fanatisme suku.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Menegakkan keadilan dan persatuan di tengah keberagaman latar belakang.",
+      "distractorAnalysis": {
+        "A": "Ini wujud primordialisme sempit yang menghambat objektivitas organisasi.",
+        "C": "Memecah belah kesatuan lingkungan kerja.",
+        "D": "Sikap apatis dan destruktif terhadap demokrasi organisasi.",
+        "E": "Tindakan intoleran yang merusak keharmonisan."
+      },
+      "quickTrick": "Sentimen suku/daerah dalam seleksi -> Tolak, pilih berbasis kompetensi & integritas.",
+      "commonMistakes": "Menganggap mengutamakan sesama suku dalam organisasi publik adalah solidaritas terpuji.",
+      "studyMaterialTip": "Bedakan rasa cinta terhadap budaya asal (positif) dari primordialisme sempit (diskriminatif)."
+    },
+    "references": [
+      {
+        "title": "Pedoman Keberagaman & Moderasi Sosial-Budaya Nasional",
+        "source": "Kemenag / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-023",
+    "subject": "TWK",
+    "topic": "Bhinneka Tunggal Ika",
+    "topicSlug": "bhinneka-tunggal-ika",
+    "subtopic": "Moderasi & Kerukunan Umat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Komitmen kebangsaan, toleransi, anti-kekerasan, dan penerimaan terhadap tradisi lokal yang selaras dengan nilai agama serta konstitusi merupakan empat indikator utama...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Sentralisasi adat seragam",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak menyeragamkan tradisi adat menjadi satu."
+      },
+      {
+        "key": "B",
+        "text": "Moderasi beragama dalam merawat kebhinnekaan Indonesia",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: keempatnya merupakan 4 indikator resmi moderasi beragama di Indonesia."
+      },
+      {
+        "key": "C",
+        "text": "Liberalisme tanpa batas norma",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Moderasi berlandaskan nilai keagamaan dan konstitusi."
+      },
+      {
+        "key": "D",
+        "text": "Etnosentrisme daerah mayoritas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menolak dominasi etnosentris."
+      },
+      {
+        "key": "E",
+        "text": "Isolasi kehidupan beragama dari kehidupan sosial",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru mendorong harmoni sosial di ruang publik."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Empat indikator Moderasi Beragama: (1) Komitmen kebangsaan, (2) Toleransi, (3) Anti-kekerasan, (4) Akomodatif terhadap budaya lokal.",
+      "stepByStep": [
+        "Cocokkan keempat indikator dalam soal.",
+        "Ini definisi resmi 4 pilar Moderasi Beragama.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Mengenali konsep moderasi beragama sebagai penguat Bhinneka Tunggal Ika.",
+      "distractorAnalysis": {
+        "A": "Tidak menyeragamkan tradisi adat menjadi satu.",
+        "C": "Moderasi berlandaskan nilai keagamaan dan konstitusi.",
+        "D": "Menolak dominasi etnosentris.",
+        "E": "Justru mendorong harmoni sosial di ruang publik."
+      },
+      "quickTrick": "4 Indikator Moderasi: Kebangsaan + Toleransi + Anti-Kekerasan + Ramah Budaya Lokal.",
+      "commonMistakes": "Menganggap akomodasi tradisi lokal berarti mencampuradukkan akidah.",
+      "studyMaterialTip": "Kaitkan 4 indikator moderasi dengan peran ASN sebagai perekat persatuan."
+    },
+    "references": [
+      {
+        "title": "Pedoman Keberagaman & Moderasi Sosial-Budaya Nasional",
+        "source": "Kemenag / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-024",
+    "subject": "TWK",
+    "topic": "Bhinneka Tunggal Ika",
+    "topicSlug": "bhinneka-tunggal-ika",
+    "subtopic": "Bentuk Keberagaman Sebagai Kekayaan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Alasan utama mengapa masyarakat Indonesia tetap dapat bersatu dalam bingkai Bhinneka Tunggal Ika meskipun memiliki ratusan suku dan bahasa daerah adalah karena adanya...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Penyeragaman seluruh adat istiadat daerah melalui undang-undang",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Adat istiadat justru dilindungi dan dilestarikan."
+      },
+      {
+        "key": "B",
+        "text": "Kesamaan sejarah senasib sepenanggungan, konsensus Pancasila, UUD 1945, dan bahasa persatuan",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: faktor pemersatu historis dan ideologis mengikat seluruh elemen bangsa."
+      },
+      {
+        "key": "C",
+        "text": "Larangan penduduk berpindah domisili antarprovinsi",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mobilitas warga dijamin di seluruh wilayah NKRI."
+      },
+      {
+        "key": "D",
+        "text": "Penggunaan sistem negara bagian yang terpisah penuh",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Indonesia adalah negara kesatuan."
+      },
+      {
+        "key": "E",
+        "text": "Pemisahan fasilitas umum berdasarkan asal etnis",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan asas kesetaraan warga negara."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Keberagaman disatukan oleh memori historis bersama (Sumpah Pemuda & Proklamasi) serta ideologi dan konstitusi bersama.",
+      "stepByStep": [
+        "Cari pilar pemersatu nasional Indonesia.",
+        "Sejarah + Pancasila + UUD 1945 + Bahasa Indonesia.",
+        "Opsi B paling tepat."
+      ],
+      "correctReason": "Menjelaskan perekat sosiologis dan konstitusional bangsa majemuk.",
+      "distractorAnalysis": {
+        "A": "Adat istiadat justru dilindungi dan dilestarikan.",
+        "C": "Mobilitas warga dijamin di seluruh wilayah NKRI.",
+        "D": "Indonesia adalah negara kesatuan.",
+        "E": "Bertentangan dengan asas kesetaraan warga negara."
+      },
+      "quickTrick": "Bersatu di tengah ragam budaya = Faktor Sejarah + 4 Konsensus + Bahasa Indonesia.",
+      "commonMistakes": "Mengira persatuan butuh penyeragaman adat istiadat.",
+      "studyMaterialTip": "Pahami bahwa persatuan (unity) berbeda dari keseragaman (uniformity)."
+    },
+    "references": [
+      {
+        "title": "Pedoman Keberagaman & Moderasi Sosial-Budaya Nasional",
+        "source": "Kemenag / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-025",
+    "subject": "TWK",
+    "topic": "Bhinneka Tunggal Ika",
+    "topicSlug": "bhinneka-tunggal-ika",
+    "subtopic": "Bahasa Daerah dalam Komunikasi Publik",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Dalam rapat kerja nasional yang dihadiri perwakilan dari 38 provinsi, seorang peserta menyampaikan seluruh paparannya menggunakan bahasa daerah asalnya yang tidak dipahami sebagian besar peserta lain. Evaluasi yang tepat terhadap prinsip Bhinneka Tunggal Ika dalam forum nasional adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Menghormati keberagaman berarti peserta rapat wajib memaksa semua orang mengerti bahasa daerahnya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Komunikasi forum nasional memerlukan bahasa yang dipahami bersama."
+      },
+      {
+        "key": "B",
+        "text": "Tetap menghargai bahasa daerah sebagai identitas lokal, namun forum resmi lintas daerah sebaiknya memakai bahasa Indonesia agar seluruh peserta terlibat setara",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: mendudukkan bahasa Indonesia sebagai alat persatuan tanpa merendahkan bahasa daerah."
+      },
+      {
+        "key": "C",
+        "text": "Melarang peserta tersebut menggunakan bahasa daerah bahkan di lingkungan keluarganya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Penggunaan di ranah lokal/keluarga tetap dilindungi."
+      },
+      {
+        "key": "D",
+        "text": "Menghentikan keikutsertaan perwakilan daerah tersebut di rapat berikutnya",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Solusinya cukup penyampaian dalam bahasa persatuan, bukan diskriminasi."
+      },
+      {
+        "key": "E",
+        "text": "Mengganti bahasa rapat nasional dengan bahasa asing agar netral",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bahasa Indonesia adalah bahasa resmi negara menurut Pasal 36 UUD 1945."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Kesadaran menempatkan bahasa nasional dalam forum resmi antarwilayah memastikan inklusivitas komunikasi bagi semua peserta.",
+      "stepByStep": [
+        "Balance dua nilai: hormati bahasa daerah + gunakan bahasa Indonesia untuk kesetaraan forum nasional.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Memastikan efektivitas dan inklusivitas dialog lintas budaya nasional.",
+      "distractorAnalysis": {
+        "A": "Komunikasi forum nasional memerlukan bahasa yang dipahami bersama.",
+        "C": "Penggunaan di ranah lokal/keluarga tetap dilindungi.",
+        "D": "Solusinya cukup penyampaian dalam bahasa persatuan, bukan diskriminasi.",
+        "E": "Bahasa Indonesia adalah bahasa resmi negara menurut Pasal 36 UUD 1945."
+      },
+      "quickTrick": "Forum nasional/lintas daerah -> Bahasa Indonesia untuk kesetaraan pemahaman.",
+      "commonMistakes": "Memilih pelarangan ekstrem terhadap bahasa daerah atau membiarkan komunikasi tidak inklusif.",
+      "studyMaterialTip": "Ingat salah satu prinsip Bhinneka Tunggal Ika: menempatkan sesuatu secara proporsional."
+    },
+    "references": [
+      {
+        "title": "Pedoman Keberagaman & Moderasi Sosial-Budaya Nasional",
+        "source": "Kemenag / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-026",
+    "subject": "TWK",
+    "topic": "Bhinneka Tunggal Ika",
+    "topicSlug": "bhinneka-tunggal-ika",
+    "subtopic": "Ketahanan Sosial terhadap Ujaran Kebencian",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Munculnya unggahan ujaran kebencian berbasis SARA menjelang pemilihan kepala daerah harus disikapi oleh aparatur dan masyarakat melalui...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Membalas dengan hujatan serupa terhadap kelompok pengunggah",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Memperpanjang rantai kebencian."
+      },
+      {
+        "key": "B",
+        "text": "Melaporkan akun penyebar ujaran kebencian melalui kanal hukum resmi, menyuarakan literasi toleransi, dan menjaga kondusivitas lingkungan",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: memadukan langkah hukum terukur dengan ketahanan sosial yang damai."
+      },
+      {
+        "key": "C",
+        "text": "Mengabaikan seluruh aturan hukum karena media sosial bebas dari aturan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ujaran kebencian SARA melanggar ketentuan hukum yang berlaku."
+      },
+      {
+        "key": "D",
+        "text": "Menyalahkan seluruh warga dari suku pengunggah tanpa bukti keterlibatan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menyamaratakan kesalahan individu kepada seluruh suku adalah bentuk diskriminasi."
+      },
+      {
+        "key": "E",
+        "text": "Membubarkan forum kerukunan antarwarga di tingkat kelurahan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Forum kerukunan justru perlu diperkuat."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Penanganan ujaran kebencian SARA membutuhkan jalur hukum yang sah serta penguatan kohesi sosial, bukan main hakim sendiri.",
+      "stepByStep": [
+        "Hindari balasan SARA dan generalisasi etnis.",
+        "Tempuh pelaporan resmi + edukasi damai.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Menjaga kerukunan sosial tanpa bertindak di luar koridor hukum.",
+      "distractorAnalysis": {
+        "A": "Memperpanjang rantai kebencian.",
+        "C": "Ujaran kebencian SARA melanggar ketentuan hukum yang berlaku.",
+        "D": "Menyamaratakan kesalahan individu kepada seluruh suku adalah bentuk diskriminasi.",
+        "E": "Forum kerukunan justru perlu diperkuat."
+      },
+      "quickTrick": "Ujaran kebencian SARA -> Lapor jalur resmi + jaga kondusivitas (jangan balas SARA).",
+      "commonMistakes": "Menggeneralisasi perbuatan satu oknum kepada seluruh kelompok asalnya.",
+      "studyMaterialTip": "Pahami peran Forum Kerukunan Umat Beragama (FKUB) dan dialog warga di daerah."
+    },
+    "references": [
+      {
+        "title": "Pedoman Keberagaman & Moderasi Sosial-Budaya Nasional",
+        "source": "Kemenag / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-027",
+    "subject": "TWK",
+    "topic": "Bahasa Indonesia",
+    "topicSlug": "bahasa-indonesia",
+    "subtopic": "Penulisan Huruf Kapital & Judul",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Penulisan judul karangan ilmiah atau artikel kebijakan publik yang paling sesuai dengan kaidah EYD Edisi V adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Strategi Peningkatan Kualitas Pelayanan Publik Di Era Digital",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Preposisi \"di\" pada judul seharusnya ditulis dengan huruf kecil (\"di\")."
+      },
+      {
+        "key": "B",
+        "text": "Strategi Peningkatan Kualitas Pelayanan Publik di Era Digital",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: huruf awal setiap kata dikapitalisasi kecuali kata tugas (di, ke, dari, dan, yang, untuk) yang tidak berada di posisi awal."
+      },
+      {
+        "key": "C",
+        "text": "Strategi peningkatan kualitas pelayanan publik di era digital",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kata inti judul seharusnya diawali huruf kapital."
+      },
+      {
+        "key": "D",
+        "text": "Strategi Peningkatan Kualitas Pelayanan Publik Di era digital",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "\"Di\" salah dikapitalisasi dan \"era digital\" salah tidak dikapitalisasi."
+      },
+      {
+        "key": "E",
+        "text": "Strategi Peningkatan Kualitas Pelayanan Publik di Era digital",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kata \"digital\" sebagai kata inti judul harus diawali huruf kapital."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Dalam penulisan judul karangan, semua kata diawali huruf kapital kecuali kata tugas (konjungsi/preposisi seperti di, ke, dari, dan, dalam, pada, yang, untuk) di tengah judul.",
+      "stepByStep": [
+        "Periksa kata tugas \"di\" -> harus kecil.",
+        "Periksa kata inti (\"Strategi\", \"Peningkatan\", \"Kualitas\", \"Pelayanan\", \"Publik\", \"Era\", \"Digital\") -> harus kapital.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Memenuhi aturan huruf kapital pada judul karangan sesuai EYD V.",
+      "distractorAnalysis": {
+        "A": "Preposisi \"di\" pada judul seharusnya ditulis dengan huruf kecil (\"di\").",
+        "C": "Kata inti judul seharusnya diawali huruf kapital.",
+        "D": "\"Di\" salah dikapitalisasi dan \"era digital\" salah tidak dikapitalisasi.",
+        "E": "Kata \"digital\" sebagai kata inti judul harus diawali huruf kapital."
+      },
+      "quickTrick": "Judul: Semua Kata Awal Kapital KECUALI kata tugas (di, ke, dari, dan, yang, pada, untuk) di tengah.",
+      "commonMistakes": "Mengkapitalisasi kata \"Di\" atau \"Dan\" di tengah judul.",
+      "studyMaterialTip": "Jika kata tugas berada di paling awal judul (misal \"Untuk Negeri\"), huruf pertamanya tetap kapital."
+    },
+    "references": [
+      {
+        "title": "EYD Edisi V & Kamus Besar Bahasa Indonesia (KBBI)",
+        "source": "Badan Pengembangan dan Pembinaan Bahasa"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-028",
+    "subject": "TWK",
+    "topic": "Bahasa Indonesia",
+    "topicSlug": "bahasa-indonesia",
+    "subtopic": "Preposisi \"di\" vs Prefiks \"di-\"",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Kalimat yang menggunakan penulisan kata depan \"di\" dan imbuhan \"di-\" secara tepat seluruhnya adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Dokumen asli disimpan didalam lemari besi di ruang arsip.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "\"didalam\" seharusnya dipisah menjadi \"di dalam\" karena menunjukkan tempat."
+      },
+      {
+        "key": "B",
+        "text": "Dokumen asli disimpan di dalam lemari besi di ruang arsip.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: \"disimpan\" (imbuhan verba pasif) dirangkai, sedangkan \"di dalam\" dan \"di ruang\" (kata depan tempat) dipisah."
+      },
+      {
+        "key": "C",
+        "text": "Dokumen asli di simpan di dalam lemari besi diruang arsip.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "\"di simpan\" seharusnya dirangkai (\"disimpan\") dan \"diruang\" seharusnya dipisah (\"di ruang\")."
+      },
+      {
+        "key": "D",
+        "text": "Dokumen asli di simpan didalam lemari besi di ruang arsip.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan pada \"di simpan\" dan \"didalam\"."
+      },
+      {
+        "key": "E",
+        "text": "Dokumen asli disimpan di dalam lemari besi diruang arsip.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "\"diruang\" seharusnya dipisah (\"di ruang\")."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Imbuhan pasif \"di-\" (dapat diubah menjadi \"me-\") ditulis serangkai, sedangkan kata depan \"di\" (menunjuk tempat/arah) ditulis terpisah.",
+      "stepByStep": [
+        "Uji \"disimpan\" -> \"menyimpan\" (serangkai).",
+        "Uji \"di dalam\" dan \"di ruang\" -> menunjuk tempat (terpisah).",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Membedakan secara tepat antara prefiks pasif dan preposisi lokatif.",
+      "distractorAnalysis": {
+        "A": "\"didalam\" seharusnya dipisah menjadi \"di dalam\" karena menunjukkan tempat.",
+        "C": "\"di simpan\" seharusnya dirangkai (\"disimpan\") dan \"diruang\" seharusnya dipisah (\"di ruang\").",
+        "D": "Kesalahan pada \"di simpan\" dan \"didalam\".",
+        "E": "\"diruang\" seharusnya dipisah (\"di ruang\")."
+      },
+      "quickTrick": "Bisa diubah jadi \"me-\" -> gabung (disimpan = menyimpan). Jawab pertanyaan \"di mana?\" -> pisah (di dalam, di ruang).",
+      "commonMistakes": "Menggabungkan \"diatas\", \"dibawah\", \"didalam\", \"disini\" karena kebiasaan mengetik cepat.",
+      "studyMaterialTip": "Aturan ini juga berlaku untuk \"ke\" penunjuk arah (ke depan, ke kantor) yang selalu dipisah."
+    },
+    "references": [
+      {
+        "title": "EYD Edisi V & Kamus Besar Bahasa Indonesia (KBBI)",
+        "source": "Badan Pengembangan dan Pembinaan Bahasa"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-029",
+    "subject": "TWK",
+    "topic": "Bahasa Indonesia",
+    "topicSlug": "bahasa-indonesia",
+    "subtopic": "Penggunaan Kata Penghubung Antarkalimat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Penggunaan konjungsi antarkalimat dan tanda baca koma setelahnya yang paling tepat terdapat pada kalimat...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Anggaran infrastruktur tahun ini meningkat. Namun penyerapannya masih perlu dipercepat.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Setelah konjungsi antarkalimat \"Namun\" wajib diberi tanda koma."
+      },
+      {
+        "key": "B",
+        "text": "Anggaran infrastruktur tahun ini meningkat. Namun, penyerapannya masih perlu dipercepat.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: \"Namun\" sebagai konjungsi antarkalimat diawali huruf kapital di awal kalimat dan diikuti tanda koma."
+      },
+      {
+        "key": "C",
+        "text": "Anggaran infrastruktur tahun ini meningkat, namun demikian penyerapannya lambat.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Konjungsi antarkalimat tidak boleh langsung diletakkan di tengah kalimat hanya dengan koma."
+      },
+      {
+        "key": "D",
+        "text": "Anggaran infrastruktur meningkat. Tetapi, proyeknya belum dimulai.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "\"Tetapi\" adalah konjungsi intrakalimat; di awal kalimat sebaiknya diganti \"Akan tetapi,\" atau \"Namun,\"."
+      },
+      {
+        "key": "E",
+        "text": "Anggaran infrastruktur meningkat. Sedangkan, realisasi fisiknya masih rendah.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "\"Sedangkan\" adalah konjungsi intrakalimat, bukan konjungsi antarkalimat."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Konjungsi antarkalimat (Oleh karena itu, Namun, Akan tetapi, Selain itu, Dengan demikian) ditulis di awal kalimat dan wajib diikuti tanda koma (,).",
+      "stepByStep": [
+        "Bedakan intrakalimat (sedangkan, melainkan, tetapi) vs antarkalimat (Namun, Akan tetapi, Oleh karena itu).",
+        "Cek tanda koma tepat sesudah konjungsi antarkalimat.",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Menggunakan \"Namun,\" secara tepat sebagai penghubung antarkalimat.",
+      "distractorAnalysis": {
+        "A": "Setelah konjungsi antarkalimat \"Namun\" wajib diberi tanda koma.",
+        "C": "Konjungsi antarkalimat tidak boleh langsung diletakkan di tengah kalimat hanya dengan koma.",
+        "D": "\"Tetapi\" adalah konjungsi intrakalimat; di awal kalimat sebaiknya diganti \"Akan tetapi,\" atau \"Namun,\".",
+        "E": "\"Sedangkan\" adalah konjungsi intrakalimat, bukan konjungsi antarkalimat."
+      },
+      "quickTrick": "\"Namun,\" dan \"Akan tetapi,\" di awal kalimat selalu pakai koma; \"sedangkan\" dan \"tetapi\" di tengah kalimat!",
+      "commonMistakes": "Meletakkan \"Sedangkan,\" atau \"Tetapi,\" di awal kalimat resmi.",
+      "studyMaterialTip": "Hafalkan perbedaan konjungsi intrakalimat vs antarkalimat untuk soal suntingan naskah dinas."
+    },
+    "references": [
+      {
+        "title": "EYD Edisi V & Kamus Besar Bahasa Indonesia (KBBI)",
+        "source": "Badan Pengembangan dan Pembinaan Bahasa"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-P5-030",
+    "subject": "TWK",
+    "topic": "Bahasa Indonesia",
+    "topicSlug": "bahasa-indonesia",
+    "subtopic": "Makna Imbuhan & Ketepatan Diksi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Manakah kalimat berikut yang menggunakan diksi dan bentuk kata berimbuhan secara tepat sesuai tata bahasa Indonesia?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pemerintah berupaya mensosialisasikan kebijakan baru kepada masyarakat.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kata dasar \"sosial\" berawalan huruf \"s\" luluh ketika bertemu meN- -> menyosialisasikan."
+      },
+      {
+        "key": "B",
+        "text": "Pemerintah berupaya menyosialisasikan kebijakan baru kepada masyarakat.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: sesuai kaidah peluluhan KPST (K, P, S, T yang diikuti vokal), meN- + sosialisasi -> menyosialisasikan."
+      },
+      {
+        "key": "C",
+        "text": "Tim pengawas akan mentargetkan penyelesaian audit pada bulan November.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kata dasar \"target\" berawalan \"t\" diikuti vokal -> luluh menjadi \"menargetkan\"."
+      },
+      {
+        "key": "D",
+        "text": "Petugas harus mempedomani standar operasional pelayanan secara konsisten.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kata dasar \"pedoman\" berawalan \"p\" diikuti vokal -> luluh menjadi \"memedomani\"."
+      },
+      {
+        "key": "E",
+        "text": "Kantor kecamatan mempesona pengunjung dengan taman ramah anak.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kata dasar \"pesona\" berawalan \"p\" diikuti vokal -> luluh menjadi \"memesona\"."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Kaidah peluluhan K-P-S-T: kata dasar berawalan k, p, s, t yang diikuti huruf vokal (kecuali gugus konsonan seperti \"pro-\", \"tra-\", \"krea-\", \"struk-\") luluh bila mendapat prefiks meN-.",
+      "stepByStep": [
+        "Uji K-P-S-T + vokal: sosialisasi -> menyosialisasikan (B benar).",
+        "target -> menargetkan (bukan mentargetkan).",
+        "pedoman -> memedomani (bukan mempedomani).",
+        "pesona -> memesona (bukan mempesona)."
+      ],
+      "correctReason": "Menerapkan kaidah morfofonemik peluluhan konsonan awal K-P-S-T secara benar.",
+      "distractorAnalysis": {
+        "A": "Kata dasar \"sosial\" berawalan huruf \"s\" luluh ketika bertemu meN- -> menyosialisasikan.",
+        "C": "Kata dasar \"target\" berawalan \"t\" diikuti vokal -> luluh menjadi \"menargetkan\".",
+        "D": "Kata dasar \"pedoman\" berawalan \"p\" diikuti vokal -> luluh menjadi \"memedomani\".",
+        "E": "Kata dasar \"pesona\" berawalan \"p\" diikuti vokal -> luluh menjadi \"memesona\"."
+      },
+      "quickTrick": "KPST + vokal = LULUH (sosial -> menyosialisasikan, target -> menargetkan, pesona -> memesona).",
+      "commonMistakes": "Tidak meluluhkan kata serapan \"sosialisasi\", \"target\", atau \"sukses\" (menyukseskan).",
+      "studyMaterialTip": "Pengecualian peluluhan: gugus konsonan (memprogram, mentransfer, mengkritik, menstabilkan) dan kata \"mempunyai/mengkaji\" tertentu."
+    },
+    "references": [
+      {
+        "title": "EYD Edisi V & Kamus Besar Bahasa Indonesia (KBBI)",
+        "source": "Badan Pengembangan dan Pembinaan Bahasa"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  }
+]

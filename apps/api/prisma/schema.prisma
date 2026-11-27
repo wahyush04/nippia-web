@@ -9,6 +9,7 @@ datasource db {
 
 enum UserRole {
   USER
+  CONTENT_PARTNER
   HOST_OPERATOR
   EVENT_ADMIN
   ADMIN
@@ -50,6 +51,12 @@ enum SubscriptionOrderStatus {
   REJECTED
   CANCELLED
   EXPIRED
+}
+
+enum PartnerCommissionStatus {
+  EARNED
+  PAID_OUT
+  CANCELLED
 }
 
 enum LiveRegistrationStatus {
@@ -166,6 +173,9 @@ model User {
   subscriptions              UserSubscription[]
   subscriptionOrders         SubscriptionOrder[] @relation("UserSubscriptionOrders")
   verifiedSubscriptionOrders SubscriptionOrder[] @relation("VerifiedSubscriptionOrders")
+  partnerVoucher             PartnerVoucher?
+  partnerCommissions         PartnerCommission[] @relation("PartnerCommissionOwner")
+  referredOrderCommissions   PartnerCommission[] @relation("PartnerCommissionBuyer")
 
   @@index([email])
   @@map("users")
@@ -1212,8 +1222,59 @@ model SubscriptionOrder {
   plan         SubscriptionPlan  @relation(fields: [planId], references: [id])
   subscription UserSubscription? @relation(fields: [subscriptionId], references: [id], onDelete: SetNull)
   verifiedBy   User?             @relation("VerifiedSubscriptionOrders", fields: [verifiedById], references: [id], onDelete: SetNull)
+  voucherId    String?
+  voucherCode  String?
+  discountIdr  Int               @default(0)
+  voucher      PartnerVoucher?   @relation(fields: [voucherId], references: [id], onDelete: SetNull)
+  commission   PartnerCommission?
 
   @@index([userId, createdAt])
   @@index([status, createdAt])
   @@map("subscription_orders")
+}
+
+// ==========================================
+// CONTENT PARTNER VOUCHER & COMMISSION
+// ==========================================
+
+model PartnerVoucher {
+  id            String   @id @default(cuid())
+  ownerId       String   @unique
+  code          String   @unique
+  discountIdr   Int      @default(4000)
+  commissionIdr Int      @default(5000)
+  newUsersOnly  Boolean  @default(true)
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  owner       User                @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  orders      SubscriptionOrder[]
+  commissions PartnerCommission[]
+
+  @@map("partner_vouchers")
+}
+
+model PartnerCommission {
+  id               String                  @id @default(cuid())
+  voucherId        String
+  partnerId        String
+  buyerUserId      String
+  orderId          String                  @unique
+  orderAmountIdr   Int
+  discountGivenIdr Int
+  commissionIdr    Int
+  status           PartnerCommissionStatus @default(EARNED)
+  payoutNote       String?
+  paidOutAt        DateTime?
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+
+  voucher PartnerVoucher    @relation(fields: [voucherId], references: [id], onDelete: Cascade)
+  partner User              @relation("PartnerCommissionOwner", fields: [partnerId], references: [id], onDelete: Cascade)
+  buyer   User              @relation("PartnerCommissionBuyer", fields: [buyerUserId], references: [id], onDelete: Cascade)
+  order   SubscriptionOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([partnerId, status, createdAt])
+  @@map("partner_commissions")
 }

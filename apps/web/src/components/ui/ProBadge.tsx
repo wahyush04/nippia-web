@@ -27,7 +27,7 @@ export function ProBadge({
 
 export function ProUpgradeBanner({
   title = 'Buka Akses Penuh dengan Nippia Pro',
-  description = 'Nikmati seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT 110 soal unlimited, Live Akbar Premium, Tutor AI, dan Jadwal 14 Hari hanya Rp 29.000/bulan.',
+  description = 'Nikmati seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT 110 soal unlimited, Live Akbar Premium, Buku Kesalahan lengkap, dan Jadwal 14 Hari hanya Rp 29.000/bulan.',
   ctaLabel = 'Upgrade Pro — Rp 29.000/bln',
   compact = false,
   className,

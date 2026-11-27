@@ -21,8 +21,10 @@ import {
   Users,
 } from 'lucide-react';
 import { apiFetch } from '../../lib/api';
+import { useAuthStore } from '../../stores/authStore';
 import { AppLayout } from '../../components/layout/AppLayout';
 import { FiguralRenderer } from '../../components/skd/FiguralRenderer';
+import { QuestionImagePicker } from '../../components/skd/QuestionImagePicker';
 import { QuestionDiscussionPanel } from '../../components/skd/QuestionDiscussionPanel';
 import { ProBadge } from '../../components/ui/ProBadge';
 import {
@@ -51,6 +53,7 @@ export function AdminDashboardPage() {
         draftQuestions: number;
         totalSimulations: number;
         openReports: number;
+        pendingSubscriptionOrders?: number;
         hardestTopics: Array<{ topicName: string; subjectCode: string; avgAccuracy: number; totalAttempts: number }>;
         recentUsers: Array<{ id: string; name: string; email: string; role: string; createdAt: string }>;
       }>('/admin/overview'),
@@ -77,7 +80,12 @@ export function AdminDashboardPage() {
           <div className="flex flex-wrap gap-2">
             <Link to="/admin/subscriptions">
               <Button variant="outline" size="sm">
-                <Crown className="h-4 w-4 text-amber-500" /> Langganan & Order
+                <Crown className="h-4 w-4 text-amber-500" /> Langganan &amp; Order
+                {(data.pendingSubscriptionOrders ?? 0) > 0 && (
+                  <span className="ml-1 rounded-full bg-amber-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
+                    {data.pendingSubscriptionOrders}
+                  </span>
+                )}
               </Button>
             </Link>
             <Link to="/admin/reports">
@@ -88,11 +96,6 @@ export function AdminDashboardPage() {
             <Link to="/admin/questions/new">
               <Button variant="indigo" size="sm">
                 <Plus className="h-4 w-4" /> Tambah Soal
-              </Button>
-            </Link>
-            <Link to="/admin/ai-generator">
-              <Button variant="outline" size="sm">
-                <Sparkles className="h-4 w-4" /> Generator AI
               </Button>
             </Link>
           </div>
@@ -159,6 +162,8 @@ export function AdminDashboardPage() {
 }
 
 export function QuestionManagementPage() {
+  const { user } = useAuthStore();
+  const isContentPartner = user?.role === 'CONTENT_PARTNER';
   const [search, setSearch] = useState('');
   const [subject, setSubject] = useState('');
   const [status, setStatus] = useState('');
@@ -229,12 +234,16 @@ export function QuestionManagementPage() {
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button variant="outline" size="sm" onClick={() => setImportOpen(true)}>
-              <Upload className="h-4 w-4" /> Impor JSON
-            </Button>
-            <Button variant="outline" size="sm" onClick={handleExport}>
-              <Download className="h-4 w-4" /> Ekspor JSON
-            </Button>
+            {!isContentPartner && (
+              <>
+                <Button variant="outline" size="sm" onClick={() => setImportOpen(true)}>
+                  <Upload className="h-4 w-4" /> Impor JSON
+                </Button>
+                <Button variant="outline" size="sm" onClick={handleExport}>
+                  <Download className="h-4 w-4" /> Ekspor JSON
+                </Button>
+              </>
+            )}
             <Link to="/admin/questions/new">
               <Button variant="indigo" size="sm">
                 <Plus className="h-4 w-4" /> Buat Soal Baru
@@ -296,9 +305,11 @@ export function QuestionManagementPage() {
                         <Edit3 className="h-3.5 w-3.5" /> Edit
                       </Button>
                     </Link>
-                    <Button variant="ghost" size="sm" onClick={() => handleDelete(q.id)}>
-                      <Trash2 className="h-3.5 w-3.5 text-red-600" />
-                    </Button>
+                    {!isContentPartner && (
+                      <Button variant="ghost" size="sm" onClick={() => handleDelete(q.id)}>
+                        <Trash2 className="h-3.5 w-3.5 text-red-600" />
+                      </Button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -395,6 +406,7 @@ export function QuestionEditorPage() {
     { optionKey: 'E', text: '', scoreValue: 0, isCorrect: false, optionFeedback: '', visualSpec: null },
   ]);
   const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isEdit || !existingQuestion) return;
@@ -428,6 +440,7 @@ export function QuestionEditorPage() {
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
+    setSaveError(null);
     try {
       const payload = {
         subjectCode,
@@ -436,18 +449,18 @@ export function QuestionEditorPage() {
         difficulty,
         status,
         stem,
-        ...(visualSpec ? { visualSpec } : {}),
+        visualSpec: visualSpec ?? null,
         explanation,
         ...(conceptSummary ? { conceptSummary } : {}),
         quickTrick,
         ...(commonMistakes ? { commonMistakes } : {}),
         options: options.map((o) => ({
           optionKey: o.optionKey,
-          text: o.text,
+          text: o.text.trim(),
           scoreValue: o.scoreValue,
           isCorrect: o.isCorrect,
           optionFeedback: o.optionFeedback,
-          ...(o.visualSpec ? { visualSpec: o.visualSpec } : {}),
+          visualSpec: o.visualSpec ?? null,
         })),
       };
       if (isEdit) {
@@ -456,6 +469,8 @@ export function QuestionEditorPage() {
         await apiFetch('/admin/questions', { method: 'POST', body: JSON.stringify(payload) });
       }
       navigate(returnTo);
+    } catch (err) {
+      setSaveError(err instanceof Error ? err.message : 'Gagal menyimpan soal. Periksa kembali isian Anda.');
     } finally {
       setSaving(false);
     }
@@ -538,34 +553,52 @@ export function QuestionEditorPage() {
                 </div>
               </div>
 
-              <div>
-                <label className="mb-1 block text-xs font-semibold">Pertanyaan (Stem)</label>
-                <Textarea rows={4} value={stem} onChange={(e) => setStem(e.target.value)} required />
-              </div>
-
-              {visualSpec && (
-                <div className="rounded-xl border border-indigo-200 bg-indigo-50/40 p-4 space-y-2">
-                  <p className="text-xs font-semibold text-indigo-800">Pratinjau Gambar Figural Soal (SVG Dipertahankan)</p>
-                  <FiguralRenderer spec={visualSpec as any} />
+              {saveError && (
+                <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-medium text-rose-800">
+                  {saveError}
                 </div>
               )}
 
               <div className="space-y-3">
-                <label className="block text-xs font-semibold">Pilihan Jawaban (A–E), Bobot Skor & Rasional Opsi</label>
+                <div>
+                  <label className="mb-1 block text-xs font-semibold">Pertanyaan (Stem)</label>
+                  <Textarea
+                    rows={4}
+                    placeholder="Tulis pertanyaan soal (atau instruksi gambar jika soal berbentuk visual)..."
+                    value={stem}
+                    onChange={(e) => setStem(e.target.value)}
+                    required
+                  />
+                </div>
+                <QuestionImagePicker
+                  label="Gambar Pertanyaan"
+                  value={visualSpec}
+                  onChange={setVisualSpec}
+                />
+              </div>
+
+              <div className="space-y-3">
+                <label className="block text-xs font-semibold">
+                  Pilihan Jawaban (A–E), Gambar Opsi (Opsional), Bobot Skor &amp; Rasional Opsi
+                </label>
                 {options.map((opt, idx) => (
-                  <div key={opt.optionKey} className="rounded-xl border border-slate-200 bg-slate-50/50 p-3 space-y-2">
+                  <div key={opt.optionKey} className="rounded-xl border border-slate-200 bg-slate-50/50 p-3 space-y-2.5">
                     <div className="grid gap-2 sm:grid-cols-12 items-center">
                       <span className="sm:col-span-1 font-bold text-sm text-center">{opt.optionKey}</span>
                       <Input
                         className="sm:col-span-7"
-                        placeholder={`Teks opsi ${opt.optionKey}`}
+                        placeholder={
+                          opt.visualSpec
+                            ? `Teks opsi ${opt.optionKey} (opsional karena ada gambar)`
+                            : `Teks opsi ${opt.optionKey}`
+                        }
                         value={opt.text}
                         onChange={(e) => {
                           const copy = [...options];
                           copy[idx].text = e.target.value;
                           setOptions(copy);
                         }}
-                        required
+                        required={!opt.visualSpec}
                       />
                       <Input
                         type="number"
@@ -592,11 +625,18 @@ export function QuestionEditorPage() {
                         Kunci/Terbaik
                       </label>
                     </div>
-                    {opt.visualSpec && (
-                      <div className="pl-8 max-w-[140px]">
-                        <FiguralRenderer spec={opt.visualSpec as any} />
-                      </div>
-                    )}
+                    <div className="sm:pl-8">
+                      <QuestionImagePicker
+                        compact
+                        label={`Gambar Opsi ${opt.optionKey}`}
+                        value={opt.visualSpec ?? null}
+                        onChange={(nextVisual) => {
+                          const copy = [...options];
+                          copy[idx] = { ...copy[idx], visualSpec: nextVisual };
+                          setOptions(copy);
+                        }}
+                      />
+                    </div>
                     <div className="sm:pl-8">
                       <Input
                         placeholder={`Rasional/penjelasan singkat opsi ${opt.optionKey} (opsional)`}
@@ -1012,6 +1052,9 @@ export function TopicQuestionsReviewPage() {
               <option value="PAKET_1">Paket 1</option>
               <option value="PAKET_2">Paket 2</option>
               <option value="PAKET_3">Paket 3</option>
+              <option value="PAKET_4">Paket 4</option>
+              <option value="PAKET_5">Paket 5</option>
+              <option value="TOPUP">Top-Up Topik</option>
               <option value="PDF_FIGURAL">PDF Figural (90)</option>
             </Select>
             <Select
@@ -1290,6 +1333,10 @@ export function TopicQuestionsReviewPage() {
 }
 
 export function UserManagementPage() {
+  type RoleType = 'USER' | 'CONTENT_PARTNER' | 'HOST_OPERATOR' | 'EVENT_ADMIN' | 'ADMIN';
+  const [search, setSearch] = useState('');
+  const [busyId, setBusyId] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const { data: users, isLoading, refetch } = useQuery({
     queryKey: ['admin-users'],
     queryFn: () =>
@@ -1298,20 +1345,57 @@ export function UserManagementPage() {
           id: string;
           name: string;
           email: string;
-          role: 'USER' | 'ADMIN';
+          role: RoleType;
+          isPro?: boolean;
+          activeSubscription?: { expiresAt: string; source: string; plan: { name: string } } | null;
           profile: { totalXp: number; levelName: string } | null;
           _count: { practiceSessions: number; examSessions: number };
         }>
       >('/admin/users'),
   });
 
-  const toggleRole = async (id: string, current: 'USER' | 'ADMIN') => {
-    const next = current === 'ADMIN' ? 'USER' : 'ADMIN';
-    await apiFetch(`/admin/users/${id}/role`, {
-      method: 'PATCH',
-      body: JSON.stringify({ role: next }),
-    });
-    await refetch();
+  const changeRole = async (id: string, nextRole: RoleType) => {
+    setBusyId(id);
+    try {
+      await apiFetch(`/admin/users/${id}/role`, {
+        method: 'PATCH',
+        body: JSON.stringify({ role: nextRole }),
+      });
+      await refetch();
+      setNotice('Role pengguna berhasil diperbarui.');
+    } finally {
+      setBusyId(null);
+    }
+  };
+
+  const handleGrantPro = async (id: string, name: string) => {
+    setBusyId(id);
+    setNotice(null);
+    try {
+      await apiFetch('/admin/subscriptions/grant', {
+        method: 'POST',
+        body: JSON.stringify({ userId: id, durationDays: 30 }),
+      });
+      await refetch();
+      setNotice(`Akun ${name} berhasil diaktifkan / diperpanjang ke Nippia Pro (30 hari).`);
+    } finally {
+      setBusyId(null);
+    }
+  };
+
+  const handleRevokePro = async (id: string, name: string) => {
+    setBusyId(id);
+    setNotice(null);
+    try {
+      await apiFetch('/admin/subscriptions/revoke', {
+        method: 'POST',
+        body: JSON.stringify({ userId: id }),
+      });
+      await refetch();
+      setNotice(`Status Pro manual pada akun ${name} dinonaktifkan.`);
+    } finally {
+      setBusyId(null);
+    }
   };
 
   if (isLoading) {
@@ -1322,28 +1406,106 @@ export function UserManagementPage() {
     );
   }
 
+  const filteredUsers = (users || []).filter((u) => {
+    const q = search.trim().toLowerCase();
+    if (!q) return true;
+    return u.name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q);
+  });
+
   return (
     <AppLayout>
       <div className="space-y-5">
-        <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Users className="h-5 w-5 text-indigo-600" /> Manajemen Pengguna
-        </h1>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
+              <Users className="h-5 w-5 text-indigo-600" /> Manajemen Pengguna &amp; Status Pro
+            </h1>
+            <p className="mt-1 text-xs text-slate-600">
+              Ubah role pengguna atau aktifkan/cabut paket Nippia Pro secara manual. Untuk verifikasi bukti order transfer BCA, buka menu{' '}
+              <Link to="/admin/subscriptions" className="font-semibold text-indigo-700 hover:underline">
+                Langganan &amp; Order
+              </Link>.
+            </p>
+          </div>
+          <div className="relative">
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+            <Input
+              className="pl-9 w-64"
+              placeholder="Cari nama atau email..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+        </div>
+
+        {notice && (
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs font-semibold text-emerald-900">
+            {notice}
+          </div>
+        )}
+
         <Card>
           <CardContent className="p-0 divide-y divide-slate-100">
-            {(users || []).map((u) => (
+            {filteredUsers.map((u) => (
               <div key={u.id} className="flex flex-wrap items-center justify-between gap-3 p-4">
                 <div>
-                  <p className="text-sm font-bold text-slate-900">
-                    {u.name} <Badge variant={u.role === 'ADMIN' ? 'navy' : 'neutral'}>{u.role}</Badge>
+                  <p className="text-sm font-bold text-slate-900 flex flex-wrap items-center gap-2">
+                    <span>{u.name}</span>
+                    <Badge variant={u.role === 'ADMIN' ? 'navy' : u.role === 'CONTENT_PARTNER' ? 'indigo' : 'neutral'}>
+                      {u.role}
+                    </Badge>
+                    {u.isPro ? <ProBadge size="xs" /> : <Badge variant="neutral">FREE</Badge>}
                   </p>
                   <p className="text-xs text-slate-500">
                     {u.email} • {u.profile?.totalXp ?? 0} XP ({u.profile?.levelName ?? 'Pemula'}) •{' '}
                     {u._count.practiceSessions} latihan • {u._count.examSessions} simulasi
+                    {u.activeSubscription && (
+                      <>
+                        {' '}• Pro s/d{' '}
+                        {new Date(u.activeSubscription.expiresAt).toLocaleDateString('id-ID', {
+                          dateStyle: 'medium',
+                        })}
+                      </>
+                    )}
                   </p>
                 </div>
-                <Button variant="outline" size="sm" onClick={() => toggleRole(u.id, u.role)}>
-                  Ubah ke {u.role === 'ADMIN' ? 'USER' : 'ADMIN'}
-                </Button>
+                <div className="flex flex-wrap items-center gap-2">
+                  {u.role !== 'ADMIN' && u.role !== 'CONTENT_PARTNER' && (
+                    <>
+                      <Button
+                        size="sm"
+                        variant={u.isPro ? 'secondary' : 'indigo'}
+                        isLoading={busyId === u.id}
+                        onClick={() => handleGrantPro(u.id, u.name)}
+                      >
+                        <Crown className="h-3.5 w-3.5" />
+                        {u.isPro ? 'Perpanjang +30h' : 'Jadikan Pro (30h)'}
+                      </Button>
+                      {u.isPro && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          isLoading={busyId === u.id}
+                          onClick={() => handleRevokePro(u.id, u.name)}
+                        >
+                          Cabut Pro
+                        </Button>
+                      )}
+                    </>
+                  )}
+                  <Select
+                    className="w-52 h-9"
+                    value={u.role}
+                    disabled={busyId === u.id}
+                    onChange={(e) => changeRole(u.id, e.target.value as RoleType)}
+                  >
+                    <option value="USER">USER (Peserta)</option>
+                    <option value="CONTENT_PARTNER">CONTENT_PARTNER (Kontributor &amp; Voucher)</option>
+                    <option value="HOST_OPERATOR">HOST_OPERATOR (Live Operator)</option>
+                    <option value="EVENT_ADMIN">EVENT_ADMIN (Event Admin)</option>
+                    <option value="ADMIN">ADMIN (Super Admin)</option>
+                  </Select>
+                </div>
               </div>
             ))}
           </CardContent>
@@ -1386,6 +1548,7 @@ export function ExamAndScoringConfigPage() {
   const [tkpThreshold, setTkpThreshold] = useState(166);
   const [sourceRef, setSourceRef] = useState('KepmenPAN-RB Terbaru (Terverifikasi Admin)');
   const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -1519,30 +1682,6 @@ export function QualityReviewPage() {
             </CardContent>
           </Card>
         </div>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-base">
-              <Sparkles className="h-4 w-4 text-indigo-600" /> Draf AI Menunggu Tinjauan ({data.aiDrafts.length})
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2.5">
-            {data.aiDrafts.length === 0 ? (
-              <p className="text-xs text-slate-500 flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Tidak ada draf AI tertunda.
-              </p>
-            ) : (
-              data.aiDrafts.map((d) => (
-                <div key={d.id} className="flex items-center justify-between rounded-xl bg-slate-50 p-3 text-xs">
-                  <span><strong>{d.code}</strong>: {d.stem.slice(0, 120)}...</span>
-                  <Link to={`/admin/questions/${d.id}/edit`}>
-                    <Button size="sm" variant="outline">Tinjau</Button>
-                  </Link>
-                </div>
-              ))
-            )}
-          </CardContent>
-        </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between gap-2">
@@ -2052,6 +2191,18 @@ interface AdminSubscriptionsPayload {
     plan: { id: string; code: string; name: string; durationDays: number };
     verifiedBy?: { id: string; name: string } | null;
   }>;
+  partnerCommissions?: Array<{
+    id: string;
+    orderAmountIdr: number;
+    discountGivenIdr: number;
+    commissionIdr: number;
+    status: 'EARNED' | 'PAID_OUT' | 'CANCELLED';
+    createdAt: string;
+    partner: { id: string; name: string; email: string };
+    buyer: { id: string; name: string; email: string };
+    voucher: { code: string };
+    order: { orderCode: string };
+  }>;
   users: Array<{
     id: string;
     name: string;
@@ -2150,6 +2301,21 @@ export function SubscriptionManagementPage() {
     }
   };
 
+  const handlePayoutCommission = async (commissionId: string) => {
+    setBusyId(commissionId);
+    setNotice(null);
+    try {
+      await apiFetch(`/admin/subscriptions/commissions/${commissionId}/payout`, {
+        method: 'POST',
+        body: JSON.stringify({ payoutNote: 'Komisi ditransfer Admin' }),
+      });
+      await refetch();
+      setNotice('Komisi partner ditandai sudah dicairkan.');
+    } finally {
+      setBusyId(null);
+    }
+  };
+
   if (isLoading || !data) {
     return (
       <AppLayout>
@@ -2176,6 +2342,17 @@ export function SubscriptionManagementPage() {
         {notice && (
           <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs font-semibold text-emerald-900">
             {notice}
+          </div>
+        )}
+
+        {data.summary.pendingOrdersCount > 0 && statusFilter !== 'PENDING' && (
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-xs text-amber-950">
+            <span>
+              Terdapat <strong>{data.summary.pendingOrdersCount} order pending</strong> (termasuk transfer manual BCA) yang menunggu verifikasi Admin.
+            </span>
+            <Button size="sm" variant="indigo" onClick={() => setStatusFilter('PENDING')}>
+              Lihat Order Pending
+            </Button>
           </div>
         )}
 
@@ -2450,6 +2627,64 @@ export function SubscriptionManagementPage() {
                 ))}
               </tbody>
             </table>
+          </CardContent>
+        </Card>
+
+        {/* Partner Voucher Commissions */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Komisi Voucher Kontributor / Partner</CardTitle>
+          </CardHeader>
+          <CardContent className="overflow-x-auto">
+            {!data.partnerCommissions || data.partnerCommissions.length === 0 ? (
+              <p className="text-xs text-slate-500">Belum ada komisi voucher yang tercatat.</p>
+            ) : (
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="border-b border-slate-200 text-slate-500">
+                  <tr>
+                    <th className="py-2.5 pr-4">Partner</th>
+                    <th className="py-2.5 pr-4">Voucher & Order</th>
+                    <th className="py-2.5 pr-4">Pembeli Baru</th>
+                    <th className="py-2.5 pr-4">Komisi</th>
+                    <th className="py-2.5 pr-4">Status</th>
+                    <th className="py-2.5 text-right">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {data.partnerCommissions.map((c) => (
+                    <tr key={c.id}>
+                      <td className="py-3 pr-4">
+                        <p className="font-semibold text-slate-900">{c.partner.name}</p>
+                        <p className="text-xs text-slate-500">{c.partner.email}</p>
+                      </td>
+                      <td className="py-3 pr-4">
+                        <Badge variant="indigo">{c.voucher.code}</Badge>
+                        <p className="mt-1 font-mono text-xs text-slate-500">{c.order.orderCode}</p>
+                      </td>
+                      <td className="py-3 pr-4 text-xs text-slate-600">{c.buyer.name}</td>
+                      <td className="py-3 pr-4 font-bold text-emerald-700">{formatIdr(c.commissionIdr)}</td>
+                      <td className="py-3 pr-4">
+                        <Badge variant={c.status === 'PAID_OUT' ? 'success' : 'warning'}>
+                          {c.status}
+                        </Badge>
+                      </td>
+                      <td className="py-3 text-right">
+                        {c.status === 'EARNED' && (
+                          <Button
+                            size="sm"
+                            variant="indigo"
+                            isLoading={busyId === c.id}
+                            onClick={() => handlePayoutCommission(c.id)}
+                          >
+                            Tandai Cair
+                          </Button>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </CardContent>
         </Card>
       </div>

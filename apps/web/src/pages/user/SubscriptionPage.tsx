@@ -4,17 +4,21 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   CheckCircle2,
   Clock,
+  Copy,
   CreditCard,
   Crown,
   ExternalLink,
+  MessageCircle,
   QrCode,
   RefreshCw,
   ShieldCheck,
   Sparkles,
+  Ticket,
   Wallet,
   XCircle,
 } from 'lucide-react';
 import { apiFetch } from '../../lib/api';
+import { webEnv } from '../../lib/env';
 import { useAuthStore } from '../../stores/authStore';
 import { AppLayout } from '../../components/layout/AppLayout';
 import {
@@ -24,6 +28,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  Input,
   LoadingState,
   Modal,
   Textarea,
@@ -145,9 +150,9 @@ const COMPARISON_ROWS = [
     pro: 'Kapasitas tanpa batas + tombol "Latih Ulang Soal Salah" otomatis (H+1, H+3, H+7, H+14)',
   },
   {
-    feature: 'Tutor AI, Jadwal 14 Hari & Analitik',
+    feature: 'Jadwal 14 Hari & Analitik Kelemahan',
     free: 'Ringkasan skor subtes dasar & pratinjau analitik',
-    pro: 'Tanya jawab Tutor AI, Generator Jadwal Belajar 14 Hari & Peta Kelemahan 24 Topik penuh',
+    pro: 'Generator Jadwal Belajar 14 Hari & Peta Penguasaan 24 Topik penuh',
   },
   {
     feature: 'Identitas Akun & Komunitas',
@@ -156,12 +161,38 @@ const COMPARISON_ROWS = [
   },
 ];
 
+const MANUAL_BANK_NAME = 'BCA';
+const MANUAL_BANK_ACCOUNT = '6000125057';
+const MANUAL_BANK_HOLDER = 'WAHYU SYARIF HIDAYATULLAH';
+const MANUAL_WA_DISPLAY = '085737275048';
+const MANUAL_WA_E164 = '6285737275048';
+
 function formatIdr(amount: number) {
   return new Intl.NumberFormat('id-ID', {
     style: 'currency',
     currency: 'IDR',
     maximumFractionDigits: 0,
   }).format(amount);
+}
+
+function buildManualWaUrl(params: {
+  orderCode?: string;
+  planName: string;
+  amountIdr: number;
+  userEmail?: string | null;
+  note?: string | null;
+}) {
+  const lines = [
+    'Halo Admin Nippia, saya ingin konfirmasi pembayaran Nippia Pro (Transfer Bank BCA):',
+    params.orderCode ? `• Kode Order: ${params.orderCode}` : '• Status: Akan membuat/sudah membuat order',
+    params.userEmail ? `• Email Akun: ${params.userEmail}` : null,
+    `• Paket: ${params.planName}`,
+    `• Nominal Transfer: ${formatIdr(params.amountIdr)}`,
+    `• Tujuan Transfer: BCA ${MANUAL_BANK_ACCOUNT} a.n. ${MANUAL_BANK_HOLDER}`,
+    params.note ? `• Catatan Pengirim: ${params.note}` : null,
+    'Mohon bantuannya untuk verifikasi dan aktivasi Nippia Pro. Terima kasih!',
+  ].filter(Boolean);
+  return `https://wa.me/${MANUAL_WA_E164}?text=${encodeURIComponent(lines.join('\n'))}`;
 }
 
 function loadMidtransSnapScript(scriptUrl: string, clientKey: string): Promise<void> {
@@ -193,7 +224,7 @@ function loadMidtransSnapScript(scriptUrl: string, clientKey: string): Promise<v
 }
 
 export function SubscriptionPage() {
-  const { fetchMe } = useAuthStore();
+  const { user, fetchMe } = useAuthStore();
   const qc = useQueryClient();
   const [searchParams] = useSearchParams();
   const [selectedPlan, setSelectedPlan] = useState<PlanItem | null>(null);
@@ -201,8 +232,19 @@ export function SubscriptionPage() {
     'MIDTRANS_SNAP' | 'QRIS' | 'VIRTUAL_ACCOUNT' | 'EWALLET' | 'TRANSFER_MANUAL'
   >('MIDTRANS_SNAP');
   const [proofNote, setProofNote] = useState('');
+  const [copiedRek, setCopiedRek] = useState(false);
+  const [voucherInput, setVoucherInput] = useState(searchParams.get('voucher')?.toUpperCase() || '');
+  const [appliedVoucher, setAppliedVoucher] = useState<{
+    voucherCode: string;
+    ownerName: string;
+    originalPriceIdr: number;
+    discountIdr: number;
+    finalAmountIdr: number;
+  } | null>(null);
+  const [voucherErr, setVoucherErr] = useState<string | null>(null);
+  const [validatingVoucher, setValidatingVoucher] = useState(false);
   const [submittingOrder, setSubmittingOrder] = useState(false);
-  const [feedback, setFeedback] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
+  const [feedback, setFeedback] = useState<{ type: 'ok' | 'err'; text: string; waUrl?: string } | null>(null);
   const [busyOrderId, setBusyOrderId] = useState<string | null>(null);
 
   const { data: gatewayConfig } = useQuery({
@@ -229,10 +271,10 @@ export function SubscriptionPage() {
     }
   }, [midtrans?.enabled, midtrans?.clientKey, midtrans?.snapScriptUrl]);
 
-  // Default to Midtrans Snap if configured, otherwise QRIS local mode
+  // Default to Midtrans Snap if configured, otherwise local mode (dev) or Transfer Manual (prod)
   useEffect(() => {
     if (midtrans && !midtrans.enabled && paymentMethod === 'MIDTRANS_SNAP') {
-      setPaymentMethod('QRIS');
+      setPaymentMethod(webEnv.enableDemoLogin ? 'QRIS' : 'TRANSFER_MANUAL');
     }
   }, [midtrans, paymentMethod]);
 
@@ -330,6 +372,35 @@ export function SubscriptionPage() {
     }
   };
 
+  const handleValidateVoucher = async (planCodeOverride?: string) => {
+    const planCode = planCodeOverride || selectedPlan?.code;
+    if (!planCode || !voucherInput.trim()) {
+      setAppliedVoucher(null);
+      setVoucherErr(null);
+      return;
+    }
+    setValidatingVoucher(true);
+    setVoucherErr(null);
+    try {
+      const res = await apiFetch<{
+        voucherCode: string;
+        ownerName: string;
+        originalPriceIdr: number;
+        discountIdr: number;
+        finalAmountIdr: number;
+      }>('/subscriptions/vouchers/validate', {
+        method: 'POST',
+        body: JSON.stringify({ code: voucherInput.trim(), planCode }),
+      });
+      setAppliedVoucher(res);
+    } catch (err) {
+      setAppliedVoucher(null);
+      setVoucherErr(err instanceof Error ? err.message : 'Kode voucher tidak valid.');
+    } finally {
+      setValidatingVoucher(false);
+    }
+  };
+
   const handleCheckout = async (instantActivate: boolean) => {
     if (!selectedPlan) return;
     setSubmittingOrder(true);
@@ -345,13 +416,17 @@ export function SubscriptionPage() {
         body: JSON.stringify({
           planCode: selectedPlan.code,
           paymentMethod,
+          voucherCode: appliedVoucher?.voucherCode || undefined,
           paymentProofNote: proofNote.trim() || undefined,
           instantActivate,
         }),
       });
 
+      const submittedProof = proofNote.trim();
       setSelectedPlan(null);
       setProofNote('');
+      setAppliedVoucher(null);
+      setVoucherErr(null);
       await invalidateSubscriptionCaches();
 
       if (paymentMethod === 'MIDTRANS_SNAP' && res.snapToken) {
@@ -359,11 +434,23 @@ export function SubscriptionPage() {
         return;
       }
 
+      const waUrl =
+        !res.activated
+          ? buildManualWaUrl({
+              orderCode: res.order.orderCode,
+              planName: selectedPlan.name,
+              amountIdr: res.order.amountIdr,
+              userEmail: user?.email,
+              note: submittedProof || null,
+            })
+          : undefined;
+
       setFeedback({
         type: 'ok',
         text: res.activated
           ? `Pembayaran berhasil! Paket ${selectedPlan.name} (${res.order.orderCode}) langsung aktif di akun Anda.`
-          : `Order ${res.order.orderCode} dibuat. Menunggu verifikasi Admin sebelum Nippia Pro aktif.`,
+          : `Order ${res.order.orderCode} dibuat (${formatIdr(res.order.amountIdr)}). Silakan transfer ke BCA ${MANUAL_BANK_ACCOUNT} a.n. ${MANUAL_BANK_HOLDER} lalu konfirmasi via WhatsApp ${MANUAL_WA_DISPLAY}.`,
+        waUrl,
       });
     } catch (err) {
       setFeedback({
@@ -442,7 +529,7 @@ export function SubscriptionPage() {
                   : 'Upgrade ke Nippia Pro — Hanya Rp 29.000 / Bulan'}
               </h1>
               <p className="text-sm leading-relaxed text-slate-300">
-                Buka seluruh 41 Unit Campaign, 420+ bank soal 24 Topik termasuk Figural Visual, Simulasi CAT 110 soal tanpa batas, Live Akbar Premium gratis, Tutor AI, dan Spaced Repetition penuh.
+                Buka seluruh 41 Unit Campaign, 420+ bank soal 24 Topik termasuk Figural Visual, Simulasi CAT 110 soal tanpa batas, Live Akbar Premium gratis, Jadwal 14 Hari, dan Spaced Repetition penuh.
               </p>
             </div>
 
@@ -492,18 +579,27 @@ export function SubscriptionPage() {
 
         {feedback && (
           <div
-            className={`flex items-center gap-2 rounded-2xl border p-4 text-sm font-medium ${
+            className={`flex flex-wrap items-center justify-between gap-3 rounded-2xl border p-4 text-sm font-medium ${
               feedback.type === 'ok'
                 ? 'border-emerald-200 bg-emerald-50 text-emerald-900'
                 : 'border-rose-200 bg-rose-50 text-rose-800'
             }`}
           >
-            {feedback.type === 'ok' ? (
-              <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
-            ) : (
-              <XCircle className="h-5 w-5 shrink-0 text-rose-600" />
+            <div className="flex items-center gap-2">
+              {feedback.type === 'ok' ? (
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
+              ) : (
+                <XCircle className="h-5 w-5 shrink-0 text-rose-600" />
+              )}
+              <span>{feedback.text}</span>
+            </div>
+            {feedback.waUrl && (
+              <a href={feedback.waUrl} target="_blank" rel="noopener noreferrer">
+                <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                  <MessageCircle className="h-4 w-4" /> Chat WhatsApp ({MANUAL_WA_DISPLAY})
+                </Button>
+              </a>
             )}
-            <span>{feedback.text}</span>
           </div>
         )}
 
@@ -598,6 +694,9 @@ export function SubscriptionPage() {
                   onClick={() => {
                     setSelectedPlan(plan);
                     setPaymentMethod(midtrans?.enabled ? 'MIDTRANS_SNAP' : 'QRIS');
+                    if (voucherInput.trim()) {
+                      handleValidateVoucher(plan.code);
+                    }
                   }}
                 >
                   <Crown className="h-4 w-4" />
@@ -720,17 +819,31 @@ export function SubscriptionPage() {
                                     <RefreshCw className="h-3.5 w-3.5" /> Cek Status
                                   </Button>
                                 </>
-                              ) : (
-                                ord.paymentMethod !== 'TRANSFER_MANUAL' && (
-                                  <Button
-                                    size="sm"
-                                    variant="indigo"
-                                    isLoading={busyOrderId === ord.id}
-                                    onClick={() => handleConfirmPendingInstant(ord.id)}
-                                  >
-                                    Bayar & Aktifkan
+                              ) : ord.paymentMethod === 'TRANSFER_MANUAL' || !webEnv.enableDemoLogin ? (
+                                <a
+                                  href={buildManualWaUrl({
+                                    orderCode: ord.orderCode,
+                                    planName: ord.plan.name,
+                                    amountIdr: ord.amountIdr,
+                                    userEmail: user?.email,
+                                    note: ord.paymentProofNote,
+                                  })}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                                    <MessageCircle className="h-3.5 w-3.5" /> Konfirmasi WA
                                   </Button>
-                                )
+                                </a>
+                              ) : (
+                                <Button
+                                  size="sm"
+                                  variant="indigo"
+                                  isLoading={busyOrderId === ord.id}
+                                  onClick={() => handleConfirmPendingInstant(ord.id)}
+                                >
+                                  Bayar & Aktifkan
+                                </Button>
                               )}
                               <Button
                                 size="sm"
@@ -758,16 +871,65 @@ export function SubscriptionPage() {
         onClose={() => setSelectedPlan(null)}
         title={selectedPlan ? `Checkout ${selectedPlan.name}` : 'Checkout Nippia Pro'}
       >
-        {selectedPlan && (
+        {selectedPlan && (() => {
+          const payableAmount = appliedVoucher ? appliedVoucher.finalAmountIdr : selectedPlan.priceIdr;
+          return (
           <div className="space-y-4">
-            <div className="rounded-xl bg-indigo-50 border border-indigo-200 p-4 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-bold text-slate-900">{selectedPlan.name}</p>
-                <p className="text-xs text-slate-600">Masa aktif {selectedPlan.durationDays} hari</p>
+            <div className="rounded-xl bg-indigo-50 border border-indigo-200 p-4 space-y-2">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-bold text-slate-900">{selectedPlan.name}</p>
+                  <p className="text-xs text-slate-600">Masa aktif {selectedPlan.durationDays} hari</p>
+                </div>
+                <div className="text-right">
+                  {appliedVoucher && (
+                    <p className="text-xs text-slate-400 line-through">
+                      {formatIdr(selectedPlan.priceIdr)}
+                    </p>
+                  )}
+                  <p className="text-xl font-extrabold text-indigo-700">
+                    {formatIdr(payableAmount)}
+                  </p>
+                </div>
               </div>
-              <p className="text-xl font-extrabold text-indigo-700">
-                {formatIdr(selectedPlan.priceIdr)}
-              </p>
+              {appliedVoucher && (
+                <div className="flex items-center justify-between border-t border-indigo-200/80 pt-2 text-xs text-emerald-800 font-semibold">
+                  <span className="flex items-center gap-1">
+                    <Ticket className="h-3.5 w-3.5" /> Voucher {appliedVoucher.voucherCode}
+                  </span>
+                  <span>-{formatIdr(appliedVoucher.discountIdr)}</span>
+                </div>
+              )}
+            </div>
+
+            {/* Voucher Input */}
+            <div className="space-y-1.5">
+              <p className="text-xs font-semibold text-slate-700">Punya Kode Voucher? (Potongan Rp 4.000 pengguna baru)</p>
+              <div className="flex gap-2">
+                <Input
+                  placeholder="Masukkan kode voucher (cth: NIPPIA4K)"
+                  value={voucherInput}
+                  onChange={(e) => {
+                    setVoucherInput(e.target.value.toUpperCase());
+                    if (appliedVoucher) setAppliedVoucher(null);
+                  }}
+                />
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  isLoading={validatingVoucher}
+                  onClick={() => handleValidateVoucher()}
+                >
+                  Terapkan
+                </Button>
+              </div>
+              {voucherErr && <p className="text-xs font-medium text-rose-600">{voucherErr}</p>}
+              {appliedVoucher && (
+                <p className="text-xs font-medium text-emerald-700">
+                  Kode voucher valid! Anda hemat {formatIdr(appliedVoucher.discountIdr)}.
+                </p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -794,10 +956,11 @@ export function SubscriptionPage() {
                 )}
 
                 {!midtrans?.enabled &&
+                  webEnv.enableDemoLogin &&
                   [
-                    { id: 'QRIS' as const, label: 'QRIS (Simulasi Lokal)', icon: QrCode },
-                    { id: 'EWALLET' as const, label: 'E-Wallet (Simulasi Lokal)', icon: Wallet },
-                    { id: 'VIRTUAL_ACCOUNT' as const, label: 'VA Bank (Simulasi Lokal)', icon: CreditCard },
+                    { id: 'QRIS' as const, label: 'QRIS (Simulasi Lokal Dev)', icon: QrCode },
+                    { id: 'EWALLET' as const, label: 'E-Wallet (Simulasi Lokal Dev)', icon: Wallet },
+                    { id: 'VIRTUAL_ACCOUNT' as const, label: 'VA Bank (Simulasi Lokal Dev)', icon: CreditCard },
                   ].map((m) => {
                     const Icon = m.icon;
                     return (
@@ -842,24 +1005,60 @@ export function SubscriptionPage() {
                 </p>
               </div>
             ) : paymentMethod === 'TRANSFER_MANUAL' ? (
-              <div className="space-y-2 rounded-xl border border-amber-200 bg-amber-50/70 p-3.5 text-xs text-amber-950">
+              <div className="space-y-3 rounded-xl border border-amber-200 bg-amber-50/70 p-3.5 text-xs text-amber-950">
                 <p className="font-semibold">Instruksi Transfer Manual:</p>
                 <p>
-                  Transfer sebesar <strong>{formatIdr(selectedPlan.priceIdr)}</strong> ke Rekening BCA{' '}
-                  <strong>1234-567-890 a.n. PT Nippia Edukasi Nusantara</strong>, lalu sertakan catatan pengirim di bawah agar Admin memverifikasi.
+                  Transfer sebesar <strong>{formatIdr(payableAmount)}</strong> ke rekening berikut:
                 </p>
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-amber-300/80 bg-white px-3 py-2">
+                  <div>
+                    <p className="text-[11px] font-semibold text-slate-500">BANK {MANUAL_BANK_NAME}</p>
+                    <p className="font-mono text-sm font-extrabold text-slate-900">{MANUAL_BANK_ACCOUNT}</p>
+                    <p className="text-[11px] font-semibold text-slate-700">a.n. {MANUAL_BANK_HOLDER}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      await navigator.clipboard.writeText(MANUAL_BANK_ACCOUNT);
+                      setCopiedRek(true);
+                      setTimeout(() => setCopiedRek(false), 2000);
+                    }}
+                    className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer"
+                  >
+                    <Copy className="h-3 w-3" /> {copiedRek ? 'Tersalin ✓' : 'Salin No. Rek'}
+                  </button>
+                </div>
                 <Textarea
                   rows={2}
-                  placeholder="Contoh: Transfer dari BCA a.n. Budi Santoso tgl 27 Nov pukul 16:10"
+                  placeholder="Contoh: Transfer dari BCA a.n. Budi Santoso tgl 27 Nov pukul 17:10"
                   value={proofNote}
                   onChange={(e) => setProofNote(e.target.value)}
                 />
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-emerald-200 bg-emerald-50/90 px-3 py-2 text-emerald-950">
+                  <span>
+                    Setelah kirim bukti &amp; buat order, konfirmasi juga ke WhatsApp{' '}
+                    <strong>{MANUAL_WA_DISPLAY}</strong>.
+                  </span>
+                  <a
+                    href={buildManualWaUrl({
+                      planName: selectedPlan.name,
+                      amountIdr: payableAmount,
+                      userEmail: user?.email,
+                      note: proofNote.trim() || null,
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-lg bg-emerald-600 px-2.5 py-1 text-[11px] font-bold text-white hover:bg-emerald-700"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5" /> Chat WA {MANUAL_WA_DISPLAY}
+                  </a>
+                </div>
               </div>
             ) : (
               <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-3.5 text-xs text-amber-950 space-y-1">
-                <p className="font-semibold">Midtrans Belum Dikonfigurasi pada `.env`</p>
+                <p className="font-semibold">Mode Pembayaran Instan Lokal (Development)</p>
                 <p>
-                  Untuk testing transaksi Midtrans asli (Sandbox), isi <code>MIDTRANS_SERVER_KEY</code> &amp; <code>MIDTRANS_CLIENT_KEY</code> di <code>.env</code> lalu restart API. Sementara itu Anda tetap bisa menguji aktivasi lokal di bawah.
+                  Hanya aktif pada environment development untuk pengujian lokal tanpa kredensial Midtrans.
                 </p>
               </div>
             )}
@@ -875,9 +1074,9 @@ export function SubscriptionPage() {
                   onClick={() => handleCheckout(false)}
                 >
                   <Crown className="h-4 w-4" />
-                  Bayar {formatIdr(selectedPlan.priceIdr)} via Midtrans
+                  Bayar {formatIdr(payableAmount)} via Midtrans
                 </Button>
-              ) : paymentMethod === 'TRANSFER_MANUAL' ? (
+              ) : paymentMethod === 'TRANSFER_MANUAL' || !webEnv.enableDemoLogin ? (
                 <Button
                   variant="indigo"
                   isLoading={submittingOrder}
@@ -892,12 +1091,13 @@ export function SubscriptionPage() {
                   onClick={() => handleCheckout(true)}
                 >
                   <Crown className="h-4 w-4" />
-                  Simulasi Bayar {formatIdr(selectedPlan.priceIdr)} & Aktifkan Pro
+                  Simulasi Bayar {formatIdr(payableAmount)} & Aktifkan Pro
                 </Button>
               )}
             </div>
           </div>
-        )}
+          );
+        })()}
       </Modal>
     </AppLayout>
   );

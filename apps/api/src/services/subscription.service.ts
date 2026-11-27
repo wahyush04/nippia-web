@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import { prisma } from '../lib/prisma.js';
 import { AppError } from '../middleware/errorHandler.js';
 import { getTodayWibString } from './gamification.service.js';
+import { awardPartnerCommissionForOrder, validateVoucherForCheckout } from './partner.service.js';
 
 export const PRO_MONTHLY_PRICE_IDR = 29000;
 
@@ -19,7 +20,7 @@ export const DEFAULT_SUBSCRIPTION_PLANS = [
     code: 'PRO_MONTHLY',
     name: 'Nippia Pro Bulanan',
     description:
-      'Akses penuh seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT Unlimited, Live Akbar Premium, Tutor AI, & Spaced Repetition.',
+      'Akses penuh seluruh 41 Unit Campaign, 420+ soal Drilling 24 Topik, Simulasi CAT Unlimited, Live Akbar Premium, Jadwal 14 Hari, & Spaced Repetition.',
     priceIdr: 29000,
     originalIdr: 49000,
     durationDays: 30,
@@ -33,7 +34,7 @@ export const DEFAULT_SUBSCRIPTION_PLANS = [
       'Gratis semua event Nippia Live Akbar Premium',
       '45 Kartu Hafalan 3D & 18 Modul Pusat Materi (Paket 1–3)',
       'Buku Kesalahan tanpa batas + Latih Ulang Spaced Repetition',
-      'Tanya jawab Tutor AI, Jadwal 14 Hari & Analisis Kelemahan penuh',
+      'Generator Jadwal 14 Hari & Analisis Kelemahan 24 Topik penuh',
       'Badge eksklusif PRO di Profil, Sidebar, dan Leaderboard',
     ],
   },
@@ -139,7 +140,8 @@ export async function getUserEntitlement(userId: string): Promise<UserEntitlemen
     ]);
 
   const isAdmin = user?.role === 'ADMIN';
-  const isPro = Boolean(activeSub) || isAdmin;
+  const isContentPartner = user?.role === 'CONTENT_PARTNER';
+  const isPro = Boolean(activeSub) || isAdmin || isContentPartner;
 
   const daysRemaining = activeSub
     ? Math.max(1, Math.ceil((activeSub.expiresAt.getTime() - now.getTime()) / (24 * 60 * 60 * 1000)))
@@ -161,16 +163,16 @@ export async function getUserEntitlement(userId: string): Promise<UserEntitlemen
           daysRemaining,
           source: activeSub.source,
         }
-      : isAdmin
+      : isAdmin || isContentPartner
         ? {
-            id: 'admin-override',
-            planCode: 'ADMIN_PRO',
-            planName: 'Akses Penuh Administrator',
+            id: isAdmin ? 'admin-override' : 'partner-pro',
+            planCode: isAdmin ? 'ADMIN_PRO' : 'PARTNER_PRO',
+            planName: isAdmin ? 'Akses Penuh Administrator' : 'Nippia Pro (Kontributor & Partner)',
             status: 'ACTIVE',
             startedAt: now,
             expiresAt: new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000),
             daysRemaining: 365,
-            source: 'ADMIN',
+            source: isAdmin ? 'ADMIN' : 'PARTNER',
           }
         : null,
     limits: FREE_LIMITS,
@@ -198,7 +200,7 @@ export async function getProUserIdSet(userIds: string[]): Promise<Set<string>> {
     prisma.user.findMany({
       where: {
         id: { in: userIds },
-        role: 'ADMIN',
+        role: { in: ['ADMIN', 'CONTENT_PARTNER'] },
       },
       select: { id: true },
     }),
@@ -299,11 +301,29 @@ export async function createSubscriptionOrder(params: {
   planCode: string;
   paymentMethod: string;
   paymentProofNote?: string;
+  voucherCode?: string;
 }) {
   await ensureDefaultSubscriptionPlans();
   const plan = await prisma.subscriptionPlan.findUnique({ where: { code: params.planCode } });
   if (!plan || !plan.isActive) {
     throw new AppError(404, 'Paket langganan tidak tersedia.');
+  }
+
+  let voucherId: string | null = null;
+  let appliedCode: string | null = null;
+  let discountIdr = 0;
+  let finalAmountIdr = plan.priceIdr;
+
+  if (params.voucherCode && params.voucherCode.trim()) {
+    const validated = await validateVoucherForCheckout({
+      code: params.voucherCode,
+      buyerUserId: params.userId,
+      planCode: params.planCode,
+    });
+    voucherId = validated.voucher.id;
+    appliedCode = validated.voucher.code;
+    discountIdr = validated.discountIdr;
+    finalAmountIdr = validated.finalAmountIdr;
   }
 
   const orderCode = `NIP-${new Date().toISOString().slice(2, 10).replace(/-/g, '')}-${crypto
@@ -316,7 +336,10 @@ export async function createSubscriptionOrder(params: {
       orderCode,
       userId: params.userId,
       planId: plan.id,
-      amountIdr: plan.priceIdr,
+      amountIdr: finalAmountIdr,
+      voucherId,
+      voucherCode: appliedCode,
+      discountIdr,
       paymentMethod: params.paymentMethod,
       paymentProofNote: params.paymentProofNote?.trim() || null,
       status: 'PENDING',
@@ -336,6 +359,7 @@ export async function markOrderPaidAndActivate(params: {
   });
   if (!order) throw new AppError(404, 'Order langganan tidak ditemukan.');
   if (order.status === 'PAID') {
+    await awardPartnerCommissionForOrder(order.id);
     return order;
   }
   if (order.status === 'REJECTED' || order.status === 'CANCELLED') {
@@ -349,7 +373,7 @@ export async function markOrderPaidAndActivate(params: {
     note: params.note ?? `Order ${order.orderCode}`,
   });
 
-  return prisma.subscriptionOrder.update({
+  const updated = await prisma.subscriptionOrder.update({
     where: { id: order.id },
     data: {
       status: 'PAID',
@@ -360,4 +384,7 @@ export async function markOrderPaidAndActivate(params: {
     },
     include: { plan: true, subscription: true },
   });
+
+  await awardPartnerCommissionForOrder(updated.id);
+  return updated;
 }

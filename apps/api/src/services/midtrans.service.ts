@@ -100,6 +100,7 @@ export async function createMidtransSnapTransaction(params: {
       Authorization: getMidtransAuthHeader(),
     },
     body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(15_000),
   });
 
   const body = (await resp.json().catch(() => ({}))) as {
@@ -158,6 +159,17 @@ export async function applyMidtransNotification(payload: MidtransNotificationPay
   });
   if (!order) {
     throw new AppError(404, `Order ${payload.order_id} tidak ditemukan.`);
+  }
+
+  if (payload.gross_amount !== undefined) {
+    const reportedAmount = Math.round(Number(payload.gross_amount));
+    if (!Number.isFinite(reportedAmount) || reportedAmount !== order.amountIdr) {
+      throw new AppError(
+        400,
+        'Nominal pembayaran Midtrans tidak sesuai dengan nilai order.',
+        'MIDTRANS_AMOUNT_MISMATCH',
+      );
+    }
   }
 
   const txStatus = String(payload.transaction_status || '').toLowerCase();

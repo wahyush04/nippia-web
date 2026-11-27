@@ -128,8 +128,13 @@ describe('Pro Monthly Subscription & Free vs Pro Entitlements', () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       expect(materialsFree.status).toBe(200);
-      const lockedMats = (materialsFree.json.data as Array<{ isLocked: boolean }>).filter((m) => m.isLocked);
+      const matList = materialsFree.json.data as Array<{ isLocked: boolean }>;
+      const lockedMats = matList.filter((m) => m.isLocked);
       expect(lockedMats.length).toBeGreaterThanOrEqual(12);
+      const firstLockedIdx = matList.findIndex((m) => m.isLocked);
+      expect(firstLockedIdx).toBeGreaterThan(0);
+      expect(matList.slice(0, firstLockedIdx).every((m) => !m.isLocked)).toBe(true);
+      expect(matList.slice(firstLockedIdx).every((m) => m.isLocked)).toBe(true);
 
       // 8. Checkout & Activate Nippia Pro Bulanan (Rp 29.000) via instant sandbox fallback
       const checkout = await req('/api/v1/subscriptions/orders', {

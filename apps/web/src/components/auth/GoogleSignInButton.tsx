@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { apiFetch } from '../../lib/api';
+import { webEnv } from '../../lib/env';
 import type { AuthUser } from '../../stores/authStore';
 
 declare global {
@@ -64,7 +65,7 @@ export function GoogleSignInButton({
     staleTime: 5 * 60 * 1000,
   });
 
-  const clientId = cfg?.clientId || import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
+  const clientId = cfg?.clientId || webEnv.googleClientId || '';
   const enabled = Boolean(cfg?.enabled ?? clientId);
 
   useEffect(() => {
@@ -132,7 +133,7 @@ export function GoogleSignInButton({
 
   if (!enabled) return null;
 
-  const apiBase = (import.meta.env.VITE_API_URL || '/api/v1').replace(/\/$/, '');
+  const apiBase = webEnv.apiUrl;
 
   return (
     <div className="space-y-2.5">

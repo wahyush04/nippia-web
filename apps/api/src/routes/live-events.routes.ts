@@ -420,7 +420,8 @@ liveEventsRouter.post(
       });
 
       return reg;
-    });
+    },
+    { maxWait: 10_000, timeout: 15_000 });
 
     void broadcastParticipantCount(event.id);
     res.status(201).json({ success: true, data: registration });

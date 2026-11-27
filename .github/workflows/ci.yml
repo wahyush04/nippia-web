@@ -1,0 +1,86 @@
+name: Nippia CI & Build Verification
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+jobs:
+  verify:
+    name: Typecheck, Test, Migration & Build
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: nippia_ci
+          POSTGRES_PASSWORD: nippia_ci_password
+          POSTGRES_DB: nippia_ci_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      NODE_ENV: test
+      DATABASE_URL: postgresql://nippia_ci:nippia_ci_password@127.0.0.1:5432/nippia_ci_db?schema=public
+      REDIS_URL: redis://127.0.0.1:6379
+      JWT_ACCESS_SECRET: ci_access_secret_key_for_testing_at_least_32_chars
+      JWT_REFRESH_SECRET: ci_refresh_secret_key_for_testing_at_least_32_chars
+      CORS_ORIGIN: http://localhost:5173
+      APP_URL: http://localhost:5173
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client & Validate Migration History
+        run: |
+          npm run db:generate
+          npx prisma migrate deploy --schema=apps/api/prisma/schema.prisma
+          npx prisma migrate status --schema=apps/api/prisma/schema.prisma
+
+      - name: Seed reference + test data for integration tests
+        run: npm run db:seed
+
+      - name: Run TypeScript typechecking (API & Web)
+        run: npm run lint
+
+      - name: Run Automated Integration & Unit Tests
+        run: npm run test
+
+      - name: Build Shared, API & Web Production Bundles
+        env:
+          VITE_API_URL: /api/v1
+          VITE_APP_ENV: production
+          VITE_ENABLE_DEMO_LOGIN: "false"
+        run: npm run build
+
+      - name: Verify Production Docker Builds
+        run: |
+          docker build -t nippia-api-ci -f apps/api/Dockerfile .
+          docker build -t nippia-web-ci -f apps/web/Dockerfile .

@@ -63,7 +63,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
             <div>
               <NippiaLogo variant="wordmark" size="sm" showSubtitle />
               <p className="mt-2.5 max-w-xl text-xs text-slate-500 leading-relaxed">
-                Platform persiapan mandiri CPNS SKD (TWK, TIU, TKP) berbasis analitik dan AI.
+                Platform persiapan mandiri CPNS SKD (TWK, TIU, TKP) berbasis analitik dan latihan adaptif.
                 Nippia adalah platform persiapan independen dan tidak berafiliasi dengan BKN atau
                 KemenPAN-RB. Seluruh aturan resmi ujian mengacu pada pengumuman resmi pemerintah
                 pada tahun seleksi berjalan.

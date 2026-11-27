@@ -1,0 +1,147 @@
+[
+  {
+    "id": "TWK-TOPUP-001",
+    "subject": "TWK",
+    "topic": "NKRI",
+    "topicSlug": "nkri",
+    "subtopic": "Ketentuan Wilayah Negara (UU 43/2008)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Berdasarkan UU No. 43 Tahun 2008 tentang Wilayah Negara, ruang wilayah kedaulatan NKRI meliputi...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Wilayah daratan saja beserta pulau-pulau besar yang berpenduduk tetap",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Wilayah negara mencakup juga perairan, dasar laut, tanah di bawahnya, serta ruang udara."
+      },
+      {
+        "key": "B",
+        "text": "Wilayah darat, wilayah perairan, dasar laut dan tanah di bawahnya, serta ruang udara di atasnya termasuk seluruh sumber kekayaan yang terkandung di dalamnya",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: kedaulatan wilayah NKRI bersifat utuh tiga dimensi (darat, laut, udara, beserta kekayaan di dalamnya)."
+      },
+      {
+        "key": "C",
+        "text": "Hanya pulau utama tanpa pulau kecil terluar yang tidak berpenghuni",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pulau-pulau kecil terluar menjadi titik pangkal penentuan batas maritim NKRI."
+      },
+      {
+        "key": "D",
+        "text": "Wilayah daratan dan perairan sungai saja tanpa zona maritim",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Indonesia adalah negara kepulauan maritim."
+      },
+      {
+        "key": "E",
+        "text": "Ruang udara hanya setinggi bangunan tertinggi di setiap kota",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kedaulatan ruang udara mencakup seluruh ruang udara di atas wilayah darat dan perairan NKRI."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Kedaulatan wilayah NKRI mencakup tiga matra (darat, perairan/dasar laut, ruang udara) secara menyeluruh sesuai UU No. 43 Tahun 2008.",
+      "stepByStep": [
+        "Ingat ruang lingkup wilayah negara dalam UU 43/2008 & Pasal 25A UUD 1945.",
+        "Opsi B paling lengkap dan tepat."
+      ],
+      "correctReason": "Merumuskan cakupan penuh kedaulatan teritorial NKRI.",
+      "distractorAnalysis": {
+        "A": "Wilayah negara mencakup juga perairan, dasar laut, tanah di bawahnya, serta ruang udara.",
+        "C": "Pulau-pulau kecil terluar menjadi titik pangkal penentuan batas maritim NKRI.",
+        "D": "Indonesia adalah negara kepulauan maritim.",
+        "E": "Kedaulatan ruang udara mencakup seluruh ruang udara di atas wilayah darat dan perairan NKRI."
+      },
+      "quickTrick": "Wilayah NKRI = Darat + Perairan + Dasar Laut/Tanah di Bawahnya + Ruang Udara.",
+      "commonMistakes": "Melupakan dimensi ruang udara dan dasar laut beserta kandungannya.",
+      "studyMaterialTip": "Kaitkan UU Wilayah Negara dengan Pasal 25A UUD NRI Tahun 1945."
+    },
+    "references": [
+      {
+        "title": "UU No. 23 Tahun 2014 & Wawasan Nusantara",
+        "source": "Kemendagri RI"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TWK-TOPUP-002",
+    "subject": "TWK",
+    "topic": "Bhinneka Tunggal Ika",
+    "topicSlug": "bhinneka-tunggal-ika",
+    "subtopic": "Kearifan Lokal & Gotong Royong",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Tradisi gotong royong yang memiliki beragam nama di nusantara seperti Ngayah di Bali, Mapalus di Minahasa, dan Sambatan di Jawa membuktikan bahwa dalam Bhinneka Tunggal Ika...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Setiap daerah memiliki tujuan hidup yang saling bertentangan satu sama lain",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nama berbeda namun nilai kebersamaan dan tolong-menolongnya sama."
+      },
+      {
+        "key": "B",
+        "text": "Keberagaman ekspresi budaya lokal justru berakar pada nilai luhur bersama yang mempersatukan bangsa",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: bentuk/nama budaya beragam (Bhinneka), namun hakikat nilai kebersamaannya tunggal (Tunggal Ika)."
+      },
+      {
+        "key": "C",
+        "text": "Tradisi gotong royong harus dihapus agar seluruh desa memakai satu nama baru",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kekayaan istilah daerah tetap lestari sebagai khazanah budaya."
+      },
+      {
+        "key": "D",
+        "text": "Kerja sama warga hanya bisa dilakukan bila berasal dari suku yang sama",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Gotong royong di lingkungan majemuk memperkuat pembauran lintas suku."
+      },
+      {
+        "key": "E",
+        "text": "Budaya lokal tidak relevan dengan kehidupan masyarakat perkotaan modern",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai gotong royong tetap relevan dalam solidaritas sosial modern."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Keragaman tradisi lokal di Nusantara memancarkan satu kesatuan nilai sosial (solidaritas/gotong royong) yang menopang persatuan.",
+      "stepByStep": [
+        "Amati kesamaan esensi Ngayah, Mapalus, dan Sambatan.",
+        "Hubungkan dengan semboyan Bhinneka Tunggal Ika (\"berbeda-beda tetapi tetap satu jua\").",
+        "Opsi B tepat."
+      ],
+      "correctReason": "Menunjukkan kesatuan nilai luhur di balik variasi kearifan lokal Nusantara.",
+      "distractorAnalysis": {
+        "A": "Nama berbeda namun nilai kebersamaan dan tolong-menolongnya sama.",
+        "C": "Kekayaan istilah daerah tetap lestari sebagai khazanah budaya.",
+        "D": "Gotong royong di lingkungan majemuk memperkuat pembauran lintas suku.",
+        "E": "Nilai gotong royong tetap relevan dalam solidaritas sosial modern."
+      },
+      "quickTrick": "Nama budaya beragam, nilai luhurnya sama = Esensi Bhinneka Tunggal Ika.",
+      "commonMistakes": "Menganggap pelestarian tradisi daerah bertentangan dengan modernitas.",
+      "studyMaterialTip": "Kenali contoh tradisi gotong royong daerah di Indonesia (Mapalus, Ngayah, Sambatan, Marsiadapari, Gugur Gunung)."
+    },
+    "references": [
+      {
+        "title": "Pedoman Keberagaman & Moderasi Sosial-Budaya Nasional",
+        "source": "Kemenag / Kemendikbudristek"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  }
+]

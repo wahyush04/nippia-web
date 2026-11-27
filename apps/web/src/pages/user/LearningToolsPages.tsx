@@ -1286,6 +1286,10 @@ export function StudyMaterialsPage() {
       >(`/dashboard/materials?q=${encodeURIComponent(search)}&subject=${encodeURIComponent(subject)}`),
   });
 
+  const sortedMaterials = materials
+    ? [...materials].sort((a, b) => Number(Boolean(a.isLocked)) - Number(Boolean(b.isLocked)))
+    : [];
+
   return (
     <AppLayout>
       <div className="space-y-6">
@@ -1335,11 +1339,11 @@ export function StudyMaterialsPage() {
 
         {isLoading ? (
           <LoadingState label="Memuat pusat materi..." />
-        ) : !materials || materials.length === 0 ? (
+        ) : sortedMaterials.length === 0 ? (
           <EmptyState title="Materi tidak ditemukan" description="Coba kata kunci lain." />
         ) : (
           <div className="grid gap-5 md:grid-cols-2">
-            {materials.map((m) => (
+            {sortedMaterials.map((m) => (
               <Card key={m.id} className={m.isLocked ? 'border-amber-200/80 bg-amber-50/20' : ''}>
                 <CardHeader>
                   <div className="flex items-center justify-between gap-2">

@@ -232,6 +232,9 @@ function CellSvg({ cell, size = 84 }: { cell: FiguralCellSpec | null; size?: num
   );
 }
 
+const SAFE_IMAGE_SRC =
+  /^(https?:\/\/[^\s]+|data:image\/(png|jpeg|jpg|webp|gif);base64,[A-Za-z0-9+/=]+)$/i;
+
 export function FiguralRenderer({
   spec,
   compact = false,
@@ -240,7 +243,29 @@ export function FiguralRenderer({
   compact?: boolean;
 }) {
   if (!spec) return null;
-  const kind = spec.kind as string | undefined;
+  const kind = (spec.kind as string | undefined) ?? (spec.type as string | undefined);
+
+  if (kind === 'image' && typeof spec.url === 'string' && SAFE_IMAGE_SRC.test(spec.url.trim())) {
+    const alt = typeof spec.alt === 'string' && spec.alt.trim() ? spec.alt : 'Gambar soal SKD';
+    const caption = typeof spec.caption === 'string' && spec.caption.trim() ? spec.caption.trim() : null;
+    return (
+      <div className={compact ? 'inline-flex flex-col items-start' : 'my-3 inline-flex flex-col items-start gap-1.5'}>
+        <img
+          src={spec.url.trim()}
+          alt={alt}
+          loading="lazy"
+          className={
+            compact
+              ? 'max-h-24 max-w-[180px] rounded-lg border border-slate-200 bg-white p-1 object-contain shadow-2xs'
+              : 'max-h-80 max-w-full rounded-xl border border-slate-200 bg-white p-2 object-contain shadow-2xs'
+          }
+        />
+        {!compact && caption && (
+          <p className="text-xs text-slate-500 italic">{caption}</p>
+        )}
+      </div>
+    );
+  }
 
   if (!kind && (Array.isArray(spec.shapes) || Array.isArray(spec.nodes))) {
     return (

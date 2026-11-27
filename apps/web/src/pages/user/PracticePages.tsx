@@ -933,6 +933,29 @@ export function PracticeConfigPage() {
   );
 }
 
+interface PracticeSummaryResult {
+  totalQuestions: number;
+  answeredCount: number;
+  correctCount: number;
+  incorrectCount: number;
+  accuracyPct: number;
+  earnedScore: number;
+  maxScore: number;
+  xpEarned: number;
+  campaignProgress?: {
+    subjectCode: 'TWK' | 'TIU' | 'TKP';
+    unitNumber: number;
+    isCompleted: boolean;
+    justUnlockedNext: boolean;
+    nextUnitNumber: number | null;
+    stars: number;
+    bonusCampaignXp: number;
+    totalUnits: number;
+  } | null;
+  topicsToImprove: Array<{ name: string; slug: string; wrong: number }>;
+  newAchievements: string[];
+}
+
 interface PracticeSessionPayload {
   session: {
     id: string;
@@ -945,6 +968,7 @@ interface PracticeSessionPayload {
     totalQuestions: number;
     timeLimitSec: number | null;
   };
+  summary?: PracticeSummaryResult | null;
   questions: Array<{
     id: string;
     code: string;
@@ -981,34 +1005,19 @@ export function QuestionPracticePage() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [elapsedSec, setElapsedSec] = useState(0);
   const [submitting, setSubmitting] = useState(false);
+  const [lockingAnswer, setLockingAnswer] = useState(false);
+  const [retrying, setRetrying] = useState(false);
+  const [answerError, setAnswerError] = useState('');
+  const [draftSelections, setDraftSelections] = useState<Record<string, string>>({});
   const [launchingNext, setLaunchingNext] = useState(false);
-  const [summaryResult, setSummaryResult] = useState<{
-    totalQuestions: number;
-    answeredCount: number;
-    correctCount: number;
-    incorrectCount: number;
-    accuracyPct: number;
-    earnedScore: number;
-    maxScore: number;
-    xpEarned: number;
-    campaignProgress?: {
-      subjectCode: 'TWK' | 'TIU' | 'TKP';
-      unitNumber: number;
-      isCompleted: boolean;
-      justUnlockedNext: boolean;
-      nextUnitNumber: number | null;
-      stars: number;
-      bonusCampaignXp: number;
-      totalUnits: number;
-    } | null;
-    topicsToImprove: Array<{ name: string; slug: string; wrong: number }>;
-    newAchievements: string[];
-  } | null>(null);
+  const [summaryResult, setSummaryResult] = useState<PracticeSummaryResult | null>(null);
 
   useEffect(() => {
     setCurrentIdx(0);
     setElapsedSec(0);
     setSummaryResult(null);
+    setDraftSelections({});
+    setAnswerError('');
   }, [sessionId]);
 
   const { data, isLoading, refetch } = useQuery({
@@ -1033,21 +1042,62 @@ export function QuestionPracticePage() {
   const questions = data.questions;
   const q = questions[currentIdx];
   const isSubmitted = data.session.status === 'SUBMITTED';
+  const isPracticeMode = data.session.mode === 'PRACTICE';
+  const lockedKey = q?.userAnswer?.selectedKey ?? null;
+  const isQuestionLocked = isSubmitted || (isPracticeMode && Boolean(lockedKey));
+  const pendingKey = q ? (draftSelections[q.id] ?? null) : null;
+  const activeSelectedKey = lockedKey ?? (isPracticeMode ? pendingKey : null);
+  const displayedSummary = summaryResult ?? (isSubmitted ? (data.summary ?? null) : null);
+  const allQuestionsAnswered =
+    questions.length > 0 && questions.every((item) => Boolean(item.userAnswer?.selectedKey));
   const showDiscussion = Boolean(
-    q && (isSubmitted || (data.session.mode === 'PRACTICE' && q.userAnswer?.selectedKey)),
+    q && (isSubmitted || (isPracticeMode && lockedKey)),
   );
 
+  const submitAnswerKey = async (questionId: string, key: string) => {
+    setLockingAnswer(true);
+    setAnswerError('');
+    try {
+      await apiFetch(`/practice/sessions/${sessionId}/answer`, {
+        method: 'POST',
+        body: JSON.stringify({
+          questionId,
+          selectedKey: key,
+          timeSpentSec: Math.max(5, Math.round(elapsedSec / Math.max(1, currentIdx + 1))),
+        }),
+      });
+      setDraftSelections((prev) => {
+        const next = { ...prev };
+        delete next[questionId];
+        return next;
+      });
+      await refetch();
+    } catch (err) {
+      setAnswerError(
+        err instanceof ApiError || err instanceof Error
+          ? err.message
+          : 'Gagal menyimpan dan mengunci jawaban.',
+      );
+      await refetch();
+    } finally {
+      setLockingAnswer(false);
+    }
+  };
+
   const handleSelectOption = async (key: string) => {
-    if (!q || isSubmitted) return;
-    await apiFetch(`/practice/sessions/${sessionId}/answer`, {
-      method: 'POST',
-      body: JSON.stringify({
-        questionId: q.id,
-        selectedKey: key,
-        timeSpentSec: Math.max(5, Math.round(elapsedSec / Math.max(1, currentIdx + 1))),
-      }),
-    });
-    await refetch();
+    if (!q || isQuestionLocked || lockingAnswer) return;
+    setAnswerError('');
+    if (isPracticeMode) {
+      // Only stage selection locally; user must click Lanjutkan / Kunci Jawaban to lock & reveal feedback
+      setDraftSelections((prev) => ({ ...prev, [q.id]: key }));
+      return;
+    }
+    await submitAnswerKey(q.id, key);
+  };
+
+  const handleConfirmPracticeAnswer = async () => {
+    if (!q || !pendingKey || isQuestionLocked || lockingAnswer) return;
+    await submitAnswerKey(q.id, pendingKey);
   };
 
   const handleBookmark = async () => {
@@ -1059,7 +1109,7 @@ export function QuestionPracticePage() {
   const handleFinish = async () => {
     setSubmitting(true);
     try {
-      const res = await apiFetch<{ summary: typeof summaryResult }>(
+      const res = await apiFetch<{ summary: PracticeSummaryResult }>(
         `/practice/sessions/${sessionId}/submit`,
         {
           method: 'POST',
@@ -1070,6 +1120,26 @@ export function QuestionPracticePage() {
       await refetch();
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const handleRetrySameQuestions = async () => {
+    if (!sessionId) return;
+    setRetrying(true);
+    setAnswerError('');
+    try {
+      const res = await apiFetch<{ sessionId: string }>(`/practice/sessions/${sessionId}/retry`, {
+        method: 'POST',
+      });
+      navigate(`/practice/session/${res.sessionId}`);
+    } catch (err) {
+      setAnswerError(
+        err instanceof ApiError || err instanceof Error
+          ? err.message
+          : 'Gagal mengulangi latihan dengan soal ini.',
+      );
+    } finally {
+      setRetrying(false);
     }
   };
 
@@ -1130,7 +1200,7 @@ export function QuestionPracticePage() {
         </div>
 
         {/* Summary Banner if submitted */}
-        {summaryResult && (
+        {displayedSummary && (
           <Card className="border-indigo-200 bg-indigo-50/40">
             <CardContent className="p-6 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -1140,15 +1210,33 @@ export function QuestionPracticePage() {
                     Ringkasan Hasil Latihan
                   </h2>
                 </div>
-                <Badge variant="indigo" className="text-sm px-3 py-1">
-                  <Sparkles className="h-4 w-4" /> +{summaryResult.xpEarned} XP
-                </Badge>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant="indigo" className="text-sm px-3 py-1">
+                    <Sparkles className="h-4 w-4" /> +{displayedSummary.xpEarned} XP
+                  </Badge>
+                  {isSubmitted && allQuestionsAnswered && (
+                    <Button
+                      variant="indigo"
+                      size="sm"
+                      isLoading={retrying}
+                      onClick={handleRetrySameQuestions}
+                    >
+                      <RotateCcw className="h-4 w-4" /> Ulangi Latihan (Soal yang Sama)
+                    </Button>
+                  )}
+                </div>
               </div>
 
-              {summaryResult.campaignProgress && (
+              {answerError && isSubmitted && (
+                <div className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-medium text-rose-800">
+                  {answerError}
+                </div>
+              )}
+
+              {displayedSummary.campaignProgress && (
                 <div
                   className={`rounded-xl border p-4 flex flex-wrap items-center justify-between gap-3 ${
-                    summaryResult.campaignProgress.isCompleted
+                    displayedSummary.campaignProgress.isCompleted
                       ? 'border-emerald-300 bg-emerald-50/80 text-emerald-950'
                       : 'border-amber-300 bg-amber-50/80 text-amber-950'
                   }`}
@@ -1156,17 +1244,17 @@ export function QuestionPracticePage() {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold">
-                        {summaryResult.campaignProgress.isCompleted
-                          ? `Unit ${summaryResult.campaignProgress.unitNumber} (${summaryResult.campaignProgress.subjectCode}) Tuntas!`
-                          : `Unit ${summaryResult.campaignProgress.unitNumber} Belum Tuntas`}
+                        {displayedSummary.campaignProgress.isCompleted
+                          ? `Unit ${displayedSummary.campaignProgress.unitNumber} (${displayedSummary.campaignProgress.subjectCode}) Tuntas!`
+                          : `Unit ${displayedSummary.campaignProgress.unitNumber} Belum Tuntas`}
                       </span>
-                      {summaryResult.campaignProgress.isCompleted && (
+                      {displayedSummary.campaignProgress.isCompleted && (
                         <div className="flex items-center gap-0.5">
                           {[1, 2, 3].map((s) => (
                             <Star
                               key={s}
                               className={`h-4 w-4 ${
-                                s <= (summaryResult.campaignProgress?.stars ?? 0)
+                                s <= (displayedSummary.campaignProgress?.stars ?? 0)
                                   ? 'fill-amber-400 text-amber-500'
                                   : 'text-slate-300'
                               }`}
@@ -1176,32 +1264,32 @@ export function QuestionPracticePage() {
                       )}
                     </div>
                     <p className="text-xs">
-                      {summaryResult.campaignProgress.isCompleted
-                        ? summaryResult.campaignProgress.justUnlockedNext &&
-                          summaryResult.campaignProgress.nextUnitNumber
-                          ? `Unit ${summaryResult.campaignProgress.nextUnitNumber} (${summaryResult.campaignProgress.subjectCode}) kini telah terbuka!`
+                      {displayedSummary.campaignProgress.isCompleted
+                        ? displayedSummary.campaignProgress.justUnlockedNext &&
+                          displayedSummary.campaignProgress.nextUnitNumber
+                          ? `Unit ${displayedSummary.campaignProgress.nextUnitNumber} (${displayedSummary.campaignProgress.subjectCode}) kini telah terbuka!`
                           : 'Unit ini tercatat selesai dan progres bintang Anda telah diperbarui.'
-                        : `Anda baru menjawab ${summaryResult.answeredCount} dari ${summaryResult.totalQuestions} soal. Jawab seluruh 10 soal untuk menuntaskan unit dan membuka unit berikutnya.`}
+                        : `Anda baru menjawab ${displayedSummary.answeredCount} dari ${displayedSummary.totalQuestions} soal. Jawab seluruh 10 soal untuk menuntaskan unit dan membuka unit berikutnya.`}
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <Link to="/daily-practice#campaign">
                       <Button variant="outline" size="sm">Peta Campaign</Button>
                     </Link>
-                    {summaryResult.campaignProgress.isCompleted &&
-                      summaryResult.campaignProgress.nextUnitNumber && (
+                    {displayedSummary.campaignProgress.isCompleted &&
+                      displayedSummary.campaignProgress.nextUnitNumber && (
                         <Button
                           variant="indigo"
                           size="sm"
                           isLoading={launchingNext}
                           onClick={() =>
                             handleStartNextCampaignUnit(
-                              summaryResult.campaignProgress!.subjectCode,
-                              summaryResult.campaignProgress!.nextUnitNumber!,
+                              displayedSummary.campaignProgress!.subjectCode,
+                              displayedSummary.campaignProgress!.nextUnitNumber!,
                             )
                           }
                         >
-                          Lanjut ke Unit {summaryResult.campaignProgress.nextUnitNumber}{' '}
+                          Lanjut ke Unit {displayedSummary.campaignProgress.nextUnitNumber}{' '}
                           <ChevronRight className="h-4 w-4" />
                         </Button>
                       )}
@@ -1213,33 +1301,33 @@ export function QuestionPracticePage() {
                 <div className="rounded-xl bg-white p-3.5 border border-slate-200">
                   <p className="text-xs text-slate-500">Terjawab / Total</p>
                   <p className="text-lg font-bold text-slate-900">
-                    {summaryResult.answeredCount} / {summaryResult.totalQuestions}
+                    {displayedSummary.answeredCount} / {displayedSummary.totalQuestions}
                   </p>
                 </div>
                 <div className="rounded-xl bg-white p-3.5 border border-slate-200">
                   <p className="text-xs text-slate-500">Tepat / Kurang Tepat</p>
                   <p className="text-lg font-bold text-emerald-700">
-                    {summaryResult.correctCount} / {summaryResult.incorrectCount}
+                    {displayedSummary.correctCount} / {displayedSummary.incorrectCount}
                   </p>
                 </div>
                 <div className="rounded-xl bg-white p-3.5 border border-slate-200">
                   <p className="text-xs text-slate-500">Akurasi</p>
-                  <p className="text-lg font-bold text-indigo-700">{summaryResult.accuracyPct}%</p>
+                  <p className="text-lg font-bold text-indigo-700">{displayedSummary.accuracyPct}%</p>
                 </div>
                 <div className="rounded-xl bg-white p-3.5 border border-slate-200">
                   <p className="text-xs text-slate-500">Skor Poin</p>
                   <p className="text-lg font-bold text-slate-900">
-                    {summaryResult.earnedScore} / {summaryResult.maxScore}
+                    {displayedSummary.earnedScore} / {displayedSummary.maxScore}
                   </p>
                 </div>
               </div>
-              {summaryResult.topicsToImprove.length > 0 && (
+              {displayedSummary.topicsToImprove.length > 0 && (
                 <div className="rounded-xl bg-white p-4 border border-slate-200">
                   <p className="text-xs font-semibold text-slate-700 mb-2">
                     Topik yang Perlu Diperkuat:
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {summaryResult.topicsToImprove.map((t) => (
+                    {displayedSummary.topicsToImprove.map((t) => (
                       <Link key={t.slug} to={`/practice/topic/${t.slug}`}>
                         <Badge variant="warning">
                           {t.name} ({t.wrong} keliru) → Latih lagi
@@ -1287,8 +1375,26 @@ export function QuestionPracticePage() {
                   {q.visualSpec && <FiguralRenderer spec={q.visualSpec} />}
 
                   <div className="space-y-2.5 pt-2">
+                    {isPracticeMode && isQuestionLocked && !isSubmitted && (
+                      <div className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+                        <Lock className="h-3 w-3 text-slate-500" />
+                        Jawaban Anda ({lockedKey}) sudah dikunci dan tidak dapat diubah
+                      </div>
+                    )}
+                    {isPracticeMode && !isQuestionLocked && (
+                      <p className="text-xs text-slate-500">
+                        {pendingKey
+                          ? `Opsi ${pendingKey} dipilih sementara. Klik "Lanjutkan & Kunci Jawaban" di bawah untuk mengunci dan melihat pembahasan.`
+                          : 'Pilih salah satu opsi jawaban, lalu klik "Lanjutkan & Kunci Jawaban".'}
+                      </p>
+                    )}
+                    {answerError && (
+                      <div className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-medium text-rose-800">
+                        {answerError}
+                      </div>
+                    )}
                     {q.options.map((opt) => {
-                      const isSelected = q.userAnswer?.selectedKey === opt.optionKey;
+                      const isSelected = activeSelectedKey === opt.optionKey;
                       const showOutcome = showDiscussion;
                       let stateStyle = 'border-slate-200 bg-white hover:bg-slate-50';
                       if (showOutcome) {
@@ -1302,9 +1408,11 @@ export function QuestionPracticePage() {
                         <button
                           key={opt.optionKey}
                           type="button"
-                          disabled={isSubmitted}
+                          disabled={isQuestionLocked || lockingAnswer}
                           onClick={() => handleSelectOption(opt.optionKey)}
-                          className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left transition-all cursor-pointer ${stateStyle}`}
+                          className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left transition-all ${
+                            isQuestionLocked ? 'cursor-default' : 'cursor-pointer'
+                          } ${stateStyle}`}
                         >
                           <span
                             className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-bold ${
@@ -1331,24 +1439,54 @@ export function QuestionPracticePage() {
                   </div>
 
                   {/* Navigation Buttons */}
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-slate-100">
                     <Button
                       variant="outline"
-                      disabled={currentIdx === 0}
-                      onClick={() => setCurrentIdx((i) => Math.max(0, i - 1))}
+                      disabled={currentIdx === 0 || lockingAnswer}
+                      onClick={() => {
+                        setAnswerError('');
+                        setCurrentIdx((i) => Math.max(0, i - 1));
+                      }}
                     >
                       <ChevronLeft className="h-4 w-4" /> Sebelumnya
                     </Button>
-                    {currentIdx < questions.length - 1 ? (
+                    {isPracticeMode && !isQuestionLocked ? (
+                      pendingKey ? (
+                        <Button
+                          variant="indigo"
+                          isLoading={lockingAnswer}
+                          onClick={handleConfirmPracticeAnswer}
+                        >
+                          <Lock className="h-4 w-4" /> Lanjutkan &amp; Kunci Jawaban
+                        </Button>
+                      ) : currentIdx < questions.length - 1 ? (
+                        <Button
+                          variant="outline"
+                          onClick={() => {
+                            setAnswerError('');
+                            setCurrentIdx((i) => Math.min(questions.length - 1, i + 1));
+                          }}
+                        >
+                          Lewati ke Berikutnya <ChevronRight className="h-4 w-4" />
+                        </Button>
+                      ) : (
+                        <Button variant="indigo" onClick={handleFinish} isLoading={submitting}>
+                          Selesaikan &amp; Lihat Skor
+                        </Button>
+                      )
+                    ) : currentIdx < questions.length - 1 ? (
                       <Button
                         variant="primary"
-                        onClick={() => setCurrentIdx((i) => Math.min(questions.length - 1, i + 1))}
+                        onClick={() => {
+                          setAnswerError('');
+                          setCurrentIdx((i) => Math.min(questions.length - 1, i + 1));
+                        }}
                       >
                         Berikutnya <ChevronRight className="h-4 w-4" />
                       </Button>
                     ) : !isSubmitted ? (
                       <Button variant="indigo" onClick={handleFinish} isLoading={submitting}>
-                        Selesaikan & Lihat Skor
+                        Selesaikan &amp; Lihat Skor
                       </Button>
                     ) : null}
                   </div>

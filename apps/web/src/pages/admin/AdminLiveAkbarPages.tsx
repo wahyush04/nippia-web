@@ -75,7 +75,7 @@ export function AdminLiveEventsListPage() {
   const [durationMinutes, setDurationMinutes] = useState(100);
   const [maxParticipants, setMaxParticipants] = useState(1000);
   const [eventType, setEventType] = useState<'FREE' | 'PREMIUM'>('FREE');
-  const [packageCode, setPackageCode] = useState<'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3'>('ALL');
+  const [packageCode, setPackageCode] = useState<'ALL' | 'PAKET_1' | 'PAKET_2' | 'PAKET_3' | 'PAKET_4' | 'PAKET_5'>('ALL');
   const [twkCount, setTwkCount] = useState(30);
   const [tiuCount, setTiuCount] = useState(35);
   const [tkpCount, setTkpCount] = useState(45);
@@ -293,6 +293,8 @@ export function AdminLiveEventsListPage() {
                 <option value="PAKET_1">Paket 1</option>
                 <option value="PAKET_2">Paket 2</option>
                 <option value="PAKET_3">Paket 3</option>
+                <option value="PAKET_4">Paket 4</option>
+                <option value="PAKET_5">Paket 5</option>
               </Select>
             </div>
             <div>

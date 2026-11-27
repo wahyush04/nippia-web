@@ -1,7 +1,8 @@
 import { Router } from 'express';
+import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 import { questionCreateSchema } from '@nippia/shared';
-import { logAudit, requireAdmin, requireAuth } from '../middleware/auth.js';
+import { logAudit, requireAdmin, requireAuth, requireContentCurator } from '../middleware/auth.js';
 import { asyncHandler, AppError } from '../middleware/errorHandler.js';
 import { prisma } from '../lib/prisma.js';
 import { generateDraftQuestionsForAdmin } from '../services/ai.service.js';
@@ -13,10 +14,11 @@ import {
 
 export const adminRouter = Router();
 
-adminRouter.use(requireAuth, requireAdmin);
+adminRouter.use(requireAuth);
 
 adminRouter.get(
   '/overview',
+  requireAdmin,
   asyncHandler(async (_req, res) => {
     const [
       totalUsers,
@@ -25,6 +27,7 @@ adminRouter.get(
       draftQuestions,
       totalSimulations,
       openReports,
+      pendingSubscriptionOrders,
       hardestTopics,
       recentUsers,
     ] = await Promise.all([
@@ -41,6 +44,7 @@ adminRouter.get(
       prisma.question.count({ where: { status: 'DRAFT' } }),
       prisma.examinationSession.count({ where: { status: 'SUBMITTED' } }),
       prisma.contentReport.count({ where: { status: 'OPEN' } }),
+      prisma.subscriptionOrder.count({ where: { status: 'PENDING' } }),
       prisma.topicMastery.groupBy({
         by: ['topicId'],
         _avg: { accuracyPct: true },
@@ -78,6 +82,7 @@ adminRouter.get(
         draftQuestions,
         totalSimulations,
         openReports,
+        pendingSubscriptionOrders,
         hardestTopics: hardestTopics.map((h) => {
           const t = tMap.get(h.topicId);
           return {
@@ -96,6 +101,7 @@ adminRouter.get(
 
 adminRouter.get(
   '/questions',
+  requireContentCurator,
   asyncHandler(async (req, res) => {
     const page = Math.max(1, Number(req.query.page ?? 1));
     const pageSize = Math.min(200, Math.max(1, Number(req.query.pageSize ?? 20)));
@@ -151,6 +157,7 @@ adminRouter.get(
 
 adminRouter.post(
   '/questions',
+  requireContentCurator,
   asyncHandler(async (req, res) => {
     const data = questionCreateSchema.parse(req.body);
     const subject = await prisma.subject.findUnique({ where: { code: data.subjectCode } });
@@ -213,6 +220,7 @@ adminRouter.post(
 
 adminRouter.put(
   '/questions/:id',
+  requireContentCurator,
   asyncHandler(async (req, res) => {
     const data = questionCreateSchema.parse(req.body);
     const existing = await prisma.question.findUnique({
@@ -248,7 +256,8 @@ adminRouter.put(
           questionType: data.questionType,
           difficulty: data.difficulty,
           stem: data.stem,
-          visualSpec: data.visualSpec ?? undefined,
+          visualSpec:
+            data.visualSpec === null ? Prisma.DbNull : (data.visualSpec ?? undefined),
           explanation: data.explanation,
           conceptSummary: data.conceptSummary,
           stepByStep: data.stepByStep ?? undefined,
@@ -282,6 +291,7 @@ adminRouter.put(
 
 adminRouter.delete(
   '/questions/:id',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const existing = await prisma.question.findUnique({ where: { id: String(req.params.id) } });
     if (!existing) throw new AppError(404, 'Soal tidak ditemukan.');
@@ -293,6 +303,7 @@ adminRouter.delete(
 
 adminRouter.post(
   '/questions/bulk-update',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const { ids, difficulty, status, topicSlug } = z
       .object({
@@ -326,6 +337,7 @@ adminRouter.post(
 
 adminRouter.get(
   '/questions/export',
+  requireAdmin,
   asyncHandler(async (_req, res) => {
     const questions = await prisma.question.findMany({
       include: { subject: true, topic: true, options: { orderBy: { optionKey: 'asc' } }, references: true },
@@ -337,6 +349,7 @@ adminRouter.get(
 
 adminRouter.get(
   '/questions/:id',
+  requireContentCurator,
   asyncHandler(async (req, res) => {
     const question = await prisma.question.findUnique({
       where: { id: String(req.params.id) },
@@ -358,6 +371,7 @@ adminRouter.get(
 
 adminRouter.post(
   '/questions/import',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const { items } = z.object({ items: z.array(questionCreateSchema).min(1).max(200) }).parse(req.body);
     let imported = 0;
@@ -403,6 +417,7 @@ adminRouter.post(
 
 adminRouter.post(
   '/ai-generate',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const body = z
       .object({
@@ -456,6 +471,7 @@ adminRouter.post(
 
 adminRouter.get(
   '/quality-check',
+  requireAdmin,
   asyncHandler(async (_req, res) => {
     const [allQuestions, reports, aiDrafts] = await Promise.all([
       prisma.question.findMany({
@@ -527,6 +543,7 @@ adminRouter.get(
 
 adminRouter.get(
   '/reports',
+  requireContentCurator,
   asyncHandler(async (req, res) => {
     const status = typeof req.query.status === 'string' ? req.query.status : 'ALL';
     const subjectCode = typeof req.query.subjectCode === 'string' ? req.query.subjectCode : '';
@@ -600,6 +617,7 @@ adminRouter.get(
 
 adminRouter.patch(
   '/reports/:id',
+  requireContentCurator,
   asyncHandler(async (req, res) => {
     const { status } = z.object({ status: z.enum(['OPEN', 'REVIEWED', 'RESOLVED', 'DISMISSED']) }).parse(req.body);
     const id = String(req.params.id);
@@ -620,6 +638,7 @@ adminRouter.patch(
 
 adminRouter.get(
   '/topics',
+  requireContentCurator,
   asyncHandler(async (_req, res) => {
     const topics = await prisma.topic.findMany({
       include: {
@@ -634,6 +653,7 @@ adminRouter.get(
 
 adminRouter.post(
   '/topics',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const body = z
       .object({
@@ -664,7 +684,9 @@ adminRouter.post(
 
 adminRouter.get(
   '/users',
+  requireAdmin,
   asyncHandler(async (_req, res) => {
+    const now = new Date();
     const users = await prisma.user.findMany({
       orderBy: { createdAt: 'desc' },
       select: {
@@ -676,17 +698,35 @@ adminRouter.get(
         createdAt: true,
         profile: { select: { totalXp: true, levelName: true, targetScore: true } },
         streak: { select: { currentStreak: true } },
+        subscriptions: {
+          where: { status: 'ACTIVE', expiresAt: { gt: now } },
+          include: { plan: { select: { name: true, code: true } } },
+          orderBy: { expiresAt: 'desc' },
+          take: 1,
+        },
         _count: { select: { practiceSessions: true, examSessions: true } },
       },
     });
-    res.json({ success: true, data: users });
+    res.json({
+      success: true,
+      data: users.map((u) => ({
+        ...u,
+        isPro: u.role === 'ADMIN' || u.role === 'CONTENT_PARTNER' || u.subscriptions.length > 0,
+        activeSubscription: u.subscriptions[0] ?? null,
+      })),
+    });
   }),
 );
 
 adminRouter.patch(
   '/users/:id/role',
+  requireAdmin,
   asyncHandler(async (req, res) => {
-    const { role } = z.object({ role: z.enum(['USER', 'ADMIN']) }).parse(req.body);
+    const { role } = z
+      .object({
+        role: z.enum(['USER', 'CONTENT_PARTNER', 'HOST_OPERATOR', 'EVENT_ADMIN', 'ADMIN']),
+      })
+      .parse(req.body);
     const updated = await prisma.user.update({
       where: { id: String(req.params.id) },
       data: { role },
@@ -699,6 +739,7 @@ adminRouter.patch(
 
 adminRouter.get(
   '/configs',
+  requireAdmin,
   asyncHandler(async (_req, res) => {
     const configs = await prisma.scoringConfiguration.findMany({
       include: { passingGrades: true },
@@ -710,6 +751,7 @@ adminRouter.get(
 
 adminRouter.post(
   '/configs',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const body = z
       .object({
@@ -781,6 +823,7 @@ adminRouter.post(
 
 adminRouter.get(
   '/subscriptions',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     await ensureDefaultSubscriptionPlans();
     const orderStatus = typeof req.query.status === 'string' ? req.query.status : 'ALL';
@@ -795,6 +838,7 @@ adminRouter.get(
       paidCount,
       revenueAgg,
       users,
+      partnerCommissions,
     ] = await Promise.all([
       prisma.subscriptionPlan.findMany({ orderBy: { orderIndex: 'asc' } }),
       prisma.userSubscription.findMany({
@@ -849,6 +893,16 @@ adminRouter.get(
         orderBy: { createdAt: 'desc' },
         take: 30,
       }),
+      prisma.partnerCommission.findMany({
+        include: {
+          partner: { select: { id: true, name: true, email: true } },
+          buyer: { select: { id: true, name: true, email: true } },
+          voucher: { select: { code: true } },
+          order: { select: { orderCode: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+        take: 100,
+      }),
     ]);
 
     res.json({
@@ -863,12 +917,13 @@ adminRouter.get(
         plans,
         activeSubscriptions,
         orders,
+        partnerCommissions,
         users: users.map((u) => ({
           id: u.id,
           name: u.name,
           email: u.email,
           role: u.role,
-          isPro: u.role === 'ADMIN' || u.subscriptions.length > 0,
+          isPro: u.role === 'ADMIN' || u.role === 'CONTENT_PARTNER' || u.subscriptions.length > 0,
           activeSubscription: u.subscriptions[0] ?? null,
         })),
       },
@@ -878,6 +933,7 @@ adminRouter.get(
 
 adminRouter.patch(
   '/subscriptions/plans/:id',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const body = z
       .object({
@@ -900,6 +956,7 @@ adminRouter.patch(
 
 adminRouter.patch(
   '/subscriptions/orders/:id',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const { action, rejectionReason } = z
       .object({
@@ -947,6 +1004,7 @@ adminRouter.patch(
 
 adminRouter.post(
   '/subscriptions/grant',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const body = z
       .object({
@@ -978,6 +1036,7 @@ adminRouter.post(
 
 adminRouter.post(
   '/subscriptions/revoke',
+  requireAdmin,
   asyncHandler(async (req, res) => {
     const { userId, note } = z
       .object({
@@ -997,5 +1056,32 @@ adminRouter.post(
       cancelledCount: result.count,
     });
     res.json({ success: true, data: { cancelledCount: result.count } });
+  }),
+);
+
+adminRouter.post(
+  '/subscriptions/commissions/:id/payout',
+  requireAdmin,
+  asyncHandler(async (req, res) => {
+    const { payoutNote } = z.object({ payoutNote: z.string().max(300).optional() }).parse(req.body ?? {});
+    const commissionId = String(req.params.id);
+    const existing = await prisma.partnerCommission.findUnique({ where: { id: commissionId } });
+    if (!existing) throw new AppError(404, 'Data komisi tidak ditemukan.');
+    if (existing.status === 'PAID_OUT') {
+      return res.json({ success: true, data: existing });
+    }
+    const updated = await prisma.partnerCommission.update({
+      where: { id: commissionId },
+      data: {
+        status: 'PAID_OUT',
+        payoutNote: payoutNote?.trim() || 'Komisi dicairkan oleh Admin',
+        paidOutAt: new Date(),
+      },
+    });
+    await logAudit(req.user!.userId, 'PAYOUT_PARTNER_COMMISSION', 'PartnerCommission', commissionId, {
+      partnerId: updated.partnerId,
+      commissionIdr: updated.commissionIdr,
+    });
+    res.json({ success: true, data: updated });
   }),
 );

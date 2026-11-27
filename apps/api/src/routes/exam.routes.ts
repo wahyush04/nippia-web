@@ -21,6 +21,15 @@ import {
   getUserEntitlement,
   requireProOrThrow,
 } from '../services/subscription.service.js';
+import {
+  buildOptionOrderMap,
+  displayKeyToOriginal,
+  originalKeyToDisplay,
+  remapOptionMentions,
+  remapOptionsForDisplay,
+  remapStepByStep,
+  remapWhyOthersWrong,
+} from '../utils/optionOrder.js';
 
 export const examRouter = Router();
 
@@ -97,6 +106,8 @@ examRouter.get(
       { code: 'PAKET_1', label: 'Paket 1 — SKD Lengkap Standar', ...(stats.get('PAKET_1') ?? { twk: 0, tiu: 0, tkp: 0, total: 0 }) },
       { code: 'PAKET_2', label: 'Paket 2 — SKD Lengkap Standar', ...(stats.get('PAKET_2') ?? { twk: 0, tiu: 0, tkp: 0, total: 0 }) },
       { code: 'PAKET_3', label: 'Paket 3 — SKD Lengkap Standar', ...(stats.get('PAKET_3') ?? { twk: 0, tiu: 0, tkp: 0, total: 0 }) },
+      { code: 'PAKET_4', label: 'Paket 4 — SKD Lengkap Standar', ...(stats.get('PAKET_4') ?? { twk: 0, tiu: 0, tkp: 0, total: 0 }) },
+      { code: 'PAKET_5', label: 'Paket 5 — SKD Lengkap Standar', ...(stats.get('PAKET_5') ?? { twk: 0, tiu: 0, tkp: 0, total: 0 }) },
     ];
 
     res.json({
@@ -118,7 +129,7 @@ examRouter.post(
       .object({
         mode: z.enum(['FULL', 'MINI']).default('FULL'),
         formationType: z.string().default('UMUM'),
-        packageCode: z.enum(['ALL', 'PAKET_1', 'PAKET_2', 'PAKET_3']).default('ALL'),
+        packageCode: z.enum(['ALL', 'PAKET_1', 'PAKET_2', 'PAKET_3', 'PAKET_4', 'PAKET_5']).default('ALL'),
         scoringConfigId: z.string().optional(),
       })
       .parse(req.body ?? {});
@@ -190,6 +201,8 @@ examRouter.post(
       PAKET_1: 'Paket 1',
       PAKET_2: 'Paket 2',
       PAKET_3: 'Paket 3',
+      PAKET_4: 'Paket 4',
+      PAKET_5: 'Paket 5',
     };
     const pkgLabel = pkgLabelMap[body.packageCode] ?? 'Campuran';
 
@@ -281,6 +294,7 @@ examRouter.get(
     const remainingSec = isSubmitted
       ? 0
       : Math.max(0, Math.floor((session.expiresAt.getTime() - Date.now()) / 1000));
+    const optionOrderMap = buildOptionOrderMap(session.questionIds, session.id, true);
 
     res.json({
       success: true,
@@ -305,28 +319,17 @@ examRouter.get(
               difficulty: q.difficulty,
               stem: q.stem,
               visualSpec: q.visualSpec,
-              selectedKey: ans?.selectedKey ?? null,
+              selectedKey: originalKeyToDisplay(optionOrderMap, q.id, ans?.selectedKey ?? null),
               isFlagged: ans?.isFlagged ?? false,
               isCorrect: isSubmitted ? ans?.isCorrect ?? false : undefined,
               scoreEarned: isSubmitted ? ans?.scoreEarned ?? 0 : undefined,
-              options: q.options.map((o) => ({
-                optionKey: o.optionKey,
-                text: o.text,
-                visualSpec: o.visualSpec,
-                ...(isSubmitted
-                  ? {
-                      scoreValue: o.scoreValue,
-                      isCorrect: o.isCorrect,
-                      optionFeedback: o.optionFeedback,
-                    }
-                  : {}),
-              })),
+              options: remapOptionsForDisplay(q.options, optionOrderMap, q.id, isSubmitted),
               ...(isSubmitted
                 ? {
-                    explanation: q.explanation,
+                    explanation: remapOptionMentions(q.explanation, optionOrderMap, q.id),
                     conceptSummary: q.conceptSummary,
-                    stepByStep: q.stepByStep,
-                    whyOthersWrong: q.whyOthersWrong,
+                    stepByStep: remapStepByStep(q.stepByStep, optionOrderMap, q.id),
+                    whyOthersWrong: remapWhyOthersWrong(q.whyOthersWrong, optionOrderMap, q.id),
                     quickTrick: q.quickTrick,
                     commonMistakes: q.commonMistakes,
                     references: q.references,
@@ -361,17 +364,42 @@ examRouter.patch(
     if (session.status === 'SUBMITTED') {
       throw new AppError(400, 'Ujian sudah dikumpulkan dan tidak dapat diubah.');
     }
+    if (new Date() >= session.expiresAt) {
+      throw new AppError(
+        400,
+        'Waktu ujian simulasi telah berakhir. Silakan kumpulkan sesi Anda.',
+        'EXAM_TIME_EXPIRED',
+      );
+    }
+    if (!session.questionIds.includes(body.questionId)) {
+      throw new AppError(400, 'Soal tidak terdaftar dalam sesi ujian ini.', 'QUESTION_NOT_IN_SESSION');
+    }
+
+    const optionOrderMap = buildOptionOrderMap(session.questionIds, session.id, true);
+    const originalSelectedKey =
+      body.selectedKey !== undefined
+        ? displayKeyToOriginal(optionOrderMap, body.questionId, body.selectedKey)
+        : undefined;
 
     const updated = await prisma.examinationAnswer.update({
       where: { sessionId_questionId: { sessionId: session.id, questionId: body.questionId } },
       data: {
-        ...(body.selectedKey !== undefined ? { selectedKey: body.selectedKey } : {}),
+        ...(originalSelectedKey !== undefined ? { selectedKey: originalSelectedKey } : {}),
         ...(body.isFlagged !== undefined ? { isFlagged: body.isFlagged } : {}),
         ...(body.timeSpentSec !== undefined ? { timeSpentSec: body.timeSpentSec } : {}),
       },
     });
 
-    res.json({ success: true, data: updated });
+    res.json({
+      success: true,
+      data: {
+        ...updated,
+        selectedKey:
+          body.selectedKey !== undefined
+            ? body.selectedKey
+            : originalKeyToDisplay(optionOrderMap, body.questionId, updated.selectedKey),
+      },
+    });
   }),
 );
 

@@ -17,6 +17,15 @@ import {
   getUserEntitlement,
   requireProOrThrow,
 } from '../services/subscription.service.js';
+import {
+  buildOptionOrderMap,
+  displayKeyToOriginal,
+  originalKeyToDisplay,
+  remapOptionMentions,
+  remapOptionsForDisplay,
+  remapStepByStep,
+  remapWhyOthersWrong,
+} from '../utils/optionOrder.js';
 
 export const practiceRouter = Router();
 
@@ -504,6 +513,24 @@ practiceRouter.post(
   }),
 );
 
+function buildTopicsToImprove(
+  answers: Array<{ selectedKey: string | null; isCorrect: boolean; question: { topic: { id: string; name: string; slug: string } } }>,
+) {
+  const topicSummary = new Map<string, { name: string; slug: string; total: number; wrong: number }>();
+  for (const ans of answers) {
+    if (!ans.selectedKey) continue;
+    const t = ans.question.topic;
+    const cur = topicSummary.get(t.id) ?? { name: t.name, slug: t.slug, total: 0, wrong: 0 };
+    cur.total++;
+    if (!ans.isCorrect) cur.wrong++;
+    topicSummary.set(t.id, cur);
+  }
+  return [...topicSummary.values()]
+    .filter((t) => t.wrong > 0)
+    .sort((a, b) => b.wrong - a.wrong)
+    .slice(0, 3);
+}
+
 practiceRouter.get(
   '/sessions/:id',
   requireAuth,
@@ -511,7 +538,7 @@ practiceRouter.get(
     const userId = req.user!.userId;
     const session = await prisma.practiceSession.findFirst({
       where: { id: String(req.params.id), userId },
-      include: { answers: true },
+      include: { answers: { include: { question: { include: { topic: true } } } } },
     });
     if (!session) throw new AppError(404, 'Sesi latihan tidak ditemukan.');
 
@@ -536,11 +563,64 @@ practiceRouter.get(
     const answerMap = new Map(session.answers.map((a) => [a.questionId, a]));
 
     const revealAnswers = session.mode === 'PRACTICE' || session.status === 'SUBMITTED';
+    const optionOrderMap = buildOptionOrderMap(session.questionIds, session.id, true);
+
+    let summary: Record<string, unknown> | null = null;
+    if (session.status === 'SUBMITTED') {
+      const answered = session.answers.filter((a) => Boolean(a.selectedKey));
+      let campaignProgress: Record<string, unknown> | null = null;
+      if (session.sessionType === 'CAMPAIGN' && session.subjectCode && session.campaignUnit) {
+        const [prog, units] = await Promise.all([
+          prisma.campaignUnitProgress.findUnique({
+            where: {
+              userId_subjectCode_unitNumber: {
+                userId,
+                subjectCode: session.subjectCode,
+                unitNumber: session.campaignUnit,
+              },
+            },
+          }),
+          buildSubjectCampaignUnits(session.subjectCode),
+        ]);
+        const nextUnit = session.campaignUnit < units.length ? session.campaignUnit + 1 : null;
+        const accuracyPct = answered.length > 0 ? Math.round((session.correctCount / answered.length) * 100) : 0;
+        campaignProgress = {
+          subjectCode: session.subjectCode,
+          unitNumber: session.campaignUnit,
+          isCompleted: Boolean(prog?.isCompleted && answered.length >= session.totalQuestions),
+          justUnlockedNext: false,
+          nextUnitNumber: nextUnit,
+          stars: computeCampaignStars({
+            subjectCode: session.subjectCode,
+            accuracyPct,
+            earnedScore: session.earnedScore,
+            maxScore: session.maxScore,
+            isCompleted: answered.length >= session.totalQuestions,
+          }),
+          bonusCampaignXp: 0,
+          totalUnits: units.length,
+        };
+      }
+      summary = {
+        totalQuestions: session.totalQuestions,
+        answeredCount: answered.length,
+        correctCount: session.correctCount,
+        incorrectCount: answered.length - session.correctCount,
+        accuracyPct: answered.length > 0 ? Math.round((session.correctCount / answered.length) * 100) : 0,
+        earnedScore: session.earnedScore,
+        maxScore: session.maxScore,
+        xpEarned: session.xpAwarded,
+        campaignProgress,
+        topicsToImprove: buildTopicsToImprove(session.answers),
+        newAchievements: [],
+      };
+    }
 
     res.json({
       success: true,
       data: {
         session,
+        summary,
         questions: orderedQuestions.map((q) => {
           const ans = answerMap.get(q!.id);
           const showDetail = revealAnswers && (session.status === 'SUBMITTED' || Boolean(ans?.selectedKey));
@@ -556,25 +636,20 @@ practiceRouter.get(
             stem: q!.stem,
             visualSpec: q!.visualSpec,
             isBookmarked: bookmarkSet.has(q!.id),
-            userAnswer: ans ?? null,
-            options: q!.options.map((o) => ({
-              optionKey: o.optionKey,
-              text: o.text,
-              visualSpec: o.visualSpec,
-              ...(showDetail
-                ? {
-                    scoreValue: o.scoreValue,
-                    isCorrect: o.isCorrect,
-                    optionFeedback: o.optionFeedback,
-                  }
-                : {}),
-            })),
+            userAnswer: ans
+              ? {
+                  selectedKey: originalKeyToDisplay(optionOrderMap, q!.id, ans.selectedKey),
+                  isCorrect: ans.isCorrect,
+                  scoreEarned: ans.scoreEarned,
+                }
+              : null,
+            options: remapOptionsForDisplay(q!.options, optionOrderMap, q!.id, showDetail),
             ...(showDetail
               ? {
-                  explanation: q!.explanation,
+                  explanation: remapOptionMentions(q!.explanation, optionOrderMap, q!.id),
                   conceptSummary: q!.conceptSummary,
-                  stepByStep: q!.stepByStep,
-                  whyOthersWrong: q!.whyOthersWrong,
+                  stepByStep: remapStepByStep(q!.stepByStep, optionOrderMap, q!.id),
+                  whyOthersWrong: remapWhyOthersWrong(q!.whyOthersWrong, optionOrderMap, q!.id),
                   quickTrick: q!.quickTrick,
                   commonMistakes: q!.commonMistakes,
                   studyTip: q!.studyTip,
@@ -609,6 +684,20 @@ practiceRouter.post(
     if (session.status === 'SUBMITTED') {
       throw new AppError(400, 'Sesi sudah dikumpulkan.');
     }
+    if (!session.questionIds.includes(questionId)) {
+      throw new AppError(400, 'Soal tidak terdaftar dalam sesi latihan ini.', 'QUESTION_NOT_IN_SESSION');
+    }
+
+    const existingAnswer = await prisma.practiceAnswer.findUnique({
+      where: { sessionId_questionId: { sessionId: session.id, questionId } },
+    });
+    if (session.mode === 'PRACTICE' && existingAnswer?.selectedKey) {
+      throw new AppError(
+        409,
+        'Jawaban pada soal ini sudah dikunci dan tidak dapat diubah lagi.',
+        'ANSWER_LOCKED',
+      );
+    }
 
     const question = await prisma.question.findUnique({
       where: { id: questionId },
@@ -616,12 +705,19 @@ practiceRouter.post(
     });
     if (!question) throw new AppError(404, 'Soal tidak ditemukan.');
 
+    const optionOrderMap = buildOptionOrderMap(session.questionIds, session.id, true);
+    const originalSelectedKey = displayKeyToOriginal(
+      optionOrderMap,
+      questionId,
+      selectedKey ?? null,
+    );
+
     const rule = await getActiveScoringRule();
     const evaluated = evaluateSingleAnswer(
       {
         questionId,
         subjectCode: question.subject.code,
-        selectedKey: selectedKey ?? null,
+        selectedKey: originalSelectedKey,
         options: question.options,
       },
       rule,
@@ -630,7 +726,7 @@ practiceRouter.post(
     const saved = await prisma.practiceAnswer.upsert({
       where: { sessionId_questionId: { sessionId: session.id, questionId } },
       update: {
-        selectedKey: selectedKey ?? null,
+        selectedKey: originalSelectedKey,
         isCorrect: evaluated.isCorrect,
         scoreEarned: evaluated.scoreEarned,
         maxScore: evaluated.maxScore,
@@ -642,7 +738,7 @@ practiceRouter.post(
         sessionId: session.id,
         userId,
         questionId,
-        selectedKey: selectedKey ?? null,
+        selectedKey: originalSelectedKey,
         isCorrect: evaluated.isCorrect,
         scoreEarned: evaluated.scoreEarned,
         maxScore: evaluated.maxScore,
@@ -652,12 +748,12 @@ practiceRouter.post(
     });
 
     // Save/update Error Notebook if wrong (or score < max for TKP)
-    if (selectedKey && !evaluated.isCorrect) {
+    if (originalSelectedKey && !evaluated.isCorrect) {
       const nextReviewAt = new Date(Date.now() + REVIEW_INTERVAL_DAYS[0] * 24 * 60 * 60 * 1000);
       await prisma.errorNotebook.upsert({
         where: { userId_questionId: { userId, questionId } },
         update: {
-          lastSelectedKey: selectedKey,
+          lastSelectedKey: originalSelectedKey,
           wrongCount: { increment: 1 },
           reviewStage: 0,
           isMastered: false,
@@ -667,14 +763,14 @@ practiceRouter.post(
         create: {
           userId,
           questionId,
-          lastSelectedKey: selectedKey,
+          lastSelectedKey: originalSelectedKey,
           wrongCount: 1,
           reviewStage: 0,
           isMastered: false,
           nextReviewAt,
         },
       });
-    } else if (selectedKey && evaluated.isCorrect && session.sessionType === 'ERROR_REVIEW') {
+    } else if (originalSelectedKey && evaluated.isCorrect && session.sessionType === 'ERROR_REVIEW') {
       const existingErr = await prisma.errorNotebook.findUnique({
         where: { userId_questionId: { userId, questionId } },
       });
@@ -699,17 +795,20 @@ practiceRouter.post(
     res.json({
       success: true,
       data: {
-        answer: saved,
+        answer: {
+          ...saved,
+          selectedKey: selectedKey ?? null,
+        },
         feedback: showFeedback
           ? {
               isCorrect: evaluated.isCorrect,
               scoreEarned: evaluated.scoreEarned,
               maxScore: evaluated.maxScore,
-              options: question.options,
-              explanation: question.explanation,
+              options: remapOptionsForDisplay(question.options, optionOrderMap, questionId, true),
+              explanation: remapOptionMentions(question.explanation, optionOrderMap, questionId),
               conceptSummary: question.conceptSummary,
-              stepByStep: question.stepByStep,
-              whyOthersWrong: question.whyOthersWrong,
+              stepByStep: remapStepByStep(question.stepByStep, optionOrderMap, questionId),
+              whyOthersWrong: remapWhyOthersWrong(question.whyOthersWrong, optionOrderMap, questionId),
               quickTrick: question.quickTrick,
               commonMistakes: question.commonMistakes,
               references: question.references,
@@ -924,19 +1023,7 @@ practiceRouter.post(
     const newAchievements = await evaluateAchievements(userId);
 
     // Identify weak topics in this session
-    const topicSummary = new Map<string, { name: string; slug: string; total: number; wrong: number }>();
-    for (const ans of answered) {
-      const t = ans.question.topic;
-      const cur = topicSummary.get(t.id) ?? { name: t.name, slug: t.slug, total: 0, wrong: 0 };
-      cur.total++;
-      if (!ans.isCorrect) cur.wrong++;
-      topicSummary.set(t.id, cur);
-    }
-
-    const topicsToImprove = [...topicSummary.values()]
-      .filter((t) => t.wrong > 0)
-      .sort((a, b) => b.wrong - a.wrong)
-      .slice(0, 3);
+    const topicsToImprove = buildTopicsToImprove(answered);
 
     res.json({
       success: true,
@@ -958,6 +1045,65 @@ practiceRouter.post(
         },
       },
     });
+  }),
+);
+
+/**
+ * Starts a fresh practice session using the exact same questionIds as a completed session.
+ */
+practiceRouter.post(
+  '/sessions/:id/retry',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const userId = req.user!.userId;
+    const oldSession = await prisma.practiceSession.findFirst({
+      where: { id: String(req.params.id), userId },
+    });
+    if (!oldSession) throw new AppError(404, 'Sesi latihan tidak ditemukan.');
+    if (oldSession.status !== 'SUBMITTED') {
+      throw new AppError(400, 'Selesaikan sesi latihan terlebih dahulu sebelum mengulangi soal-soal ini.');
+    }
+    if (!oldSession.questionIds || oldSession.questionIds.length === 0) {
+      throw new AppError(400, 'Daftar soal pada sesi ini kosong.');
+    }
+
+    if (
+      oldSession.sessionType === 'CAMPAIGN' &&
+      oldSession.campaignUnit &&
+      oldSession.campaignUnit > FREE_LIMITS.CAMPAIGN_MAX_UNIT
+    ) {
+      await requireProOrThrow(
+        userId,
+        `Campaign ${oldSession.subjectCode ?? ''} Unit ${oldSession.campaignUnit} ke atas`,
+        'CAMPAIGN_PRO_UNIT',
+      );
+    } else if (oldSession.sessionType === 'ERROR_REVIEW') {
+      await requireProOrThrow(
+        userId,
+        'Latih Ulang Soal Salah (Spaced Repetition)',
+        'ERROR_REVIEW',
+      );
+    }
+
+    const baseTitle = oldSession.title.replace(/\s*\(Ulangi\)$/i, '').trim();
+    const newSession = await prisma.practiceSession.create({
+      data: {
+        userId,
+        sessionType: oldSession.sessionType,
+        mode: oldSession.mode,
+        status: 'IN_PROGRESS',
+        title: `${baseTitle} (Ulangi)`,
+        topicId: oldSession.topicId,
+        subjectCode: oldSession.subjectCode,
+        campaignUnit: oldSession.campaignUnit,
+        questionIds: oldSession.questionIds,
+        totalQuestions: oldSession.questionIds.length,
+        maxScore: oldSession.questionIds.length * 5,
+        timeLimitSec: oldSession.timeLimitSec,
+      },
+    });
+
+    res.status(201).json({ success: true, data: { sessionId: newSession.id } });
   }),
 );
 

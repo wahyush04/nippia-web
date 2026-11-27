@@ -1,11 +1,13 @@
 import { io, type Socket } from 'socket.io-client';
 import { getAccessToken } from './api';
+import { resolveSocketUrl } from './env';
 
 export function createLiveEventSocket(eventId: string): Socket | null {
   const token = getAccessToken();
   if (!token) return null;
 
-  const socket = io({
+  const baseUrl = resolveSocketUrl();
+  const options = {
     path: '/socket.io',
     auth: { token },
     transports: ['websocket', 'polling'],
@@ -13,7 +15,9 @@ export function createLiveEventSocket(eventId: string): Socket | null {
     reconnectionAttempts: Infinity,
     reconnectionDelay: 1000,
     reconnectionDelayMax: 5000,
-  });
+  };
+
+  const socket = baseUrl ? io(baseUrl, options) : io(options);
 
   socket.on('connect', () => {
     socket.emit('live_event:join_room', { eventId });

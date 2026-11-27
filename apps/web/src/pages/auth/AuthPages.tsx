@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema, registerSchema } from '@nippia/shared';
 import { z } from 'zod';
 import { apiFetch } from '../../lib/api';
+import { webEnv } from '../../lib/env';
 import { useAuthStore, type AuthUser } from '../../stores/authStore';
 import { Button, Card, CardContent, Input } from '../../components/ui';
 import { NippiaLogo } from '../../components/ui/NippiaLogo';
@@ -24,10 +25,12 @@ export function LoginPage() {
 
   const handleAuthenticatedUser = (res: { user: AuthUser; accessToken: string; refreshToken: string }) => {
     setSession(res.user, res.accessToken, res.refreshToken);
-    if (!res.user.profile?.onboardingCompleted && res.user.role !== 'ADMIN') {
+    if (res.user.role === 'ADMIN') {
+      navigate('/admin');
+    } else if (!res.user.profile?.onboardingCompleted && res.user.role !== 'CONTENT_PARTNER') {
       navigate('/onboarding');
     } else {
-      navigate(res.user.role === 'ADMIN' ? '/admin' : '/dashboard');
+      navigate('/dashboard');
     }
   };
 
@@ -143,27 +146,29 @@ export function LoginPage() {
               </Button>
             </form>
 
-            <div className="border-t border-slate-100 pt-4">
-              <p className="text-xs font-medium text-slate-500 mb-2">Akses Cepat Akun Demo:</p>
-              <div className="grid grid-cols-2 gap-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => fillDemo('peserta@nippia.id', 'BelajarSkd2026!')}
-                >
-                  Isi Demo Peserta
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => fillDemo('admin@nippia.id', 'AdminSkd2026!')}
-                >
-                  Isi Demo Admin
-                </Button>
+            {webEnv.enableDemoLogin && (
+              <div className="border-t border-slate-100 pt-4">
+                <p className="text-xs font-medium text-slate-500 mb-2">Akses Cepat Akun Demo (Dev Only):</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => fillDemo('peserta@nippia.id', 'BelajarSkd2026!')}
+                  >
+                    Isi Demo Peserta
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => fillDemo('admin@nippia.id', 'AdminSkd2026!')}
+                  >
+                    Isi Demo Admin
+                  </Button>
+                </div>
               </div>
-            </div>
+            )}
           </CardContent>
         </Card>
 
@@ -281,10 +286,12 @@ export function RegisterPage() {
 export function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<{ sent?: boolean; devResetToken?: string } | null>(null);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleRequest = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     setLoading(true);
     try {
       const data = await apiFetch<{ sent: boolean; devResetToken?: string }>('/auth/forgot-password', {
@@ -292,6 +299,8 @@ export function ForgotPasswordPage() {
         body: JSON.stringify({ email }),
       });
       setStatus(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Gagal membuat permintaan atur ulang sandi.');
     } finally {
       setLoading(false);
     }
@@ -305,6 +314,11 @@ export function ForgotPasswordPage() {
           <p className="text-sm text-slate-600">
             Masukkan email terdaftar Anda untuk membuat tautan pengaturan ulang kata sandi.
           </p>
+          {error && (
+            <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs text-red-700">
+              {error}
+            </div>
+          )}
           <form onSubmit={handleRequest} className="space-y-3">
             <Input
               type="email"

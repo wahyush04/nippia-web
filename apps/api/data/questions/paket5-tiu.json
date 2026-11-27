@@ -1,0 +1,2608 @@
+[
+  {
+    "id": "TIU-P5-001",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Ekuivalensi Kontraposisi",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Jika tingkat literasi digital ASN tinggi, maka risiko kebocoran data layanan menurun. Pernyataan yang secara logis ekuivalen dengan premis tersebut adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Jika risiko kebocoran data layanan menurun, maka tingkat literasi digital ASN tinggi.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ini adalah konvers (Q -> P), tidak ekuivalen dengan P -> Q."
+      },
+      {
+        "key": "B",
+        "text": "Jika tingkat literasi digital ASN tidak tinggi, maka risiko kebocoran data layanan tidak menurun.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Ini adalah invers (¬P -> ¬Q), tidak ekuivalen dengan P -> Q."
+      },
+      {
+        "key": "C",
+        "text": "Jika risiko kebocoran data layanan tidak menurun, maka tingkat literasi digital ASN tidak tinggi.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: kontraposisi (¬Q -> ¬P) selalu ekuivalen secara logis dengan P -> Q."
+      },
+      {
+        "key": "D",
+        "text": "Tingkat literasi digital ASN tinggi dan risiko kebocoran data layanan tidak menurun.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Justru ini negasi dari implikasi P -> Q."
+      },
+      {
+        "key": "E",
+        "text": "Risiko kebocoran data layanan hanya dipengaruhi oleh faktor literasi digital.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambahkan klaim faktor tunggal yang tidak ada di premis."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Suatu pernyataan implikasi P -> Q selalu bernilai sama dengan kontraposisinya (¬Q -> ¬P) dan disjungsinya (¬P ∨ Q).",
+      "stepByStep": [
+        "Identifikasi P = tingkat literasi digital ASN tinggi, Q = risiko kebocoran data menurun.",
+        "Bentuk implikasi: P -> Q.",
+        "Bentuk kontraposisi: ¬Q -> ¬P (\"Jika risiko kebocoran data layanan tidak menurun, maka tingkat literasi digital ASN tidak tinggi\")."
+      ],
+      "correctReason": "Hukum kontraposisi menyatakan P -> Q ≡ ¬Q -> ¬P.",
+      "distractorAnalysis": {
+        "A": "Ini adalah konvers (Q -> P), tidak ekuivalen dengan P -> Q.",
+        "B": "Ini adalah invers (¬P -> ¬Q), tidak ekuivalen dengan P -> Q.",
+        "D": "Justru ini negasi dari implikasi P -> Q.",
+        "E": "Menambahkan klaim faktor tunggal yang tidak ada di premis."
+      },
+      "quickTrick": "Balik posisi sebab-akibat lalu tambahkan kata \"tidak\" pada keduanya.",
+      "commonMistakes": "Mengira invers (¬P -> ¬Q) atau konvers (Q -> P) setara dengan implikasi awal.",
+      "studyMaterialTip": "Hafalkan: implikasi = kontraposisi, sedangkan konvers = invers."
+    },
+    "references": [
+      {
+        "title": "Ekuivalensi Logika Implikasi",
+        "source": "Pedoman TIU Verbal BKN",
+        "note": "Kontraposisi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-002",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Negasi Kalimat Berkuantor Universal",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Ingkaran (negasi) yang tepat dari pernyataan \"Semua berkas pengadaan tahun 2026 telah diarsipkan secara elektronik\" adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Ada berkas pengadaan tahun 2026 yang belum diarsipkan secara elektronik.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: ingkaran dari \"Semua A bersifat B\" adalah \"Ada/beberapa A yang tidak bersifat B\"."
+      },
+      {
+        "key": "B",
+        "text": "Tidak ada berkas pengadaan tahun 2026 yang diarsipkan secara elektronik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Terlalu ekstrem; cukup satu berkas saja yang belum diarsipkan untuk menggugurkan klaim \"semua\"."
+      },
+      {
+        "key": "C",
+        "text": "Semua berkas pengadaan tahun 2025 telah diarsipkan secara elektronik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengubah tahun objek pernyataan."
+      },
+      {
+        "key": "D",
+        "text": "Sebagian berkas pengadaan tahun 2026 telah diarsipkan secara elektronik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak mengingkari klaim karena \"sebagian\" belum tentu meniadakan \"semua\" dalam logika baku, dan tidak menegaskan adanya penyangkalan predikat."
+      },
+      {
+        "key": "E",
+        "text": "Semua berkas pengadaan selain tahun 2026 belum diarsipkan secara elektronik.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Keluar dari himpunan subjek yang dibahas."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Negasi kuantor universal ∀x P(x) adalah kuantor eksistensial ∃x ¬P(x).",
+      "stepByStep": [
+        "Ubah kuantor \"Semua\" menjadi \"Ada\" / \"Beberapa\" / \"Terdapat\".",
+        "Negasikan predikat \"telah diarsipkan secara elektronik\" menjadi \"belum/tidak diarsipkan secara elektronik\".",
+        "Gabungkan menjadi: Ada berkas pengadaan tahun 2026 yang belum diarsipkan secara elektronik."
+      ],
+      "correctReason": "Satu contoh penyangkal sudah cukup untuk mematahkan pernyataan universal \"semua\".",
+      "distractorAnalysis": {
+        "B": "Terlalu ekstrem; cukup satu berkas saja yang belum diarsipkan untuk menggugurkan klaim \"semua\".",
+        "C": "Mengubah tahun objek pernyataan.",
+        "D": "Tidak mengingkari klaim karena \"sebagian\" belum tentu meniadakan \"semua\" dalam logika baku, dan tidak menegaskan adanya penyangkalan predikat.",
+        "E": "Keluar dari himpunan subjek yang dibahas."
+      },
+      "quickTrick": "Lawan \"Semua X adalah Y\" bukan \"Tidak ada X yang Y\", melainkan \"Ada X yang bukan Y\".",
+      "commonMistakes": "Memilih \"Tidak ada satu pun...\" sebagai negasi dari \"Semua...\".",
+      "studyMaterialTip": "Gunakan pola tetap: Semua ↔ Ada...tidak; Tidak ada ↔ Ada."
+    },
+    "references": [
+      {
+        "title": "Negasi Kuantor",
+        "source": "Materi Logika SKD TIU",
+        "note": "Universal vs Eksistensial"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-003",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Silogisme dengan Premis Distraktor",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Semua peserta seminar kebijakan publik wajib mengisi daftar hadir daring. Sebagian staf kelurahan adalah peserta seminar kebijakan publik. Sementara itu, tidak ada pekerja lepas yang merupakan staf kelurahan. Simpulan yang pasti benar adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Semua staf kelurahan wajib mengisi daftar hadir daring.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hanya sebagian staf kelurahan yang menjadi peserta seminar."
+      },
+      {
+        "key": "B",
+        "text": "Sebagian staf kelurahan wajib mengisi daftar hadir daring.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: bagian staf kelurahan yang menjadi peserta seminar pasti terkena kewajiban mengisi daftar hadir daring."
+      },
+      {
+        "key": "C",
+        "text": "Tidak ada pekerja lepas yang wajib mengisi daftar hadir daring.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Pekerja lepas bisa saja menjadi peserta seminar secara terpisah meski bukan staf kelurahan."
+      },
+      {
+        "key": "D",
+        "text": "Semua peserta seminar kebijakan publik adalah staf kelurahan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Konversi tidak sah."
+      },
+      {
+        "key": "E",
+        "text": "Sebagian pekerja lepas adalah staf kelurahan yang mengisi daftar hadir.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan premis ketiga."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Mengenali premis yang saling terhubung dan mengabaikan premis pemecah konsentrasi yang tidak membentuk kesimpulan.",
+      "stepByStep": [
+        "Hubungkan premis 1 (Semua peserta seminar -> isi daftar hadir daring) dengan premis 2 (Sebagian staf kelurahan -> peserta seminar).",
+        "Didapat: Sebagian staf kelurahan wajib mengisi daftar hadir daring.",
+        "Premis 3 mengenai pekerja lepas tidak menghalangi kemungkinan pekerja lepas ikut seminar lewat jalur lain."
+      ],
+      "correctReason": "Irisan langsung dari dua premis pertama bersifat pasti, sedangkan hubungan pekerja lepas dan seminar tidak ditentukan.",
+      "distractorAnalysis": {
+        "A": "Hanya sebagian staf kelurahan yang menjadi peserta seminar.",
+        "C": "Pekerja lepas bisa saja menjadi peserta seminar secara terpisah meski bukan staf kelurahan.",
+        "D": "Konversi tidak sah.",
+        "E": "Bertentangan dengan premis ketiga."
+      },
+      "quickTrick": "Abaikan kalimat ketiga bila tidak tersambung langsung ke term \"peserta seminar\".",
+      "commonMistakes": "Menyimpulkan tidak ada pekerja lepas yang menjadi peserta seminar hanya karena mereka bukan staf kelurahan.",
+      "studyMaterialTip": "Cek selalu apakah dua himpunan benar-benar memiliki relasi pada premis sebelum menyimpulkan."
+    },
+    "references": [
+      {
+        "title": "Silogisme Tiga Premis",
+        "source": "Bank Soal TIU HOTS",
+        "note": "Pemilah Distraktor"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-004",
+    "subject": "TIU",
+    "topic": "Silogisme",
+    "topicSlug": "silogisme",
+    "subtopic": "Dilema Konstruktif",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Jika rapat dipimpin oleh Sekretaris Daerah, maka seluruh kepala dinas hadir. Jika rapat dilaksanakan pada hari Jumat, maka agenda evaluasi anggaran dibahas. Diketahui bahwa rapat tersebut dipimpin oleh Sekretaris Daerah atau dilaksanakan pada hari Jumat. Simpulan yang sah adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Seluruh kepala dinas hadir dan agenda evaluasi anggaran pasti dibahas bersamaan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Premis ketiga menggunakan \"atau\", bukan \"dan\", sehingga tidak menjamin keduanya terjadi sekaligus."
+      },
+      {
+        "key": "B",
+        "text": "Sekretaris Daerah pasti memimpin rapat setiap hari Jumat.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak ada hubungan sebab-akibat antara kepemimpinan rapat dan hari Jumat."
+      },
+      {
+        "key": "C",
+        "text": "Jika seluruh kepala dinas tidak hadir, maka rapat tidak dipimpin Sekretaris Daerah dan tidak dilaksanakan Jumat.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bisa saja rapat dilaksanakan Jumat dan membahas anggaran."
+      },
+      {
+        "key": "D",
+        "text": "Seluruh kepala dinas hadir atau agenda evaluasi anggaran dibahas.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: aturan dilema konstruktif dari (P -> Q), (R -> S), dan (P ∨ R) menurunkan (Q ∨ S)."
+      },
+      {
+        "key": "E",
+        "text": "Agenda evaluasi anggaran dibahas hanya apabila seluruh kepala dinas tidak hadir.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak memiliki dasar dalam premis."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Dilema Konstruktif: Jika (P -> Q) dan (R -> S), serta (P atau R) terjadi, maka (Q atau S) pasti terjadi.",
+      "stepByStep": [
+        "Misalkan P = dipimpin Sekda, Q = seluruh kepala dinas hadir, R = dilaksanakan Jumat, S = evaluasi anggaran dibahas.",
+        "Premis: P -> Q, R -> S, dan P ∨ R.",
+        "Jika P terjadi maka Q terjadi; jika R terjadi maka S terjadi. Maka minimal salah satu dari Q atau S pasti terjadi (Q ∨ S)."
+      ],
+      "correctReason": "Disjungsi sebab pada dua implikasi terpisah menurunkan disjungsi akibat.",
+      "distractorAnalysis": {
+        "A": "Premis ketiga menggunakan \"atau\", bukan \"dan\", sehingga tidak menjamin keduanya terjadi sekaligus.",
+        "B": "Tidak ada hubungan sebab-akibat antara kepemimpinan rapat dan hari Jumat.",
+        "C": "Bisa saja rapat dilaksanakan Jumat dan membahas anggaran.",
+        "E": "Tidak memiliki dasar dalam premis."
+      },
+      "quickTrick": "(A -> B), (C -> D), dan (A atau C) otomatis menghasilkan (B atau D).",
+      "commonMistakes": "Mengganti kata \"atau\" menjadi \"dan\" pada kesimpulan.",
+      "studyMaterialTip": "Perhatikan tanda penghubung \"atau\" vs \"dan\" karena itulah penentu kekuatan klaim kesimpulan."
+    },
+    "references": [
+      {
+        "title": "Aturan Inferensi Lanjut",
+        "source": "Logika Proposisional",
+        "note": "Constructive Dilemma"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-005",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Evaluasi Faktor Pemeliharaan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Di empat puskesmas daerah terpencil, suhu penyimpanan vaksin tetap stabil pada rentang 2°C–8°C selama enam bulan karena dilengkapi genset otomatis dan alarm pemantau suhu. Sebaliknya, satu puskesmas tanpa alarm pemantau suhu mengalami keterlambatan deteksi saat terjadi lonjakan suhu. Simpulan induktif yang paling tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Keberadaan alarm pemantau suhu berperan membantu deteksi dini perubahan suhu penyimpanan vaksin di puskesmas yang diamati.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: merujuk langsung pada perbedaan kejadian antara puskesmas beralarm dan tanpa alarm."
+      },
+      {
+        "key": "B",
+        "text": "Semua puskesmas di seluruh dunia wajib mengganti kulkas vaksinnya setiap enam bulan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak berkaitan dan melebihi ruang lingkup."
+      },
+      {
+        "key": "C",
+        "text": "Genset otomatis tidak memiliki peran apa pun terhadap kestabilan listrik puskesmas.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan keterangan bahwa keempat puskesmas juga dilengkapi genset otomatis."
+      },
+      {
+        "key": "D",
+        "text": "Vaksin akan selalu rusak dalam satu jam apabila tidak dipantau setiap menit secara manual.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Klaim spesifik tanpa dasar di teks."
+      },
+      {
+        "key": "E",
+        "text": "Puskesmas kelima sengaja mematikan alat pendingin vaksinnya.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tuduhan tidak berdasar."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Mengisolasi fungsi variabel pembeda pada kasus perbandingan fasilitas layanan publik.",
+      "stepByStep": [
+        "Identifikasi kondisi puskesmas stabil: ada genset otomatis + alarm pemantau suhu.",
+        "Identifikasi masalah puskesmas pembanding: tidak ada alarm -> keterlambatan deteksi lonjakan suhu.",
+        "Tarik simpulan tentang peran alarm pemantau suhu dalam deteksi dini."
+      ],
+      "correctReason": "Perbedaan hasil pada teks berpusat pada ketiadaan alarm pemantau suhu dan keterlambatan deteksi.",
+      "distractorAnalysis": {
+        "B": "Tidak berkaitan dan melebihi ruang lingkup.",
+        "C": "Bertentangan dengan keterangan bahwa keempat puskesmas juga dilengkapi genset otomatis.",
+        "D": "Klaim spesifik tanpa dasar di teks.",
+        "E": "Tuduhan tidak berdasar."
+      },
+      "quickTrick": "Fokus tepat pada akibat spesifik yang muncul saat satu fasilitas hilang.",
+      "commonMistakes": "Menolak peran genset otomatis padahal hanya alarm yang sedang dibandingkan.",
+      "studyMaterialTip": "Pastikan simpulan tidak menegasikan faktor pendukung lain yang sudah disebut positif."
+    },
+    "references": [
+      {
+        "title": "Penalaran Induktif Kasus Lapangan",
+        "source": "Modul TIU Verbal",
+        "note": "Evaluasi Fasilitas"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-006",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Generalisasi Sampel Kebijakan Daerah",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Pembukaan pos layanan konsultasi pajak keliling di tiga pasar tradisional besar menghasilkan peningkatan rata-rata kepatuhan pelaporan SPT pelaku UMKM sebesar 19% dibandingkan tahun sebelumnya. Kesimpulan yang paling logis adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pos layanan konsultasi keliling berpotensi meningkatkan kepatuhan pelaporan SPT pelaku UMKM di ketiga pasar tradisional tersebut.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: mencerminkan hasil pengamatan tanpa mengklaim kepastian seratus persen di luar sampel."
+      },
+      {
+        "key": "B",
+        "text": "Seluruh pelaku UMKM di Indonesia kini sudah seratus persen patuh melaporkan SPT.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Overgeneralisasi dari tiga pasar dan kenaikan 19%."
+      },
+      {
+        "key": "C",
+        "text": "Penghapusan seluruh kantor pajak permanen adalah langkah paling efisien.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesimpulan kebijakan ekstrem di luar bacaan."
+      },
+      {
+        "key": "D",
+        "text": "Pedagang pasar tradisional hanya mau membayar pajak jika diberi insentif tunai.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Membahas insentif tunai yang tidak disebutkan."
+      },
+      {
+        "key": "E",
+        "text": "Kepatuhan pajak tahun sebelumnya berada pada angka nol persen.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak ada data angka dasar tahun sebelumnya."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Menyimpulkan dampak program berbasis data peningkatan rata-rata pada lokasi uji.",
+      "stepByStep": [
+        "Intervensi: pos layanan konsultasi pajak keliling di tiga pasar.",
+        "Hasil: kepatuhan pelaporan SPT naik rata-rata 19%.",
+        "Rumuskan kesimpulan yang setia pada lingkup ketiga pasar."
+      ],
+      "correctReason": "Bahasa \"berpotensi meningkatkan ... di ketiga pasar\" tepat secara induktif.",
+      "distractorAnalysis": {
+        "B": "Overgeneralisasi dari tiga pasar dan kenaikan 19%.",
+        "C": "Kesimpulan kebijakan ekstrem di luar bacaan.",
+        "D": "Membahas insentif tunai yang tidak disebutkan.",
+        "E": "Tidak ada data angka dasar tahun sebelumnya."
+      },
+      "quickTrick": "Hindari opsi dengan angka mengarang (0%, 100%) atau cakupan berlebihan (\"seluruh Indonesia\").",
+      "commonMistakes": "Tergoda pada opsi dramatis yang melampaui hasil survei.",
+      "studyMaterialTip": "Jawaban induktif yang paling aman hampir selalu menyebut kembali konteks sampelnya."
+    },
+    "references": [
+      {
+        "title": "Logika Induktif Evaluasi Program",
+        "source": "Pedoman TIU BKN",
+        "note": "Sampel vs Populasi"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-007",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Pola Pertumbuhan Berkelanjutan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Sejak warga menerapkan pemilahan sampah organik dari rumah tangga, volume produksi kompos di bank sampah kelurahan naik berturut-turut: 1,2 ton pada bulan pertama, 1,5 ton pada bulan kedua, 1,9 ton pada bulan ketiga, dan 2,4 ton pada bulan keempat. Simpulan yang paling tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pada bulan kelima volume kompos dipastikan turun tajam karena warga bosan memilah.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bertentangan dengan tren kenaikan empat bulan beruntun."
+      },
+      {
+        "key": "B",
+        "text": "Volume sampah plastik di kelurahan tersebut telah hilang sepenuhnya.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Teks hanya membahas produksi kompos dari sampah organik."
+      },
+      {
+        "key": "C",
+        "text": "Kebiasaan pemilahan sampah organik dari rumah berkaitan dengan tren kenaikan produksi kompos selama empat bulan pengamatan.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: menggambarkan tren naik konsisten pascaperlakuan selama periode pengamatan."
+      },
+      {
+        "key": "D",
+        "text": "Bank sampah tidak membutuhkan mesin pencacah organik lagi.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak disebutkan dalam teks."
+      },
+      {
+        "key": "E",
+        "text": "Selisih produksi kompos setiap bulan pasti selalu bertambah 0,1 ton selamanya.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Meramal pola matematis selamanya tidak sah dalam penalaran induktif sosial."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Membedakan deskripsi tren berkelanjutan yang sah dari prediksi permanen (\"selamanya\") atau topik yang tidak dibahas.",
+      "stepByStep": [
+        "Periksa deret capaian: 1,2 -> 1,5 -> 1,9 -> 2,4 ton (selalu naik).",
+        "Periksa konteks awal: sejak penerapan pemilahan sampah organik rumah tangga.",
+        "Pilih pernyataan korelasional yang dibatasi masa pengamatan."
+      ],
+      "correctReason": "Keempat titik data memperlihatkan kenaikan progresif yang selaras dengan penerapan pemilahan organik.",
+      "distractorAnalysis": {
+        "A": "Bertentangan dengan tren kenaikan empat bulan beruntun.",
+        "B": "Teks hanya membahas produksi kompos dari sampah organik.",
+        "D": "Tidak disebutkan dalam teks.",
+        "E": "Meramal pola matematis selamanya tidak sah dalam penalaran induktif sosial."
+      },
+      "quickTrick": "Tren naik beruntun -> pilih simpulan \"berkaitan dengan tren kenaikan selama pengamatan\".",
+      "commonMistakes": "Menggunakan selisih angka (+0,3; +0,4; +0,5) untuk memaksakan ramalan \"selamanya\".",
+      "studyMaterialTip": "Bedakan soal TIU Deret Angka (mencari suku ke-5) dengan TIU Induktif (menyimpulkan gejala empiris)."
+    },
+    "references": [
+      {
+        "title": "Analisis Tren Induktif",
+        "source": "Bank Soal TIU",
+        "note": "Data Berkala"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-008",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Studi Banding Kelompok Kontrol",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Pemasangan penerangan jalan umum tenaga surya di empat ruas jalan pinggiran kota diikuti penurunan kecelakaan malam hari dari 14 kasus menjadi 5 kasus per semester, sedangkan pada ruas jalan pembanding tanpa penerangan angka kecelakaan tetap berkisar 13–15 kasus per semester. Simpulan yang paling didukung data adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Semua kecelakaan lalu lintas di kota terjadi akibat lampu jalan mati.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengabaikan kecelakaan siang hari dan penyebab lain."
+      },
+      {
+        "key": "B",
+        "text": "Ruas jalan pembanding memiliki jumlah kendaraan sepuluh kali lipat lebih padat.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menyisipkan klaim kuantitatif yang tidak ada dalam bacaan."
+      },
+      {
+        "key": "C",
+        "text": "Kecelakaan di empat ruas jalan pinggiran turun hanya karena cuaca cerah.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menolak pembanding tanpa bukti."
+      },
+      {
+        "key": "D",
+        "text": "Pemasangan penerangan jalan tenaga surya berkorelasi dengan penurunan kecelakaan malam hari pada ruas jalan yang diuji.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: perbandingan sebelum-sesudah serta kelompok kontrol mendukung korelasi kuat."
+      },
+      {
+        "key": "E",
+        "text": "Lampu tenaga surya lebih terang daripada lampu jaringan listrik konvensional.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak membandingkan dua jenis lampu tersebut."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Kombinasi data sebelum-sesudah (14 -> 5) dan kelompok kontrol (tetap 13–15) dalam penalaran eksperimental kuasi.",
+      "stepByStep": [
+        "Kelompok perlakuan (4 ruas jalan dengan PJU tenaga surya): turun dari 14 ke 5 kasus.",
+        "Kelompok kontrol (tanpa penerangan): tetap di 13–15 kasus.",
+        "Simpulkan korelasi positif pemasangan PJU tenaga surya dengan turunnya kecelakaan malam hari di lokasi uji."
+      ],
+      "correctReason": "Keberadaan kelompok kontrol yang stagnan memperkuat kesimpulan bahwa perubahan di ruas uji bukan sekadar kebetulan musim.",
+      "distractorAnalysis": {
+        "A": "Mengabaikan kecelakaan siang hari dan penyebab lain.",
+        "B": "Menyisipkan klaim kuantitatif yang tidak ada dalam bacaan.",
+        "C": "Menolak pembanding tanpa bukti.",
+        "E": "Tidak membandingkan dua jenis lampu tersebut."
+      },
+      "quickTrick": "Kelompok perlakuan membaik, kelompok pembanding tetap -> intervensi berkorelasi dengan perbaikan.",
+      "commonMistakes": "Membandingkan teknologi lampu dengan sesuatu yang tidak disebut di teks (listrik konvensional).",
+      "studyMaterialTip": "Hati-hati pada opsi yang terdengar masuk akal di dunia nyata tetapi tidak pernah muncul di premis."
+    },
+    "references": [
+      {
+        "title": "Desain Kelompok Kontrol Induktif",
+        "source": "Materi Penalaran Ilmiah TIU",
+        "note": "Before-After Control"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-009",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Generalisasi Mayoritas Sampel",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Dari 50 sekolah dasar yang membuka pojok baca kelas dan menerapkan pembiasaan membaca 15 menit sebelum pelajaran, sebanyak 44 sekolah mencatat kenaikan skor literasi minimum siswa pada asesmen semester. Simpulan yang paling sesuai adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Enam sekolah lainnya mengalami penutupan pojok baca oleh dinas.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Teks tidak menyebut penutupan pojok baca."
+      },
+      {
+        "key": "B",
+        "text": "Skor matematika siswa juga dipastikan naik di seluruh 50 sekolah.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Skor matematika tidak dibahas."
+      },
+      {
+        "key": "C",
+        "text": "Pembiasaan membaca kurang dari 15 menit pasti gagal total menaikkan literasi.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak ada data variasi durasi di bawah 15 menit."
+      },
+      {
+        "key": "D",
+        "text": "Program pojok baca adalah satu-satunya program pendidikan yang berhasil.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Klaim ekstrem \"satu-satunya\"."
+      },
+      {
+        "key": "E",
+        "text": "Kombinasi pojok baca kelas dan pembiasaan membaca 15 menit berpotensi meningkatkan literasi siswa pada mayoritas sekolah peserta.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Tepat: 44 dari 50 sekolah (88%) merupakan mayoritas jelas tanpa mengklaim 100%."
+      }
+    ],
+    "correctOption": "E",
+    "explanation": {
+      "concept": "Menginterpretasi proporsi 44/50 secara akurat sebagai mayoritas dan bukan seluruhnya.",
+      "stepByStep": [
+        "Hitung proporsi keberhasilan: 44/50 = 88% (mayoritas besar).",
+        "Catatan: masih ada 6 sekolah yang tidak tercatat naik, sehingga kata \"semua\" salah.",
+        "Pilih pernyataan dengan kata \"mayoritas\" dan \"berpotensi\"."
+      ],
+      "correctReason": "Angka 44 dari 50 secara tepat diterjemahkan menjadi mayoritas sekolah peserta.",
+      "distractorAnalysis": {
+        "A": "Teks tidak menyebut penutupan pojok baca.",
+        "B": "Skor matematika tidak dibahas.",
+        "C": "Tidak ada data variasi durasi di bawah 15 menit.",
+        "D": "Klaim ekstrem \"satu-satunya\"."
+      },
+      "quickTrick": "44/50 = sebagian besar/mayoritas, bukan semua dan bukan tidak efektif.",
+      "commonMistakes": "Menebak kondisi 6 sekolah sisanya secara mengarang.",
+      "studyMaterialTip": "Jika proporsi disebutkan (44 dari 50), cek apakah opsi menjaga akurasi \"mayoritas/sebagian besar\"."
+    },
+    "references": [
+      {
+        "title": "Penalaran Proporsional",
+        "source": "Modul TIU Verbal",
+        "note": "Mayoritas Sampel"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-010",
+    "subject": "TIU",
+    "topic": "Penalaran Induktif",
+    "topicSlug": "penalaran-induktif",
+    "subtopic": "Perbandingan Efektivitas Metode",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Evaluasi tiga angkatan pelatihan dasar CPNS menunjukkan bahwa peserta yang menyusun proyek aktualisasi langsung di unit kerjanya mencapai ketepatan waktu penyelesaian laporan sebesar 96%, jauh di atas kelompok yang hanya menyusun studi kasus teoretis sebesar 68%. Simpulan induktif yang paling kuat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "Penyusunan proyek aktualisasi langsung di unit kerja berkaitan dengan tingkat ketepatan waktu penyelesaian laporan yang lebih tinggi dibanding studi kasus teoretis semata pada tiga angkatan tersebut.",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: membandingkan dua metode dan capaian terukur sesuai cakupan evaluasi."
+      },
+      {
+        "key": "B",
+        "text": "Peserta studi kasus teoretis kurang cerdas dibandingkan peserta proyek aktualisasi.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menilai kecerdasan individu tanpa bukti data."
+      },
+      {
+        "key": "C",
+        "text": "Semua teori manajemen pemerintahan harus dihapus dari kurikulum pelatihan dasar.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Rekomendasi ekstrem yang melampaui bukti."
+      },
+      {
+        "key": "D",
+        "text": "Sebesar 4% peserta proyek aktualisasi diberhentikan dari pelatihan.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak lulus/terlambat tidak berarti diberhentikan."
+      },
+      {
+        "key": "E",
+        "text": "Tingkat ketepatan waktu selalu bergantung pada jumlah mentor penguji.",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mentor penguji tidak disebut dalam bacaan."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Menarik perbandingan keunggulan metode berdasarkan selisih persentase terukur (96% vs 68%) pada sampel yang dievaluasi.",
+      "stepByStep": [
+        "Kelompok A (proyek aktualisasi langsung): ketepatan waktu 96%.",
+        "Kelompok B (studi kasus teoretis): ketepatan waktu 68%.",
+        "Simpulkan kaitan metode terhadap tingkat ketepatan waktu pada tiga angkatan yang dievaluasi."
+      ],
+      "correctReason": "Selisih 28 poin persentase di tiga angkatan mendukung keunggulan ketepatan waktu pada metode proyek langsung.",
+      "distractorAnalysis": {
+        "B": "Menilai kecerdasan individu tanpa bukti data.",
+        "C": "Rekomendasi ekstrem yang melampaui bukti.",
+        "D": "Tidak lulus/terlambat tidak berarti diberhentikan.",
+        "E": "Mentor penguji tidak disebut dalam bacaan."
+      },
+      "quickTrick": "Bandingkan persis dua metode dan variabel ukurannya tanpa menyalahkan kecerdasan subjek.",
+      "commonMistakes": "Memilih kesimpulan kebijakan ekstrem (\"hapus semua teori\").",
+      "studyMaterialTip": "Simpulan induktif bersifat deskriptif-evaluatif terhadap data, bukan usulan radikal tanpa premis."
+    },
+    "references": [
+      {
+        "title": "Evaluasi Metode Pelatihan",
+        "source": "Latihan TIU Verbal",
+        "note": "Komparasi Empiris"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-011",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Susunan Berkas Vertikal",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Lima map berkas tender (V, W, X, Y, dan Z) disusun bertumpuk dari posisi 1 (paling atas) hingga posisi 5 (paling bawah) dengan ketentuan: (1) Berkas Y diletakkan tepat di atas Berkas W; (2) Berkas X berada pada posisi lebih atas daripada Berkas V; (3) Berkas Z berada di posisi nomor 3; (4) Berkas V tidak berada di posisi nomor 5. Berkas apakah yang menempati posisi nomor 2?",
+    "options": [
+      {
+        "key": "A",
+        "text": "X",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "X menempati posisi nomor 1 (paling atas) karena harus di atas V."
+      },
+      {
+        "key": "B",
+        "text": "V",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: susunan unik dari atas ke bawah adalah 1: X, 2: V, 3: Z, 4: Y, 5: W."
+      },
+      {
+        "key": "C",
+        "text": "W",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "W berada di posisi nomor 5 tepat di bawah Y(4)."
+      },
+      {
+        "key": "D",
+        "text": "Y",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jika Y=1 dan W=2, maka X=4 dan V=5, yang melanggar syarat V ≠ 5."
+      },
+      {
+        "key": "E",
+        "text": "Z",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Z diketahui pasti berada di posisi nomor 3."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Membagi slot atas dan bawah di sekitar elemen tengah yang terkunci (Z=3) untuk mencari tempat pasangan berurutan.",
+      "stepByStep": [
+        "Posisi 3 = Z. Pasangan rapat [Y, W] hanya dapat berada di (1, 2) atau (4, 5).",
+        "Jika [Y, W] di (1, 2), sisa posisi adalah (4, 5) untuk X dan V. Karena X lebih atas dari V, maka V = 5 — melanggar syarat (4).",
+        "Oleh sebab itu [Y, W] wajib di posisi (4, 5), dan sisa posisi (1, 2) ditempati X = 1 serta V = 2."
+      ],
+      "correctReason": "Larangan V di posisi paling bawah memaksa pasangan Y–W mengisi posisi 4–5 sehingga V tepat di posisi 2.",
+      "distractorAnalysis": {
+        "A": "X menempati posisi nomor 1 (paling atas) karena harus di atas V.",
+        "C": "W berada di posisi nomor 5 tepat di bawah Y(4).",
+        "D": "Jika Y=1 dan W=2, maka X=4 dan V=5, yang melanggar syarat V ≠ 5.",
+        "E": "Z diketahui pasti berada di posisi nomor 3."
+      },
+      "quickTrick": "Z di tengah membelah tumpukan menjadi {1,2} dan {4,5}; V tidak boleh ke-5 -> V harus di {1,2} tepatnya nomor 2.",
+      "commonMistakes": "Menukar urutan Y dan W menjadi W di atas Y.",
+      "studyMaterialTip": "Pastikan selalu memeriksa arah kata \"tepat di atas\" (nomor lebih kecil jika nomor 1 paling atas)."
+    },
+    "references": [
+      {
+        "title": "Urutan Tumpukan Analitis",
+        "source": "Modul TIU Analitis",
+        "note": "Pembagian Blok oleh Pusat"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-012",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Jadwal Pekan Olahraga",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Lima cabang lomba antarinstansi (Badminton, Catur, Futsal, Renang, dan Tenis) diselenggarakan masing-masing satu cabang per hari dari Senin hingga Jumat dengan ketentuan: (1) Futsal dilaksanakan tepat satu hari sebelum Renang; (2) Badminton hanya boleh dijadwalkan pada hari Senin atau Jumat, dan tidak boleh bersebelahan harinya dengan Catur; (3) Catur dilaksanakan pada hari Kamis; (4) Tenis dilaksanakan setelah Futsal. Cabang lomba apakah yang digelar pada hari Rabu?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Badminton",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Badminton harus di hari Senin agar tidak bersebelahan dengan Catur di hari Kamis."
+      },
+      {
+        "key": "B",
+        "text": "Futsal",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Futsal berada di hari Selasa agar Renang tepat sesudahnya di hari Rabu."
+      },
+      {
+        "key": "C",
+        "text": "Renang",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: jadwal unik adalah Senin Badminton, Selasa Futsal, Rabu Renang, Kamis Catur, Jumat Tenis."
+      },
+      {
+        "key": "D",
+        "text": "Tenis",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tenis mengisi hari Jumat setelah Futsal dan Catur."
+      },
+      {
+        "key": "E",
+        "text": "Catur",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Catur sudah ditetapkan berlangsung pada hari Kamis."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Mengeliminasi salah satu kandidat hari ujung untuk elemen bersyarat, lalu menempatkan pasangan hari berturutan.",
+      "stepByStep": [
+        "Kamis = Catur.",
+        "Badminton boleh Senin atau Jumat, tetapi tidak boleh bersebelahan dengan Catur (Kamis). Maka Badminton ≠ Jumat, sehingga Badminton = Senin.",
+        "Hari tersisa adalah {Selasa, Rabu, Jumat}. Pasangan rapat [Futsal, Renang] hanya dapat masuk di (Selasa, Rabu).",
+        "Maka Selasa = Futsal, Rabu = Renang, dan Jumat = Tenis (memenuhi Tenis setelah Futsal)."
+      ],
+      "correctReason": "Larangan bersebelahan dengan Kamis memaksa Badminton ke Senin, menyisakan Selasa–Rabu bagi blok Futsal–Renang.",
+      "distractorAnalysis": {
+        "A": "Badminton harus di hari Senin agar tidak bersebelahan dengan Catur di hari Kamis.",
+        "B": "Futsal berada di hari Selasa agar Renang tepat sesudahnya di hari Rabu.",
+        "D": "Tenis mengisi hari Jumat setelah Futsal dan Catur.",
+        "E": "Catur sudah ditetapkan berlangsung pada hari Kamis."
+      },
+      "quickTrick": "Kamis = Catur menutup hari Jumat untuk Badminton -> Badminton pasti Senin -> Futsal-Renang wajib Selasa-Rabu.",
+      "commonMistakes": "Menaruh Badminton di Jumat lalu lupa bahwa Kamis dan Jumat bersebelahan.",
+      "studyMaterialTip": "Cek selalu hubungan bersebelahan dengan hari sebelum dan sesudahnya sekaligus."
+    },
+    "references": [
+      {
+        "title": "Penjadwalan Pekan Analitis",
+        "source": "Bank Soal TIU BKN",
+        "note": "Hari Berdekatan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-013",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Matriks Rak 3×2",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Enam kotak arsip (M, N, O, P, Q, dan R) disimpan dalam rak berisi 3 baris (Atas, Tengah, Bawah) dan 2 kolom (Kiri, Kanan) sehingga setiap sel memuat tepat 1 kotak: (1) M berada di Baris Atas Kolom Kiri; (2) O dan P berada pada baris yang sama, dengan P di sebelah kanan O; (3) R dan N berada pada kolom yang sama, dengan R tepat satu baris di atas N; (4) O tidak berada di Baris Tengah. Kotak apakah yang menempati Baris Tengah Kolom Kiri?",
+    "options": [
+      {
+        "key": "A",
+        "text": "M",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "M berada di Baris Atas Kolom Kiri."
+      },
+      {
+        "key": "B",
+        "text": "N",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "N berada di Baris Tengah Kolom Kanan, tepat di bawah R."
+      },
+      {
+        "key": "C",
+        "text": "O",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "O berada di Baris Bawah Kolom Kiri."
+      },
+      {
+        "key": "D",
+        "text": "Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: susunan unik rak (Kiri | Kanan) adalah Atas [M | R], Tengah [Q | N], Bawah [O | P]."
+      },
+      {
+        "key": "E",
+        "text": "R",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "R berada di Baris Atas Kolom Kanan."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Penalaran spasial kisi 2D (baris × kolom) dengan memperhatikan kapasitas kolom bagi pasangan vertikal.",
+      "stepByStep": [
+        "Atas-Kiri = M. Oleh karena O dan P berbagi satu baris penuh, mereka tidak mungkin di Baris Atas.",
+        "Karena O tidak di Baris Tengah, maka [O | P] wajib menempati Baris Bawah (Bawah-Kiri = O, Bawah-Kanan = P).",
+        "Sel tersisa: Tengah-Kiri, Atas-Kanan, Tengah-Kanan.",
+        "Karena R tepat satu baris di atas N pada kolom yang sama, satu-satunya kolom yang masih punya 2 sel bersebelahan adalah Kolom Kanan (Atas-Kanan = R, Tengah-Kanan = N).",
+        "Satu-satunya sel tersisa (Tengah-Kiri) diisi oleh Q."
+      ],
+      "correctReason": "Baris Bawah terisi O–P dan Atas-Kiri terisi M, sehingga pasangan vertikal R–N wajib menempati Kolom Kanan dan Q menempati Tengah-Kiri.",
+      "distractorAnalysis": {
+        "A": "M berada di Baris Atas Kolom Kiri.",
+        "B": "N berada di Baris Tengah Kolom Kanan, tepat di bawah R.",
+        "C": "O berada di Baris Bawah Kolom Kiri.",
+        "E": "R berada di Baris Atas Kolom Kanan."
+      },
+      "quickTrick": "Gambar tabel 3×2: isi M di pojok kiri atas dan O–P di baris paling bawah, lalu masukkan R–N di kolom kanan.",
+      "commonMistakes": "Mengabaikan syarat O dan P harus satu baris dengan P di kanan O.",
+      "studyMaterialTip": "Untuk soal rak atau denah meja, langsung sketsa kotak 3×2 agar tidak membayangkan di kepala."
+    },
+    "references": [
+      {
+        "title": "Penalaran Spasial Tabel 2D",
+        "source": "Materi TIU HOTS",
+        "note": "Kisi 3×2"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-014",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Pemeringkatan Skor Komparatif",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Lima peserta seleksi (Adi, Bela, Candra, Dini, dan Eko) memperoleh nilai akhir yang semuanya berbeda: (1) Nilai Candra lebih tinggi daripada Adi, tetapi lebih rendah daripada Bela; (2) Nilai Dini lebih rendah daripada Adi; (3) Nilai Eko berada di antara Bela dan Candra. Siapakah yang memperoleh nilai tertinggi ke-3?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Bela",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Bela menempati peringkat tertinggi ke-1."
+      },
+      {
+        "key": "B",
+        "text": "Eko",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Eko menempati peringkat tertinggi ke-2."
+      },
+      {
+        "key": "C",
+        "text": "Candra",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: urutan nilai dari tertinggi ke terendah adalah Bela > Eko > Candra > Adi > Dini."
+      },
+      {
+        "key": "D",
+        "text": "Adi",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Adi berada pada peringkat ke-4."
+      },
+      {
+        "key": "E",
+        "text": "Dini",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Dini memperoleh nilai paling rendah (peringkat ke-5)."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Menggabungkan rantai pertidaksamaan transitivity menjadi satu garis urutan tunggal.",
+      "stepByStep": [
+        "Dari syarat (1): Bela > Candra > Adi.",
+        "Dari syarat (3), Eko berada di antara Bela dan Candra: Bela > Eko > Candra > Adi.",
+        "Dari syarat (2), Dini < Adi: Bela > Eko > Candra > Adi > Dini.",
+        "Peringkat ke-3 dari yang tertinggi adalah Candra."
+      ],
+      "correctReason": "Seluruh 5 peserta terhubung dalam satu rantai ketaksamaan ketat.",
+      "distractorAnalysis": {
+        "A": "Bela menempati peringkat tertinggi ke-1.",
+        "B": "Eko menempati peringkat tertinggi ke-2.",
+        "D": "Adi berada pada peringkat ke-4.",
+        "E": "Dini memperoleh nilai paling rendah (peringkat ke-5)."
+      },
+      "quickTrick": "Susun dari kiri (tertinggi) ke kanan (terendah) memakai tanda \">\".",
+      "commonMistakes": "Menghitung peringkat ke-3 dari bawah alih-alih dari tertinggi (yang kebetulan sama, tetapi berisiko di soal peringkat 2 atau 4).",
+      "studyMaterialTip": "Selalu cek apakah urutan diminta dari tertinggi atau terendah."
+    },
+    "references": [
+      {
+        "title": "Perbandingan Bertingkat",
+        "source": "Pedoman TIU Analitis",
+        "note": "Transitivitas Skor"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-015",
+    "subject": "TIU",
+    "topic": "Analitis",
+    "topicSlug": "analitis",
+    "subtopic": "Tata Letak Lahan Barat–Timur",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Lima jenis tanaman obat (Jahe, Kunyit, Lengkuas, Sereh, dan Temulawak) ditanam masing-masing pada satu petak berurutan bernomor 1 sampai 5 dari barat ke timur: (1) Temulawak ditanam di petak nomor 3; (2) Lengkuas ditanam tepat di sebelah barat Temulawak; (3) Sereh tidak ditanam di petak paling ujung (nomor 1 maupun 5); (4) Kunyit ditanam lebih ke timur daripada Jahe dan tidak bersebelahan dengannya. Tanaman apakah yang berada di petak nomor 4?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Jahe",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Jahe harus di petak nomor 1 agar Kunyit bisa di timur tanpa bersebelahan."
+      },
+      {
+        "key": "B",
+        "text": "Lengkuas",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Lengkuas berada di petak nomor 2 tepat di sebelah barat Temulawak(3)."
+      },
+      {
+        "key": "C",
+        "text": "Temulawak",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Temulawak sudah menempati petak nomor 3."
+      },
+      {
+        "key": "D",
+        "text": "Kunyit",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kunyit berada di petak nomor 5 (paling timur)."
+      },
+      {
+        "key": "E",
+        "text": "Sereh",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: susunan petak 1–5 adalah Jahe, Lengkuas, Temulawak, Sereh, Kunyit."
+      }
+    ],
+    "correctOption": "E",
+    "explanation": {
+      "concept": "Mengunci petak tengah dan bukan-ujung lebih dulu untuk mempersempit slot yang tersisa.",
+      "stepByStep": [
+        "Petak 3 = Temulawak.",
+        "Lengkuas tepat di barat Temulawak -> Petak 2 = Lengkuas.",
+        "Sereh bukan petak 1 dan bukan petak 5. Karena petak 2 dan 3 sudah terisi, Sereh wajib di Petak 4.",
+        "Petak tersisa adalah {1, 5} untuk Jahe dan Kunyit. Karena Kunyit lebih ke timur daripada Jahe, maka Jahe = 1 dan Kunyit = 5 (memenuhi syarat tidak bersebelahan)."
+      ],
+      "correctReason": "Larangan posisi ujung bagi Sereh di tengah petak 2 dan 3 yang sudah terisi langsung menguncinya di petak 4.",
+      "distractorAnalysis": {
+        "A": "Jahe harus di petak nomor 1 agar Kunyit bisa di timur tanpa bersebelahan.",
+        "B": "Lengkuas berada di petak nomor 2 tepat di sebelah barat Temulawak(3).",
+        "C": "Temulawak sudah menempati petak nomor 3.",
+        "D": "Kunyit berada di petak nomor 5 (paling timur)."
+      },
+      "quickTrick": "Setelah petak 2 dan 3 terisi, syarat \"bukan di 1 dan 5\" langsung memaksa Sereh = 4.",
+      "commonMistakes": "Tertukar arah barat (kiri/nomor kecil) dan timur (kanan/nomor besar).",
+      "studyMaterialTip": "Tuliskan arah B (1) — T (5) di atas garis bilangan sebelum mengisi nama tanaman."
+    },
+    "references": [
+      {
+        "title": "Urutan Spasial Linear",
+        "source": "Latihan TIU Analitis",
+        "note": "Arah Mata Angin"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-016",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Operasi Campuran Persen & Desimal",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Nilai dari (2/3 × 1,5) + (35% × 60) - (0,4 × 15) adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "14",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menghitung 35% × 60 sebagai 19."
+      },
+      {
+        "key": "B",
+        "text": "16",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: 1 + 21 - 6 = 16."
+      },
+      {
+        "key": "C",
+        "text": "18",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menghitung 0,4 × 15 sebagai 4."
+      },
+      {
+        "key": "D",
+        "text": "22",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Lupa mengurangkan suku terakhir 6."
+      },
+      {
+        "key": "E",
+        "text": "28",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menjumlahkan 6 alih-alih menguranginya."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Menghitung masing-masing kelompok perkalian secara terpisah lalu menggabungkan penjumlahan dan pengurangan.",
+      "stepByStep": [
+        "2/3 × 1,5 = 2/3 × 3/2 = 1.",
+        "35% × 60 = (35/100) × 60 = 21.",
+        "0,4 × 15 = (4/10) × 15 = 6.",
+        "1 + 21 - 6 = 16."
+      ],
+      "correctReason": "Tiga suku masing-masing menghasilkan 1, 21, dan -6 sehingga hasil akhirnya 16.",
+      "distractorAnalysis": {
+        "A": "Salah menghitung 35% × 60 sebagai 19.",
+        "C": "Salah menghitung 0,4 × 15 sebagai 4.",
+        "D": "Lupa mengurangkan suku terakhir 6.",
+        "E": "Menjumlahkan 6 alih-alih menguranginya."
+      },
+      "quickTrick": "2/3 × 3/2 = 1; 35% × 60 = 60% × 35 = 3/5 × 35 = 21; 0,4 × 15 = 6.",
+      "commonMistakes": "Salah konversi 1,5 menjadi pecahan atau terburu-buru menghitung 35% × 60.",
+      "studyMaterialTip": "Manfaatkan sifat komutatif persen: a% dari b sama nilainya dengan b% dari a (35% × 60 = 60% × 35)."
+    },
+    "references": [
+      {
+        "title": "Trik Persentase Komutatif",
+        "source": "Modul Berhitung Cepat TIU",
+        "note": "a% × b = b% × a"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-017",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Selisih Kuadrat Desimal",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Hasil dari (2,5² - 1,5²) ÷ 0,25 adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "4",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Belum dibagi dengan 0,25 (masih berhenti pada nilai pembilang)."
+      },
+      {
+        "key": "B",
+        "text": "8",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengira pembagian dengan 0,25 sama dengan dikali 2."
+      },
+      {
+        "key": "C",
+        "text": "12",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan 2,5 + 1,5 sebagai 3."
+      },
+      {
+        "key": "D",
+        "text": "16",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: ((2,5-1,5)(2,5+1,5)) ÷ (1/4) = (1 × 4) × 4 = 16."
+      },
+      {
+        "key": "E",
+        "text": "20",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah memfaktorkan selisih kuadrat."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Selisih kuadrat (a - b)(a + b) dipadukan dengan pembagian oleh 0,25 yang ekuivalen dengan perkalian 4.",
+      "stepByStep": [
+        "2,5² - 1,5² = (2,5 - 1,5)(2,5 + 1,5) = 1 × 4 = 4.",
+        "Membagi dengan 0,25 (1/4) sama dengan mengalikan dengan 4.",
+        "4 ÷ 0,25 = 4 × 4 = 16."
+      ],
+      "correctReason": "Pembilang tepat bernilai 4, dan 4 dibagi seperempat menghasilkan 16.",
+      "distractorAnalysis": {
+        "A": "Belum dibagi dengan 0,25 (masih berhenti pada nilai pembilang).",
+        "B": "Salah mengira pembagian dengan 0,25 sama dengan dikali 2.",
+        "C": "Salah menjumlahkan 2,5 + 1,5 sebagai 3.",
+        "E": "Salah memfaktorkan selisih kuadrat."
+      },
+      "quickTrick": "Bagi 0,25 = kali 4; (2,5 - 1,5)(2,5 + 1,5) = 4 -> 4 × 4 = 16.",
+      "commonMistakes": "Justru mengalikan 4 × 0,25 = 1 bukannya membagi.",
+      "studyMaterialTip": "Ingat pasangan cepat desimal: ÷0,5 = ×2, ÷0,25 = ×4, ÷0,2 = ×5, ÷0,125 = ×8."
+    },
+    "references": [
+      {
+        "title": "Pembagian Desimal Cepat",
+        "source": "Panduan Numerik SKD",
+        "note": "Kebalikan Pecahan Satuan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-018",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Akar Pangkat Tiga & Kuadrat",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Nilai dari ∛216 + √225 - (2⁵ ÷ 4) adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "11",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengira ∛216 = 4."
+      },
+      {
+        "key": "B",
+        "text": "13",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: 6 + 15 - (32 ÷ 4) = 21 - 8 = 13."
+      },
+      {
+        "key": "C",
+        "text": "15",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menghitung 2⁵ ÷ 4 sebagai 6."
+      },
+      {
+        "key": "D",
+        "text": "17",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menghitung √225 sebagai 19."
+      },
+      {
+        "key": "E",
+        "text": "29",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambahkan +8 alih-alih mengurangi 8."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Mengenal bilangan kubik sempurna (6³ = 216), kuadrat sempurna (15² = 225), dan penyederhanaan pangkat dua.",
+      "stepByStep": [
+        "∛216 = 6 karena 6 × 6 × 6 = 216.",
+        "√225 = 15 karena 15 × 15 = 225.",
+        "2⁵ ÷ 4 = 32 ÷ 4 = 8 (atau 2⁵ ÷ 2² = 2³ = 8).",
+        "6 + 15 - 8 = 13."
+      ],
+      "correctReason": "Setiap komponen menghasilkan bilangan bulat 6, 15, dan 8.",
+      "distractorAnalysis": {
+        "A": "Salah mengira ∛216 = 4.",
+        "C": "Salah menghitung 2⁵ ÷ 4 sebagai 6.",
+        "D": "Salah menghitung √225 sebagai 19.",
+        "E": "Menambahkan +8 alih-alih mengurangi 8."
+      },
+      "quickTrick": "6³=216, 15²=225, 2⁵/2²=8 -> 6 + 15 - 8 = 13.",
+      "commonMistakes": "Mengira ∛216 = 16 atau salah membaca tanda pengurangan.",
+      "studyMaterialTip": "Hafalkan bilangan kuadrat 11²–25² dan bilangan kubik 2³–10³ untuk menghemat waktu di subtes TIU."
+    },
+    "references": [
+      {
+        "title": "Akar & Pangkat Istimewa",
+        "source": "Modul Berhitung TIU",
+        "note": "Kuadrat & Kubik Sempurna"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-019",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Mengurutkan Pecahan, Desimal & Persen",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Urutan bilangan berikut dari nilai yang TERKECIL ke TERBESAR yang benar adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "3/5 ; 0,62 ; 5/8 ; 0,64 ; 65%",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: dalam bentuk desimal nilainya adalah 0,600 ; 0,620 ; 0,625 ; 0,640 ; 0,650."
+      },
+      {
+        "key": "B",
+        "text": "0,62 ; 3/5 ; 5/8 ; 65% ; 0,64",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menaruh 0,62 sebelum 3/5 (0,600) dan 65% sebelum 0,64."
+      },
+      {
+        "key": "C",
+        "text": "3/5 ; 5/8 ; 0,62 ; 0,64 ; 65%",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "5/8 (0,625) lebih besar daripada 0,620."
+      },
+      {
+        "key": "D",
+        "text": "5/8 ; 3/5 ; 0,62 ; 65% ; 0,64",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menempatkan 5/8 (0,625) di posisi paling kecil."
+      },
+      {
+        "key": "E",
+        "text": "65% ; 0,64 ; 5/8 ; 0,62 ; 3/5",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Urutan tersebut terbalik dari terbesar ke terkecil."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Mengonversi seluruh bentuk (pecahan biasa, persen, desimal) ke desimal tiga angka di belakang koma agar mudah dibandingkan.",
+      "stepByStep": [
+        "3/5 = 0,600.",
+        "0,62 = 0,620.",
+        "5/8 = 0,625.",
+        "0,64 = 0,640.",
+        "65% = 0,650.",
+        "Urutan menaik: 3/5 ; 0,62 ; 5/8 ; 0,64 ; 65%."
+      ],
+      "correctReason": "Nilai desimal berurut naik ketat: 0,600 < 0,620 < 0,625 < 0,640 < 0,650.",
+      "distractorAnalysis": {
+        "B": "Salah menaruh 0,62 sebelum 3/5 (0,600) dan 65% sebelum 0,64.",
+        "C": "5/8 (0,625) lebih besar daripada 0,620.",
+        "D": "Menempatkan 5/8 (0,625) di posisi paling kecil.",
+        "E": "Urutan tersebut terbalik dari terbesar ke terkecil."
+      },
+      "quickTrick": "Ingat nilai hafalan 1/8 = 0,125 sehingga 5/8 = 0,625, tepat di antara 0,62 dan 0,64.",
+      "commonMistakes": "Mengira 5/8 lebih kecil daripada 0,62 karena membulatkan 5/8 menjadi 0,6.",
+      "studyMaterialTip": "Hafalkan keluarga pecahan perdelapan (1/8 = 0,125; 3/8 = 0,375; 5/8 = 0,625; 7/8 = 0,875)."
+    },
+    "references": [
+      {
+        "title": "Konversi Pecahan Istimewa",
+        "source": "Materi Numerik BKN",
+        "note": "Urutan Pecahan"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-020",
+    "subject": "TIU",
+    "topic": "Berhitung",
+    "topicSlug": "berhitung",
+    "subtopic": "Konversi Satuan & Proporsi Campuran",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Untuk membuat larutan disinfektan, cairan A dan cairan B dicampurkan dengan perbandingan volume 3 : 5. Jika tersedia 1,2 liter cairan A dan seluruhnya dihabiskan sesuai perbandingan tersebut, berapa mililiter total campuran yang terbentuk?",
+    "options": [
+      {
+        "key": "A",
+        "text": "2.000 mL",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Baru menghitung volume cairan B saja (5 × 400 mL), bukan total campuran."
+      },
+      {
+        "key": "B",
+        "text": "2.400 mL",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengonversi 1,2 liter atau mengalikan rasio."
+      },
+      {
+        "key": "C",
+        "text": "3.000 mL",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Perkiraan kasar tanpa membagi rasio 3."
+      },
+      {
+        "key": "D",
+        "text": "3.200 mL",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: 3 bagian = 1.200 mL sehingga 1 bagian = 400 mL; total (3+5) = 8 bagian = 3.200 mL."
+      },
+      {
+        "key": "E",
+        "text": "3.600 mL",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menggunakan 9 bagian total."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Mengonversi liter ke mililiter (1 L = 1.000 mL) lalu memakai metode satuan bagian rasio.",
+      "stepByStep": [
+        "1,2 liter = 1.200 mL.",
+        "Rasio cairan A = 3 bagian = 1.200 mL -> 1 bagian = 400 mL.",
+        "Total campuran = (3 + 5) bagian = 8 bagian = 8 × 400 mL = 3.200 mL."
+      ],
+      "correctReason": "Kedelapan bagian proporsi menghasilkan 8 × 400 mL = 3.200 mL.",
+      "distractorAnalysis": {
+        "A": "Baru menghitung volume cairan B saja (5 × 400 mL), bukan total campuran.",
+        "B": "Salah mengonversi 1,2 liter atau mengalikan rasio.",
+        "C": "Perkiraan kasar tanpa membagi rasio 3.",
+        "E": "Menggunakan 9 bagian total."
+      },
+      "quickTrick": "(8/3) × 1.200 mL = 8 × 400 = 3.200 mL.",
+      "commonMistakes": "Berhenti menghitung setelah menemukan volume B (2.000 mL) padahal yang ditanya TOTAL campuran.",
+      "studyMaterialTip": "Beri garis bawah pada kata \"total\" dan satuan akhir (\"mililiter\") pada soal cerita/berhitung."
+    },
+    "references": [
+      {
+        "title": "Rasio & Konversi Satuan Volume",
+        "source": "Modul Berhitung TIU",
+        "note": "Liter ke Mililiter"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-021",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Selisih Kelipatan Dua",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Tentukan bilangan berikutnya pada deret: 4, 9, 19, 39, 79, ...",
+    "options": [
+      {
+        "key": "A",
+        "text": "119",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambah +40 lagi alih-alih +80."
+      },
+      {
+        "key": "B",
+        "text": "139",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan 79 + 60."
+      },
+      {
+        "key": "C",
+        "text": "157",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menghitung 2×79 - 1."
+      },
+      {
+        "key": "D",
+        "text": "159",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: selisihnya +5, +10, +20, +40, +80 (atau pola 2n + 1), sehingga 79 + 80 = 159."
+      },
+      {
+        "key": "E",
+        "text": "161",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menghitung 2×79 + 3."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Barisan dengan selisih bertambah dua kali lipat setiap langkah (+5, +10, +20, +40, +80) yang setara dengan aturan 2n + 1.",
+      "stepByStep": [
+        "Cek selisih: 9-4=5, 19-9=10, 39-19=20, 79-39=40.",
+        "Selisih selalu dikali 2 -> selisih berikutnya 40 × 2 = 80.",
+        "79 + 80 = 159 (atau 2 × 79 + 1 = 159)."
+      ],
+      "correctReason": "Kedua sudut pandang (selisih ×2 dan 2n + 1) menghasilkan angka 159.",
+      "distractorAnalysis": {
+        "A": "Menambah +40 lagi alih-alih +80.",
+        "B": "Salah menjumlahkan 79 + 60.",
+        "C": "Menghitung 2×79 - 1.",
+        "E": "Menghitung 2×79 + 3."
+      },
+      "quickTrick": "4×2+1=9, 9×2+1=19 -> maka 79×2+1 = 159.",
+      "commonMistakes": "Menggunakan selisih +60 (mengira naik +20 tetap setelah 20 dan 40).",
+      "studyMaterialTip": "Jika dua atau tiga selisih awal tampak berlipat dua (5, 10, 20), segera cek faktor kali dua pada sukunya."
+    },
+    "references": [
+      {
+        "title": "Deret Rekursif Linier",
+        "source": "Pedoman TIU Deret",
+        "note": "Pola 2n + 1"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-022",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Kuadrat Bergeser",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Perhatikan barisan bilangan: 2, 5, 10, 17, 26, 37, ... Bilangan yang tepat untuk melanjutkan barisan tersebut adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "48",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambah +11 lagi, bukan +13."
+      },
+      {
+        "key": "B",
+        "text": "49",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Merupakan 7² tanpa ditambah 1."
+      },
+      {
+        "key": "C",
+        "text": "50",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: polanya n² + 1 (atau selisih bilangan ganjil +3, +5, +7, +9, +11, +13), sehingga 37 + 13 = 50."
+      },
+      {
+        "key": "D",
+        "text": "52",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan 37 + 15."
+      },
+      {
+        "key": "E",
+        "text": "54",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengira pola selisih +17."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Barisan dengan beda bilangan ganjil berurutan (+3, +5, +7, +9, +11, +13) atau rumus eksplisit n² + 1.",
+      "stepByStep": [
+        "Selisih antarsuku: +3, +5, +7, +9, +11.",
+        "Selisih berikutnya adalah +13.",
+        "37 + 13 = 50 (selaras dengan 7² + 1 = 49 + 1 = 50)."
+      ],
+      "correctReason": "Baik melihat beda ganjil berurutan maupun n² + 1 memberikan 50.",
+      "distractorAnalysis": {
+        "A": "Menambah +11 lagi, bukan +13.",
+        "B": "Merupakan 7² tanpa ditambah 1.",
+        "D": "Salah menjumlahkan 37 + 15.",
+        "E": "Salah mengira pola selisih +17."
+      },
+      "quickTrick": "Selisih ganjil +3, +5, +7, +9, +11 -> lanjut +13 -> 37 + 13 = 50.",
+      "commonMistakes": "Melewati +13 langsung ke +15 (mengira hanya bilangan prima atau loncat 4).",
+      "studyMaterialTip": "Tuliskan beda tingkat pertama untuk memverifikasi langkah ganjil berurutan."
+    },
+    "references": [
+      {
+        "title": "Deret Kuadrat dan Bilangan Ganjil",
+        "source": "Modul Deret TIU",
+        "note": "n² + 1"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-023",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Rasio Pecahan Bergantian",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Diketahui pola deret: 128, 64, 96, 48, 72, 36, ... Bilangan selanjutnya adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "18",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengulang operasi ÷2 dua kali berturut-turut."
+      },
+      {
+        "key": "B",
+        "text": "48",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambah +12 tanpa memperhatikan rasio 3/2."
+      },
+      {
+        "key": "C",
+        "text": "52",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menghitung 36 × 1,5."
+      },
+      {
+        "key": "D",
+        "text": "54",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: operatornya bergantian ÷2 lalu ×1,5 (atau ×3/2), sehingga 36 × 1,5 = 54."
+      },
+      {
+        "key": "E",
+        "text": "72",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengalikan 36 dengan 2 alih-alih 1,5."
+      }
+    ],
+    "correctOption": "D",
+    "explanation": {
+      "concept": "Pola dua operator bergantian menggunakan pecahan/rasio (÷2 kemudian ×3/2).",
+      "stepByStep": [
+        "128 ÷ 2 = 64.",
+        "64 × 3/2 = 96.",
+        "96 ÷ 2 = 48.",
+        "48 × 3/2 = 72.",
+        "72 ÷ 2 = 36.",
+        "Berikutnya giliran ×3/2: 36 × 3/2 = 54."
+      ],
+      "correctReason": "Setiap turun dibagi 2, setiap naik dikali 1,5 (tambah setengahnya); setelah 72 ÷ 2 = 36, gilirannya 36 + 18 = 54.",
+      "distractorAnalysis": {
+        "A": "Mengulang operasi ÷2 dua kali berturut-turut.",
+        "B": "Menambah +12 tanpa memperhatikan rasio 3/2.",
+        "C": "Salah menghitung 36 × 1,5.",
+        "E": "Mengalikan 36 dengan 2 alih-alih 1,5."
+      },
+      "quickTrick": "Naik setengahnya (64+32=96, 48+24=72), lalu bagi 2 -> setelah ÷2 ke 36, tambah setengahnya 36+18 = 54!",
+      "commonMistakes": "Mengira 72 ke 36 lalu kembali ke 72 (×2).",
+      "studyMaterialTip": "Mengartikan \"×1,5\" sebagai \"tambah setengahnya\" jauh lebih cepat daripada perkalian desimal."
+    },
+    "references": [
+      {
+        "title": "Deret Rasio Campuran",
+        "source": "Bank Soal TIU HOTS",
+        "note": "Siklus ÷2 dan ×1,5"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-024",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Dua Larik Aritmetika–Geometri",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Perhatikan barisan dua larik: 7, 10, 14, 15, 28, 20, 56, ... Bilangan yang tepat untuk mengisi titik-titik adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "25",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: suku posisi genap membentuk barisan aritmetika +5 (10, 15, 20, 25)."
+      },
+      {
+        "key": "B",
+        "text": "30",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Meloncat +10 dari 20."
+      },
+      {
+        "key": "C",
+        "text": "61",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambahkan +5 pada suku larik ganjil 56."
+      },
+      {
+        "key": "D",
+        "text": "84",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambahkan 56 + 28."
+      },
+      {
+        "key": "E",
+        "text": "112",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menghitung suku ke-9 (larik ganjil: 56 × 2), bukan suku ke-8."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Memisahkan dua barisan independen yang disisipkan selang-seling: satu geometri (×2), satu aritmetika (+5).",
+      "stepByStep": [
+        "Larik ganjil (suku 1, 3, 5, 7): 7, 14, 28, 56 (pola ×2).",
+        "Larik genap (suku 2, 4, 6, 8): 10, 15, 20, ... (pola +5).",
+        "Suku yang ditanya adalah posisi ke-8 (larik genap), maka 20 + 5 = 25."
+      ],
+      "correctReason": "Suku ke-8 melanjutkan deret genap 10, 15, 20 menjadi 25.",
+      "distractorAnalysis": {
+        "B": "Meloncat +10 dari 20.",
+        "C": "Menambahkan +5 pada suku larik ganjil 56.",
+        "D": "Menambahkan 56 + 28.",
+        "E": "Menghitung suku ke-9 (larik ganjil: 56 × 2), bukan suku ke-8."
+      },
+      "quickTrick": "Tandai suku genap (10, 15, 20, ...): selisihnya konstan +5 -> langsung jawab 25.",
+      "commonMistakes": "Mengalikan 56 dengan 2 untuk mendapat 112 karena lupa memeriksa indeks suku ke-8.",
+      "studyMaterialTip": "Tulis nomor urut kecil di atas barisan bila ada pola melompat satu suku."
+    },
+    "references": [
+      {
+        "title": "Deret Dua Larik Gabungan",
+        "source": "Materi TIU Numerik",
+        "note": "Geometri + Aritmetika"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-025",
+    "subject": "TIU",
+    "topic": "Deret Angka",
+    "topicSlug": "deret-angka",
+    "subtopic": "Deret Bertingkat Dua (Bilangan Segitiga)",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Lengkapi deret berikut: 2, 3, 6, 12, 22, 37, ...",
+    "options": [
+      {
+        "key": "A",
+        "text": "52",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengulangi selisih +15 dari langkah sebelumnya."
+      },
+      {
+        "key": "B",
+        "text": "55",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambah +18 (keliru menambah selisih tingkat dua)."
+      },
+      {
+        "key": "C",
+        "text": "58",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: selisih tingkat-1 adalah +1, +3, +6, +10, +15 yang selisih tingkat-2-nya naik +2, +3, +4, +5, +6 -> selisih berikutnya 15 + 6 = 21, sehingga 37 + 21 = 58."
+      },
+      {
+        "key": "D",
+        "text": "60",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menambah +23 alih-alih +21."
+      },
+      {
+        "key": "E",
+        "text": "62",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan selisih tingkat kedua."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Deret bertingkat dua di mana beda tingkat-1 (1, 3, 6, 10, 15) memiliki beda tingkat-2 (+2, +3, +4, +5, +6).",
+      "stepByStep": [
+        "Hitung selisih tingkat-1: 3-2=1; 6-3=3; 12-6=6; 22-12=10; 37-22=15.",
+        "Hitung selisih tingkat-2: 3-1=2; 6-3=3; 10-6=4; 15-10=5.",
+        "Selisih tingkat-2 berikutnya = +6 -> selisih tingkat-1 berikutnya = 15 + 6 = +21.",
+        "Suku berikutnya = 37 + 21 = 58."
+      ],
+      "correctReason": "Pola tingkat-2 (+2, +3, +4, +5, +6) menaikkan penambah terakhir menjadi +21 sehingga 37 + 21 = 58.",
+      "distractorAnalysis": {
+        "A": "Mengulangi selisih +15 dari langkah sebelumnya.",
+        "B": "Menambah +18 (keliru menambah selisih tingkat dua).",
+        "D": "Menambah +23 alih-alih +21.",
+        "E": "Salah menjumlahkan selisih tingkat kedua."
+      },
+      "quickTrick": "Bila tingkat-1 (+1, +3, +6, +10, +15) belum konstan, turun satu tingkat lagi: +2, +3, +4, +5, +6!",
+      "commonMistakes": "Berhenti mencari pola setelah melihat tingkat-1 tidak tetap.",
+      "studyMaterialTip": "Untuk deret yang naik pelan namun semakin curam tanpa perkalian rapi, selalu uji selisih tingkat kedua."
+    },
+    "references": [
+      {
+        "title": "Deret Bertingkat Dua",
+        "source": "Pedoman TIU BKN",
+        "note": "Selisih Tingkat-2"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-026",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Ketidaksamaan Aljabar Bilangan Negatif",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Diketahui x adalah bilangan real negatif (x < 0). Jika P = 3x - 4 dan Q = 5x - 4, maka hubungan yang tepat antara P dan Q adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: P - Q = (3x - 4) - (5x - 4) = -2x; karena x < 0 maka -2x > 0 sehingga P > Q."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hanya berlaku jika x > 0."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hanya berlaku jika x = 0, padahal x < 0."
+      },
+      {
+        "key": "D",
+        "text": "P + Q = -8",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "P + Q = 8x - 8 < -8."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai selisih -2x selalu bertanda positif untuk setiap x < 0."
+      }
+    ],
+    "correctOption": "A",
+    "explanation": {
+      "concept": "Mengurangkan P - Q lalu menentukan tanda aljabar berdasarkan syarat domain x < 0.",
+      "stepByStep": [
+        "Hitung selisih P - Q = (3x - 4) - (5x - 4) = -2x.",
+        "Diketahui x < 0. Mengalikan pertidaksamaan x < 0 dengan bilangan negatif -2 membalik tanda ketidaksamaan menjadi -2x > 0.",
+        "Karena P - Q > 0, maka selalu berlaku P > Q (contoh uji x = -1 -> P = -7 > Q = -9)."
+      ],
+      "correctReason": "Koefisien lebih kecil (3 vs 5) dikalikan bilangan negatif menghasilkan nilai lebih besar.",
+      "distractorAnalysis": {
+        "B": "Hanya berlaku jika x > 0.",
+        "C": "Hanya berlaku jika x = 0, padahal x < 0.",
+        "D": "P + Q = 8x - 8 < -8.",
+        "E": "Nilai selisih -2x selalu bertanda positif untuk setiap x < 0."
+      },
+      "quickTrick": "Substitusi uji x = -1: P = -7, Q = -9 -> jelas P > Q.",
+      "commonMistakes": "Lupa bahwa -7 lebih besar daripada -9 di garis bilangan negatif.",
+      "studyMaterialTip": "Selalu pakai metode P - Q dan cek ulang pada garis bilangan saat berurusan dengan bilangan negatif."
+    },
+    "references": [
+      {
+        "title": "Pertidaksamaan Bilangan Negatif",
+        "source": "Modul Kuantitatif TIU",
+        "note": "Analisis Selisih P-Q"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-027",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Rata-Rata Bilangan Berurutan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Jika P adalah rata-rata dari lima bilangan bulat berurutan yang dimulai dari 11, dan Q = 13, maka pernyataan yang paling tepat adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Rata-rata dari 11, 12, 13, 14, 15 tepat 13."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kedua nilai sama besar."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: untuk ganjil suku berurutan (11, 12, 13, 14, 15), rata-ratanya sama dengan nilai tengah, yakni 13."
+      },
+      {
+        "key": "D",
+        "text": "P = 2Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "13 tidak sama dengan 26."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kelima bilangan bernilai spesifik."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Pada barisan aritmetika dengan jumlah suku ganjil, rata-rata tepat sama dengan median (suku tengah).",
+      "stepByStep": [
+        "Lima bilangan bulat berurutan mulai dari 11 adalah 11, 12, 13, 14, 15.",
+        "Rata-rata P = (11 + 12 + 13 + 14 + 15) / 5 = 65 / 5 = 13 (tepat suku tengahnya).",
+        "Karena Q = 13, maka P = Q."
+      ],
+      "correctReason": "Nilai tengah dan rata-rata kelima bilangan berurutan sama-sama 13.",
+      "distractorAnalysis": {
+        "A": "Rata-rata dari 11, 12, 13, 14, 15 tepat 13.",
+        "B": "Kedua nilai sama besar.",
+        "D": "13 tidak sama dengan 26.",
+        "E": "Kelima bilangan bernilai spesifik."
+      },
+      "quickTrick": "Rata-rata barisan berjarak sama = (awal + akhir) / 2 = (11 + 15) / 2 = 13.",
+      "commonMistakes": "Keliru menghitung 11 hingga 15 hanya sampai 14 (empat angka).",
+      "studyMaterialTip": "Gunakan rumus (awal + akhir)/2 untuk menghitung rata-rata deret berjarak konstan dalam 2 detik."
+    },
+    "references": [
+      {
+        "title": "Sifat Simetri Aritmetika",
+        "source": "Bank Soal TIU Numerik",
+        "note": "Rata-Rata = Median"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-028",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Konversi Kecepatan Rata-Rata",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Seorang pelari menempuh lintasan sejauh 18 km dalam waktu 1 jam 30 menit. Jika P adalah kecepatan rata-rata pelari tersebut dalam satuan km/jam dan Q = 14, maka...",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "12 km/jam lebih kecil daripada 14."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: P = 18 / 1,5 = 12 km/jam, sehingga P < 14 (Q)."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "12 tidak sama dengan 14."
+      },
+      {
+        "key": "D",
+        "text": "P - Q = 2",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Terbalik, Q - P = 2."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai P dapat dihitung eksak."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Kecepatan rata-rata = Jarak ÷ Waktu (dengan waktu dinyatakan dalam satuan jam).",
+      "stepByStep": [
+        "Ubah waktu ke jam: 1 jam 30 menit = 1,5 jam = 3/2 jam.",
+        "Hitung P: 18 ÷ (3/2) = 18 × 2/3 = 12 km/jam.",
+        "Bandingkan dengan Q = 14 -> 12 < 14, maka P < Q."
+      ],
+      "correctReason": "Kecepatan rata-rata pelari adalah 12 km/jam yang bernilai di bawah 14.",
+      "distractorAnalysis": {
+        "A": "12 km/jam lebih kecil daripada 14.",
+        "C": "12 tidak sama dengan 14.",
+        "D": "Terbalik, Q - P = 2.",
+        "E": "Nilai P dapat dihitung eksak."
+      },
+      "quickTrick": "18 ÷ 1,5 = 36 ÷ 3 = 12 -> 12 < 14.",
+      "commonMistakes": "Mengira 1 jam 30 menit = 1,3 jam.",
+      "studyMaterialTip": "Kalikan penyebut dan pembilang dengan 2 saat membagi dengan 1,5."
+    },
+    "references": [
+      {
+        "title": "Kecepatan & Konversi Menit",
+        "source": "Modul Numerik TIU",
+        "note": "Jarak Bagi Waktu"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-029",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Persentase Naik–Turun Berurutan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Harga sebuah jaket dinaikkan 25% dari harga awal, lalu sebulan kemudian diturunkan 20% dari harga setelah kenaikan. Jika P adalah harga akhir jaket tersebut dan Q adalah harga awal jaket sebelum dinaikkan, maka...",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan +25% dan -20% menjadi +5% terhadap basis yang sama."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak turun karena faktor kalinya tepat 1,25 × 0,80 = 1."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: P = (125% × 80%) × Q = 1,25 × 0,80 × Q = 1 × Q."
+      },
+      {
+        "key": "D",
+        "text": "P = 1,05Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan umum mengurangkan langsung 25% - 20% tanpa mengubah basis."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Perbandingan persentase tidak bergantung pada nominal harga awal."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Perubahan persentase beruntun bekerja secara multiplikatif: (1 + a%)(1 - b%), bukan penjumlahan aljabar biasa.",
+      "stepByStep": [
+        "Misalkan harga awal Q = 100 (atau gunakan Q langsung).",
+        "Naik 25%: harga menjadi 125% × 100 = 125.",
+        "Turun 20% dari harga baru: P = 80% × 125 = 100.",
+        "Karena P = 100 dan Q = 100, maka P = Q."
+      ],
+      "correctReason": "Penurunan 20% dihitung dari harga yang lebih tinggi (125%), sehingga pengurangannya sebesar 25 dan kembali persis ke 100.",
+      "distractorAnalysis": {
+        "A": "Salah menjumlahkan +25% dan -20% menjadi +5% terhadap basis yang sama.",
+        "B": "Tidak turun karena faktor kalinya tepat 1,25 × 0,80 = 1.",
+        "D": "Kesalahan umum mengurangkan langsung 25% - 20% tanpa mengubah basis.",
+        "E": "Perbandingan persentase tidak bergantung pada nominal harga awal."
+      },
+      "quickTrick": "Ambil permisalan Q = 100 -> naik 25% jadi 125 -> turun 20% (1/5 dari 125 = 25) -> kembali tepat 100!",
+      "commonMistakes": "Menjawab P > Q dengan menghitung 25% - 20% = +5%.",
+      "studyMaterialTip": "Jika harga awal tidak disebutkan angkanya, langsung misalkan nilai awal = 100."
+    },
+    "references": [
+      {
+        "title": "Jebakan Persentase Berantai",
+        "source": "Pedoman TIU Kuantitatif",
+        "note": "Basis Berubah"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-030",
+    "subject": "TIU",
+    "topic": "Perbandingan Kuantitatif",
+    "topicSlug": "perbandingan-kuantitatif",
+    "subtopic": "Nilai Maksimum Hasil Kali Bilangan Positif",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Diketahui m dan n adalah bilangan bulat positif yang memenuhi m + n = 10. Jika P = m × n dan Q = 26, maka hubungan yang benar antara P dan Q adalah...",
+    "options": [
+      {
+        "key": "A",
+        "text": "P > Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai hasil kali terbesar ketika m = n = 5 hanya mencapai 25, tidak pernah melebihi 26."
+      },
+      {
+        "key": "B",
+        "text": "P < Q",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: untuk m + n = 10 dengan m, n > 0, nilai maksimum P = 5 × 5 = 25, sehingga selalu P ≤ 25 < 26 = Q."
+      },
+      {
+        "key": "C",
+        "text": "P = Q",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak ada pasangan bilangan real berjumlah 10 yang hasil kalinya 26."
+      },
+      {
+        "key": "D",
+        "text": "P - Q = 1",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Nilai terbesar P - Q justru -1."
+      },
+      {
+        "key": "E",
+        "text": "Hubungan P dan Q tidak dapat ditentukan",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Meskipun P bervariasi (9, 16, 21, 24, 25), seluruh kemungkinannya tetap lebih kecil dari 26."
+      }
+    ],
+    "correctOption": "B",
+    "explanation": {
+      "concept": "Ketaksamaan AM-GM: untuk jumlah tetap m + n = S, hasil kali m × n mencapai maksimum ketika m = n = S/2.",
+      "stepByStep": [
+        "Daftar kemungkinan pasangan bulat positif (m, n) dengan m + n = 10: (1,9), (2,8), (3,7), (4,6), (5,5).",
+        "Nilai P = m × n yang mungkin hanyalah: 9, 16, 21, 24, dan maksimum 25.",
+        "Karena seluruh kemungkinan nilai P ≤ 25 sementara Q = 26, maka dipastikan P < Q."
+      ],
+      "correctReason": "Batas atas hasil kali P adalah 25 yang secara ketat berada di bawah 26.",
+      "distractorAnalysis": {
+        "A": "Nilai hasil kali terbesar ketika m = n = 5 hanya mencapai 25, tidak pernah melebihi 26.",
+        "C": "Tidak ada pasangan bilangan real berjumlah 10 yang hasil kalinya 26.",
+        "D": "Nilai terbesar P - Q justru -1.",
+        "E": "Meskipun P bervariasi (9, 16, 21, 24, 25), seluruh kemungkinannya tetap lebih kecil dari 26."
+      },
+      "quickTrick": "Jumlah dua bilangan tetap = 10 -> hasil kali paling besar saat sama besar (5 × 5 = 25) -> 25 < 26, pasti P < Q!",
+      "commonMistakes": "Menjawab \"tidak dapat ditentukan\" hanya karena nilai P bisa bermacam-macam, padahal semuanya tetap < 26.",
+      "studyMaterialTip": "Bervariasi bukan berarti tak dapat dibandingkan; bandingkan batas maksimum/minimumnya terhadap Q."
+    },
+    "references": [
+      {
+        "title": "Optimasi Hasil Kali AM-GM",
+        "source": "Materi TIU HOTS Kuantitatif",
+        "note": "Batas Atas Perkalian"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-031",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Rasio & Selisih Tabungan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Perbandingan uang tabungan Rina dan Sinta adalah 5 : 3. Jika selisih uang tabungan mereka berdua adalah Rp120.000, berapakah jumlah uang tabungan Rina dan Sinta?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rp360.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengali jumlah rasio dengan Rp45.000."
+      },
+      {
+        "key": "B",
+        "text": "Rp420.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menggunakan 7 bagian alih-alih 8 bagian."
+      },
+      {
+        "key": "C",
+        "text": "Rp480.000",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: ((5 + 3) / (5 - 3)) × Rp120.000 = (8 / 2) × Rp120.000 = Rp480.000."
+      },
+      {
+        "key": "D",
+        "text": "Rp540.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah membagi selisih rasio."
+      },
+      {
+        "key": "E",
+        "text": "Rp600.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengira selisih rasio bernilai 1 bagian."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Mengubah informasi selisih dua rasio menjadi pengali jumlah rasio: Jumlah = ((a+b)/(a-b)) × Selisih.",
+      "stepByStep": [
+        "Selisih bagian rasio = 5 - 3 = 2 bagian = Rp120.000 -> 1 bagian = Rp60.000.",
+        "Jumlah bagian rasio = 5 + 3 = 8 bagian.",
+        "Jumlah tabungan = 8 × Rp60.000 = Rp480.000."
+      ],
+      "correctReason": "Setiap satu bagian bernilai Rp60.000, sehingga gabungan 8 bagian berjumlah Rp480.000.",
+      "distractorAnalysis": {
+        "A": "Salah mengali jumlah rasio dengan Rp45.000.",
+        "B": "Menggunakan 7 bagian alih-alih 8 bagian.",
+        "D": "Salah membagi selisih rasio.",
+        "E": "Mengira selisih rasio bernilai 1 bagian."
+      },
+      "quickTrick": "(8 / 2) × 120.000 = 4 × 120.000 = Rp480.000.",
+      "commonMistakes": "Membagi Rp120.000 dengan 8 (total bagian) padahal Rp120.000 adalah SELISIH.",
+      "studyMaterialTip": "Samakan penyebut rasio dengan besaran yang diketahui di soal (diketahui selisih -> bagi selisih rasio)."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Perbandingan Senilai",
+        "source": "Modul Soal Cerita TIU",
+        "note": "Selisih ke Jumlah"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-032",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Aritmetika Sosial Harga Beli & Keuntungan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "MEDIUM",
+    "stem": "Sebuah koperasi unit menjual perangkat pencetak dokumen seharga Rp1.800.000 dan memperoleh keuntungan sebesar 20% dari harga beli. Berapakah harga beli perangkat tersebut?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rp1.400.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah membagi 1.800.000 dengan 1,28."
+      },
+      {
+        "key": "B",
+        "text": "Rp1.440.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kesalahan umum menghitung 80% × Rp1.800.000."
+      },
+      {
+        "key": "C",
+        "text": "Rp1.500.000",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: Harga Jual = 120% × Harga Beli, sehingga Harga Beli = Rp1.800.000 ÷ 1,2 = Rp1.500.000."
+      },
+      {
+        "key": "D",
+        "text": "Rp1.560.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Menghitung persen untung secara terbalik."
+      },
+      {
+        "key": "E",
+        "text": "Rp1.600.000",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengira untung tetap Rp200.000."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Basis persentase keuntungan selalu harga beli: Harga Jual = (100% + %Untung) × Harga Beli.",
+      "stepByStep": [
+        "Harga Jual = 120% × Harga Beli = Rp1.800.000.",
+        "Harga Beli = (100 / 120) × Rp1.800.000 = (5 / 6) × Rp1.800.000 = Rp1.500.000.",
+        "Verifikasi: 20% dari Rp1.500.000 = Rp300.000; Rp1.500.000 + Rp300.000 = Rp1.800.000."
+      ],
+      "correctReason": "Pembagian Rp1.800.000 oleh 120% mengembalikan modal awal tepat Rp1.500.000.",
+      "distractorAnalysis": {
+        "A": "Salah membagi 1.800.000 dengan 1,28.",
+        "B": "Kesalahan umum menghitung 80% × Rp1.800.000.",
+        "D": "Menghitung persen untung secara terbalik.",
+        "E": "Mengira untung tetap Rp200.000."
+      },
+      "quickTrick": "Untung 20% -> kalikan harga jual dengan 100/120 = 5/6 -> (5/6) × 1.800.000 = Rp1.500.000.",
+      "commonMistakes": "Langsung mengurangi 20% dari Rp1.800.000 sehingga keliru menjawab Rp1.440.000.",
+      "studyMaterialTip": "JANGAN pernah mengalikan persentase untung/rugi langsung terhadap harga jual bila yang ditanya harga beli."
+    },
+    "references": [
+      {
+        "title": "Aritmetika Sosial Koperasi",
+        "source": "Pedoman TIU BKN",
+        "note": "Harga Jual ke Harga Beli"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-033",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Diagram Venn Dua Himpunan",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Dari 40 peserta pelatihan analisis data, 26 orang menguasai aplikasi spreadsheet, 19 orang menguasai pemrograman Python, dan 6 orang belum menguasai keduanya. Berapa banyak peserta yang menguasai keduanya sekaligus?",
+    "options": [
+      {
+        "key": "A",
+        "text": "8 orang",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan 26 + 19 sebagai 42."
+      },
+      {
+        "key": "B",
+        "text": "9 orang",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Tidak memasukkan 6 orang yang tidak menguasai keduanya ke semesta."
+      },
+      {
+        "key": "C",
+        "text": "11 orang",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: (26 + 19 + 6) - 40 = 51 - 40 = 11 orang."
+      },
+      {
+        "key": "D",
+        "text": "13 orang",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengurangi 6 dari 40 sebelum menghitung irisan secara keliru."
+      },
+      {
+        "key": "E",
+        "text": "15 orang",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "15 adalah banyak peserta yang HANYA menguasai spreadsheet."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Prinsip inklusi-eksklusi himpunan: Semesta = n(A) + n(B) - n(A ∩ B) + n(di luar A ∪ B).",
+      "stepByStep": [
+        "40 = 26 + 19 - x + 6.",
+        "40 = 51 - x.",
+        "x = 51 - 40 = 11 orang."
+      ],
+      "correctReason": "Jumlah peserta pada gabungan plus luar semesta melebihi 40 sebesar 11 yang merupakan irisan keduanya.",
+      "distractorAnalysis": {
+        "A": "Salah menjumlahkan 26 + 19 sebagai 42.",
+        "B": "Tidak memasukkan 6 orang yang tidak menguasai keduanya ke semesta.",
+        "D": "Mengurangi 6 dari 40 sebelum menghitung irisan secara keliru.",
+        "E": "15 adalah banyak peserta yang HANYA menguasai spreadsheet."
+      },
+      "quickTrick": "Trik S+I = L (Semesta + Irisan = Lainnya): 40 + x = 26 + 19 + 6 -> x = 51 - 40 = 11.",
+      "commonMistakes": "Lupa memasukkan komponen \"tidak keduanya\" (6 orang) atau malah mengurangkannya ke arah terbalik.",
+      "studyMaterialTip": "Rumus S + I = A + B + T (Semesta + Irisan = Himpunan A + Himpunan B + Tidak keduanya) anti-tertukar."
+    },
+    "references": [
+      {
+        "title": "Himpunan & Diagram Venn",
+        "source": "Modul TIU SKD",
+        "note": "Trik S + I = L"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-034",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Skala Peta & Konversi Jarak",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "EASY",
+    "stem": "Pada sebuah peta wilayah berskala 1 : 400.000, jarak lurus antara dua kantor kecamatan tercatat sepanjang 6,5 cm. Berapa kilometer jarak sebenarnya antara kedua kantor kecamatan tersebut?",
+    "options": [
+      {
+        "key": "A",
+        "text": "2,6 km",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kurang satu angka nol saat mengonversi cm ke km."
+      },
+      {
+        "key": "B",
+        "text": "24 km",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah mengalikan 6 × 400.000 dan mengabaikan 0,5 cm."
+      },
+      {
+        "key": "C",
+        "text": "26 km",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: 6,5 × 400.000 cm = 2.600.000 cm = 26 km."
+      },
+      {
+        "key": "D",
+        "text": "260 km",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Kelebihan satu nol saat mengonversi cm ke km (dibagi 10.000 alih-alih 100.000)."
+      },
+      {
+        "key": "E",
+        "text": "65 km",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengira skala 1 : 1.000.000."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Jarak sebenarnya = Jarak peta × Penyebut skala, lalu dibagi 100.000 untuk mengubah cm menjadi km.",
+      "stepByStep": [
+        "1 km = 100.000 cm, sehingga skala 1 : 400.000 berarti 1 cm mewakili 4 km.",
+        "Jarak sebenarnya = 6,5 × 4 km = 26 km."
+      ],
+      "correctReason": "Coret lima nol pada 400.000 langsung memberi faktor 4 km per sentimeter peta, dan 6,5 × 4 = 26 km.",
+      "distractorAnalysis": {
+        "A": "Kurang satu angka nol saat mengonversi cm ke km.",
+        "B": "Salah mengalikan 6 × 400.000 dan mengabaikan 0,5 cm.",
+        "D": "Kelebihan satu nol saat mengonversi cm ke km (dibagi 10.000 alih-alih 100.000).",
+        "E": "Mengira skala 1 : 1.000.000."
+      },
+      "quickTrick": "Langsung coret 5 nol skala -> 1 cm = 4 km -> 6,5 × 4 = 26 km!",
+      "commonMistakes": "Salah jumlah nol saat konversi cm ke km (10⁴ vs 10⁵).",
+      "studyMaterialTip": "Selalu ubah penyebut skala ke km di awal dengan mencoret 5 angka nol."
+    },
+    "references": [
+      {
+        "title": "Skala & Peta Wilayah",
+        "source": "Latihan TIU Numerik",
+        "note": "Konversi cm ke km"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  },
+  {
+    "id": "TIU-P5-035",
+    "subject": "TIU",
+    "topic": "Soal Cerita",
+    "topicSlug": "soal-cerita",
+    "subtopic": "Kerja Bertahap & Kerja Sama",
+    "questionType": "MULTIPLE_CHOICE",
+    "difficulty": "HARD",
+    "stem": "Andi dapat menyelesaikan penataan satu rak arsip sendirian dalam waktu 6 jam, sedangkan Bima dapat menyelesaikannya sendirian dalam waktu 3 jam. Andi mulai bekerja sendirian selama 2 jam pertama, kemudian Bima bergabung membantunya hingga seluruh rak selesai. Berapa total waktu yang dibutuhkan sejak Andi mulai bekerja hingga penataan rak selesai?",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 jam 40 menit",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Hanya menghitung sisa waktu kerja bersama setelah mengira bagian Andi sudah 2/3."
+      },
+      {
+        "key": "B",
+        "text": "3 jam",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengira sisa 2/3 rak diselesaikan dalam 1 jam bersama."
+      },
+      {
+        "key": "C",
+        "text": "3 jam 20 menit",
+        "score": 5,
+        "isCorrect": true,
+        "rationale": "Benar: Andi menyelesaikan 2/6 = 1/3 bagian dalam 2 jam; sisa 2/3 dikerjakan bersama (laju 1/6 + 1/3 = 1/2 per jam) selama 4/3 jam = 1 jam 20 menit; total = 3 jam 20 menit."
+      },
+      {
+        "key": "D",
+        "text": "3 jam 40 menit",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Salah menjumlahkan pecahan sisa pekerjaan."
+      },
+      {
+        "key": "E",
+        "text": "4 jam",
+        "score": 0,
+        "isCorrect": false,
+        "rationale": "Mengira Bima tidak ikut mempercepat bagian akhir."
+      }
+    ],
+    "correctOption": "C",
+    "explanation": {
+      "concept": "Menghitung porsi awal individu lalu membagi sisa pekerjaan dengan jumlah laju gabungan dan menjumlahkan kedua fase waktu.",
+      "stepByStep": [
+        "Misalkan 1 rak = KPK(6, 3) = 6 unit berkas -> Laju Andi = 1 unit/jam, laju Bima = 2 unit/jam.",
+        "Fase 1 (Andi sendiri 2 jam): selesai 2 × 1 = 2 unit -> sisa 6 - 2 = 4 unit.",
+        "Fase 2 (Andi + Bima bersama): laju gabungan = 1 + 2 = 3 unit/jam.",
+        "Waktu Fase 2 = 4 ÷ 3 = 1 1/3 jam = 1 jam 20 menit.",
+        "Total waktu = 2 jam + 1 jam 20 menit = 3 jam 20 menit."
+      ],
+      "correctReason": "Dua jam pertama menyisakan 4/6 beban kerja yang dituntaskan pada laju gabungan 3/6 per jam dalam 1 jam 20 menit.",
+      "distractorAnalysis": {
+        "A": "Hanya menghitung sisa waktu kerja bersama setelah mengira bagian Andi sudah 2/3.",
+        "B": "Mengira sisa 2/3 rak diselesaikan dalam 1 jam bersama.",
+        "D": "Salah menjumlahkan pecahan sisa pekerjaan.",
+        "E": "Mengira Bima tidak ikut mempercepat bagian akhir."
+      },
+      "quickTrick": "Pakai kapasitas KPK = 6 unit: A=1/jam, B=2/jam. 2 jam sendiri dapat 2 unit, sisa 4 unit bagi (1+2)=3/jam -> 1 jam 20 menit + 2 jam = 3 jam 20 menit!",
+      "commonMistakes": "Menjawab 1 jam 20 menit saja tanpa menambahkan 2 jam awal yang sudah berjalan.",
+      "studyMaterialTip": "Cermati apakah soal menanyakan \"waktu tambahan setelah bergabung\" atau \"total waktu sejak awal bekerja\"."
+    },
+    "references": [
+      {
+        "title": "Laju Kerja Dua Fase",
+        "source": "Bank Soal TIU HOTS",
+        "note": "Metode KPK Unit"
+      }
+    ],
+    "disclaimer": "Soal latihan orisinal untuk persiapan SKD; bukan soal resmi BKN."
+  }
+]

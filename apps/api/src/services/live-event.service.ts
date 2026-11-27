@@ -40,7 +40,15 @@ export interface QuestionSnapshotPayload {
   references: Array<{ title: string; source: string; note?: string | null }>;
 }
 
-const BASE_KEYS: Array<'A' | 'B' | 'C' | 'D' | 'E'> = ['A', 'B', 'C', 'D', 'E'];
+import {
+  BASE_OPTION_KEYS,
+  buildOptionOrderMap,
+  displayKeyToOriginal,
+  originalKeyToDisplay,
+} from '../utils/optionOrder.js';
+
+export { buildOptionOrderMap, displayKeyToOriginal, originalKeyToDisplay };
+const BASE_KEYS = BASE_OPTION_KEYS;
 
 function shuffleArray<T>(arr: T[]): T[] {
   const copy = [...arr];
@@ -49,55 +57,6 @@ function shuffleArray<T>(arr: T[]): T[] {
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
-}
-
-function seededShuffleKeys(seedInput: string): Array<'A' | 'B' | 'C' | 'D' | 'E'> {
-  const keys = [...BASE_KEYS];
-  let hash = crypto.createHash('sha256').update(seedInput).digest();
-  for (let i = keys.length - 1; i > 0; i--) {
-    const byte = hash[i % hash.length]!;
-    const j = byte % (i + 1);
-    [keys[i], keys[j]] = [keys[j]!, keys[i]!];
-  }
-  return keys;
-}
-
-export function buildOptionOrderMap(
-  questionIds: string[],
-  seed: string,
-  randomize: boolean,
-): Record<string, Array<'A' | 'B' | 'C' | 'D' | 'E'>> {
-  const map: Record<string, Array<'A' | 'B' | 'C' | 'D' | 'E'>> = {};
-  for (const qId of questionIds) {
-    map[qId] = randomize ? seededShuffleKeys(`${seed}:${qId}`) : [...BASE_KEYS];
-  }
-  return map;
-}
-
-export function displayKeyToOriginal(
-  optionOrderMap: Record<string, string[]> | null | undefined,
-  questionId: string,
-  displayKey: string | null,
-): string | null {
-  if (!displayKey) return null;
-  const order = optionOrderMap?.[questionId];
-  if (!order || order.length !== 5) return displayKey;
-  const idx = BASE_KEYS.indexOf(displayKey as 'A' | 'B' | 'C' | 'D' | 'E');
-  if (idx === -1) return displayKey;
-  return order[idx] ?? displayKey;
-}
-
-export function originalKeyToDisplay(
-  optionOrderMap: Record<string, string[]> | null | undefined,
-  questionId: string,
-  originalKey: string | null,
-): string | null {
-  if (!originalKey) return null;
-  const order = optionOrderMap?.[questionId];
-  if (!order || order.length !== 5) return originalKey;
-  const idx = order.indexOf(originalKey);
-  if (idx === -1) return originalKey;
-  return BASE_KEYS[idx] ?? originalKey;
 }
 
 export async function logLiveEventAudit(
@@ -599,7 +558,7 @@ export async function saveLiveAnswer(params: {
     });
 
     return { answer: upserted, staleIgnored: false };
-  });
+  }, { maxWait: 10000, timeout: 10000 });
 
   return {
     questionId,

@@ -243,6 +243,8 @@ dashboardRouter.get(
         prisma.dailyGoal.findUnique({ where: { userId_date: { userId, date: today } } }),
         prisma.user.findMany({
           where: { preferences: { isLeaderboardPublic: true } },
+          orderBy: { profile: { totalXp: 'desc' } },
+          take: 50,
           select: {
             id: true,
             name: true,
@@ -390,6 +392,9 @@ dashboardRouter.get(
           : {}),
       };
     });
+
+    // Place unlocked/free modules first so Pro modules never appear between free modules
+    mapped.sort((a, b) => Number(a.isLocked) - Number(b.isLocked));
 
     res.json({ success: true, data: mapped });
   }),

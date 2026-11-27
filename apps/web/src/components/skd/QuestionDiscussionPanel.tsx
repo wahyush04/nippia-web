@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import {
   AlertTriangle,
   BookOpen,
-  Bot,
   CheckCircle2,
   ChevronDown,
   ChevronUp,
   Lightbulb,
   Sparkles,
 } from 'lucide-react';
-import { Badge, Button } from '../ui';
+import { Badge } from '../ui';
 
 export interface QuestionDiscussionProps {
   questionId: string;
@@ -64,12 +63,6 @@ export function QuestionDiscussionPanel(props: QuestionDiscussionProps) {
             </Badge>
           )}
         </div>
-        <Link to={`/ai-tutor?questionId=${props.questionId}`}>
-          <Button variant="outline" size="sm">
-            <Bot className="h-3.5 w-3.5 text-indigo-600" />
-            Tanya Tutor AI
-          </Button>
-        </Link>
       </div>
 
       {/* 1. Konsep Inti */}
